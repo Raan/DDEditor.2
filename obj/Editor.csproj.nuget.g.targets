@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)monogame.framework.windowsdx.9000\3.8.9102\build\MonoGame.Framework.WindowsDX.9000.targets" Condition="Exists('$(NuGetPackageRoot)monogame.framework.windowsdx.9000\3.8.9102\build\MonoGame.Framework.WindowsDX.9000.targets')" />
+  </ImportGroup>
+</Project>

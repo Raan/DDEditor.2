@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>HiDef</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/Никита/source/repos/DivEdit 0.2/Content/images/icon_menu.png</File>
+    <File>C:/Users/Никита/source/repos/DivEdit 0.2/Content/images/hScroll.png</File>
+    <File>C:/Users/Никита/source/repos/DivEdit 0.2/Content/images/vScroll.png</File>
+  </SourceFiles>
+</SourceFileCollection>

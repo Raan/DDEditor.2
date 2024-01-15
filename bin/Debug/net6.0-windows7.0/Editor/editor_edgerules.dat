@@ -1,0 +1,561 @@
+startdef edgerules castle_bush
+case 0x02
+edge right outside bush_left_corner
+case 0x08
+edge left outside bush_back_corner
+case 0x06
+edge right outside bush_spec_corner_side_front
+edge down outside bush_spec_corner_side_skew
+case 0x09
+edge base outside bush_right_corner
+case 0x04
+edge base outside bush_back_corner
+case 0x0C
+edge base outside bush_back_corner
+case 0x05
+edge base outside bush_diag_endpiece
+
+startdef edgerules dirty_house
+case 0x06
+edge base outside dh_b_i_1
+case 0x66
+edge base inside dh_b_i_1
+
+startdef edgerules wooden_house
+case 0x66
+edge base inside wh_special_05
+case 0x06
+edge base outside wh_special_06
+case 0x8C
+edge down outside whouse_outside_vertical_06
+case 0x4C
+edge down inside whouse_inside_vertical_06
+case 0x13
+edge right outside whouse_outside_horizontal_10
+case 0x23
+edge right inside whouse_inside_horizontal_06
+
+startdef edgerules outside_castle
+case 0x13
+edge up inside ncout_(skew)_corner_01
+case 0x06
+edge right outside ncout_(front)_corner_03
+edge down outside ncout_(skew)_corner_03
+case 0x8C
+edge left inside ncout_(front)_corner_04
+case 0x23
+edge up inside ncout_(front)_corner_05
+case 0x66
+edge down inside ncout_(skew)_corner_06
+case 0x4C
+edge left inside ncout_(front)_corner_08
+
+startdef edgerules inside_castle
+case 0x06
+edge down outside ncin_spec-cornerpiece01
+edge right outside ncin_spec-cornerpiece02
+case 0x0E
+edge down outside ncin_spec-cornerpiece01
+edge right outside ncin_spec-cornerpiece02
+case 0x0F
+edge down outside ncin_spec-cornerpiece01
+edge right outside ncin_spec-cornerpiece02
+case 0x03
+edge up outside NCIN_spec-cornerpiece03
+case 0x09
+edge up outside ncin_skew_wall_64-x
+
+startdef edgerules witch_dungeon_low
+case 0x06
+edge down outside cam_wall_vertical_i_14
+edge base outside cam_wall_horizontal_i_7
+
+startdef edgerules witch_dungeon_middle
+case 0x06
+edge down outside cam_wall_vertical_i_3
+edge base outside cam_wall_horizontal_i_10
+case 0x0E
+edge down outside cam_wall_vertical_i_3
+
+startdef edgerules witch_dungeon_high
+case 0x06
+edge down outside cam_wall_vertical_i_16
+edge base outside cam_wall_horizontal_i_22
+
+startdef edgerules castle_fence
+case 0x06
+edge down outside NCGTE_skew_end_corner
+case 0x03
+edge right outside NCGTE_front_left_corner
+case 0x0C
+edge down outside NCGTE_skew_end_corner
+case 0x09
+edge left outside NCGTE_front_right_corner
+
+startdef edgerules witch_dungeon_plateau
+case 0x09
+edge left outside cam_plateau_i_16
+edge up outside cam_plateau_i_14
+case 0x06
+edge base outside cam_plateau_i_11
+case 0x8C
+edge left inside cam_plateau_i_9
+case 0x23
+edge up outside cam_plateau_i_12
+case 0x66
+edge base inside cam_plateau_i_4
+case 0x99
+edge left inside cam_plateau_i_6
+case 0x13
+edge up inside cam_plateau_i_2
+case 0x4C
+edge left outside cam_plateau_i_10
+
+startdef edgerules burned_village_2
+case 0x8C
+edge down outside bv_wall_i_12
+case 0x13
+edge right outside bv_wall_i_7
+case 0x06
+edge base outside bv_wall_19_outside
+case 0x66
+edge base inside bv_wall_19_inside
+case 0x23
+edge right inside bv_wall_i_34
+case 0x4C
+edge down inside bv_wall_i_33
+
+startdef edgerules townhouse2
+case 0x66
+edge right inside NHIN_spec_corner_02_image
+edge down inside NHIN_spec_corner_01_image
+case 0x06
+edge right outside NHOUT_front_spec_corner_04_image
+edge down outside NHOUT_front_spec_corner_03_image
+case 0x8C
+edge left inside NHIN_front_wall_image
+case 0x13
+edge right outside NHOUT_front_spec_corner_02_image
+case 0x09
+edge left outside NHOUT_front_spec_corner_01_image
+edge up outside NHOUT_skew_wall_64-x_image
+case 0x99
+edge left inside NHIN_spec_corner_03_image
+edge up inside NHIN_spec_corner_04
+
+startdef edgerules castle_exterior
+case 0x09
+edge left outside NCOUTV2_corner_A_01_image
+edge up outside NCOUTV2_corner_A_02_image
+case 0x06
+edge down outside NCOUTV2_corner_B_01_image
+edge right outside NCOUTV2_corner_B_02_image
+
+startdef edgerules council_of_seven
+case 0x06
+edge down outside cos_WALL_vertical_i_07
+edge base outside cos_pillar_i_01
+case 0x09
+edge up outside cos_WALL_vertical_i_09
+
+startdef edgerules sewers
+case 0x4C
+edge left outside SW_WALL_hor_i_10
+case 0x8C
+edge left inside SW_WALL_hor_i_15
+case 0x13
+edge up inside SW_WALL_ver_i_14
+case 0x23
+edge up outside SW_WALL_ver_i_08
+
+startdef edgerules farmhouse
+case 0x13
+edge right outside MH_WALLS_h_outside_i_07
+case 0x23
+edge right inside MH_WALLS_h_inside_i_07
+case 0x99
+edge up inside MH_WALLS_v_inside_i_08
+case 0x8C
+edge down outside MH_WALLS_v_outside_i_09
+case 0x4C
+edge down inside MH_WALLS_v_inside_i_09
+case 0x06
+edge base outside MH_WALLS_h_outside_i_09a
+case 0x66
+edge base inside MH_WALLS_h_outside_i_09b
+
+startdef edgerules generic_house
+case 0x8C
+edge left inside GHIN_cornerpiece_C01_image
+case 0x66
+edge down inside GHIN_cornerpiece_E01_image
+edge right inside GHIN_cornerpiece_E02_image
+case 0x99
+edge left inside GHIN_cornerpiece_F01_image
+edge up inside GHIN_cornerpiece_F02_image
+case 0x13
+edge up inside GHIN_cornerpiece_G01_image
+case 0x09
+edge left outside GHOUT_cornerpiece_A01_image
+edge up outside GHOUT_cornerpiece_A02_image
+case 0x06
+edge down outside GHOUT_cornerpiece_B01_image
+edge right outside GHOUT_cornerpiece_B02_image
+case 0x23
+edge up outside GHOUT_cornerpiece_D01_image
+case 0x4C
+edge left outside GHOUT_cornerpiece_H01_image
+
+startdef edgerules castle_cellars
+case 0x06
+edge right outside NCARC_spec_cornerpiece02_image
+edge down outside NCARC_spec_cornerpiece01_image
+
+startdef edgerules church
+case 0x23
+edge right inside church_wall_inside__i_2
+case 0x13
+edge right outside church_wall_outside__i_2
+case 0x66
+edge base inside church_wall_inside__i_3
+case 0x06
+edge base outside church_wall_inside__i_3
+case 0x8C
+edge down outside church_wall_outside__i_7
+case 0x4C
+edge down inside church_wall_inside__i_26
+
+startdef edgerules grass_plateau
+case 0x4C
+edge left outside grass_plateau_i_17
+case 0x23
+edge up outside grass_plateau_i_16
+case 0x66
+edge base inside grass_plateau_i_0
+case 0x8C
+edge left inside grass_plateau_i_1
+case 0x13
+edge up inside grass_plateau_i_10
+case 0x4C
+edge left outside grass_plateau_i_35
+case 0x06
+edge base outside grass_plateau_i_34
+
+startdef edgerules mountains
+case 0x66
+edge base inside mo_wall_i_17
+case 0x06
+edge base outside mo_wall_i_14
+case 0x8C
+edge left inside mo_wall_i_15
+case 0x4C
+edge left outside mo_wall_i_13
+case 0x23
+edge up outside mo_wall_i_6
+case 0c13
+edge up inside mo_wall_i_12
+
+startdef edgerules orc_camp
+case 0x06
+edge base inside orc_wall_i_38
+case 0x66
+edge base outside orc_wall_i_38
+
+startdef edgerules generic_cellar
+case 0x06
+edge base inside Gc_i_21
+case 0x66
+edge base outside Gc_i_21
+
+startdef edgerules sewer_plateau
+case 0x8C
+edge left inside sw_plateau_i_10
+case 0x4C
+edge left outside sw_plateau_i_11
+case 0xCC
+edge left inside sw_plateau_i_8
+case 0x23
+edge up inside sw_plateau_i_3
+case 0x13
+edge up outside sw_plateau_i_1
+case 0x66
+edge base inside sw_plateau_i_7
+case 0x06
+edge base inside sw_plateau_i_2
+
+startdef edgerules dwarven_halls_plateau
+case 0x66
+edge base inside dh_plateau_i_0
+case 0x4C
+edge left outside dh_plateau_i_1
+case 0x06
+edge base outside dh_plateau_i_2
+case 0x8C
+edge left inside dh_plateau_i_11
+case 0x09
+edge left outside dh_plateau_i_13
+
+startdef edgerules dwarven_house
+case 0x66
+edge base inside dhouse_wall_i_12
+case 0x8C
+edge down outside dhouse_wall_i_35
+
+startdef edgerules council_plateau
+case 0x4C
+edge left outside COS_plateau_i_0
+case 0x8C
+edge left inside COS_plateau_i_10
+case 0x09
+edge left outside COS_plateau_i_13
+edge up outside COS_plateau_i_4
+case 0x99
+edge up inside COS_plateau_i_3
+case 0x66
+edge base inside COS_plateau_i_11
+case 0x06
+edge base outside COS_plateau_i_1
+case 0x13
+edge up inside COS_plateau_i_5
+case 0x23
+edge up outside COS_plateau_i_8
+
+startdef edgerules dwarven_halls_plateau_2
+case 0x99
+edge left inside dhp_i_5
+case 0x8C
+edge left inside dhp_i_8
+case 0x66
+edge base inside dhp_i_9
+case 0x06
+edge base outside dhp_i_12
+case 0x4C
+edge left outside dhp_i_18
+
+startdef edgerules Wasteland
+case 0x99
+edge left inside wl_mountain_wall_i_8
+case 0x8C
+edge left inside wl_mountain_wall_i_9
+case 0x66
+edge base inside wl_mountain_wall_i_2
+case 0x06
+edge base outside wl_mountain_wall_i_1
+
+startdef edgerules Wasteland_lowplateau
+case 0x09
+edge left outside wl_low_plateau_i_18
+case 0x8C
+edge left inside wl_low_plateau_i_4
+case 0x66
+edge left inside wl_low_plateau_i_6
+case 0x06
+edge base outside wl_low_plateau_i_7
+case 0x13
+edge up inside wl_low_plateau_i_3
+
+startdef edgerules Wasteland_plateau
+case 0x09
+edge left outside wl_plateau_i_10
+case 0x8C
+edge left inside wl_plateau_i_1
+case 0x66
+edge left inside wl_plateau_i_4
+case 0x06
+edge base outside wl_plateau_i_3
+edge down outside wl_plateau_i_19
+case 0x13
+edge up inside wl_plateau_i_12
+case 0x99
+edge right inside wl_plateau_i_2
+
+startdef edgerules Divine_Order
+case 0x06
+edge base outside do_wall_i_9
+
+startdef edgerules Last_Village
+case 0x66
+edge left outside dv_outside_wall_i_25
+case 0x23
+edge right inside dv_inside_wall_i_17
+case 0x99
+edge left inside dv_inside_wall_i_20
+case 0x13
+edge right outside dv_outside_wall_i_18
+
+startdef edgerules Final_Dungeon_Plateau
+case 0x13
+edge up inside fd_plateau_2
+case 0x8C
+edge left inside fd_plateau_3
+case 0x66
+edge base inside fd_plateau_4a
+case 0x06
+edge base outside fd_plateau_4b
+case 0x09
+edge left outside fd_plateau_12
+
+startdef edgerules Final_Dungeon_Wall
+case 0x66
+edge base inside fd_wall_inside_0
+case 0x06
+edge base outside fd_wall_inside_1
+case 0x8C
+edge left inside fd_wall_outside_0
+case 0x13
+edge up inside fd_wall_outside_1
+case 0x09
+edge left outside fd_wall_outside_8
+
+startdef edgerules citadel_A
+case 0x06
+edge base outside citadel_A_wall_outside_corner
+
+startdef edgerules citadel_B
+case 0x03
+edge up outside citadel_b_corner_i_0
+edge right outside citadel_b_corner_i_2
+case 0x09
+edge up outside citadel_b_corner_i_7
+edge left outside citadel_b_corner_i_4
+case 0x0C
+edge left outside citadel_b_corner_i_3
+edge down outside citadel_b_corner_i_1
+case 0x06
+edge down outside citadel_b_corner_i_5
+edge right outside citadel_b_corner_i_6
+case 0x07
+edge up outside citadel_v_wall_i_11
+edge down outside citadel_v_wall_i_11
+edge right outside citadel_b_corner_i_8
+case 0x0B
+edge up outside citadel_v_wall_i_14
+edge left outside citadel_b_corner_i_9
+edge right outside citadel_b_corner_i_8
+case 0x0D
+edge up outside citadel_v_wall_i_14
+edge down outside citadel_v_wall_i_11
+edge left outside citadel_b_corner_i_9
+case 0x0E
+edge down outside citadel_v_wall_i_11
+edge right outside citadel_b_corner_i_8
+edge left outside citadel_b_corner_i_9
+case 0x0F
+edge up outside citadel_v_wall_i_14
+edge down outside citadel_v_wall_i_11
+edge right outside citadel_b_corner_i_8
+edge left outside citadel_b_corner_i_9
+
+startdef edgerules citadel_C
+case 0x03
+edge up outside citadel_c_04
+edge right outside citadel_c_05
+case 0x06
+edge down outside citadel_c_01
+edge right outside citadel_c_02
+case 0x07
+edge right outside citadel_c_03
+edge up outside citadel_c_11
+edge down outside citadel_c_11
+case 0x09
+edge left outside citadel_c_09
+edge up outside citadel_c_10
+case 0x0B
+edge left outside citadel_c_06
+edge right outside citadel_c_12
+edge up outside citadel_c_13
+case 0x0C
+edge left outside citadel_c_07
+edge down outside citadel_c_08
+case 0x0D
+edge left outside citadel_c_06
+edge down outside citadel_c_11
+edge up outside citadel_c_13
+case 0x0E
+edge left outside citadel_c_06
+edge down outside citadel_c_11
+edge right outside citadel_c_12
+case 0x0F
+edge left outside citadel_c_06
+edge down outside citadel_c_11
+edge right outside citadel_c_12
+edge up outside citadel_c_13
+
+startdef edgerules Citadel_New
+case 0x06
+edge down outside citadel_new_0
+case 0x09
+edge left outside citadel_new_1
+
+startdef edgerules RR_Cave
+case 0x06
+edge base outside RR_Cave1
+
+startdef edgerules RR_Cave_Blue
+case 0x06
+edge base outside RR_Cave_Blue1
+
+startdef edgerules RR_CrystalCave
+case 0x03
+edge up outside crystal_wall_i_11
+edge right outside crystal_wall_i_27
+case 0x09
+edge up outside crystal_wall_i_10
+edge left outside crystal_wall_i_20
+case 0x0C
+edge left outside crystal_wall_i_14
+edge down outside crystal_wall_i_13
+case 0x06
+edge down outside crystal_wall_i_12
+edge right outside crystal_wall_i_24
+
+startdef edgerules RR_Temple_Outside_Wall
+case 0x09
+edge left outside rr_temple_outside_wall_corner1
+case 0x06
+edge down outside rr_temple_outside_wall_corner2
+
+startdef edgerules RR_Temple_Fence
+case 0x06
+edge base outside temple_fence_1
+case 0x06
+edge base outside temple_fence_2
+case 0x06
+edge base outside temple_fence_3
+
+startdef edgerules RR_Temple_Wall
+case 0x06
+edge base outside temple_wall1
+case 0x0C
+edge down outside temple_wall2
+case 0x0C
+edge down outside temple_wall3
+case 0x0C
+edge down outside temple_wall7
+case 0x03
+edge right outside temple_wall4
+case 0x03
+edge right outside temple_wall5
+case 0x03
+edge right outside temple_wall6
+
+startdef edgerules RR_Crypt
+case 0x06
+edge down outside crypt_edge_01
+edge base outside crypt_edge_07
+case 0x06
+edge down outside crypt_edge_01
+edge base outside crypt_edge_07
+case 0x06
+edge down outside crypt_edge_01
+edge base outside crypt_edge_07
+case 0x03
+edge up outside crypt_edge_04
+case 0x03
+edge up outside crypt_edge_05
+case 0x03
+edge up outside crypt_edge_06
+
+startdef edgerules RR_Academy_New_Wall
+case 0x06
+edge base outside AC_new_wall_00

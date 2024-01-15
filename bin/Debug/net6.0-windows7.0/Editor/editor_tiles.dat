@@ -1,0 +1,3311 @@
+startdef terrain Dirt
+system 0
+
+tile base pind 0 cind -1 prob -1
+tile base pind 1 cind -1 prob -1
+tile base pind 2 cind -1 prob -1
+tile base pind 3 cind -1 prob -1
+tile base pind 4 cind -1 prob -1
+tile base pind 5 cind -1 prob -1
+tile base pind 6 cind -1 prob -1
+tile base pind 7 cind -1 prob -1
+tile base pind 8 cind -1 prob -1
+tile base pind 9 cind -1 prob -1
+tile base pind 10 cind -1 prob -1
+tile base pind 11 cind -1 prob -1
+tile base pind 74 cind -1 prob -1
+tile base pind 75 cind -1 prob -1
+tile base pind 76 cind -1 prob -1
+tile base pind 77 cind -1 prob -1
+tile base pind 78 cind -1 prob -1
+tile base pind 79 cind -1 prob -1
+tile base pind 80 cind -1 prob -1
+tile base pind 81 cind -1 prob -1
+tile base pind 82 cind -1 prob -1
+tile base pind 83 cind -1 prob -1
+tile base pind 84 cind -1 prob -1
+tile base pind 85 cind -1 prob -1
+tile base pind 86 cind -1 prob -1
+tile base pind 87 cind -1 prob -1
+tile base pind 88 cind -1 prob -1
+tile base pind 89 cind -1 prob -1
+tile base pind 90 cind -1 prob -1
+tile base pind 91 cind -1 prob -1
+tile base pind 92 cind -1 prob -1
+tile base pind 93 cind -1 prob -1
+tile base pind 94 cind -1 prob -1
+tile base pind 95 cind -1 prob -1
+tile base pind 96 cind -1 prob -1
+
+startdef terrain Grass
+transition Dirt
+system 0
+tile base pind 12 cind -1 prob 1
+tile base pind 13 cind -1 prob 1
+tile base pind 14 cind -1 prob 3
+tile base pind 15 cind -1 prob 2
+tile base pind 16 cind -1 prob 1
+tile base pind 17 cind -1 prob 1
+tile base pind 18 cind -1 prob 3
+tile base pind 19 cind -1 prob 3
+tile base pind 20 cind -1 prob 1
+tile base pind 21 cind -1 prob 2
+tile base pind 22 cind -1 prob 1
+tile base pind 23 cind -1 prob 2
+tile base pind 24 cind -1 prob 1
+tile base pind 25 cind -1 prob 3
+tile base pind 26 cind -1 prob 2
+tile base pind 27 cind -1 prob 2
+tile base pind 97 cind -1 prob 1
+tile base pind 124 cind -1 prob 1
+tile base pind 125 cind -1 prob 1
+tile base pind 126 cind -1 prob 1
+tile base pind 127 cind -1 prob 1
+tile base pind 128 cind -1 prob 1
+tile base pind 157 cind -1 prob 1
+tile base pind 158 cind -1 prob 1
+tile base pind 159 cind -1 prob 1
+tile base pind 160 cind -1 prob 1
+tile base pind 161 cind -1 prob 1
+tile base pind 162 cind -1 prob 1
+tile base pind 182 cind -1 prob 1
+tile base pind 183 cind -1 prob 1
+tile base pind 117 cind -1 prob 1
+tile base pind 118 cind -1 prob 1
+tile base pind 119 cind -1 prob 1
+tile base pind 120 cind -1 prob 1
+tile base pind 121 cind -1 prob 1
+
+tile transition sys 7 pind 28 cind -1 prob -1
+tile transition sys 7 pind 29 cind -1 prob -1
+tile transition sys 7 pind 30 cind -1 prob -1
+tile transition sys 7 pind 186 cind -1 prob -1
+tile transition sys 8 pind 31 cind -1 prob -1
+tile transition sys 8 pind 174 cind -1 prob -1
+tile transition sys 8 pind 175 cind -1 prob -1
+tile transition sys 8 pind 176 cind -1 prob -1
+tile transition sys 8 pind 177 cind -1 prob -1
+tile transition sys 10 pind 32 cind -1 prob -1
+tile transition sys 10 pind 188 cind -1 prob -1
+tile transition sys 10 pind 189 cind -1 prob -1
+tile transition sys 10 pind 190 cind -1 prob -1
+tile transition sys 1 pind 33 cind -1 prob -1
+tile transition sys 1 pind 34 cind -1 prob -1
+tile transition sys 1 pind 35 cind -1 prob -1
+tile transition sys 1 pind 185 cind -1 prob -1
+tile transition sys 6 pind 36 cind -1 prob -1
+tile transition sys 6 pind 170 cind -1 prob -1
+tile transition sys 6 pind 171 cind -1 prob -1
+tile transition sys 6 pind 172 cind -1 prob -1
+tile transition sys 6 pind 173 cind -1 prob -1
+tile transition sys 9 pind 37 cind -1 prob -1
+tile transition sys 9 pind 163 cind -1 prob -1
+tile transition sys 9 pind 164 cind -1 prob -1
+tile transition sys 9 pind 165 cind -1 prob -1
+tile transition sys 3 pind 38 cind -1 prob -1
+tile transition sys 3 pind 39 cind -1 prob -1
+tile transition sys 3 pind 40 cind -1 prob -1
+tile transition sys 3 pind 187 cind -1 prob -1
+tile transition sys 2 pind 41 cind -1 prob -1
+tile transition sys 2 pind 178 cind -1 prob -1
+tile transition sys 2 pind 179 cind -1 prob -1
+tile transition sys 2 pind 180 cind -1 prob -1
+tile transition sys 2 pind 181 cind -1 prob -1
+tile transition sys 11 pind 42 cind -1 prob -1
+tile transition sys 11 pind 191 cind -1 prob -1
+tile transition sys 11 pind 192 cind -1 prob -1
+tile transition sys 11 pind 193 cind -1 prob -1
+tile transition sys 5 pind 43 cind -1 prob -1
+tile transition sys 5 pind 44 cind -1 prob -1
+tile transition sys 5 pind 45 cind -1 prob -1
+tile transition sys 5 pind 184 cind -1 prob -1
+tile transition sys 4 pind 46 cind -1 prob -1
+tile transition sys 4 pind 166 cind -1 prob -1
+tile transition sys 4 pind 167 cind -1 prob -1
+tile transition sys 4 pind 168 cind -1 prob -1
+tile transition sys 4 pind 169 cind -1 prob -1
+tile transition sys 12 pind 47 cind -1 prob -1
+tile transition sys 12 pind 194 cind -1 prob -1
+tile transition sys 12 pind 195 cind -1 prob -1
+tile transition sys 12 pind 196 cind -1 prob -1
+tile transition sys 14 pind 122 cind -1 prob -1
+tile transition sys 15 pind 123 cind -1 prob -1
+
+// ins by ml - new water floor
+
+startdef terrain water_floor
+transition Grass
+system 0
+tileEffect 2
+tile base pind 1864 cind 1888 prob -1
+tile base pind 1865 cind 1889 prob -1
+tile base pind 1866 cind 1890 prob -1
+tile base pind 1867 cind 1891 prob -1
+tile base pind 1868 cind 1892 prob -1
+tile base pind 1869 cind 1893 prob -1
+tile base pind 1870 cind 1894 prob -1
+tile base pind 1871 cind 1895 prob -1
+tile base pind 1872 cind 1896 prob -1
+tile base pind 1873 cind 1897 prob -1
+tile base pind 1874 cind 1898 prob -1
+tile base pind 1875 cind 1899 prob -1
+tile base pind 1876 cind 1900 prob -1
+tile base pind 1877 cind 1901 prob -1
+tile base pind 1878 cind 1902 prob -1
+tile base pind 1879 cind 1903 prob -1
+tile base pind 1880 cind 1904 prob -1
+tile base pind 1881 cind 1905 prob -1
+tile base pind 1882 cind 1906 prob -1
+tile base pind 1883 cind 1907 prob -1
+tile base pind 1884 cind 1908 prob -1
+tile base pind 1885 cind 1909 prob -1
+tile base pind 1886 cind 1910 prob -1
+tile base pind 1887 cind 1911 prob -1
+tile transition sys 1 pind 1912 cind 1954 prob -1
+tile transition sys 5 pind 1913 cind 1955 prob -1
+tile transition sys 7 pind 1914 cind 1956 prob -1
+tile transition sys 3 pind 1915 cind 1957 prob -1
+tile transition sys 9 pind 1916 cind 1958 prob -1
+tile transition sys 2 pind 1917 cind 1959 prob -1
+tile transition sys 1 pind 1918 cind 1960 prob -1
+tile transition sys 5 pind 1919 cind 1961 prob -1
+tile transition sys 7 pind 1920 cind 1962 prob -1
+tile transition sys 3 pind 1921 cind 1963 prob -1
+tile transition sys 9 pind 1922 cind 1964 prob -1
+tile transition sys 2 pind 1923 cind 1965 prob -1
+tile transition sys 1 pind 1924 cind 1966 prob -1
+tile transition sys 5 pind 1925 cind 1967 prob -1
+tile transition sys 7 pind 1926 cind 1968 prob -1
+tile transition sys 3 pind 1927 cind 1969 prob -1
+tile transition sys 9 pind 1928 cind 1970 prob -1
+tile transition sys 2 pind 1929 cind 1971 prob -1
+tile transition sys 1 pind 1930 cind 1972 prob -1
+tile transition sys 5 pind 1931 cind 1973 prob -1
+tile transition sys 7 pind 1932 cind 1974 prob -1
+tile transition sys 3 pind 1933 cind 1975 prob -1
+tile transition sys 1 pind 1934 cind 1976 prob -1
+tile transition sys 5 pind 1935 cind 1977 prob -1
+tile transition sys 8 pind 1936 cind 1978 prob -1
+tile transition sys 12 pind 1937 cind 1979 prob -1
+tile transition sys 11 pind 1938 cind 1980 prob -1
+tile transition sys 6 pind 1939 cind 1981 prob -1
+tile transition sys 4 pind 1940 cind 1982 prob -1
+tile transition sys 10 pind 1941 cind 1983 prob -1
+tile transition sys 8 pind 1942 cind 1984 prob -1
+tile transition sys 12 pind 1943 cind 1985 prob -1
+tile transition sys 11 pind 1944 cind 1986 prob -1
+tile transition sys 6 pind 1945 cind 1987 prob -1
+tile transition sys 4 pind 1946 cind 1988 prob -1
+tile transition sys 10 pind 1947 cind 1989 prob -1
+tile transition sys 8 pind 1948 cind 1990 prob -1
+tile transition sys 12 pind 1949 cind 1991 prob -1
+tile transition sys 11 pind 1950 cind 1992 prob -1
+tile transition sys 6 pind 1951 cind 1993 prob -1
+tile transition sys 4 pind 1952 cind 1994 prob -1
+tile transition sys 10 pind 1953 cind 1995 prob -1
+
+startdef terrain Final_dungeon_inside
+system 1
+tile base pind 3138 cind -1 prob -1
+tile base pind 3139 cind -1 prob -1
+tile base pind 3140 cind -1 prob -1
+tile base pind 3141 cind -1 prob -1
+tile base pind 3142 cind -1 prob -1
+tile base pind 3143 cind -1 prob -1
+tile base pind 3144 cind -1 prob -1
+tile base pind 3145 cind -1 prob -1
+tile base pind 3146 cind -1 prob -1
+tile base pind 3147 cind -1 prob -1
+tile base pind 3148 cind -1 prob -1
+tile base pind 3149 cind -1 prob -1
+enddef terrain
+
+startdef terrain final_dungeon_outside
+system 1
+tile base pind 3150 cind -1 prob -1
+tile base pind 3151 cind -1 prob -1
+tile base pind 3152 cind -1 prob -1
+tile base pind 3153 cind -1 prob -1
+tile base pind 3154 cind -1 prob -1
+tile base pind 3155 cind -1 prob -1
+tile base pind 3156 cind -1 prob -1
+tile base pind 3157 cind -1 prob -1
+tile base pind 3158 cind -1 prob -1
+tile base pind 3159 cind -1 prob -1
+tile base pind 3160 cind -1 prob -1
+tile base pind 3161 cind -1 prob -1
+enddef terrain
+
+startdef terrain hi_grass
+transition Grass
+system 0
+tile base pind 1676 cind -1 prob -1
+tile base pind 1677 cind -1 prob -1
+tile base pind 1678 cind -1 prob -1
+tile base pind 1679 cind -1 prob -1
+tile base pind 1680 cind -1 prob -1
+tile base pind 1681 cind -1 prob -1
+tile base pind 1682 cind -1 prob -1
+tile base pind 1683 cind -1 prob -1
+tile base pind 1684 cind -1 prob -1
+tile base pind 1685 cind -1 prob -1
+tile base pind 1686 cind -1 prob -1
+tile base pind 1687 cind -1 prob -1
+tile base pind 1688 cind -1 prob -1
+tile base pind 1689 cind -1 prob -1
+tile base pind 1690 cind -1 prob -1
+tile base pind 1691 cind -1 prob -1
+tile base pind 1692 cind -1 prob -1
+tile base pind 1693 cind -1 prob -1
+tile base pind 1694 cind -1 prob -1
+tile base pind 1695 cind -1 prob -1
+tile transition sys 7 pind 1696 cind -1 prob -1
+tile transition sys 7 pind 1697 cind -1 prob -1
+tile transition sys 8 pind 1698 cind -1 prob -1
+tile transition sys 8 pind 1699 cind -1 prob -1
+tile transition sys 10 pind 1700 cind -1 prob -1
+tile transition sys 10 pind 1701 cind -1 prob -1
+tile transition sys 1 pind 1702 cind -1 prob -1
+tile transition sys 1 pind 1703 cind -1 prob -1
+tile transition sys 2 pind 1704 cind -1 prob -1
+tile transition sys 2 pind 1705 cind -1 prob -1
+tile transition sys 11 pind 1706 cind -1 prob -1
+tile transition sys 11 pind 1707 cind -1 prob -1
+tile transition sys 3 pind 1708 cind -1 prob -1
+tile transition sys 3 pind 1709 cind -1 prob -1
+tile transition sys 6 pind 1710 cind -1 prob -1
+tile transition sys 6 pind 1711 cind -1 prob -1
+tile transition sys 9 pind 1712 cind -1 prob -1
+tile transition sys 9 pind 1713 cind -1 prob -1
+tile transition sys 5 pind 1714 cind -1 prob -1
+tile transition sys 5 pind 1715 cind -1 prob -1
+tile transition sys 4 pind 1716 cind -1 prob -1
+tile transition sys 4 pind 1717 cind -1 prob -1
+tile transition sys 12 pind 1718 cind -1 prob -1
+tile transition sys 12 pind 1719 cind -1 prob -1
+tile transition sys 15 pind 1720 cind -1 prob -1
+tile transition sys 14 pind 1721 cind -1 prob -1
+
+startdef terrain Way_01
+transition Dirt
+system 0
+tile base pind 98 cind -1 prob -1
+tile base pind 99 cind -1 prob -1
+tile base pind 100 cind -1 prob -1
+tile base pind 101 cind -1 prob -1
+tile base pind 102 cind -1 prob -1
+tile transition sys 7 pind 103 cind -1 prob -1
+tile transition sys 8 pind 104 cind -1 prob -1
+tile transition sys 12 pind 105 cind -1 prob -1
+tile transition sys 1 pind 106 cind -1 prob -1
+tile transition sys 2 pind 107 cind -1 prob -1
+tile transition sys 9 pind 108 cind -1 prob -1
+tile transition sys 3 pind 109 cind -1 prob -1
+tile transition sys 6 pind 110 cind -1 prob -1
+tile transition sys 11 pind 111 cind -1 prob -1
+tile transition sys 5 pind 112 cind -1 prob -1
+tile transition sys 4 pind 113 cind -1 prob -1
+tile transition sys 10 pind 114 cind -1 prob -1
+tile transition sys 14 pind 115 cind -1 prob -1
+tile transition sys 15 pind 116 cind -1 prob -1
+
+startdef terrain WitchDungeon_cam
+system 0
+tile base pind 204 cind -1 prob 1
+tile base pind 205 cind -1 prob 1
+tile base pind 206 cind -1 prob 1
+tile base pind 207 cind -1 prob 1
+tile base pind 208 cind -1 prob 1
+tile base pind 209 cind -1 prob 1
+tile base pind 210 cind -1 prob 1
+tile base pind 211 cind -1 prob 1
+tile base pind 212 cind -1 prob 2
+tile base pind 213 cind -1 prob 2
+tile base pind 214 cind -1 prob 2
+tile base pind 215 cind -1 prob 2
+tile base pind 216 cind -1 prob 2
+tile base pind 217 cind -1 prob 2
+tile base pind 218 cind -1 prob 2
+tile base pind 219 cind -1 prob 2
+tile base pind 220 cind -1 prob 2
+tile base pind 221 cind -1 prob 2
+tile base pind 222 cind -1 prob 2
+tile base pind 223 cind -1 prob 2
+tile base pind 1281 cind -1 prob 3
+tile base pind 1282 cind -1 prob 3
+tile base pind 1283 cind -1 prob 3
+tile base pind 1284 cind -1 prob 3
+tile base pind 1285 cind 1289 prob 3
+tile base pind 1286 cind 1290 prob 3
+tile base pind 1287 cind 1292 prob 3
+tile base pind 1288 cind 1291 prob 3
+tile base pind 1487 cind -1 prob 0
+tile base pind 1488 cind -1 prob 0
+tile base pind 1489 cind -1 prob 0
+tile base pind 1490 cind -1 prob 0
+tile base pind 1491 cind -1 prob 0
+tile base pind 1492 cind -1 prob 0
+tile base pind 1493 cind -1 prob 0
+tile base pind 1494 cind -1 prob 0
+tile base pind 1495 cind -1 prob 0
+tile base pind 1496 cind -1 prob 0
+tile base pind 1497 cind -1 prob 0
+tile base pind 1498 cind -1 prob 0
+tile base pind 1499 cind -1 prob 0
+tile base pind 1500 cind -1 prob 0
+tile base pind 1501 cind -1 prob 0
+tile base pind 1502 cind -1 prob 0
+tile base pind 1503 cind -1 prob 0
+tile base pind 1504 cind -1 prob 0
+
+startdef terrain WitchDungeon_prison
+system 0
+tile base pind 224 cind -1 prob 1
+tile base pind 225 cind -1 prob 1
+tile base pind 226 cind -1 prob 1
+tile base pind 227 cind -1 prob 1
+tile base pind 228 cind -1 prob 1
+tile base pind 229 cind -1 prob 1
+tile base pind 230 cind -1 prob 1
+tile base pind 273 cind -1 prob 3
+tile base pind 243 cind -1 prob 3
+tile base pind 244 cind -1 prob 3
+tile base pind 245 cind -1 prob 3
+tile base pind 246 cind -1 prob 3
+tile base pind 247 cind -1 prob 3
+tile base pind 248 cind -1 prob 3
+tile base pind 1095 cind -1 prob 3
+tile base pind 1096 cind -1 prob 3
+tile base pind 1097 cind -1 prob 3
+tile base pind 1098 cind -1 prob 3
+tile base pind 1099 cind -1 prob 3
+
+startdef terrain House
+tile base pind 62 cind -1 prob 1
+tile base pind 63 cind -1 prob 1
+tile base pind 64 cind -1 prob 1
+tile base pind 65 cind -1 prob 1
+tile transition sys 2 pind 0 cind 66 prob 1
+tile transition sys 1 pind 0 cind 67 prob 1
+tile transition sys 2 pind 0 cind 68 prob 1
+tile transition sys 1 pind 0 cind 69 prob 1
+tile transition sys 2 pind 0 cind 70 prob 1
+tile transition sys 1 pind 0 cind 71 prob 1
+tile transition sys 2 pind 0 cind 72 prob 1
+tile transition sys 1 pind 0 cind 73 prob 1
+
+startdef terrain Way_02
+transition Dirt
+system 0
+tile base pind 132 cind -1 prob -1
+tile base pind 133 cind -1 prob -1
+tile base pind 134 cind -1 prob -1
+tile base pind 135 cind -1 prob -1
+tile base pind 136 cind -1 prob -1
+tile base pind 137 cind -1 prob -1
+tile base pind 138 cind -1 prob -1
+tile base pind 139 cind -1 prob -1
+tile transition sys 7 pind 140 cind -1 prob -1
+tile transition sys 1 pind 141 cind -1 prob -1
+tile transition sys 3 pind 142 cind -1 prob -1
+tile transition sys 5 pind 143 cind -1 prob -1
+tile transition sys 7 pind 144 cind -1 prob -1
+tile transition sys 1 pind 145 cind -1 prob -1
+tile transition sys 3 pind 146 cind -1 prob -1
+tile transition sys 5 pind 147 cind -1 prob -1
+tile transition sys 8 pind 148 cind -1 prob -1
+tile transition sys 2 pind 149 cind -1 prob -1
+tile transition sys 6 pind 150 cind -1 prob -1
+tile transition sys 4 pind 151 cind -1 prob -1
+tile transition sys 8 pind 152 cind -1 prob -1
+tile transition sys 2 pind 153 cind -1 prob -1
+tile transition sys 6 pind 154 cind -1 prob -1
+tile transition sys 4 pind 155 cind -1 prob -1
+tile transition sys 12 pind 156 cind -1 prob -1
+tile transition sys 9 pind 197 cind -1 prob -1
+tile transition sys 11 pind 198 cind -1 prob -1
+tile transition sys 10 pind 199 cind -1 prob -1
+tile transition sys 12 pind 200 cind -1 prob -1
+tile transition sys 9 pind 201 cind -1 prob -1
+tile transition sys 11 pind 202 cind -1 prob -1
+tile transition sys 10 pind 203 cind -1 prob -1
+
+startdef terrain WitchDungeon_prison_II
+transition WitchDungeon_prison
+system 0
+tile base pind 249 cind -1 prob -1
+tile base pind 250 cind -1 prob -1
+tile base pind 251 cind -1 prob -1
+tile base pind 252 cind -1 prob -1
+tile base pind 253 cind -1 prob -1
+tile base pind 254 cind -1 prob -1
+tile base pind 255 cind -1 prob -1
+tile base pind 256 cind -1 prob -1
+tile transition sys 7 pind 257 cind -1 prob -1
+tile transition sys 1 pind 258 cind -1 prob -1
+tile transition sys 3 pind 259 cind -1 prob -1
+tile transition sys 5 pind 260 cind -1 prob -1
+tile transition sys 7 pind 261 cind -1 prob -1
+tile transition sys 1 pind 262 cind -1 prob -1
+tile transition sys 3 pind 263 cind -1 prob -1
+tile transition sys 5 pind 264 cind -1 prob -1
+tile transition sys 8 pind 265 cind -1 prob -1
+tile transition sys 2 pind 266 cind -1 prob -1
+tile transition sys 6 pind 267 cind -1 prob -1
+tile transition sys 4 pind 268 cind -1 prob -1
+tile transition sys 12 pind 269 cind -1 prob -1
+tile transition sys 9 pind 270 cind -1 prob -1
+tile transition sys 11 pind 271 cind -1 prob -1
+tile transition sys 10 pind 272 cind -1 prob -1
+
+startdef terrain Darkness
+system 0
+tile base pind 274 cind -1 prob -1
+
+startdef terrain castle_01
+system 1
+tile base pind 275 cind -1 prob -1
+tile base pind 276 cind -1 prob -1
+tile base pind 277 cind -1 prob -1
+tile base pind 278 cind -1 prob -1
+tile base pind 279 cind -1 prob -1
+tile base pind 280 cind -1 prob -1
+tile base pind 281 cind -1 prob -1
+tile base pind 282 cind -1 prob -1
+
+startdef terrain castle_02
+system 1
+tile base pind 301 cind -1 prob -1
+tile base pind 302 cind -1 prob -1
+tile base pind 303 cind -1 prob -1
+tile base pind 304 cind -1 prob -1
+tile base pind 305 cind -1 prob -1
+tile base pind 306 cind -1 prob -1
+tile base pind 307 cind -1 prob -1
+tile base pind 308 cind -1 prob -1
+tile base pind 309 cind -1 prob -1
+tile base pind 310 cind -1 prob -1
+tile base pind 311 cind -1 prob -1
+tile base pind 312 cind -1 prob -1
+
+startdef terrain castle_03
+system 1
+tile base pind 319 cind -1 prob 1
+tile base pind 320 cind -1 prob 1
+tile base pind 321 cind -1 prob 1
+tile base pind 322 cind -1 prob 1
+tile base pind 323 cind -1 prob 1
+tile base pind 324 cind -1 prob 1
+tile base pind 325 cind -1 prob 1
+tile base pind 326 cind -1 prob 1
+tile base pind 3162 cind -1 prob 3
+tile base pind 3163 cind -1 prob 3
+tile base pind 3164 cind -1 prob 3
+tile base pind 3165 cind -1 prob 3
+tile base pind 3166 cind -1 prob 3
+tile base pind 3167 cind -1 prob 3
+tile base pind 3168 cind -1 prob 3
+tile base pind 3169 cind -1 prob 3
+tile base pind 3170 cind -1 prob 3
+tile base pind 3171 cind -1 prob 3
+tile base pind 3172 cind -1 prob 3
+tile base pind 3173 cind -1 prob 3
+tile base pind 3174 cind -1 prob 3
+tile base pind 3175 cind -1 prob 3
+tile base pind 3176 cind -1 prob 3
+tile base pind 3177 cind -1 prob 3
+tile base pind 3178 cind -1 prob 3
+tile base pind 3179 cind -1 prob 3
+tile base pind 3180 cind -1 prob 3
+tile base pind 3181 cind -1 prob 3
+tile base pind 3182 cind -1 prob 3
+tile base pind 3183 cind -1 prob 3
+tile base pind 3184 cind -1 prob 3
+tile base pind 3185 cind -1 prob 3
+tile base pind 3186 cind -1 prob 3
+tile base pind 3187 cind -1 prob 3
+tile base pind 3188 cind -1 prob 3
+tile base pind 3189 cind -1 prob 3
+tile base pind 3190 cind -1 prob 3
+
+startdef terrain low_grass
+transition Grass
+system 0
+tile base pind 1102 cind -1 prob -1
+tile base pind 1103 cind -1 prob -1
+tile base pind 1104 cind -1 prob -1
+tile base pind 1105 cind -1 prob -1
+tile base pind 1106 cind -1 prob -1
+tile base pind 1107 cind -1 prob -1
+tile base pind 1108 cind -1 prob -1
+tile base pind 1109 cind -1 prob -1
+tile base pind 1110 cind -1 prob -1
+tile base pind 1111 cind -1 prob -1
+tile base pind 1112 cind -1 prob -1
+tile base pind 1113 cind -1 prob -1
+tile base pind 1114 cind -1 prob -1
+tile base pind 1115 cind -1 prob -1
+tile base pind 1116 cind -1 prob -1
+tile base pind 1117 cind -1 prob -1
+tile base pind 1118 cind -1 prob -1
+tile base pind 1119 cind -1 prob -1
+tile base pind 1120 cind -1 prob -1
+tile base pind 1121 cind -1 prob -1
+tile base pind 1122 cind -1 prob -1
+tile base pind 1123 cind -1 prob -1
+tile base pind 1124 cind -1 prob -1
+tile base pind 1125 cind -1 prob -1
+tile base pind 1126 cind -1 prob -1
+tile transition sys 7 pind 1127 cind -1 prob -1
+tile transition sys 7 pind 1128 cind -1 prob -1
+tile transition sys 1 pind 1129 cind -1 prob -1
+tile transition sys 1 pind 1130 cind -1 prob -1
+tile transition sys 3 pind 1131 cind -1 prob -1
+tile transition sys 3 pind 1132 cind -1 prob -1
+tile transition sys 5 pind 1133 cind -1 prob -1
+tile transition sys 5 pind 1134 cind -1 prob -1
+tile transition sys 8 pind 1135 cind -1 prob -1
+tile transition sys 8 pind 1136 cind -1 prob -1
+tile transition sys 6 pind 1137 cind -1 prob -1
+tile transition sys 6 pind 1138 cind -1 prob -1
+tile transition sys 2 pind 1139 cind -1 prob -1
+tile transition sys 2 pind 1140 cind -1 prob -1
+tile transition sys 4 pind 1141 cind -1 prob -1
+tile transition sys 4 pind 1142 cind -1 prob -1
+tile transition sys 12 pind 1143 cind -1 prob -1
+tile transition sys 12 pind 1144 cind -1 prob -1
+tile transition sys 9 pind 1145 cind -1 prob -1
+tile transition sys 9 pind 1146 cind -1 prob -1
+tile transition sys 11 pind 1147 cind -1 prob -1
+tile transition sys 11 pind 1148 cind -1 prob -1
+tile transition sys 10 pind 1149 cind -1 prob -1
+tile transition sys 10 pind 1150 cind -1 prob -1
+tile transition sys 14 pind 1151 cind -1 prob -1
+tile transition sys 15 pind 1152 cind -1 prob -1
+
+startdef terrain pine_forest
+transition low_grass
+system 0
+tile base pind 1776 cind -1 prob -1
+tile base pind 1777 cind -1 prob -1
+tile base pind 1778 cind -1 prob -1
+tile base pind 1779 cind -1 prob -1
+tile base pind 1780 cind -1 prob -1
+tile base pind 1781 cind -1 prob -1
+tile base pind 1782 cind -1 prob -1
+tile base pind 1783 cind -1 prob -1
+tile base pind 1784 cind -1 prob -1
+tile base pind 1785 cind -1 prob -1
+tile base pind 1786 cind -1 prob -1
+tile base pind 1787 cind -1 prob -1
+tile base pind 1788 cind -1 prob -1
+tile base pind 1789 cind -1 prob -1
+tile base pind 1790 cind -1 prob -1
+tile base pind 1791 cind -1 prob -1
+tile transition sys 7 pind 1792 cind -1 prob -1
+tile transition sys 7 pind 1793 cind -1 prob -1
+tile transition sys 8 pind 1794 cind -1 prob -1
+tile transition sys 10 pind 1795 cind -1 prob -1
+tile transition sys 1 pind 1796 cind -1 prob -1
+tile transition sys 1 pind 1797 cind -1 prob -1
+tile transition sys 2 pind 1798 cind -1 prob -1
+tile transition sys 11 pind 1799 cind -1 prob -1
+tile transition sys 3 pind 1800 cind -1 prob -1
+tile transition sys 3 pind 1801 cind -1 prob -1
+tile transition sys 6 pind 1802 cind -1 prob -1
+tile transition sys 9 pind 1803 cind -1 prob -1
+tile transition sys 5 pind 1804 cind -1 prob -1
+tile transition sys 5 pind 1805 cind -1 prob -1
+tile transition sys 4 pind 1806 cind -1 prob -1
+tile transition sys 12 pind 1807 cind -1 prob -1
+tile transition sys 15 pind 1808 cind -1 prob -1
+tile transition sys 14 pind 1809 cind -1 prob -1
+
+startdef terrain castle_floor
+transition Grass
+system 0
+tile base pind 1722 cind -1 prob -1
+tile base pind 1723 cind -1 prob -1
+tile base pind 1724 cind -1 prob -1
+tile base pind 1725 cind -1 prob -1
+tile base pind 1726 cind -1 prob -1
+tile base pind 1727 cind -1 prob -1
+tile base pind 1728 cind -1 prob -1
+tile base pind 1729 cind -1 prob -1
+tile base pind 1730 cind -1 prob -1
+tile base pind 1731 cind -1 prob -1
+tile base pind 1732 cind -1 prob -1
+tile base pind 1733 cind -1 prob -1
+tile base pind 1734 cind -1 prob -1
+tile base pind 1735 cind -1 prob -1
+tile base pind 1736 cind -1 prob -1
+tile base pind 1737 cind -1 prob -1
+tile base pind 1738 cind -1 prob -1
+tile base pind 1739 cind -1 prob -1
+tile base pind 1740 cind -1 prob -1
+tile base pind 1741 cind -1 prob -1
+tile base pind 1742 cind -1 prob -1
+tile base pind 1743 cind -1 prob -1
+tile base pind 1744 cind -1 prob -1
+tile base pind 1745 cind -1 prob -1
+tile base pind 1746 cind -1 prob -1
+tile base pind 1747 cind -1 prob -1
+tile base pind 1748 cind -1 prob -1
+tile base pind 1749 cind -1 prob -1
+tile transition sys 7 pind 1750 cind -1 prob -1
+tile transition sys 7 pind 1751 cind -1 prob -1
+tile transition sys 10 pind 1752 cind -1 prob -1
+tile transition sys 10 pind 1753 cind -1 prob -1
+tile transition sys 4 pind 1754 cind -1 prob -1
+tile transition sys 4 pind 1755 cind -1 prob -1
+tile transition sys 3 pind 1756 cind -1 prob -1
+tile transition sys 3 pind 1757 cind -1 prob -1
+tile transition sys 11 pind 1758 cind -1 prob -1
+tile transition sys 11 pind 1759 cind -1 prob -1
+tile transition sys 6 pind 1760 cind -1 prob -1
+tile transition sys 6 pind 1761 cind -1 prob -1
+tile transition sys 1 pind 1762 cind -1 prob -1
+tile transition sys 1 pind 1763 cind -1 prob -1
+tile transition sys 12 pind 1764 cind -1 prob -1
+tile transition sys 12 pind 1765 cind -1 prob -1
+tile transition sys 8 pind 1766 cind -1 prob -1
+tile transition sys 8 pind 1767 cind -1 prob -1
+tile transition sys 5 pind 1768 cind -1 prob -1
+tile transition sys 5 pind 1769 cind -1 prob -1
+tile transition sys 9 pind 1770 cind -1 prob -1
+tile transition sys 9 pind 1771 cind -1 prob -1
+tile transition sys 2 pind 1772 cind -1 prob -1
+tile transition sys 2 pind 1773 cind -1 prob -1
+tile transition sys 14 pind 1774 cind -1 prob -1
+tile transition sys 15 pind 1775 cind -1 prob -1
+enddef terrain
+
+startdef terrain Road
+transition castle_floor
+system 0
+tile base pind 48 cind -1 prob -1
+tile base pind 49 cind -1 prob -1
+tile transition sys 7 pind 50 cind -1 prob -1
+tile transition sys 8 pind 51 cind -1 prob -1
+tile transition sys 12 pind 52 cind -1 prob -1
+tile transition sys 1 pind 53 cind -1 prob -1
+tile transition sys 2 pind 54 cind -1 prob -1
+tile transition sys 9 pind 55 cind -1 prob -1
+tile transition sys 3 pind 56 cind -1 prob -1
+tile transition sys 6 pind 57 cind -1 prob -1
+tile transition sys 11 pind 58 cind -1 prob -1
+tile transition sys 5 pind 59 cind -1 prob -1
+tile transition sys 4 pind 60 cind -1 prob -1
+tile transition sys 10 pind 61 cind -1 prob -1
+tile transition sys 1 pind 129 cind -1 prob -1
+tile transition sys 1 pind 130 cind -1 prob -1
+tile transition sys 5 pind 131 cind -1 prob -1
+tile base pind 2771 cind -1 prob -1
+tile base pind 2772 cind -1 prob -1
+tile base pind 2773 cind -1 prob -1
+tile base pind 2774 cind -1 prob -1
+tile base pind 2775 cind -1 prob -1
+tile base pind 2776 cind -1 prob -1
+tile base pind 2777 cind -1 prob -1
+tile base pind 2778 cind -1 prob -1
+tile base pind 2779 cind -1 prob -1
+tile base pind 2780 cind -1 prob -1
+tile base pind 2781 cind -1 prob -1
+tile base pind 2782 cind -1 prob -1
+tile base pind 2783 cind -1 prob -1
+tile transition sys 15 pind 2784 cind -1 prob -1
+tile transition sys 14 pind 2785 cind -1 prob -1
+
+startdef terrain debug_ground
+system 0
+tile base pind 1340 cind -1 prob -1
+
+startdef terrain debug_green_1
+transition debug_ground
+system 0
+tile base pind 1339 cind -1 prob -1
+tile transition sys 1 pind 1327 cind -1 prob -1
+tile transition sys 3 pind 1328 cind -1 prob -1
+tile transition sys 5 pind 1329 cind -1 prob -1
+tile transition sys 7 pind 1330 cind -1 prob -1
+tile transition sys 2 pind 1331 cind -1 prob -1
+tile transition sys 4 pind 1332 cind -1 prob -1
+tile transition sys 6 pind 1333 cind -1 prob -1
+tile transition sys 8 pind 1334 cind -1 prob -1
+tile transition sys 9 pind 1335 cind -1 prob -1
+tile transition sys 10 pind 1336 cind -1 prob -1
+tile transition sys 11 pind 1337 cind -1 prob -1
+tile transition sys 12 pind 1338 cind -1 prob -1
+
+startdef terrain debug_green_2
+transition debug_green_1
+system 0
+tile base pind 1353 cind -1 prob -1
+tile transition sys 1 pind 1341 cind -1 prob -1
+tile transition sys 3 pind 1342 cind -1 prob -1
+tile transition sys 5 pind 1343 cind -1 prob -1
+tile transition sys 7 pind 1344 cind -1 prob -1
+tile transition sys 2 pind 1345 cind -1 prob -1
+tile transition sys 4 pind 1346 cind -1 prob -1
+tile transition sys 6 pind 1347 cind -1 prob -1
+tile transition sys 8 pind 1348 cind -1 prob -1
+tile transition sys 9 pind 1349 cind -1 prob -1
+tile transition sys 10 pind 1350 cind -1 prob -1
+tile transition sys 11 pind 1351 cind -1 prob -1
+tile transition sys 12 pind 1352 cind -1 prob -1
+
+startdef terrain debug_green_3
+transition debug_green_2
+system 0
+tile base pind 1366 cind -1 prob -1
+tile transition sys 1 pind 1354 cind -1 prob -1
+tile transition sys 3 pind 1355 cind -1 prob -1
+tile transition sys 5 pind 1356 cind -1 prob -1
+tile transition sys 7 pind 1357 cind -1 prob -1
+tile transition sys 2 pind 1358 cind -1 prob -1
+tile transition sys 4 pind 1359 cind -1 prob -1
+tile transition sys 6 pind 1360 cind -1 prob -1
+tile transition sys 8 pind 1361 cind -1 prob -1
+tile transition sys 9 pind 1362 cind -1 prob -1
+tile transition sys 10 pind 1363 cind -1 prob -1
+tile transition sys 11 pind 1364 cind -1 prob -1
+tile transition sys 12 pind 1365 cind -1 prob -1
+
+startdef terrain TownHouse
+system 1
+tile base pind 1393 cind -1 prob 1
+tile base pind 1394 cind -1 prob 1
+tile base pind 1395 cind -1 prob 1
+tile base pind 1396 cind -1 prob 1
+tile base pind 1397 cind -1 prob 3
+tile base pind 1398 cind -1 prob 3
+tile base pind 1399 cind -1 prob 3
+tile base pind 1400 cind -1 prob 3
+tile base pind 1401 cind -1 prob 3
+tile base pind 1402 cind -1 prob 3
+
+startdef terrain Forest
+transition low_grass
+system 0
+tile base pind 1429 cind -1 prob -1
+tile base pind 1430 cind -1 prob -1
+tile base pind 1431 cind -1 prob -1
+tile base pind 1432 cind -1 prob -1
+tile base pind 1433 cind -1 prob -1
+tile base pind 1434 cind -1 prob -1
+tile base pind 1435 cind -1 prob -1
+tile base pind 1436 cind -1 prob -1
+tile base pind 1437 cind -1 prob -1
+tile base pind 1438 cind -1 prob -1
+tile base pind 1439 cind -1 prob -1
+tile base pind 1440 cind -1 prob -1
+tile base pind 1441 cind -1 prob -1
+tile base pind 1442 cind -1 prob -1
+tile base pind 1443 cind -1 prob -1
+tile base pind 1444 cind -1 prob -1
+tile transition sys 7 pind 1445 cind -1 prob -1
+tile transition sys 7 pind 1446 cind -1 prob -1
+tile transition sys 8 pind 1447 cind -1 prob -1
+tile transition sys 10 pind 1448 cind -1 prob -1
+tile transition sys 1 pind 1449 cind -1 prob -1
+tile transition sys 1 pind 1450 cind -1 prob -1
+tile transition sys 2 pind 1451 cind -1 prob -1
+tile transition sys 11 pind 1452 cind -1 prob -1
+tile transition sys 3 pind 1453 cind -1 prob -1
+tile transition sys 3 pind 1454 cind -1 prob -1
+tile transition sys 6 pind 1455 cind -1 prob -1
+tile transition sys 9 pind 1456 cind -1 prob -1
+tile transition sys 5 pind 1457 cind -1 prob -1
+tile transition sys 5 pind 1458 cind -1 prob -1
+tile transition sys 4 pind 1459 cind -1 prob -1
+tile transition sys 12 pind 1460 cind -1 prob -1
+tile transition sys 15 pind 1461 cind -1 prob -1
+tile transition sys 14 pind 1462 cind -1 prob -1
+
+startdef terrain cellar
+system 1
+tile base pind 1543 cind -1 prob -1
+tile base pind 1544 cind -1 prob -1
+tile base pind 1545 cind -1 prob -1
+tile base pind 1546 cind -1 prob -1
+tile base pind 1547 cind -1 prob -1
+tile base pind 1548 cind -1 prob -1
+tile base pind 1549 cind -1 prob -1
+tile base pind 1550 cind -1 prob -1
+tile base pind 1543 cind -1 prob -1
+
+startdef terrain burned_house_floor_1
+system 1
+tile base pind 1463 cind -1 prob -1
+tile base pind 1464 cind -1 prob -1
+tile base pind 1465 cind -1 prob -1
+tile base pind 1466 cind -1 prob -1
+tile transition sys 2 pind 0 cind 1467 prob -1
+tile transition sys 2 pind 0 cind 1468 prob -1
+tile transition sys 2 pind 0 cind 1469 prob -1
+tile transition sys 2 pind 0 cind 1470 prob -1
+tile transition sys 1 pind 0 cind 1471 prob -1
+tile transition sys 1 pind 0 cind 1472 prob -1
+tile transition sys 1 pind 0 cind 1473 prob -1
+tile transition sys 1 pind 0 cind 1474 prob -1
+
+startdef terrain burned_house_floor_2
+system 1
+tile base pind 1475 cind -1 prob -1
+tile base pind 1476 cind -1 prob -1
+tile base pind 1477 cind -1 prob -1
+tile base pind 1478 cind -1 prob -1
+tile transition sys 2 pind 0 cind 1479 prob -1
+tile transition sys 2 pind 0 cind 1480 prob -1
+tile transition sys 2 pind 0 cind 1481 prob -1
+tile transition sys 2 pind 0 cind 1482 prob -1
+tile transition sys 1 pind 0 cind 1483 prob -1
+tile transition sys 1 pind 0 cind 1484 prob -1
+tile transition sys 1 pind 0 cind 1485 prob -1
+tile transition sys 1 pind 0 cind 1486 prob -1
+
+startdef terrain old_desert_floor
+system 0
+tile base pind 1613 cind -1 prob -1
+tile base pind 1614 cind -1 prob -1
+tile base pind 1615 cind -1 prob -1
+tile base pind 1616 cind -1 prob -1
+tile base pind 1617 cind -1 prob -1
+tile base pind 1618 cind -1 prob -1
+tile base pind 1619 cind -1 prob -1
+tile base pind 1620 cind -1 prob -1
+tile base pind 1621 cind -1 prob -1
+tile base pind 1622 cind -1 prob -1
+tile base pind 1623 cind -1 prob -1
+tile base pind 1624 cind -1 prob -1
+tile base pind 1625 cind -1 prob -1
+tile base pind 1626 cind -1 prob -1
+tile base pind 1627 cind -1 prob -1
+tile base pind 1628 cind -1 prob -1
+tile base pind 1629 cind -1 prob -1
+tile base pind 1630 cind -1 prob -1
+tile base pind 1631 cind -1 prob -1
+tile base pind 1632 cind -1 prob -1
+tile base pind 1633 cind -1 prob -1
+tile base pind 1634 cind -1 prob -1
+
+startdef terrain andre_sand
+transition Grass
+system 0
+tile base pind 1810 cind -1 prob -1
+tile base pind 1811 cind -1 prob -1
+tile base pind 1812 cind -1 prob -1
+tile base pind 1813 cind -1 prob -1
+tile base pind 1814 cind -1 prob -1
+tile base pind 1815 cind -1 prob -1
+tile base pind 1816 cind -1 prob -1
+tile base pind 1817 cind -1 prob -1
+tile base pind 1818 cind -1 prob -1
+tile base pind 1819 cind -1 prob -1
+tile base pind 1820 cind -1 prob -1
+tile base pind 1821 cind -1 prob -1
+tile base pind 1822 cind -1 prob -1
+tile base pind 1823 cind -1 prob -1
+tile base pind 1824 cind -1 prob -1
+tile base pind 1825 cind -1 prob -1
+tile base pind 1826 cind -1 prob -1
+tile base pind 1827 cind -1 prob -1
+tile base pind 1828 cind -1 prob -1
+tile base pind 1829 cind -1 prob -1
+tile base pind 1830 cind -1 prob -1
+tile base pind 1831 cind -1 prob -1
+tile base pind 1832 cind -1 prob -1
+tile base pind 1833 cind -1 prob -1
+tile base pind 1834 cind -1 prob -1
+tile base pind 1835 cind -1 prob -1
+tile base pind 1836 cind -1 prob -1
+tile base pind 1837 cind -1 prob -1
+tile transition sys 3 pind 1838 cind -1 prob -1
+tile transition sys 3 pind 1839 cind -1 prob -1
+tile transition sys 4 pind 1840 cind -1 prob -1
+tile transition sys 4 pind 1841 cind -1 prob -1
+tile transition sys 12 pind 1842 cind -1 prob -1
+tile transition sys 12 pind 1843 cind -1 prob -1
+tile transition sys 7 pind 1844 cind -1 prob -1
+tile transition sys 7 pind 1845 cind -1 prob -1
+tile transition sys 6 pind 1846 cind -1 prob -1
+tile transition sys 6 pind 1847 cind -1 prob -1
+tile transition sys 9 pind 1848 cind -1 prob -1
+tile transition sys 9 pind 1849 cind -1 prob -1
+tile transition sys 5 pind 1850 cind -1 prob -1
+tile transition sys 5 pind 1851 cind -1 prob -1
+tile transition sys 8 pind 1852 cind -1 prob -1
+tile transition sys 8 pind 1853 cind -1 prob -1
+tile transition sys 10 pind 1854 cind -1 prob -1
+tile transition sys 10 pind 1855 cind -1 prob -1
+tile transition sys 1 pind 1856 cind -1 prob -1
+tile transition sys 1 pind 1857 cind -1 prob -1
+tile transition sys 2 pind 1858 cind -1 prob -1
+tile transition sys 2 pind 1859 cind -1 prob -1
+tile transition sys 11 pind 1860 cind -1 prob -1
+tile transition sys 11 pind 1861 cind -1 prob -1
+tile transition sys 14 pind 1862 cind -1 prob -1
+tile transition sys 15 pind 1863 cind -1 prob -1
+
+startdef terrain burned_floor
+transition Dirt
+system 0
+tile base pind 2009 cind -1 prob -1
+tile base pind 2010 cind -1 prob -1
+tile base pind 2011 cind -1 prob -1
+tile base pind 2012 cind -1 prob -1
+tile base pind 2013 cind -1 prob -1
+tile base pind 2014 cind -1 prob -1
+tile base pind 2015 cind -1 prob -1
+tile base pind 2016 cind -1 prob -1
+tile base pind 2017 cind -1 prob -1
+tile base pind 2018 cind -1 prob -1
+tile base pind 2019 cind -1 prob -1
+tile base pind 2020 cind -1 prob -1
+tile base pind 2021 cind -1 prob -1
+tile base pind 2022 cind -1 prob -1
+tile base pind 2023 cind -1 prob -1
+tile base pind 2024 cind -1 prob -1
+tile transition sys 7 pind 2025 cind -1 prob -1
+tile transition sys 7 pind 2026 cind -1 prob -1
+tile transition sys 7 pind 2027 cind -1 prob -1
+tile transition sys 8 pind 2028 cind -1 prob -1
+tile transition sys 8 pind 2029 cind -1 prob -1
+tile transition sys 10 pind 2030 cind -1 prob -1
+tile transition sys 10 pind 2031 cind -1 prob -1
+tile transition sys 1 pind 2032 cind -1 prob -1
+tile transition sys 1 pind 2033 cind -1 prob -1
+tile transition sys 1 pind 2034 cind -1 prob -1
+tile transition sys 2 pind 2035 cind -1 prob -1
+tile transition sys 2 pind 2036 cind -1 prob -1
+tile transition sys 11 pind 2037 cind -1 prob -1
+tile transition sys 11 pind 2038 cind -1 prob -1
+tile transition sys 3 pind 2039 cind -1 prob -1
+tile transition sys 3 pind 2040 cind -1 prob -1
+tile transition sys 3 pind 2041 cind -1 prob -1
+tile transition sys 6 pind 2042 cind -1 prob -1
+tile transition sys 6 pind 2043 cind -1 prob -1
+tile transition sys 9 pind 2044 cind -1 prob -1
+tile transition sys 9 pind 2045 cind -1 prob -1
+tile transition sys 5 pind 2046 cind -1 prob -1
+tile transition sys 5 pind 2047 cind -1 prob -1
+tile transition sys 5 pind 2048 cind -1 prob -1
+tile transition sys 4 pind 2049 cind -1 prob -1
+tile transition sys 4 pind 2050 cind -1 prob -1
+tile transition sys 12 pind 2051 cind -1 prob -1
+tile transition sys 12 pind 2052 cind -1 prob -1
+tile transition sys 15 pind 2053 cind -1 prob -1
+tile transition sys 14 pind 2054 cind -1 prob -1
+
+startdef terrain CouncilSeven_I
+system 0
+tile base pind 2055 cind -1 prob -1
+tile base pind 2056 cind -1 prob -1
+tile base pind 2057 cind -1 prob -1
+tile base pind 2058 cind -1 prob -1
+tile base pind 2059 cind -1 prob -1
+tile base pind 2060 cind -1 prob -1
+tile base pind 2061 cind -1 prob -1
+tile base pind 2062 cind -1 prob -1
+tile base pind 2063 cind -1 prob -1
+tile base pind 2064 cind -1 prob -1
+tile base pind 2065 cind -1 prob -1
+tile base pind 2066 cind -1 prob -1
+
+startdef terrain CouncilSeven_II
+transition CouncilSeven_I
+system 0
+tile base pind 2067 cind -1 prob -1
+tile base pind 2068 cind -1 prob -1
+tile base pind 2069 cind -1 prob -1
+tile base pind 2070 cind -1 prob -1
+tile base pind 2071 cind -1 prob -1
+tile base pind 2072 cind -1 prob -1
+tile base pind 2073 cind -1 prob -1
+tile base pind 2074 cind -1 prob -1
+tile base pind 2075 cind -1 prob -1
+tile base pind 2076 cind -1 prob -1
+tile base pind 2077 cind -1 prob -1
+tile base pind 2078 cind -1 prob -1
+tile transition sys 5 pind 2079 cind -1 prob -1
+tile transition sys 5 pind 2080 cind -1 prob -1
+tile transition sys 5 pind 2081 cind -1 prob -1
+tile transition sys 2 pind 2082 cind -1 prob -1
+tile transition sys 11 pind 2083 cind -1 prob -1
+tile transition sys 1 pind 2084 cind -1 prob -1
+tile transition sys 1 pind 2085 cind -1 prob -1
+tile transition sys 1 pind 2086 cind -1 prob -1
+tile transition sys 6 pind 2087 cind -1 prob -1
+tile transition sys 9 pind 2088 cind -1 prob -1
+tile transition sys 10 pind 2089 cind -1 prob -1
+tile transition sys 10 pind 2090 cind -1 prob -1
+tile transition sys 4 pind 2091 cind -1 prob -1
+tile transition sys 4 pind 2092 cind -1 prob -1
+tile transition sys 12 pind 2093 cind -1 prob -1
+tile transition sys 12 pind 2094 cind -1 prob -1
+tile transition sys 8 pind 2095 cind -1 prob -1
+tile transition sys 8 pind 2096 cind -1 prob -1
+
+startdef terrain CouncilSeven_III
+transition CouncilSeven_I
+tile base pind 3223 cind -1 prob -1
+tile base pind 3224 cind -1 prob -1
+tile base pind 3225 cind -1 prob -1
+tile base pind 3226 cind -1 prob -1
+tile base pind 3227 cind -1 prob -1
+tile base pind 3228 cind -1 prob -1
+tile base pind 3229 cind -1 prob -1
+tile base pind 3230 cind -1 prob -1
+tile base pind 3231 cind -1 prob -1
+tile base pind 3232 cind -1 prob -1
+tile base pind 3233 cind -1 prob -1
+tile base pind 3234 cind -1 prob -1
+tile base pind 3235 cind -1 prob -1
+tile base pind 3236 cind -1 prob -1
+tile base pind 3237 cind -1 prob -1
+tile base pind 3238 cind -1 prob -1
+tile base pind 3239 cind -1 prob -1
+tile base pind 3240 cind -1 prob -1
+tile base pind 3241 cind -1 prob -1
+tile base pind 3242 cind -1 prob -1
+tile transition sys 7 pind 3243 cind -1 prob -1
+tile transition sys 7 pind 3244 cind -1 prob -1
+tile transition sys 7 pind 3245 cind -1 prob -1
+tile transition sys 8 pind 3246 cind -1 prob -1
+tile transition sys 8 pind 3247 cind -1 prob -1
+tile transition sys 10 pind 3248 cind -1 prob -1
+tile transition sys 10 pind 3249 cind -1 prob -1
+tile transition sys 1 pind 3250 cind -1 prob -1
+tile transition sys 1 pind 3251 cind -1 prob -1
+tile transition sys 1 pind 3252 cind -1 prob -1
+tile transition sys 2 pind 3253 cind -1 prob -1
+tile transition sys 2 pind 3254 cind -1 prob -1
+tile transition sys 11 pind 3255 cind -1 prob -1
+tile transition sys 11 pind 3256 cind -1 prob -1
+tile transition sys 3 pind 3257 cind -1 prob -1
+tile transition sys 3 pind 3258 cind -1 prob -1
+tile transition sys 3 pind 3259 cind -1 prob -1
+tile transition sys 6 pind 3260 cind -1 prob -1
+tile transition sys 6 pind 3261 cind -1 prob -1
+tile transition sys 9 pind 3262 cind -1 prob -1
+tile transition sys 9 pind 3263 cind -1 prob -1
+tile transition sys 5 pind 3264 cind -1 prob -1
+tile transition sys 5 pind 3265 cind -1 prob -1
+tile transition sys 5 pind 3266 cind -1 prob -1
+tile transition sys 4 pind 3267 cind -1 prob -1
+tile transition sys 4 pind 3268 cind -1 prob -1
+tile transition sys 12 pind 3269 cind -1 prob -1
+tile transition sys 12 pind 3270 cind -1 prob -1
+tile transition sys 15 pind 3271 cind -1 prob -1
+tile transition sys 14 pind 3272 cind -1 prob -1
+enddef terrain
+
+startdef terrain CouncilSeven_IV
+transition CouncilSeven_III
+tile base pind 3273 cind -1 prob -1
+tile base pind 3274 cind -1 prob -1
+tile base pind 3275 cind -1 prob -1
+tile base pind 3276 cind -1 prob -1
+tile base pind 3277 cind -1 prob -1
+tile base pind 3278 cind -1 prob -1
+tile base pind 3279 cind -1 prob -1
+tile base pind 3280 cind -1 prob -1
+tile base pind 3281 cind -1 prob -1
+tile base pind 3282 cind -1 prob -1
+tile base pind 3283 cind -1 prob -1
+tile base pind 3284 cind -1 prob -1
+tile transition sys 7 pind 3285 cind -1 prob -1
+tile transition sys 7 pind 3286 cind -1 prob -1
+tile transition sys 7 pind 3287 cind -1 prob -1
+tile transition sys 8 pind 3288 cind -1 prob -1
+tile transition sys 8 pind 3289 cind -1 prob -1
+tile transition sys 10 pind 3290 cind -1 prob -1
+tile transition sys 10 pind 3291 cind -1 prob -1
+tile transition sys 1 pind 3292 cind -1 prob -1
+tile transition sys 1 pind 3293 cind -1 prob -1
+tile transition sys 1 pind 3294 cind -1 prob -1
+tile transition sys 2 pind 3295 cind -1 prob -1
+tile transition sys 2 pind 3296 cind -1 prob -1
+tile transition sys 11 pind 3297 cind -1 prob -1
+tile transition sys 11 pind 3298 cind -1 prob -1
+tile transition sys 3 pind 3299 cind -1 prob -1
+tile transition sys 3 pind 3300 cind -1 prob -1
+tile transition sys 3 pind 3301 cind -1 prob -1
+tile transition sys 6 pind 3302 cind -1 prob -1
+tile transition sys 6 pind 3303 cind -1 prob -1
+tile transition sys 9 pind 3304 cind -1 prob -1
+tile transition sys 9 pind 3305 cind -1 prob -1
+tile transition sys 5 pind 3306 cind -1 prob -1
+tile transition sys 5 pind 3307 cind -1 prob -1
+tile transition sys 5 pind 3308 cind -1 prob -1
+tile transition sys 4 pind 3309 cind -1 prob -1
+tile transition sys 4 pind 3310 cind -1 prob -1
+tile transition sys 12 pind 3311 cind -1 prob -1
+tile transition sys 12 pind 3312 cind -1 prob -1
+tile transition sys 15 pind 3313 cind -1 prob -1
+tile transition sys 14 pind 3314 cind -1 prob -1
+enddef terrain
+
+startdef terrain whouse_abandoned
+system 1
+tile base pind 2097 cind -1 prob -1
+tile base pind 2098 cind -1 prob -1
+tile base pind 2099 cind -1 prob -1
+tile base pind 2100 cind -1 prob -1
+tile transition sys 2 pind 0 cind 2101 prob -1
+tile transition sys 2 pind 0 cind 2102 prob -1
+tile transition sys 2 pind 0 cind 2103 prob -1
+tile transition sys 2 pind 0 cind 2104 prob -1
+tile transition sys 1 pind 0 cind 2105 prob -1
+tile transition sys 1 pind 0 cind 2106 prob -1
+tile transition sys 1 pind 0 cind 2107 prob -1
+tile transition sys 1 pind 0 cind 2108 prob -1
+
+startdef terrain farm_house
+system 1
+tile base pind 2109 cind -1 prob -1
+tile base pind 2110 cind -1 prob -1
+tile base pind 2111 cind -1 prob -1
+tile base pind 2112 cind -1 prob -1
+tile base pind 2113 cind -1 prob -1
+tile base pind 2114 cind -1 prob -1
+tile base pind 2115 cind -1 prob -1
+tile base pind 2116 cind -1 prob -1
+tile base pind 2117 cind -1 prob -1
+tile base pind 2118 cind -1 prob -1
+tile base pind 2119 cind -1 prob -1
+tile base pind 2120 cind -1 prob -1
+tile base pind 2121 cind -1 prob -1
+tile base pind 2122 cind -1 prob -1
+tile base pind 2123 cind -1 prob -1
+tile base pind 2124 cind -1 prob -1
+tile transition sys 1 pind 0 cind 2125 prob -1
+tile transition sys 1 pind 0 cind 2126 prob -1
+tile transition sys 1 pind 0 cind 2127 prob -1
+tile transition sys 1 pind 0 cind 2128 prob -1
+tile transition sys 2 pind 0 cind 2129 prob -1
+tile transition sys 2 pind 0 cind 2130 prob -1
+tile transition sys 2 pind 0 cind 2131 prob -1
+tile transition sys 2 pind 0 cind 2132 prob -1
+
+startdef terrain house_floor_a
+tile base pind 2133 cind -1 prob -1
+tile base pind 2134 cind -1 prob -1
+tile base pind 2135 cind -1 prob -1
+tile base pind 2136 cind -1 prob -1
+tile base pind 2137 cind -1 prob -1
+tile base pind 2138 cind -1 prob -1
+tile base pind 2139 cind -1 prob -1
+tile base pind 2140 cind -1 prob -1
+tile transition sys 2 pind 0 cind 2141 prob -1
+tile transition sys 2 pind 0 cind 2142 prob -1
+tile transition sys 2 pind 0 cind 2143 prob -1
+tile transition sys 2 pind 0 cind 2144 prob -1
+tile transition sys 1 pind 0 cind 2145 prob -1
+tile transition sys 1 pind 0 cind 2146 prob -1
+tile transition sys 1 pind 0 cind 2147 prob -1
+tile transition sys 1 pind 0 cind 2148 prob -1
+
+startdef terrain house_floor_b
+system 1
+tile base pind 2149 cind -1 prob -1
+tile base pind 2150 cind -1 prob -1
+tile base pind 2151 cind -1 prob -1
+tile base pind 2152 cind -1 prob -1
+tile base pind 2153 cind -1 prob -1
+tile base pind 2154 cind -1 prob -1
+tile base pind 2155 cind -1 prob -1
+tile base pind 2156 cind -1 prob -1
+tile base pind 2157 cind -1 prob -1
+tile base pind 2158 cind -1 prob -1
+tile base pind 2159 cind -1 prob -1
+tile base pind 2160 cind -1 prob -1
+tile transition sys 2 pind 0 cind 2161 prob -1
+tile transition sys 2 pind 0 cind 2162 prob -1
+tile transition sys 2 pind 0 cind 2163 prob -1
+tile transition sys 1 pind 0 cind 2164 prob -1
+tile transition sys 1 pind 0 cind 2165 prob -1
+tile transition sys 1 pind 0 cind 2166 prob -1
+
+
+startdef terrain swamp_a
+system 0
+tile base pind 2193 cind -1 prob -1
+tile base pind 2194 cind -1 prob -1
+tile base pind 2195 cind -1 prob -1
+tile base pind 2196 cind -1 prob -1
+tile base pind 2197 cind -1 prob -1
+tile base pind 2198 cind -1 prob -1
+tile base pind 2199 cind -1 prob -1
+tile base pind 2200 cind -1 prob -1
+
+startdef terrain swamp_b
+transition swamp_a
+system 0
+tile base pind 2201 cind -1 prob -1
+tile base pind 2202 cind -1 prob -1
+tile base pind 2203 cind -1 prob -1
+tile base pind 2204 cind -1 prob -1
+tile base pind 2205 cind -1 prob -1
+tile base pind 2206 cind -1 prob -1
+tile base pind 2207 cind -1 prob -1
+tile base pind 2208 cind -1 prob -1
+tile base pind 2209 cind -1 prob -1
+tile base pind 2210 cind -1 prob -1
+tile base pind 2211 cind -1 prob -1
+tile base pind 2212 cind -1 prob -1
+tile base pind 2213 cind -1 prob -1
+tile base pind 2214 cind -1 prob -1
+tile base pind 2215 cind -1 prob -1
+tile base pind 2216 cind -1 prob -1
+tile transition sys 7 pind 2217 cind -1 prob -1
+tile transition sys 7 pind 2218 cind -1 prob -1
+tile transition sys 7 pind 2219 cind -1 prob -1
+tile transition sys 8 pind 2220 cind -1 prob -1
+tile transition sys 8 pind 2221 cind -1 prob -1
+tile transition sys 10 pind 2222 cind -1 prob -1
+tile transition sys 10 pind 2223 cind -1 prob -1
+tile transition sys 1 pind 2224 cind -1 prob -1
+tile transition sys 1 pind 2225 cind -1 prob -1
+tile transition sys 1 pind 2226 cind -1 prob -1
+tile transition sys 2 pind 2227 cind -1 prob -1
+tile transition sys 2 pind 2228 cind -1 prob -1
+tile transition sys 11 pind 2229 cind -1 prob -1
+tile transition sys 11 pind 2230 cind -1 prob -1
+tile transition sys 3 pind 2231 cind -1 prob -1
+tile transition sys 3 pind 2232 cind -1 prob -1
+tile transition sys 3 pind 2233 cind -1 prob -1
+tile transition sys 6 pind 2234 cind -1 prob -1
+tile transition sys 6 pind 2235 cind -1 prob -1
+tile transition sys 9 pind 2236 cind -1 prob -1
+tile transition sys 9 pind 2237 cind -1 prob -1
+tile transition sys 5 pind 2238 cind -1 prob -1
+tile transition sys 5 pind 2239 cind -1 prob -1
+tile transition sys 5 pind 2240 cind -1 prob -1
+tile transition sys 4 pind 2241 cind -1 prob -1
+tile transition sys 4 pind 2242 cind -1 prob -1
+tile transition sys 12 pind 2243 cind -1 prob -1
+tile transition sys 12 pind 2244 cind -1 prob -1
+tile transition sys 15 pind 2245 cind -1 prob -1
+tile transition sys 14 pind 2246 cind -1 prob -1
+
+startdef terrain swamp_c
+transition swamp_b
+system 0
+tile base pind 2247 cind -1 prob -1
+tile base pind 2248 cind -1 prob -1
+tile base pind 2249 cind -1 prob -1
+tile base pind 2250 cind -1 prob -1
+tile base pind 2251 cind -1 prob -1
+tile base pind 2252 cind -1 prob -1
+tile base pind 2253 cind -1 prob -1
+tile base pind 2254 cind -1 prob -1
+tile base pind 2255 cind -1 prob -1
+tile base pind 2256 cind -1 prob -1
+tile base pind 2257 cind -1 prob -1
+tile base pind 2258 cind -1 prob -1
+tile base pind 2259 cind -1 prob -1
+tile base pind 2260 cind -1 prob -1
+tile base pind 2261 cind -1 prob -1
+tile base pind 2262 cind -1 prob -1
+tile transition sys 7 pind 2263 cind -1 prob -1
+tile transition sys 7 pind 2264 cind -1 prob -1
+tile transition sys 7 pind 2265 cind -1 prob -1
+tile transition sys 8 pind 2266 cind -1 prob -1
+tile transition sys 8 pind 2267 cind -1 prob -1
+tile transition sys 10 pind 2268 cind -1 prob -1
+tile transition sys 10 pind 2269 cind -1 prob -1
+tile transition sys 1 pind 2270 cind -1 prob -1
+tile transition sys 1 pind 2271 cind -1 prob -1
+tile transition sys 1 pind 2272 cind -1 prob -1
+tile transition sys 2 pind 2273 cind -1 prob -1
+tile transition sys 2 pind 2274 cind -1 prob -1
+tile transition sys 11 pind 2275 cind -1 prob -1
+tile transition sys 11 pind 2276 cind -1 prob -1
+tile transition sys 3 pind 2277 cind -1 prob -1
+tile transition sys 3 pind 2278 cind -1 prob -1
+tile transition sys 3 pind 2279 cind -1 prob -1
+tile transition sys 6 pind 2280 cind -1 prob -1
+tile transition sys 6 pind 2281 cind -1 prob -1
+tile transition sys 9 pind 2282 cind -1 prob -1
+tile transition sys 9 pind 2283 cind -1 prob -1
+tile transition sys 5 pind 2284 cind -1 prob -1
+tile transition sys 5 pind 2285 cind -1 prob -1
+tile transition sys 5 pind 2286 cind -1 prob -1
+tile transition sys 4 pind 2287 cind -1 prob -1
+tile transition sys 4 pind 2288 cind -1 prob -1
+tile transition sys 12 pind 2289 cind -1 prob -1
+tile transition sys 12 pind 2290 cind -1 prob -1
+tile transition sys 15 pind 2291 cind -1 prob -1
+tile transition sys 14 pind 2292 cind -1 prob -1
+
+startdef terrain swamp_d
+transition swamp_c
+system 0
+tile base pind 2293 cind -1 prob -1
+tile base pind 2294 cind -1 prob -1
+tile base pind 2295 cind -1 prob -1
+tile base pind 2296 cind -1 prob -1
+tile base pind 2297 cind -1 prob -1
+tile base pind 2298 cind -1 prob -1
+tile base pind 2299 cind -1 prob -1
+tile base pind 2300 cind -1 prob -1
+tile base pind 2301 cind -1 prob -1
+tile base pind 2302 cind -1 prob -1
+tile base pind 2303 cind -1 prob -1
+tile base pind 2304 cind -1 prob -1
+tile base pind 2305 cind -1 prob -1
+tile base pind 2306 cind -1 prob -1
+tile base pind 2307 cind -1 prob -1
+tile base pind 2308 cind -1 prob -1
+tile transition sys 7 pind 2309 cind -1 prob -1
+tile transition sys 7 pind 2310 cind -1 prob -1
+tile transition sys 7 pind 2311 cind -1 prob -1
+tile transition sys 8 pind 2312 cind -1 prob -1
+tile transition sys 8 pind 2313 cind -1 prob -1
+tile transition sys 10 pind 2314 cind -1 prob -1
+tile transition sys 10 pind 2315 cind -1 prob -1
+tile transition sys 1 pind 2316 cind -1 prob -1
+tile transition sys 1 pind 2317 cind -1 prob -1
+tile transition sys 1 pind 2318 cind -1 prob -1
+tile transition sys 2 pind 2319 cind -1 prob -1
+tile transition sys 2 pind 2320 cind -1 prob -1
+tile transition sys 11 pind 2321 cind -1 prob -1
+tile transition sys 11 pind 2322 cind -1 prob -1
+tile transition sys 3 pind 2323 cind -1 prob -1
+tile transition sys 3 pind 2324 cind -1 prob -1
+tile transition sys 3 pind 2325 cind -1 prob -1
+tile transition sys 6 pind 2326 cind -1 prob -1
+tile transition sys 6 pind 2327 cind -1 prob -1
+tile transition sys 9 pind 2328 cind -1 prob -1
+tile transition sys 9 pind 2329 cind -1 prob -1
+tile transition sys 5 pind 2330 cind -1 prob -1
+tile transition sys 5 pind 2331 cind -1 prob -1
+tile transition sys 5 pind 2332 cind -1 prob -1
+tile transition sys 4 pind 2333 cind -1 prob -1
+tile transition sys 4 pind 2334 cind -1 prob -1
+tile transition sys 12 pind 2335 cind -1 prob -1
+tile transition sys 12 pind 2336 cind -1 prob -1
+tile transition sys 15 pind 2337 cind -1 prob -1
+tile transition sys 14 pind 2338 cind -1 prob -1
+
+startdef terrain sewer_e
+tile base pind 3207 cind -1 prob -1
+tile base pind 3208 cind -1 prob -1
+tile base pind 3209 cind -1 prob -1
+tile base pind 3210 cind -1 prob -1
+tile base pind 3211 cind -1 prob -1
+tile base pind 3212 cind -1 prob -1
+tile base pind 3213 cind -1 prob -1
+tile base pind 3214 cind -1 prob -1
+tile base pind 3215 cind -1 prob -1
+tile base pind 3216 cind -1 prob -1
+tile base pind 3217 cind -1 prob -1
+tile base pind 3218 cind -1 prob -1
+tile base pind 3219 cind -1 prob -1
+tile base pind 3220 cind -1 prob -1
+tile base pind 3221 cind -1 prob -1
+tile base pind 3222 cind -1 prob -1
+
+startdef terrain house_floor_c
+system 1
+tile base pind 2339 cind -1 prob -1
+tile base pind 2340 cind -1 prob -1
+tile base pind 2341 cind -1 prob -1
+tile base pind 2342 cind -1 prob -1
+tile base pind 2343 cind -1 prob -1
+tile base pind 2344 cind -1 prob -1
+tile base pind 2345 cind -1 prob -1
+tile base pind 2346 cind -1 prob -1
+tile base pind 2347 cind -1 prob -1
+tile base pind 2348 cind -1 prob -1
+tile base pind 2349 cind -1 prob -1
+tile base pind 2350 cind -1 prob -1
+tile transition sys 2 pind 0 cind 2351 prob -1
+tile transition sys 2 pind 0 cind 2352 prob -1
+tile transition sys 2 pind 0 cind 2353 prob -1
+tile transition sys 1 pind 0 cind 2354 prob -1
+tile transition sys 1 pind 0 cind 2355 prob -1
+tile transition sys 1 pind 0 cind 2356 prob -1
+
+startdef terrain city_street
+transition castle_floor
+system 0
+tile base pind 2357 cind -1 prob -1
+tile base pind 2358 cind -1 prob -1
+tile base pind 2359 cind -1 prob -1
+tile base pind 2360 cind -1 prob -1
+tile base pind 2361 cind -1 prob -1
+tile base pind 2362 cind -1 prob -1
+tile base pind 2363 cind -1 prob -1
+tile base pind 2364 cind -1 prob -1
+tile transition sys 1 pind 2365 cind -1 prob -1
+tile transition sys 1 pind 2366 cind -1 prob -1
+tile transition sys 1 pind 2367 cind -1 prob -1
+tile transition sys 12 pind 2368 cind -1 prob -1
+tile transition sys 12 pind 2369 cind -1 prob -1
+tile transition sys 8 pind 2370 cind -1 prob -1
+tile transition sys 8 pind 2371 cind -1 prob -1
+tile transition sys 5 pind 2372 cind -1 prob -1
+tile transition sys 5 pind 2373 cind -1 prob -1
+tile transition sys 5 pind 2374 cind -1 prob -1
+tile transition sys 11 pind 2375 cind -1 prob -1
+tile transition sys 11 pind 2376 cind -1 prob -1
+tile transition sys 6 pind 2377 cind -1 prob -1
+tile transition sys 6 pind 2378 cind -1 prob -1
+tile transition sys 7 pind 2379 cind -1 prob -1
+tile transition sys 7 pind 2380 cind -1 prob -1
+tile transition sys 7 pind 2381 cind -1 prob -1
+tile transition sys 10 pind 2382 cind -1 prob -1
+tile transition sys 10 pind 2383 cind -1 prob -1
+tile transition sys 4 pind 2384 cind -1 prob -1
+tile transition sys 4 pind 2385 cind -1 prob -1
+tile transition sys 3 pind 2386 cind -1 prob -1
+tile transition sys 3 pind 2387 cind -1 prob -1
+tile transition sys 3 pind 2388 cind -1 prob -1
+tile transition sys 9 pind 2389 cind -1 prob -1
+tile transition sys 9 pind 2390 cind -1 prob -1
+tile transition sys 2 pind 2391 cind -1 prob -1
+tile transition sys 2 pind 2392 cind -1 prob -1
+tile transition sys 15 pind 2393 cind -1 prob -1
+tile transition sys 14 pind 2394 cind -1 prob -1
+
+startdef terrain field_ground
+transition Grass
+system 0
+tile base pind 2395 cind -1 prob -1
+tile base pind 2396 cind -1 prob -1
+tile base pind 2397 cind -1 prob -1
+tile base pind 2398 cind -1 prob -1
+tile base pind 2399 cind -1 prob -1
+tile base pind 2400 cind -1 prob -1
+tile base pind 2401 cind -1 prob -1
+tile base pind 2402 cind -1 prob -1
+tile base pind 2403 cind -1 prob -1
+tile base pind 2404 cind -1 prob -1
+tile base pind 2405 cind -1 prob -1
+tile base pind 2406 cind -1 prob -1
+tile base pind 2407 cind -1 prob -1
+tile base pind 2408 cind -1 prob -1
+tile base pind 2409 cind -1 prob -1
+tile base pind 2410 cind -1 prob -1
+tile base pind 2411 cind -1 prob -1
+tile base pind 2412 cind -1 prob -1
+tile base pind 2413 cind -1 prob -1
+tile base pind 2414 cind -1 prob -1
+tile base pind 2415 cind -1 prob -1
+tile base pind 2416 cind -1 prob -1
+tile base pind 2417 cind -1 prob -1
+tile base pind 2418 cind -1 prob -1
+tile transition sys 3 pind 2419 cind -1 prob -1
+tile transition sys 3 pind 2420 cind -1 prob -1
+tile transition sys 4 pind 2421 cind -1 prob -1
+tile transition sys 4 pind 2422 cind -1 prob -1
+tile transition sys 12 pind 2423 cind -1 prob -1
+tile transition sys 12 pind 2424 cind -1 prob -1
+tile transition sys 7 pind 2425 cind -1 prob -1
+tile transition sys 7 pind 2426 cind -1 prob -1
+tile transition sys 6 pind 2427 cind -1 prob -1
+tile transition sys 6 pind 2428 cind -1 prob -1
+tile transition sys 9 pind 2429 cind -1 prob -1
+tile transition sys 9 pind 2430 cind -1 prob -1
+tile transition sys 5 pind 2431 cind -1 prob -1
+tile transition sys 5 pind 2432 cind -1 prob -1
+tile transition sys 8 pind 2433 cind -1 prob -1
+tile transition sys 8 pind 2434 cind -1 prob -1
+tile transition sys 10 pind 2435 cind -1 prob -1
+tile transition sys 10 pind 2436 cind -1 prob -1
+tile transition sys 1 pind 2437 cind -1 prob -1
+tile transition sys 1 pind 2438 cind -1 prob -1
+tile transition sys 2 pind 2439 cind -1 prob -1
+tile transition sys 2 pind 2440 cind -1 prob -1
+tile transition sys 11 pind 2441 cind -1 prob -1
+tile transition sys 11 pind 2442 cind -1 prob -1
+tile transition sys 14 pind 2443 cind -1 prob -1
+tile transition sys 15 pind 2444 cind -1 prob -1
+
+startdef terrain generic_cellar
+system 0
+tile base pind 2445 cind -1 prob -1
+tile base pind 2446 cind -1 prob -1
+tile base pind 2447 cind -1 prob -1
+tile base pind 2448 cind -1 prob -1
+tile base pind 2449 cind -1 prob -1
+tile base pind 2450 cind -1 prob -1
+tile base pind 2451 cind -1 prob -1
+tile base pind 2452 cind -1 prob -1
+
+startdef terrain burned_grass
+transition burned_floor
+system 0
+tile base pind 2453 cind -1 prob -1
+tile base pind 2454 cind -1 prob -1
+tile base pind 2455 cind -1 prob -1
+tile base pind 2456 cind -1 prob -1
+tile base pind 2457 cind -1 prob -1
+tile base pind 2458 cind -1 prob -1
+tile base pind 2459 cind -1 prob -1
+tile base pind 2460 cind -1 prob -1
+tile base pind 2461 cind -1 prob -1
+tile base pind 2462 cind -1 prob -1
+tile base pind 2463 cind -1 prob -1
+tile base pind 2464 cind -1 prob -1
+tile base pind 2465 cind -1 prob -1
+tile base pind 2466 cind -1 prob -1
+tile base pind 2467 cind -1 prob -1
+tile base pind 2468 cind -1 prob -1
+tile base pind 2469 cind -1 prob -1
+tile base pind 2470 cind -1 prob -1
+tile base pind 2471 cind -1 prob -1
+tile base pind 2472 cind -1 prob -1
+tile base pind 2473 cind -1 prob -1
+tile base pind 2474 cind -1 prob -1
+tile base pind 2475 cind -1 prob -1
+tile base pind 2476 cind -1 prob -1
+tile base pind 2477 cind -1 prob -1
+tile base pind 2478 cind -1 prob -1
+tile base pind 2479 cind -1 prob -1
+tile base pind 2480 cind -1 prob -1
+tile transition sys 7 pind 2481 cind -1 prob -1
+tile transition sys 7 pind 2482 cind -1 prob -1
+tile transition sys 7 pind 2483 cind -1 prob -1
+tile transition sys 8 pind 2484 cind -1 prob -1
+tile transition sys 8 pind 2485 cind -1 prob -1
+tile transition sys 10 pind 2486 cind -1 prob -1
+tile transition sys 10 pind 2487 cind -1 prob -1
+tile transition sys 1 pind 2488 cind -1 prob -1
+tile transition sys 1 pind 2489 cind -1 prob -1
+tile transition sys 1 pind 2490 cind -1 prob -1
+tile transition sys 2 pind 2491 cind -1 prob -1
+tile transition sys 2 pind 2492 cind -1 prob -1
+tile transition sys 11 pind 2493 cind -1 prob -1
+tile transition sys 11 pind 2494 cind -1 prob -1
+tile transition sys 3 pind 2495 cind -1 prob -1
+tile transition sys 3 pind 2496 cind -1 prob -1
+tile transition sys 3 pind 2497 cind -1 prob -1
+tile transition sys 6 pind 2498 cind -1 prob -1
+tile transition sys 6 pind 2499 cind -1 prob -1
+tile transition sys 9 pind 2500 cind -1 prob -1
+tile transition sys 9 pind 2501 cind -1 prob -1
+tile transition sys 5 pind 2502 cind -1 prob -1
+tile transition sys 5 pind 2503 cind -1 prob -1
+tile transition sys 5 pind 2504 cind -1 prob -1
+tile transition sys 4 pind 2505 cind -1 prob -1
+tile transition sys 4 pind 2506 cind -1 prob -1
+tile transition sys 12 pind 2507 cind -1 prob -1
+tile transition sys 12 pind 2508 cind -1 prob -1
+tile transition sys 15 pind 2509 cind -1 prob -1
+tile transition sys 14 pind 2510 cind -1 prob -1
+
+startdef terrain RockyFloor
+transition Dirt
+system 0
+tile base pind 2511 cind -1 prob -1
+tile base pind 2512 cind -1 prob -1
+tile base pind 2513 cind -1 prob -1
+tile base pind 2514 cind -1 prob -1
+tile base pind 2515 cind -1 prob -1
+tile base pind 2516 cind -1 prob -1
+tile base pind 2517 cind -1 prob -1
+tile base pind 2518 cind -1 prob -1
+tile transition sys 3 pind 2519 cind -1 prob -1
+tile transition sys 3 pind 2520 cind -1 prob -1
+tile transition sys 4 pind 2521 cind -1 prob -1
+tile transition sys 4 pind 2522 cind -1 prob -1
+tile transition sys 12 pind 2523 cind -1 prob -1
+tile transition sys 12 pind 2524 cind -1 prob -1
+tile transition sys 7 pind 2525 cind -1 prob -1
+tile transition sys 7 pind 2526 cind -1 prob -1
+tile transition sys 6 pind 2527 cind -1 prob -1
+tile transition sys 6 pind 2528 cind -1 prob -1
+tile transition sys 9 pind 2529 cind -1 prob -1
+tile transition sys 9 pind 2530 cind -1 prob -1
+tile transition sys 5 pind 2531 cind -1 prob -1
+tile transition sys 5 pind 2532 cind -1 prob -1
+tile transition sys 8 pind 2533 cind -1 prob -1
+tile transition sys 8 pind 2534 cind -1 prob -1
+tile transition sys 10 pind 2535 cind -1 prob -1
+tile transition sys 10 pind 2536 cind -1 prob -1
+tile transition sys 1 pind 2537 cind -1 prob -1
+tile transition sys 1 pind 2538 cind -1 prob -1
+tile transition sys 2 pind 2539 cind -1 prob -1
+tile transition sys 2 pind 2540 cind -1 prob -1
+tile transition sys 11 pind 2541 cind -1 prob -1
+tile transition sys 11 pind 2542 cind -1 prob -1
+tile transition sys 15 pind 2543 cind -1 prob -1
+tile transition sys 14 pind 2544 cind -1 prob -1
+
+
+startdef terrain RockyFloorB
+transition RockyFloor
+tile base pind 3038 cind -1 prob -1
+tile base pind 3039 cind -1 prob -1
+tile base pind 3040 cind -1 prob -1
+tile base pind 3041 cind -1 prob -1
+tile base pind 3042 cind -1 prob -1
+tile base pind 3043 cind -1 prob -1
+tile base pind 3044 cind -1 prob -1
+tile base pind 3045 cind -1 prob -1
+tile base pind 3046 cind -1 prob -1
+tile base pind 3047 cind -1 prob -1
+tile base pind 3048 cind -1 prob -1
+tile base pind 3049 cind -1 prob -1
+tile transition sys 3 pind 3050 cind -1 prob -1
+tile transition sys 3 pind 3051 cind -1 prob -1
+tile transition sys 4 pind 3052 cind -1 prob -1
+tile transition sys 4 pind 3053 cind -1 prob -1
+tile transition sys 12 pind 3054 cind -1 prob -1
+tile transition sys 12 pind 3055 cind -1 prob -1
+tile transition sys 7 pind 3056 cind -1 prob -1
+tile transition sys 7 pind 3057 cind -1 prob -1
+tile transition sys 6 pind 3058 cind -1 prob -1
+tile transition sys 6 pind 3059 cind -1 prob -1
+tile transition sys 9 pind 3060 cind -1 prob -1
+tile transition sys 9 pind 3061 cind -1 prob -1
+tile transition sys 5 pind 3062 cind -1 prob -1
+tile transition sys 5 pind 3063 cind -1 prob -1
+tile transition sys 8 pind 3064 cind -1 prob -1
+tile transition sys 8 pind 3065 cind -1 prob -1
+tile transition sys 10 pind 3066 cind -1 prob -1
+tile transition sys 10 pind 3067 cind -1 prob -1
+tile transition sys 1 pind 3068 cind -1 prob -1
+tile transition sys 1 pind 3069 cind -1 prob -1
+tile transition sys 2 pind 3070 cind -1 prob -1
+tile transition sys 2 pind 3071 cind -1 prob -1
+tile transition sys 11 pind 3072 cind -1 prob -1
+tile transition sys 11 pind 3073 cind -1 prob -1
+tile transition sys 14 pind 3074 cind -1 prob -1
+tile transition sys 15 pind 3075 cind -1 prob -1
+enddef terrain
+
+startdef terrain WasteLandFloorA
+transition RockyFloor
+system 0
+tile base pind 2591 cind -1 prob -1
+tile base pind 2592 cind -1 prob -1
+tile base pind 2593 cind -1 prob -1
+tile base pind 2594 cind -1 prob -1
+tile base pind 2595 cind -1 prob -1
+tile base pind 2596 cind -1 prob -1
+tile base pind 2597 cind -1 prob -1
+tile base pind 2598 cind -1 prob -1
+tile transition sys 3 pind 2599 cind -1 prob -1
+tile transition sys 3 pind 2600 cind -1 prob -1
+tile transition sys 4 pind 2601 cind -1 prob -1
+tile transition sys 4 pind 2602 cind -1 prob -1
+tile transition sys 12 pind 2603 cind -1 prob -1
+tile transition sys 12 pind 2604 cind -1 prob -1
+tile transition sys 7 pind 2605 cind -1 prob -1
+tile transition sys 7 pind 2606 cind -1 prob -1
+tile transition sys 6 pind 2607 cind -1 prob -1
+tile transition sys 6 pind 2608 cind -1 prob -1
+tile transition sys 9 pind 2609 cind -1 prob -1
+tile transition sys 9 pind 2610 cind -1 prob -1
+tile transition sys 5 pind 2611 cind -1 prob -1
+tile transition sys 5 pind 2612 cind -1 prob -1
+tile transition sys 8 pind 2613 cind -1 prob -1
+tile transition sys 8 pind 2614 cind -1 prob -1
+tile transition sys 10 pind 2615 cind -1 prob -1
+tile transition sys 10 pind 2616 cind -1 prob -1
+tile transition sys 1 pind 2617 cind -1 prob -1
+tile transition sys 1 pind 2618 cind -1 prob -1
+tile transition sys 2 pind 2619 cind -1 prob -1
+tile transition sys 2 pind 2620 cind -1 prob -1
+tile transition sys 11 pind 2621 cind -1 prob -1
+tile transition sys 11 pind 2622 cind -1 prob -1
+tile transition sys 14 pind 2623 cind -1 prob -1
+tile transition sys 15 pind 2624 cind -1 prob -1
+enddef terrain
+
+startdef terrain WasteLandFloorC
+transition WasteLandFloorA
+system 0
+tile base pind 2667 cind -1 prob -1
+tile base pind 2668 cind -1 prob -1
+tile base pind 2669 cind -1 prob -1
+tile base pind 2670 cind -1 prob -1
+tile base pind 2671 cind -1 prob -1
+tile base pind 2672 cind -1 prob -1
+tile base pind 2673 cind -1 prob -1
+tile base pind 2674 cind -1 prob -1
+tile base pind 2675 cind -1 prob -1
+tile base pind 2676 cind -1 prob -1
+tile base pind 2677 cind -1 prob -1
+tile base pind 2678 cind -1 prob -1
+tile base pind 2679 cind -1 prob -1
+tile base pind 2680 cind -1 prob -1
+tile base pind 2681 cind -1 prob -1
+tile base pind 2682 cind -1 prob -1
+tile transition sys 3 pind 2683 cind -1 prob -1
+tile transition sys 3 pind 2684 cind -1 prob -1
+tile transition sys 4 pind 2685 cind -1 prob -1
+tile transition sys 4 pind 2686 cind -1 prob -1
+tile transition sys 12 pind 2687 cind -1 prob -1
+tile transition sys 12 pind 2688 cind -1 prob -1
+tile transition sys 7 pind 2689 cind -1 prob -1
+tile transition sys 7 pind 2690 cind -1 prob -1
+tile transition sys 6 pind 2691 cind -1 prob -1
+tile transition sys 6 pind 2692 cind -1 prob -1
+tile transition sys 9 pind 2693 cind -1 prob -1
+tile transition sys 9 pind 2694 cind -1 prob -1
+tile transition sys 5 pind 2695 cind -1 prob -1
+tile transition sys 5 pind 2696 cind -1 prob -1
+tile transition sys 8 pind 2697 cind -1 prob -1
+tile transition sys 8 pind 2698 cind -1 prob -1
+tile transition sys 10 pind 2699 cind -1 prob -1
+tile transition sys 10 pind 2700 cind -1 prob -1
+tile transition sys 1 pind 2701 cind -1 prob -1
+tile transition sys 1 pind 2702 cind -1 prob -1
+tile transition sys 2 pind 2703 cind -1 prob -1
+tile transition sys 2 pind 2704 cind -1 prob -1
+tile transition sys 11 pind 2705 cind -1 prob -1
+tile transition sys 11 pind 2706 cind -1 prob -1
+tile transition sys 14 pind 2707 cind -1 prob -1
+tile transition sys 15 pind 2708 cind -1 prob -1
+
+startdef terrain WasteLandFloorB
+transition WasteLandFloorC
+system 0
+tile base pind 2625 cind -1 prob -1
+tile base pind 2626 cind -1 prob -1
+tile base pind 2627 cind -1 prob -1
+tile base pind 2628 cind -1 prob -1
+tile base pind 2629 cind -1 prob -1
+tile base pind 2630 cind -1 prob -1
+tile base pind 2631 cind -1 prob -1
+tile base pind 2632 cind -1 prob -1
+tile base pind 2633 cind -1 prob -1
+tile base pind 2634 cind -1 prob -1
+tile base pind 2635 cind -1 prob -1
+tile base pind 2636 cind -1 prob -1
+tile base pind 2637 cind -1 prob -1
+tile base pind 2638 cind -1 prob -1
+tile base pind 2639 cind -1 prob -1
+tile base pind 2640 cind -1 prob -1
+tile transition sys 3 pind 2641 cind -1 prob -1
+tile transition sys 3 pind 2642 cind -1 prob -1
+tile transition sys 4 pind 2643 cind -1 prob -1
+tile transition sys 4 pind 2644 cind -1 prob -1
+tile transition sys 12 pind 2645 cind -1 prob -1
+tile transition sys 12 pind 2646 cind -1 prob -1
+tile transition sys 7 pind 2647 cind -1 prob -1
+tile transition sys 7 pind 2648 cind -1 prob -1
+tile transition sys 6 pind 2649 cind -1 prob -1
+tile transition sys 6 pind 2650 cind -1 prob -1
+tile transition sys 9 pind 2651 cind -1 prob -1
+tile transition sys 9 pind 2652 cind -1 prob -1
+tile transition sys 5 pind 2653 cind -1 prob -1
+tile transition sys 5 pind 2654 cind -1 prob -1
+tile transition sys 8 pind 2655 cind -1 prob -1
+tile transition sys 8 pind 2656 cind -1 prob -1
+tile transition sys 10 pind 2657 cind -1 prob -1
+tile transition sys 10 pind 2658 cind -1 prob -1
+tile transition sys 1 pind 2659 cind -1 prob -1
+tile transition sys 1 pind 2660 cind -1 prob -1
+tile transition sys 2 pind 2661 cind -1 prob -1
+tile transition sys 2 pind 2662 cind -1 prob -1
+tile transition sys 11 pind 2663 cind -1 prob -1
+tile transition sys 11 pind 2664 cind -1 prob -1
+tile transition sys 14 pind 2665 cind -1 prob -1
+tile transition sys 15 pind 2666 cind -1 prob -1
+
+startdef terrain WasteLandFloorD
+transition WasteLandFloorC
+tile base pind 3000 cind -1 prob -1
+tile base pind 3001 cind -1 prob -1
+tile base pind 3002 cind -1 prob 3
+tile base pind 3003 cind -1 prob -1
+tile base pind 3004 cind -1 prob -1
+tile base pind 3005 cind -1 prob 3
+tile base pind 3006 cind -1 prob -1
+tile base pind 3007 cind -1 prob 3
+tile base pind 3008 cind -1 prob 3
+tile base pind 3009 cind -1 prob -1
+tile base pind 3010 cind -1 prob -1
+tile base pind 3011 cind -1 prob -1
+tile transition sys 3 pind 3012 cind -1 prob -1
+tile transition sys 3 pind 3013 cind -1 prob -1
+tile transition sys 4 pind 3014 cind -1 prob -1
+tile transition sys 4 pind 3015 cind -1 prob -1
+tile transition sys 12 pind 3016 cind -1 prob -1
+tile transition sys 12 pind 3017 cind -1 prob -1
+tile transition sys 7 pind 3018 cind -1 prob -1
+tile transition sys 7 pind 3019 cind -1 prob -1
+tile transition sys 6 pind 3020 cind -1 prob -1
+tile transition sys 6 pind 3021 cind -1 prob -1
+tile transition sys 9 pind 3022 cind -1 prob -1
+tile transition sys 9 pind 3023 cind -1 prob -1
+tile transition sys 5 pind 3024 cind -1 prob -1
+tile transition sys 5 pind 3025 cind -1 prob -1
+tile transition sys 8 pind 3026 cind -1 prob -1
+tile transition sys 8 pind 3027 cind -1 prob -1
+tile transition sys 10 pind 3028 cind -1 prob -1
+tile transition sys 10 pind 3029 cind -1 prob 2
+tile transition sys 1 pind 3030 cind -1 prob -1
+tile transition sys 1 pind 3031 cind -1 prob -1
+tile transition sys 2 pind 3032 cind -1 prob -1
+tile transition sys 2 pind 3033 cind -1 prob -1
+tile transition sys 11 pind 3034 cind -1 prob -1
+tile transition sys 11 pind 3035 cind -1 prob -1
+tile transition sys 14 pind 3036 cind -1 prob -1
+tile transition sys 15 pind 3037 cind -1 prob -1
+enddef terrain
+
+
+startdef terrain DesertFloor
+transition WasteLandFloorC
+system 0
+tile base pind 2545 cind -1 prob -1
+tile base pind 2546 cind -1 prob -1
+tile base pind 2547 cind -1 prob -1
+tile base pind 2548 cind -1 prob -1
+tile base pind 2549 cind -1 prob -1
+tile base pind 2550 cind -1 prob -1
+tile base pind 2551 cind -1 prob -1
+tile base pind 2552 cind -1 prob -1
+tile base pind 2553 cind -1 prob -1
+tile base pind 2554 cind -1 prob -1
+tile base pind 2555 cind -1 prob -1
+tile base pind 2556 cind -1 prob -1
+tile base pind 2557 cind -1 prob -1
+tile base pind 2558 cind -1 prob -1
+tile base pind 2559 cind -1 prob -1
+tile base pind 2560 cind -1 prob -1
+tile base pind 2561 cind -1 prob -1
+tile base pind 2562 cind -1 prob -1
+tile base pind 2563 cind -1 prob -1
+tile base pind 2564 cind -1 prob -1
+tile transition sys 3 pind 2565 cind -1 prob -1
+tile transition sys 3 pind 2566 cind -1 prob -1
+tile transition sys 4 pind 2567 cind -1 prob -1
+tile transition sys 4 pind 2568 cind -1 prob -1
+tile transition sys 12 pind 2569 cind -1 prob -1
+tile transition sys 12 pind 2570 cind -1 prob -1
+tile transition sys 7 pind 2571 cind -1 prob -1
+tile transition sys 7 pind 2572 cind -1 prob -1
+tile transition sys 6 pind 2573 cind -1 prob -1
+tile transition sys 6 pind 2574 cind -1 prob -1
+tile transition sys 9 pind 2575 cind -1 prob -1
+tile transition sys 9 pind 2576 cind -1 prob -1
+tile transition sys 5 pind 2577 cind -1 prob -1
+tile transition sys 5 pind 2578 cind -1 prob -1
+tile transition sys 8 pind 2579 cind -1 prob -1
+tile transition sys 8 pind 2580 cind -1 prob -1
+tile transition sys 10 pind 2581 cind -1 prob -1
+tile transition sys 10 pind 2582 cind -1 prob -1
+tile transition sys 1 pind 2583 cind -1 prob -1
+tile transition sys 1 pind 2584 cind -1 prob -1
+tile transition sys 2 pind 2585 cind -1 prob -1
+tile transition sys 2 pind 2586 cind -1 prob -1
+tile transition sys 11 pind 2587 cind -1 prob -1
+tile transition sys 11 pind 2588 cind -1 prob -1
+tile transition sys 14 pind 2589 cind -1 prob -1
+tile transition sys 15 pind 2590 cind -1 prob -1
+
+
+startdef terrain DwarvenHallsA
+system 0
+tile base pind 2709 cind -1 prob -1
+tile base pind 2710 cind -1 prob -1
+tile base pind 2711 cind -1 prob -1
+tile base pind 2712 cind -1 prob -1
+tile base pind 2713 cind -1 prob -1
+tile base pind 2714 cind -1 prob -1
+tile base pind 2715 cind -1 prob -1
+tile base pind 2716 cind -1 prob -1
+tile base pind 3323 cind -1 prob 0
+tile base pind 3324 cind -1 prob 0
+tile base pind 3325 cind -1 prob 0
+tile base pind 3326 cind -1 prob 0
+tile base pind 3327 cind -1 prob 0
+tile base pind 3328 cind -1 prob 0
+tile base pind 3329 cind -1 prob 0
+tile base pind 3330 cind -1 prob 0
+tile base pind 3331 cind -1 prob 0
+tile base pind 3332 cind -1 prob 0
+tile base pind 3333 cind -1 prob 0
+tile base pind 3334 cind -1 prob 0
+tile base pind 3335 cind -1 prob 0
+tile base pind 3336 cind -1 prob 0
+tile base pind 3337 cind -1 prob 0
+tile base pind 3338 cind -1 prob 0
+tile base pind 3339 cind -1 prob 0
+tile base pind 3340 cind -1 prob 0
+tile base pind 3341 cind -1 prob 0
+tile base pind 3342 cind -1 prob 0
+
+startdef terrain DwarvenHallsB
+transition DwarvenHallsA
+system 0
+tile base pind 2717 cind -1 prob -1
+tile base pind 2718 cind -1 prob -1
+tile base pind 2719 cind -1 prob -1
+tile base pind 2720 cind -1 prob -1
+tile base pind 2721 cind -1 prob -1
+tile base pind 2722 cind -1 prob -1
+tile base pind 2723 cind -1 prob -1
+tile base pind 2724 cind -1 prob -1
+tile base pind 2725 cind -1 prob -1
+tile base pind 2726 cind -1 prob -1
+tile base pind 2727 cind -1 prob -1
+tile base pind 2728 cind -1 prob -1
+tile transition sys 3 pind 2729 cind -1 prob -1
+tile transition sys 3 pind 2730 cind -1 prob -1
+tile transition sys 10 pind 2731 cind -1 prob -1
+tile transition sys 10 pind 2732 cind -1 prob -1
+tile transition sys 8 pind 2733 cind -1 prob -1
+tile transition sys 8 pind 2734 cind -1 prob -1
+tile transition sys 7 pind 2735 cind -1 prob -1
+tile transition sys 7 pind 2736 cind -1 prob -1
+tile transition sys 11 pind 2737 cind -1 prob -1
+tile transition sys 11 pind 2738 cind -1 prob -1
+tile transition sys 2 pind 2739 cind -1 prob -1
+tile transition sys 2 pind 2740 cind -1 prob -1
+tile transition sys 5 pind 2741 cind -1 prob -1
+tile transition sys 5 pind 2742 cind -1 prob -1
+tile transition sys 9 pind 2743 cind -1 prob -1
+tile transition sys 9 pind 2744 cind -1 prob -1
+tile transition sys 6 pind 2745 cind -1 prob -1
+tile transition sys 6 pind 2746 cind -1 prob -1
+tile transition sys 1 pind 2747 cind -1 prob -1
+tile transition sys 1 pind 2748 cind -1 prob -1
+tile transition sys 12 pind 2749 cind -1 prob -1
+tile transition sys 12 pind 2750 cind -1 prob -1
+tile transition sys 4 pind 2751 cind -1 prob -1
+tile transition sys 4 pind 2752 cind -1 prob -1
+tile transition sys 15 pind 2753 cind -1 prob -1
+tile transition sys 14 pind 2754 cind -1 prob -1
+
+startdef terrain DwarvenHouseA
+system 1
+tile base pind 2755 cind -1 prob -1
+tile base pind 2756 cind -1 prob -1
+tile base pind 2757 cind -1 prob -1
+tile base pind 2758 cind -1 prob -1
+tile base pind 2759 cind -1 prob -1
+tile base pind 2760 cind -1 prob -1
+tile base pind 2761 cind -1 prob -1
+tile base pind 2762 cind -1 prob -1
+tile base pind 3343 cind -1 prob 0
+tile base pind 3344 cind -1 prob 0
+tile base pind 3345 cind -1 prob 0
+tile base pind 3346 cind -1 prob 0
+tile base pind 3347 cind -1 prob 0
+tile base pind 3348 cind -1 prob 0
+tile base pind 3349 cind -1 prob 0
+tile base pind 3350 cind -1 prob 0
+tile base pind 3351 cind -1 prob 0
+tile base pind 3352 cind -1 prob 0
+tile base pind 3353 cind -1 prob 0
+tile base pind 3354 cind -1 prob 0
+tile base pind 3355 cind -1 prob 0
+tile base pind 3356 cind -1 prob 0
+tile base pind 3357 cind -1 prob 0
+tile base pind 3358 cind -1 prob 0
+tile base pind 3359 cind -1 prob 0
+tile base pind 3360 cind -1 prob 0
+tile base pind 3361 cind -1 prob 0
+tile base pind 3362 cind -1 prob 0
+
+startdef terrain DwarvenHouseB
+system 1
+tile base pind 3315 cind -1 prob -1
+tile base pind 3316 cind -1 prob -1
+tile base pind 3317 cind -1 prob -1
+tile base pind 3318 cind -1 prob -1
+tile base pind 3319 cind -1 prob -1
+tile base pind 3320 cind -1 prob -1
+tile base pind 3321 cind -1 prob -1
+tile base pind 3322 cind -1 prob -1
+enddef terrain
+
+
+startdef terrain DwarvenHallsRiverA
+system 0
+tile base pind 2763 cind -1 prob -1
+tile base pind 2764 cind -1 prob -1
+tile base pind 2765 cind -1 prob -1
+tile base pind 2766 cind -1 prob -1
+tile base pind 2767 cind -1 prob -1
+tile base pind 2768 cind -1 prob -1
+tile base pind 2769 cind -1 prob -1
+tile base pind 2770 cind -1 prob -1
+
+startdef terrain final_dungeon_a
+system 0
+
+tile base pind 2786 cind -1 prob -1
+tile base pind 2787 cind -1 prob -1
+tile base pind 2788 cind -1 prob -1
+tile base pind 2789 cind -1 prob -1
+tile base pind 2790 cind -1 prob -1
+tile base pind 2791 cind -1 prob -1
+tile base pind 2792 cind -1 prob -1
+tile base pind 2793 cind -1 prob -1
+tile base pind 2794 cind -1 prob -1
+tile base pind 2795 cind -1 prob -1
+tile base pind 2796 cind -1 prob -1
+tile base pind 2797 cind -1 prob -1
+tile base pind 2798 cind -1 prob -1
+tile base pind 2799 cind -1 prob -1
+tile base pind 2800 cind -1 prob -1
+tile base pind 2801 cind -1 prob -1
+enddef terrain
+
+startdef terrain final_dungeon_b
+system 0
+transition final_dungeon_a
+tile base pind 2802 cind -1 prob -1
+tile base pind 2803 cind -1 prob -1
+tile base pind 2804 cind -1 prob -1
+tile base pind 2805 cind -1 prob -1
+tile base pind 2806 cind -1 prob -1
+tile base pind 2807 cind -1 prob -1
+tile base pind 2808 cind -1 prob -1
+tile base pind 2809 cind -1 prob -1
+tile base pind 2810 cind -1 prob -1
+tile base pind 2811 cind -1 prob -1
+tile base pind 2812 cind -1 prob -1
+tile base pind 2813 cind -1 prob -1
+tile base pind 2814 cind -1 prob -1
+tile base pind 2815 cind -1 prob -1
+tile base pind 2816 cind -1 prob -1
+tile base pind 2817 cind -1 prob -1
+tile transition sys 7 pind 2818 cind -1 prob -1
+tile transition sys 7 pind 2819 cind -1 prob -1
+tile transition sys 7 pind 2820 cind -1 prob -1
+tile transition sys 8 pind 2821 cind -1 prob -1
+tile transition sys 8 pind 2822 cind -1 prob -1
+tile transition sys 10 pind 2823 cind -1 prob -1
+tile transition sys 10 pind 2824 cind -1 prob -1
+tile transition sys 1 pind 2825 cind -1 prob -1
+tile transition sys 1 pind 2826 cind -1 prob -1
+tile transition sys 1 pind 2827 cind -1 prob -1
+tile transition sys 2 pind 2828 cind -1 prob -1
+tile transition sys 2 pind 2829 cind -1 prob -1
+tile transition sys 11 pind 2830 cind -1 prob -1
+tile transition sys 11 pind 2831 cind -1 prob -1
+tile transition sys 3 pind 2832 cind -1 prob -1
+tile transition sys 3 pind 2833 cind -1 prob -1
+tile transition sys 3 pind 2834 cind -1 prob -1
+tile transition sys 6 pind 2835 cind -1 prob -1
+tile transition sys 6 pind 2836 cind -1 prob -1
+tile transition sys 9 pind 2837 cind -1 prob -1
+tile transition sys 9 pind 2838 cind -1 prob -1
+tile transition sys 5 pind 2839 cind -1 prob -1
+tile transition sys 5 pind 2840 cind -1 prob -1
+tile transition sys 5 pind 2841 cind -1 prob -1
+tile transition sys 4 pind 2842 cind -1 prob -1
+tile transition sys 4 pind 2843 cind -1 prob -1
+tile transition sys 12 pind 2844 cind -1 prob -1
+tile transition sys 12 pind 2845 cind -1 prob -1
+tile transition sys 15 pind 2846 cind -1 prob -1
+tile transition sys 14 pind 2847 cind -1 prob -1
+enddef terrain
+
+startdef terrain swamp_water
+system 0
+
+transition water_floor
+
+tile base pind 2848 cind -1 prob -1
+tile base pind 2849 cind -1 prob -1
+tile base pind 2850 cind -1 prob -1
+tile base pind 2851 cind -1 prob -1
+tile base pind 2852 cind -1 prob -1
+tile base pind 2853 cind -1 prob -1
+tile base pind 2854 cind -1 prob -1
+tile base pind 2855 cind -1 prob -1
+tile base pind 2856 cind -1 prob -1
+tile base pind 2857 cind -1 prob -1
+tile base pind 2858 cind -1 prob -1
+tile base pind 2859 cind -1 prob -1
+tile base pind 2860 cind -1 prob -1
+tile base pind 2861 cind -1 prob -1
+tile base pind 2862 cind -1 prob -1
+tile base pind 2863 cind -1 prob -1
+tile transition sys 7 pind 2864 cind -1 prob -1
+tile transition sys 7 pind 2865 cind -1 prob -1
+tile transition sys 7 pind 2866 cind -1 prob -1
+tile transition sys 8 pind 2867 cind -1 prob -1
+tile transition sys 8 pind 2868 cind -1 prob -1
+tile transition sys 10 pind 2869 cind -1 prob -1
+tile transition sys 10 pind 2870 cind -1 prob -1
+tile transition sys 1 pind 2871 cind -1 prob -1
+tile transition sys 1 pind 2872 cind -1 prob -1
+tile transition sys 1 pind 2873 cind -1 prob -1
+tile transition sys 2 pind 2874 cind -1 prob -1
+tile transition sys 2 pind 2875 cind -1 prob -1
+tile transition sys 11 pind 2876 cind -1 prob -1
+tile transition sys 11 pind 2877 cind -1 prob -1
+tile transition sys 3 pind 2878 cind -1 prob -1
+tile transition sys 3 pind 2879 cind -1 prob -1
+tile transition sys 3 pind 2880 cind -1 prob -1
+tile transition sys 6 pind 2881 cind -1 prob -1
+tile transition sys 6 pind 2882 cind -1 prob -1
+tile transition sys 9 pind 2883 cind -1 prob -1
+tile transition sys 9 pind 2884 cind -1 prob -1
+tile transition sys 5 pind 2885 cind -1 prob -1
+tile transition sys 5 pind 2886 cind -1 prob -1
+tile transition sys 5 pind 2887 cind -1 prob -1
+tile transition sys 4 pind 2888 cind -1 prob -1
+tile transition sys 4 pind 2889 cind -1 prob -1
+tile transition sys 12 pind 2890 cind -1 prob -1
+tile transition sys 12 pind 2891 cind -1 prob -1
+tile transition sys 15 pind 2892 cind -1 prob -1
+tile transition sys 14 pind 2893 cind -1 prob -1
+enddef terrain
+
+startdef terrain Swamp_deep_water
+system 0
+
+transition swamp_water
+
+tile base pind 2894 cind -1 prob -1
+tile base pind 2895 cind -1 prob -1
+tile base pind 2896 cind -1 prob -1
+tile base pind 2897 cind -1 prob -1
+tile base pind 2898 cind -1 prob -1
+tile base pind 2899 cind -1 prob -1
+tile base pind 2900 cind -1 prob -1
+tile base pind 2901 cind -1 prob -1
+tile base pind 2902 cind -1 prob -1
+tile base pind 2903 cind -1 prob -1
+tile base pind 2904 cind -1 prob -1
+tile base pind 2905 cind -1 prob -1
+tile base pind 2906 cind -1 prob -1
+tile base pind 2907 cind -1 prob -1
+tile base pind 2908 cind -1 prob -1
+tile base pind 2909 cind -1 prob -1
+tile transition sys 7 pind 2910 cind -1 prob -1
+tile transition sys 7 pind 2911 cind -1 prob -1
+tile transition sys 7 pind 2912 cind -1 prob -1
+tile transition sys 8 pind 2913 cind -1 prob -1
+tile transition sys 8 pind 2914 cind -1 prob -1
+tile transition sys 10 pind 2915 cind -1 prob -1
+tile transition sys 10 pind 2916 cind -1 prob -1
+tile transition sys 1 pind 2917 cind -1 prob -1
+tile transition sys 1 pind 2918 cind -1 prob -1
+tile transition sys 1 pind 2919 cind -1 prob -1
+tile transition sys 2 pind 2920 cind -1 prob -1
+tile transition sys 2 pind 2921 cind -1 prob -1
+tile transition sys 11 pind 2922 cind -1 prob -1
+tile transition sys 11 pind 2923 cind -1 prob -1
+tile transition sys 3 pind 2924 cind -1 prob -1
+tile transition sys 3 pind 2925 cind -1 prob -1
+tile transition sys 3 pind 2926 cind -1 prob -1
+tile transition sys 6 pind 2927 cind -1 prob -1
+tile transition sys 6 pind 2928 cind -1 prob -1
+tile transition sys 9 pind 2929 cind -1 prob -1
+tile transition sys 9 pind 2930 cind -1 prob -1
+tile transition sys 5 pind 2931 cind -1 prob -1
+tile transition sys 5 pind 2932 cind -1 prob -1
+tile transition sys 5 pind 2933 cind -1 prob -1
+tile transition sys 4 pind 2934 cind -1 prob -1
+tile transition sys 4 pind 2935 cind -1 prob -1
+tile transition sys 12 pind 2936 cind -1 prob -1
+tile transition sys 12 pind 2937 cind -1 prob -1
+tile transition sys 15 pind 2938 cind -1 prob -1
+tile transition sys 14 pind 2939 cind -1 prob -1
+enddef terrain
+
+startdef terrain Divine_Order
+system 0
+tile base pind 2940 cind -1 prob -1
+tile base pind 2941 cind -1 prob -1
+tile base pind 2942 cind -1 prob -1
+tile base pind 2943 cind -1 prob -1
+tile base pind 2944 cind -1 prob -1
+tile base pind 2945 cind -1 prob -1
+tile base pind 2946 cind -1 prob -1
+tile base pind 2947 cind -1 prob -1
+tile base pind 2948 cind -1 prob -1
+tile base pind 2949 cind -1 prob -1
+tile base pind 2950 cind -1 prob -1
+tile base pind 2951 cind -1 prob -1
+enddef terrain
+
+startdef terrain Sand_floor_b
+system 0
+transition andre_sand
+tile base pind 2952 cind -1 prob -1
+tile base pind 2953 cind -1 prob -1
+tile base pind 2954 cind -1 prob -1
+tile base pind 2955 cind -1 prob -1
+tile base pind 2956 cind -1 prob -1
+tile base pind 2957 cind -1 prob -1
+tile base pind 2958 cind -1 prob -1
+tile base pind 2959 cind -1 prob -1
+tile base pind 2960 cind -1 prob -1
+tile base pind 2961 cind -1 prob -1
+tile base pind 2962 cind -1 prob -1
+tile base pind 2963 cind -1 prob -1
+tile base pind 2964 cind -1 prob -1
+tile base pind 2965 cind -1 prob -1
+tile base pind 2966 cind -1 prob -1
+tile base pind 2967 cind -1 prob -1
+tile base pind 2968 cind -1 prob -1
+tile base pind 2969 cind -1 prob -1
+tile base pind 2970 cind -1 prob -1
+tile base pind 2971 cind -1 prob -1
+tile base pind 2972 cind -1 prob -1
+tile base pind 2973 cind -1 prob -1
+tile transition sys 3 pind 2974 cind -1 prob -1
+tile transition sys 3 pind 2975 cind -1 prob -1
+tile transition sys 4 pind 2976 cind -1 prob -1
+tile transition sys 4 pind 2977 cind -1 prob -1
+tile transition sys 12 pind 2978 cind -1 prob -1
+tile transition sys 12 pind 2979 cind -1 prob -1
+tile transition sys 7 pind 2980 cind -1 prob -1
+tile transition sys 7 pind 2981 cind -1 prob -1
+tile transition sys 6 pind 2982 cind -1 prob -1
+tile transition sys 6 pind 2983 cind -1 prob -1
+tile transition sys 9 pind 2984 cind -1 prob -1
+tile transition sys 9 pind 2985 cind -1 prob -1
+tile transition sys 5 pind 2986 cind -1 prob -1
+tile transition sys 5 pind 2987 cind -1 prob -1
+tile transition sys 8 pind 2988 cind -1 prob -1
+tile transition sys 8 pind 2989 cind -1 prob -1
+tile transition sys 10 pind 2990 cind -1 prob -1
+tile transition sys 10 pind 2991 cind -1 prob -1
+tile transition sys 1 pind 2992 cind -1 prob -1
+tile transition sys 1 pind 2993 cind -1 prob -1
+tile transition sys 2 pind 2994 cind -1 prob -1
+tile transition sys 2 pind 2995 cind -1 prob -1
+tile transition sys 11 pind 2996 cind -1 prob -1
+tile transition sys 11 pind 2997 cind -1 prob -1
+tile transition sys 14 pind 2998 cind -1 prob -1
+tile transition sys 15 pind 2999 cind -1 prob -1
+enddef terrain
+
+startdef terrain Citadel_Floor_A
+system 0
+tile base pind 4526 cind -1 prob -1
+tile base pind 4527 cind -1 prob -1
+tile base pind 4528 cind -1 prob -1
+tile base pind 4529 cind -1 prob -1
+tile base pind 4530 cind -1 prob -1
+tile base pind 4531 cind -1 prob -1
+tile base pind 4532 cind -1 prob -1
+tile base pind 4533 cind -1 prob -1
+tile base pind 4534 cind -1 prob -1
+tile base pind 4535 cind -1 prob -1
+tile base pind 4536 cind -1 prob -1
+tile base pind 4537 cind -1 prob -1
+tile base pind 4538 cind -1 prob -1
+tile base pind 4539 cind -1 prob -1
+tile base pind 4540 cind -1 prob -1
+tile base pind 4541 cind -1 prob -1
+tile base pind 4542 cind -1 prob -1
+tile base pind 4543 cind -1 prob -1
+tile base pind 4544 cind -1 prob -1
+tile base pind 4545 cind -1 prob -1
+tile base pind 4546 cind -1 prob -1
+tile base pind 4547 cind -1 prob -1
+tile base pind 4548 cind -1 prob -1
+tile base pind 4549 cind -1 prob -1
+enddef terrain
+
+startdef terrain Citadel_Floor_B
+system 0
+tile base pind 4550 cind -1 prob -1
+tile base pind 4551 cind -1 prob -1
+tile base pind 4552 cind -1 prob -1
+tile base pind 4553 cind -1 prob -1
+tile base pind 4554 cind -1 prob -1
+tile base pind 4555 cind -1 prob -1
+tile base pind 4556 cind -1 prob -1
+tile base pind 4557 cind -1 prob -1
+tile base pind 4558 cind -1 prob -1
+tile base pind 4559 cind -1 prob -1
+tile base pind 4560 cind -1 prob -1
+tile base pind 4561 cind -1 prob -1
+tile base pind 4562 cind -1 prob -1
+tile base pind 4563 cind -1 prob -1
+tile base pind 4564 cind -1 prob -1
+tile base pind 4565 cind -1 prob -1
+tile base pind 4566 cind -1 prob -1
+tile base pind 4567 cind -1 prob -1
+tile base pind 4568 cind -1 prob -1
+tile base pind 4569 cind -1 prob -1
+tile base pind 4570 cind -1 prob -1
+tile base pind 4571 cind -1 prob -1
+tile base pind 4572 cind -1 prob -1
+tile base pind 4573 cind -1 prob -1
+enddef terrain
+
+startdef terrain Rocks_Gray_A
+system 0
+tile base pind 6401 cind -1 prob -1
+tile base pind 6402 cind -1 prob -1
+tile base pind 6403 cind -1 prob -1
+tile base pind 6404 cind -1 prob -1
+tile base pind 6405 cind -1 prob -1
+tile base pind 6406 cind -1 prob -1
+tile base pind 6407 cind -1 prob -1
+tile base pind 6408 cind -1 prob -1
+tile base pind 6409 cind -1 prob -1
+tile base pind 6410 cind -1 prob -1
+tile base pind 6411 cind -1 prob -1
+tile base pind 6412 cind -1 prob -1
+tile base pind 6413 cind -1 prob -1
+tile base pind 6414 cind -1 prob -1
+tile base pind 6415 cind -1 prob -1
+tile base pind 6416 cind -1 prob -1
+tile base pind 6417 cind -1 prob -1
+tile base pind 6418 cind -1 prob -1
+tile base pind 6419 cind -1 prob -1
+tile base pind 6420 cind -1 prob -1
+enddef terrain
+
+startdef terrain Rocks_Brown_A
+system 0
+transition Rocks_Gray_A
+tile base pind 6349 cind -1 prob -1
+tile base pind 6350 cind -1 prob -1
+tile base pind 6351 cind -1 prob -1
+tile base pind 6352 cind -1 prob -1
+tile base pind 6353 cind -1 prob -1
+tile base pind 6354 cind -1 prob -1
+tile base pind 6355 cind -1 prob -1
+tile base pind 6356 cind -1 prob -1
+tile base pind 6357 cind -1 prob -1
+tile base pind 6358 cind -1 prob -1
+tile base pind 6359 cind -1 prob -1
+tile base pind 6360 cind -1 prob -1
+tile base pind 6361 cind -1 prob -1
+tile base pind 6362 cind -1 prob -1
+tile base pind 6363 cind -1 prob -1
+tile base pind 6364 cind -1 prob -1
+tile base pind 6365 cind -1 prob -1
+tile base pind 6366 cind -1 prob -1
+tile base pind 6367 cind -1 prob -1
+tile base pind 6368 cind -1 prob -1
+tile base pind 6369 cind -1 prob -1
+tile base pind 6370 cind -1 prob -1
+tile base pind 6371 cind -1 prob -1
+tile base pind 6372 cind -1 prob -1
+tile transition sys 1 pind 6373 cind -1 prob -1
+tile transition sys 1 pind 6374 cind -1 prob -1
+tile transition sys 1 pind 6375 cind -1 prob -1
+tile transition sys 12 pind 6376 cind -1 prob -1
+tile transition sys 12 pind 6377 cind -1 prob -1
+tile transition sys 8 pind 6378 cind -1 prob -1
+tile transition sys 8 pind 6379 cind -1 prob -1
+tile transition sys 5 pind 6380 cind -1 prob -1
+tile transition sys 5 pind 6381 cind -1 prob -1
+tile transition sys 5 pind 6382 cind -1 prob -1
+tile transition sys 10 pind 6383 cind -1 prob -1
+tile transition sys 10 pind 6384 cind -1 prob -1
+tile transition sys 6 pind 6385 cind -1 prob -1
+tile transition sys 6 pind 6386 cind -1 prob -1
+tile transition sys 7 pind 6387 cind -1 prob -1
+tile transition sys 7 pind 6388 cind -1 prob -1
+tile transition sys 7 pind 6389 cind -1 prob -1
+tile transition sys 11 pind 6390 cind -1 prob -1
+tile transition sys 11 pind 6391 cind -1 prob -1
+tile transition sys 4 pind 6392 cind -1 prob -1
+tile transition sys 4 pind 6393 cind -1 prob -1
+tile transition sys 3 pind 6394 cind -1 prob -1
+tile transition sys 3 pind 6395 cind -1 prob -1
+tile transition sys 3 pind 6396 cind -1 prob -1
+tile transition sys 9 pind 6397 cind -1 prob -1
+tile transition sys 9 pind 6398 cind -1 prob -1
+tile transition sys 2 pind 6399 cind -1 prob -1
+tile transition sys 2 pind 6400 cind -1 prob -1
+enddef terrain
+
+startdef terrain Sand_Red_A
+system 0
+transition Rocks_Brown_A
+tile base pind 6421 cind -1 prob -1
+tile base pind 6422 cind -1 prob -1
+tile base pind 6423 cind -1 prob -1
+tile base pind 6424 cind -1 prob -1
+tile base pind 6425 cind -1 prob -1
+tile base pind 6426 cind -1 prob -1
+tile base pind 6427 cind -1 prob -1
+tile base pind 6428 cind -1 prob -1
+tile base pind 6429 cind -1 prob -1
+tile base pind 6430 cind -1 prob -1
+tile base pind 6431 cind -1 prob -1
+tile base pind 6432 cind -1 prob -1
+tile base pind 6433 cind -1 prob -1
+tile base pind 6434 cind -1 prob -1
+tile base pind 6435 cind -1 prob -1
+tile base pind 6436 cind -1 prob -1
+tile transition sys 1 pind 6437 cind -1 prob -1
+tile transition sys 1 pind 6438 cind -1 prob -1
+tile transition sys 1 pind 6439 cind -1 prob -1
+tile transition sys 12 pind 6440 cind -1 prob -1
+tile transition sys 12 pind 6441 cind -1 prob -1
+tile transition sys 8 pind 6442 cind -1 prob -1
+tile transition sys 8 pind 6443 cind -1 prob -1
+tile transition sys 5 pind 6444 cind -1 prob -1
+tile transition sys 5 pind 6445 cind -1 prob -1
+tile transition sys 5 pind 6446 cind -1 prob -1
+tile transition sys 10 pind 6447 cind -1 prob -1
+tile transition sys 10 pind 6448 cind -1 prob -1
+tile transition sys 6 pind 6449 cind -1 prob -1
+tile transition sys 6 pind 6450 cind -1 prob -1
+tile transition sys 7 pind 6451 cind -1 prob -1
+tile transition sys 7 pind 6452 cind -1 prob -1
+tile transition sys 7 pind 6453 cind -1 prob -1
+tile transition sys 11 pind 6454 cind -1 prob -1
+tile transition sys 11 pind 6455 cind -1 prob -1
+tile transition sys 4 pind 6456 cind -1 prob -1
+tile transition sys 4 pind 6457 cind -1 prob -1
+tile transition sys 3 pind 6458 cind -1 prob -1
+tile transition sys 3 pind 6459 cind -1 prob -1
+tile transition sys 3 pind 6460 cind -1 prob -1
+tile transition sys 9 pind 6461 cind -1 prob -1
+tile transition sys 9 pind 6462 cind -1 prob -1
+tile transition sys 2 pind 6463 cind -1 prob -1
+tile transition sys 2 pind 6464 cind -1 prob -1
+enddef terrain
+
+startdef terrain Ash_B
+system 0
+transition Rocks_Gray_A
+tile base pind 6065 cind -1 prob -1
+tile base pind 6066 cind -1 prob -1
+tile base pind 6067 cind -1 prob -1
+tile base pind 6068 cind -1 prob -1
+tile base pind 6069 cind -1 prob -1
+tile base pind 6070 cind -1 prob -1
+tile base pind 6071 cind -1 prob -1
+tile base pind 6072 cind -1 prob -1
+tile base pind 6073 cind -1 prob -1
+tile base pind 6074 cind -1 prob -1
+tile base pind 6075 cind -1 prob -1
+tile base pind 6076 cind -1 prob -1
+tile base pind 6077 cind -1 prob -1
+tile base pind 6078 cind -1 prob -1
+tile base pind 6079 cind -1 prob -1
+tile base pind 6080 cind -1 prob -1
+tile transition sys 1 pind 6081 cind -1 prob -1
+tile transition sys 1 pind 6082 cind -1 prob -1
+tile transition sys 1 pind 6083 cind -1 prob -1
+tile transition sys 12 pind 6084 cind -1 prob -1
+tile transition sys 12 pind 6085 cind -1 prob -1
+tile transition sys 8 pind 6086 cind -1 prob -1
+tile transition sys 8 pind 6087 cind -1 prob -1
+tile transition sys 5 pind 6088 cind -1 prob -1
+tile transition sys 5 pind 6089 cind -1 prob -1
+tile transition sys 5 pind 6090 cind -1 prob -1
+tile transition sys 10 pind 6091 cind -1 prob -1
+tile transition sys 10 pind 6092 cind -1 prob -1
+tile transition sys 6 pind 6093 cind -1 prob -1
+tile transition sys 6 pind 6094 cind -1 prob -1
+tile transition sys 7 pind 6095 cind -1 prob -1
+tile transition sys 7 pind 6096 cind -1 prob -1
+tile transition sys 7 pind 6097 cind -1 prob -1
+tile transition sys 11 pind 6098 cind -1 prob -1
+tile transition sys 11 pind 6099 cind -1 prob -1
+tile transition sys 4 pind 6100 cind -1 prob -1
+tile transition sys 4 pind 6101 cind -1 prob -1
+tile transition sys 3 pind 6102 cind -1 prob -1
+tile transition sys 3 pind 6103 cind -1 prob -1
+tile transition sys 3 pind 6104 cind -1 prob -1
+tile transition sys 9 pind 6105 cind -1 prob -1
+tile transition sys 9 pind 6106 cind -1 prob -1
+tile transition sys 2 pind 6107 cind -1 prob -1
+tile transition sys 2 pind 6108 cind -1 prob -1
+enddef terrain
+
+startdef terrain Ash_A
+system 0
+transition Ash_B
+tile base pind 6017 cind -1 prob -1
+tile base pind 6018 cind -1 prob -1
+tile base pind 6019 cind -1 prob -1
+tile base pind 6020 cind -1 prob -1
+tile base pind 6021 cind -1 prob -1
+tile base pind 6022 cind -1 prob -1
+tile base pind 6023 cind -1 prob -1
+tile base pind 6024 cind -1 prob -1
+tile base pind 6025 cind -1 prob -1
+tile base pind 6026 cind -1 prob -1
+tile base pind 6027 cind -1 prob -1
+tile base pind 6028 cind -1 prob -1
+tile base pind 6029 cind -1 prob -1
+tile base pind 6030 cind -1 prob -1
+tile base pind 6031 cind -1 prob -1
+tile base pind 6032 cind -1 prob -1
+tile base pind 6033 cind -1 prob -1
+tile base pind 6034 cind -1 prob -1
+tile base pind 6035 cind -1 prob -1
+tile base pind 6036 cind -1 prob -1
+tile transition sys 1 pind 6037 cind -1 prob -1
+tile transition sys 1 pind 6038 cind -1 prob -1
+tile transition sys 1 pind 6039 cind -1 prob -1
+tile transition sys 12 pind 6040 cind -1 prob -1
+tile transition sys 12 pind 6041 cind -1 prob -1
+tile transition sys 8 pind 6042 cind -1 prob -1
+tile transition sys 8 pind 6043 cind -1 prob -1
+tile transition sys 5 pind 6044 cind -1 prob -1
+tile transition sys 5 pind 6045 cind -1 prob -1
+tile transition sys 5 pind 6046 cind -1 prob -1
+tile transition sys 10 pind 6047 cind -1 prob -1
+tile transition sys 10 pind 6048 cind -1 prob -1
+tile transition sys 6 pind 6049 cind -1 prob -1
+tile transition sys 6 pind 6050 cind -1 prob -1
+tile transition sys 7 pind 6051 cind -1 prob -1
+tile transition sys 7 pind 6052 cind -1 prob -1
+tile transition sys 7 pind 6053 cind -1 prob -1
+tile transition sys 11 pind 6054 cind -1 prob -1
+tile transition sys 11 pind 6055 cind -1 prob -1
+tile transition sys 4 pind 6056 cind -1 prob -1
+tile transition sys 4 pind 6057 cind -1 prob -1
+tile transition sys 3 pind 6058 cind -1 prob -1
+tile transition sys 3 pind 6059 cind -1 prob -1
+tile transition sys 3 pind 6060 cind -1 prob -1
+tile transition sys 9 pind 6061 cind -1 prob -1
+tile transition sys 9 pind 6062 cind -1 prob -1
+tile transition sys 2 pind 6063 cind -1 prob -1
+tile transition sys 2 pind 6064 cind -1 prob -1
+enddef terrain
+
+startdef terrain Ash_C
+system 0
+transition Rocks_Gray_A
+tile base pind 6109 cind -1 prob -1
+tile base pind 6110 cind -1 prob -1
+tile base pind 6111 cind -1 prob -1
+tile base pind 6112 cind -1 prob -1
+tile base pind 6113 cind -1 prob -1
+tile base pind 6114 cind -1 prob -1
+tile base pind 6115 cind -1 prob -1
+tile base pind 6116 cind -1 prob -1
+tile base pind 6117 cind -1 prob -1
+tile base pind 6118 cind -1 prob -1
+tile base pind 6119 cind -1 prob -1
+tile base pind 6120 cind -1 prob -1
+tile base pind 6121 cind -1 prob -1
+tile base pind 6122 cind -1 prob -1
+tile base pind 6123 cind -1 prob -1
+tile base pind 6124 cind -1 prob -1
+tile base pind 6125 cind -1 prob -1
+tile base pind 6126 cind -1 prob -1
+tile base pind 6127 cind -1 prob -1
+tile base pind 6128 cind -1 prob -1
+tile transition sys 1 pind 6129 cind -1 prob -1
+tile transition sys 1 pind 6130 cind -1 prob -1
+tile transition sys 1 pind 6131 cind -1 prob -1
+tile transition sys 12 pind 6132 cind -1 prob -1
+tile transition sys 12 pind 6133 cind -1 prob -1
+tile transition sys 8 pind 6134 cind -1 prob -1
+tile transition sys 8 pind 6135 cind -1 prob -1
+tile transition sys 5 pind 6136 cind -1 prob -1
+tile transition sys 5 pind 6137 cind -1 prob -1
+tile transition sys 5 pind 6138 cind -1 prob -1
+tile transition sys 10 pind 6139 cind -1 prob -1
+tile transition sys 10 pind 6140 cind -1 prob -1
+tile transition sys 6 pind 6141 cind -1 prob -1
+tile transition sys 6 pind 6142 cind -1 prob -1
+tile transition sys 7 pind 6143 cind -1 prob -1
+tile transition sys 7 pind 6144 cind -1 prob -1
+tile transition sys 7 pind 6145 cind -1 prob -1
+tile transition sys 11 pind 6146 cind -1 prob -1
+tile transition sys 11 pind 6147 cind -1 prob -1
+tile transition sys 4 pind 6148 cind -1 prob -1
+tile transition sys 4 pind 6149 cind -1 prob -1
+tile transition sys 3 pind 6150 cind -1 prob -1
+tile transition sys 3 pind 6151 cind -1 prob -1
+tile transition sys 3 pind 6152 cind -1 prob -1
+tile transition sys 9 pind 6153 cind -1 prob -1
+tile transition sys 9 pind 6154 cind -1 prob -1
+tile transition sys 2 pind 6155 cind -1 prob -1
+tile transition sys 2 pind 6156 cind -1 prob -1
+enddef terrain
+
+startdef terrain FarmFloor_A
+system 0
+transition Sand_Red_A
+tile base pind 6157 cind -1 prob -1
+tile base pind 6158 cind -1 prob -1
+tile base pind 6159 cind -1 prob -1
+tile base pind 6160 cind -1 prob -1
+tile base pind 6161 cind -1 prob -1
+tile base pind 6162 cind -1 prob -1
+tile base pind 6163 cind -1 prob -1
+tile base pind 6164 cind -1 prob -1
+tile base pind 6165 cind -1 prob -1
+tile base pind 6166 cind -1 prob -1
+tile base pind 6167 cind -1 prob -1
+tile base pind 6168 cind -1 prob -1
+tile base pind 6169 cind -1 prob -1
+tile base pind 6170 cind -1 prob -1
+tile base pind 6171 cind -1 prob -1
+tile base pind 6172 cind -1 prob -1
+tile transition sys 1 pind 6173 cind -1 prob -1
+tile transition sys 1 pind 6174 cind -1 prob -1
+tile transition sys 1 pind 6175 cind -1 prob -1
+tile transition sys 12 pind 6176 cind -1 prob -1
+tile transition sys 12 pind 6177 cind -1 prob -1
+tile transition sys 8 pind 6178 cind -1 prob -1
+tile transition sys 8 pind 6179 cind -1 prob -1
+tile transition sys 5 pind 6180 cind -1 prob -1
+tile transition sys 5 pind 6181 cind -1 prob -1
+tile transition sys 5 pind 6182 cind -1 prob -1
+tile transition sys 10 pind 6183 cind -1 prob -1
+tile transition sys 10 pind 6184 cind -1 prob -1
+tile transition sys 6 pind 6185 cind -1 prob -1
+tile transition sys 6 pind 6186 cind -1 prob -1
+tile transition sys 7 pind 6187 cind -1 prob -1
+tile transition sys 7 pind 6188 cind -1 prob -1
+tile transition sys 7 pind 6189 cind -1 prob -1
+tile transition sys 11 pind 6190 cind -1 prob -1
+tile transition sys 11 pind 6191 cind -1 prob -1
+tile transition sys 4 pind 6192 cind -1 prob -1
+tile transition sys 4 pind 6193 cind -1 prob -1
+tile transition sys 3 pind 6194 cind -1 prob -1
+tile transition sys 3 pind 6195 cind -1 prob -1
+tile transition sys 3 pind 6196 cind -1 prob -1
+tile transition sys 9 pind 6197 cind -1 prob -1
+tile transition sys 9 pind 6198 cind -1 prob -1
+tile transition sys 2 pind 6199 cind -1 prob -1
+tile transition sys 2 pind 6200 cind -1 prob -1
+enddef terrain
+
+startdef terrain Lava_A
+system 0
+transition Rocks_Gray_A
+tile base pind 6201 cind -1 prob -1
+tile base pind 6202 cind -1 prob -1
+tile base pind 6203 cind -1 prob -1
+tile base pind 6204 cind -1 prob -1
+tile base pind 6205 cind -1 prob -1
+tile base pind 6206 cind -1 prob -1
+tile base pind 6207 cind -1 prob -1
+tile base pind 6208 cind -1 prob -1
+tile base pind 6209 cind -1 prob -1
+tile base pind 6210 cind -1 prob -1
+tile base pind 6211 cind -1 prob -1
+tile base pind 6212 cind -1 prob -1
+tile base pind 6213 cind -1 prob -1
+tile base pind 6214 cind -1 prob -1
+tile base pind 6215 cind -1 prob -1
+tile base pind 6216 cind -1 prob -1
+tile transition sys 1 pind 6217 cind -1 prob -1
+tile transition sys 1 pind 6218 cind -1 prob -1
+tile transition sys 1 pind 6219 cind -1 prob -1
+tile transition sys 12 pind 6220 cind -1 prob -1
+tile transition sys 12 pind 6221 cind -1 prob -1
+tile transition sys 8 pind 6222 cind -1 prob -1
+tile transition sys 8 pind 6223 cind -1 prob -1
+tile transition sys 5 pind 6224 cind -1 prob -1
+tile transition sys 5 pind 6225 cind -1 prob -1
+tile transition sys 5 pind 6226 cind -1 prob -1
+tile transition sys 10 pind 6227 cind -1 prob -1
+tile transition sys 10 pind 6228 cind -1 prob -1
+tile transition sys 6 pind 6229 cind -1 prob -1
+tile transition sys 6 pind 6230 cind -1 prob -1
+tile transition sys 7 pind 6231 cind -1 prob -1
+tile transition sys 7 pind 6232 cind -1 prob -1
+tile transition sys 7 pind 6233 cind -1 prob -1
+tile transition sys 11 pind 6234 cind -1 prob -1
+tile transition sys 11 pind 6235 cind -1 prob -1
+tile transition sys 4 pind 6236 cind -1 prob -1
+tile transition sys 4 pind 6237 cind -1 prob -1
+tile transition sys 3 pind 6238 cind -1 prob -1
+tile transition sys 3 pind 6239 cind -1 prob -1
+tile transition sys 3 pind 6240 cind -1 prob -1
+tile transition sys 9 pind 6241 cind -1 prob -1
+tile transition sys 9 pind 6242 cind -1 prob -1
+tile transition sys 2 pind 6243 cind -1 prob -1
+tile transition sys 2 pind 6244 cind -1 prob -1
+enddef terrain
+
+startdef terrain Lava_B
+transition Rocks_Gray_A
+tile base pind 8286 cind -1 prob -1
+tile base pind 8287 cind -1 prob -1
+tile base pind 8288 cind -1 prob -1
+tile base pind 8289 cind -1 prob -1
+tile base pind 8290 cind -1 prob -1
+tile base pind 8291 cind -1 prob -1
+tile base pind 8292 cind -1 prob -1
+tile base pind 8293 cind -1 prob -1
+tile base pind 8294 cind -1 prob -1
+tile base pind 8295 cind -1 prob -1
+tile base pind 8296 cind -1 prob -1
+tile base pind 8297 cind -1 prob -1
+tile base pind 8298 cind -1 prob -1
+tile base pind 8299 cind -1 prob -1
+tile base pind 8300 cind -1 prob -1
+tile base pind 8301 cind -1 prob -1
+tile base pind 8302 cind -1 prob -1
+tile base pind 8303 cind -1 prob -1
+tile base pind 8304 cind -1 prob -1
+tile base pind 8305 cind -1 prob -1
+tile base pind 8306 cind -1 prob -1
+tile base pind 8307 cind -1 prob -1
+tile base pind 8308 cind -1 prob -1
+tile base pind 8309 cind -1 prob -1
+tile base pind 8310 cind -1 prob -1
+tile base pind 8311 cind -1 prob -1
+tile base pind 8312 cind -1 prob -1
+tile base pind 8313 cind -1 prob -1
+tile transition sys 1 pind 8314 cind -1 prob -1
+tile transition sys 1 pind 8315 cind -1 prob -1
+tile transition sys 1 pind 8316 cind -1 prob -1
+tile transition sys 12 pind 8317 cind -1 prob -1
+tile transition sys 12 pind 8318 cind -1 prob -1
+tile transition sys 8 pind 8319 cind -1 prob -1
+tile transition sys 8 pind 8320 cind -1 prob -1
+tile transition sys 5 pind 8321 cind -1 prob -1
+tile transition sys 5 pind 8322 cind -1 prob -1
+tile transition sys 5 pind 8323 cind -1 prob -1
+tile transition sys 10 pind 8324 cind -1 prob -1
+tile transition sys 10 pind 8325 cind -1 prob -1
+tile transition sys 6 pind 8326 cind -1 prob -1
+tile transition sys 6 pind 8327 cind -1 prob -1
+tile transition sys 7 pind 8328 cind -1 prob -1
+tile transition sys 7 pind 8329 cind -1 prob -1
+tile transition sys 7 pind 8330 cind -1 prob -1
+tile transition sys 11 pind 8331 cind -1 prob -1
+tile transition sys 11 pind 8332 cind -1 prob -1
+tile transition sys 4 pind 8333 cind -1 prob -1
+tile transition sys 4 pind 8334 cind -1 prob -1
+tile transition sys 3 pind 8335 cind -1 prob -1
+tile transition sys 3 pind 8336 cind -1 prob -1
+tile transition sys 3 pind 8337 cind -1 prob -1
+tile transition sys 9 pind 8338 cind -1 prob -1
+tile transition sys 9 pind 8339 cind -1 prob -1
+tile transition sys 2 pind 8340 cind -1 prob -1
+tile transition sys 2 pind 8341 cind -1 prob -1
+enddef terrain
+
+startdef terrain Lava_C
+transition Lava_B
+tile base pind 8522 cind -1 prob -1
+tile base pind 8523 cind -1 prob -1
+tile base pind 8524 cind -1 prob -1
+tile base pind 8525 cind -1 prob -1
+tile base pind 8526 cind -1 prob -1
+tile base pind 8527 cind -1 prob -1
+tile base pind 8528 cind -1 prob -1
+tile base pind 8529 cind -1 prob -1
+tile base pind 8530 cind -1 prob -1
+tile base pind 8531 cind -1 prob -1
+tile base pind 8532 cind -1 prob -1
+tile base pind 8533 cind -1 prob -1
+tile base pind 8534 cind -1 prob -1
+tile base pind 8535 cind -1 prob -1
+tile base pind 8536 cind -1 prob -1
+tile base pind 8537 cind -1 prob -1
+tile transition sys 1 pind 8538 cind -1 prob -1
+tile transition sys 1 pind 8539 cind -1 prob -1
+tile transition sys 1 pind 8540 cind -1 prob -1
+tile transition sys 12 pind 8541 cind -1 prob -1
+tile transition sys 12 pind 8542 cind -1 prob -1
+tile transition sys 8 pind 8543 cind -1 prob -1
+tile transition sys 8 pind 8544 cind -1 prob -1
+tile transition sys 5 pind 8545 cind -1 prob -1
+tile transition sys 5 pind 8546 cind -1 prob -1
+tile transition sys 5 pind 8547 cind -1 prob -1
+tile transition sys 10 pind 8548 cind -1 prob -1
+tile transition sys 10 pind 8549 cind -1 prob -1
+tile transition sys 6 pind 8550 cind -1 prob -1
+tile transition sys 6 pind 8551 cind -1 prob -1
+tile transition sys 7 pind 8552 cind -1 prob -1
+tile transition sys 7 pind 8553 cind -1 prob -1
+tile transition sys 7 pind 8554 cind -1 prob -1
+tile transition sys 11 pind 8555 cind -1 prob -1
+tile transition sys 11 pind 8556 cind -1 prob -1
+tile transition sys 4 pind 8557 cind -1 prob -1
+tile transition sys 4 pind 8558 cind -1 prob -1
+tile transition sys 3 pind 8559 cind -1 prob -1
+tile transition sys 3 pind 8560 cind -1 prob -1
+tile transition sys 3 pind 8561 cind -1 prob -1
+tile transition sys 9 pind 8562 cind -1 prob -1
+tile transition sys 9 pind 8563 cind -1 prob -1
+tile transition sys 2 pind 8564 cind -1 prob -1
+tile transition sys 2 pind 8565 cind -1 prob -1
+enddef terrain
+
+startdef terrain Moss_A
+system 0
+transition Sand_Red_A
+tile base pind 6245 cind -1 prob -1
+tile base pind 6246 cind -1 prob -1
+tile base pind 6247 cind -1 prob -1
+tile base pind 6248 cind -1 prob -1
+tile base pind 6249 cind -1 prob -1
+tile base pind 6250 cind -1 prob -1
+tile base pind 6251 cind -1 prob -1
+tile base pind 6252 cind -1 prob -1
+tile base pind 6253 cind -1 prob -1
+tile base pind 6254 cind -1 prob -1
+tile base pind 6255 cind -1 prob -1
+tile base pind 6256 cind -1 prob -1
+tile base pind 6257 cind -1 prob -1
+tile base pind 6258 cind -1 prob -1
+tile base pind 6259 cind -1 prob -1
+tile base pind 6260 cind -1 prob -1
+tile base pind 6261 cind -1 prob -1
+tile base pind 6262 cind -1 prob -1
+tile base pind 6263 cind -1 prob -1
+tile base pind 6264 cind -1 prob -1
+tile base pind 6265 cind -1 prob -1
+tile base pind 6266 cind -1 prob -1
+tile base pind 6267 cind -1 prob -1
+tile base pind 6268 cind -1 prob -1
+tile transition sys 1 pind 6269 cind -1 prob -1
+tile transition sys 1 pind 6270 cind -1 prob -1
+tile transition sys 1 pind 6271 cind -1 prob -1
+tile transition sys 12 pind 6272 cind -1 prob -1
+tile transition sys 12 pind 6273 cind -1 prob -1
+tile transition sys 8 pind 6274 cind -1 prob -1
+tile transition sys 8 pind 6275 cind -1 prob -1
+tile transition sys 5 pind 6276 cind -1 prob -1
+tile transition sys 5 pind 6277 cind -1 prob -1
+tile transition sys 5 pind 6278 cind -1 prob -1
+tile transition sys 10 pind 6279 cind -1 prob -1
+tile transition sys 10 pind 6280 cind -1 prob -1
+tile transition sys 6 pind 6281 cind -1 prob -1
+tile transition sys 6 pind 6282 cind -1 prob -1
+tile transition sys 7 pind 6283 cind -1 prob -1
+tile transition sys 7 pind 6284 cind -1 prob -1
+tile transition sys 7 pind 6285 cind -1 prob -1
+tile transition sys 11 pind 6286 cind -1 prob -1
+tile transition sys 11 pind 6287 cind -1 prob -1
+tile transition sys 4 pind 6288 cind -1 prob -1
+tile transition sys 4 pind 6289 cind -1 prob -1
+tile transition sys 3 pind 6290 cind -1 prob -1
+tile transition sys 3 pind 6291 cind -1 prob -1
+tile transition sys 3 pind 6292 cind -1 prob -1
+tile transition sys 9 pind 6293 cind -1 prob -1
+tile transition sys 9 pind 6294 cind -1 prob -1
+tile transition sys 2 pind 6295 cind -1 prob -1
+tile transition sys 2 pind 6296 cind -1 prob -1
+enddef terrain
+
+startdef terrain Mud_Brown_A
+system 0
+transition Sand_Red_A
+tile base pind 6297 cind -1 prob -1
+tile base pind 6298 cind -1 prob -1
+tile base pind 6299 cind -1 prob -1
+tile base pind 6300 cind -1 prob -1
+tile base pind 6301 cind -1 prob -1
+tile base pind 6302 cind -1 prob -1
+tile base pind 6303 cind -1 prob -1
+tile base pind 6304 cind -1 prob -1
+tile base pind 6305 cind -1 prob -1
+tile base pind 6306 cind -1 prob -1
+tile base pind 6307 cind -1 prob -1
+tile base pind 6308 cind -1 prob -1
+tile base pind 6309 cind -1 prob -1
+tile base pind 6310 cind -1 prob -1
+tile base pind 6311 cind -1 prob -1
+tile base pind 6312 cind -1 prob -1
+tile base pind 6313 cind -1 prob -1
+tile base pind 6314 cind -1 prob -1
+tile base pind 6315 cind -1 prob -1
+tile base pind 6316 cind -1 prob -1
+tile base pind 6317 cind -1 prob -1
+tile base pind 6318 cind -1 prob -1
+tile base pind 6319 cind -1 prob -1
+tile base pind 6320 cind -1 prob -1
+tile transition sys 1 pind 6321 cind -1 prob -1
+tile transition sys 1 pind 6322 cind -1 prob -1
+tile transition sys 1 pind 6323 cind -1 prob -1
+tile transition sys 12 pind 6324 cind -1 prob -1
+tile transition sys 12 pind 6325 cind -1 prob -1
+tile transition sys 8 pind 6326 cind -1 prob -1
+tile transition sys 8 pind 6327 cind -1 prob -1
+tile transition sys 5 pind 6328 cind -1 prob -1
+tile transition sys 5 pind 6329 cind -1 prob -1
+tile transition sys 5 pind 6330 cind -1 prob -1
+tile transition sys 10 pind 6331 cind -1 prob -1
+tile transition sys 10 pind 6332 cind -1 prob -1
+tile transition sys 6 pind 6333 cind -1 prob -1
+tile transition sys 6 pind 6334 cind -1 prob -1
+tile transition sys 7 pind 6335 cind -1 prob -1
+tile transition sys 7 pind 6336 cind -1 prob -1
+tile transition sys 7 pind 6337 cind -1 prob -1
+tile transition sys 11 pind 6338 cind -1 prob -1
+tile transition sys 11 pind 6339 cind -1 prob -1
+tile transition sys 4 pind 6340 cind -1 prob -1
+tile transition sys 4 pind 6341 cind -1 prob -1
+tile transition sys 3 pind 6342 cind -1 prob -1
+tile transition sys 3 pind 6343 cind -1 prob -1
+tile transition sys 3 pind 6344 cind -1 prob -1
+tile transition sys 9 pind 6345 cind -1 prob -1
+tile transition sys 9 pind 6346 cind -1 prob -1
+tile transition sys 2 pind 6347 cind -1 prob -1
+tile transition sys 2 pind 6348 cind -1 prob -1
+enddef terrain
+
+startdef terrain Sand_Yellow_A
+transition Rocks_Brown_A
+tile base pind 8661 cind -1 prob -1
+tile base pind 8662 cind -1 prob -1
+tile base pind 8663 cind -1 prob -1
+tile base pind 8664 cind -1 prob -1
+tile base pind 8665 cind -1 prob -1
+tile base pind 8666 cind -1 prob -1
+tile base pind 8667 cind -1 prob -1
+tile base pind 8668 cind -1 prob -1
+tile base pind 8669 cind -1 prob -1
+tile base pind 8670 cind -1 prob -1
+tile base pind 8671 cind -1 prob -1
+tile base pind 8672 cind -1 prob -1
+tile base pind 8673 cind -1 prob -1
+tile base pind 8674 cind -1 prob -1
+tile base pind 8675 cind -1 prob -1
+tile base pind 8676 cind -1 prob -1
+tile transition sys 1 pind 8677 cind -1 prob -1
+tile transition sys 1 pind 8678 cind -1 prob -1
+tile transition sys 1 pind 8679 cind -1 prob -1
+tile transition sys 12 pind 8680 cind -1 prob -1
+tile transition sys 12 pind 8681 cind -1 prob -1
+tile transition sys 8 pind 8682 cind -1 prob -1
+tile transition sys 8 pind 8683 cind -1 prob -1
+tile transition sys 5 pind 8684 cind -1 prob -1
+tile transition sys 5 pind 8685 cind -1 prob -1
+tile transition sys 5 pind 8686 cind -1 prob -1
+tile transition sys 10 pind 8687 cind -1 prob -1
+tile transition sys 10 pind 8688 cind -1 prob -1
+tile transition sys 6 pind 8689 cind -1 prob -1
+tile transition sys 6 pind 8690 cind -1 prob -1
+tile transition sys 7 pind 8691 cind -1 prob -1
+tile transition sys 7 pind 8692 cind -1 prob -1
+tile transition sys 7 pind 8693 cind -1 prob -1
+tile transition sys 11 pind 8694 cind -1 prob -1
+tile transition sys 11 pind 8695 cind -1 prob -1
+tile transition sys 4 pind 8696 cind -1 prob -1
+tile transition sys 4 pind 8697 cind -1 prob -1
+tile transition sys 3 pind 8698 cind -1 prob -1
+tile transition sys 3 pind 8699 cind -1 prob -1
+tile transition sys 3 pind 8700 cind -1 prob -1
+tile transition sys 9 pind 8701 cind -1 prob -1
+tile transition sys 9 pind 8702 cind -1 prob -1
+tile transition sys 2 pind 8703 cind -1 prob -1
+tile transition sys 2 pind 8704 cind -1 prob -1
+enddef terrain
+
+startdef terrain Road_A
+transition Rocks_Brown_A
+tile base pind 9257 cind -1 prob -1
+tile base pind 9258 cind -1 prob -1
+tile base pind 9259 cind -1 prob -1
+tile base pind 9260 cind -1 prob -1
+tile base pind 9261 cind -1 prob -1
+tile base pind 9262 cind -1 prob -1
+tile base pind 9263 cind -1 prob -1
+tile base pind 9264 cind -1 prob -1
+tile base pind 9265 cind -1 prob -1
+tile base pind 9266 cind -1 prob -1
+tile base pind 9267 cind -1 prob -1
+tile base pind 9268 cind -1 prob -1
+tile base pind 9269 cind -1 prob -1
+tile base pind 9270 cind -1 prob -1
+tile base pind 9271 cind -1 prob -1
+tile base pind 9272 cind -1 prob -1
+tile transition sys 1 pind 9273 cind -1 prob -1
+tile transition sys 1 pind 9274 cind -1 prob -1
+tile transition sys 1 pind 9275 cind -1 prob -1
+tile transition sys 12 pind 9276 cind -1 prob -1
+tile transition sys 12 pind 9277 cind -1 prob -1
+tile transition sys 8 pind 9278 cind -1 prob -1
+tile transition sys 8 pind 9279 cind -1 prob -1
+tile transition sys 5 pind 9280 cind -1 prob -1
+tile transition sys 5 pind 9281 cind -1 prob -1
+tile transition sys 5 pind 9282 cind -1 prob -1
+tile transition sys 10 pind 9283 cind -1 prob -1
+tile transition sys 10 pind 9284 cind -1 prob -1
+tile transition sys 6 pind 9285 cind -1 prob -1
+tile transition sys 6 pind 9286 cind -1 prob -1
+tile transition sys 7 pind 9287 cind -1 prob -1
+tile transition sys 7 pind 9288 cind -1 prob -1
+tile transition sys 7 pind 9289 cind -1 prob -1
+tile transition sys 11 pind 9290 cind -1 prob -1
+tile transition sys 11 pind 9291 cind -1 prob -1
+tile transition sys 4 pind 9292 cind -1 prob -1
+tile transition sys 4 pind 9293 cind -1 prob -1
+tile transition sys 3 pind 9294 cind -1 prob -1
+tile transition sys 3 pind 9295 cind -1 prob -1
+tile transition sys 3 pind 9296 cind -1 prob -1
+tile transition sys 9 pind 9297 cind -1 prob -1
+tile transition sys 9 pind 9298 cind -1 prob -1
+tile transition sys 2 pind 9299 cind -1 prob -1
+tile transition sys 2 pind 9300 cind -1 prob -1
+enddef terrain
+
+startdef terrain Road_B
+transition Sand_Red_A
+tile base pind 9301 cind -1 prob -1
+tile base pind 9302 cind -1 prob -1
+tile base pind 9303 cind -1 prob -1
+tile base pind 9304 cind -1 prob -1
+tile base pind 9305 cind -1 prob -1
+tile base pind 9306 cind -1 prob -1
+tile base pind 9307 cind -1 prob -1
+tile base pind 9308 cind -1 prob -1
+tile base pind 9309 cind -1 prob -1
+tile base pind 9310 cind -1 prob -1
+tile base pind 9311 cind -1 prob -1
+tile base pind 9312 cind -1 prob -1
+tile base pind 9313 cind -1 prob -1
+tile base pind 9314 cind -1 prob -1
+tile base pind 9315 cind -1 prob -1
+tile base pind 9316 cind -1 prob -1
+tile transition sys 1 pind 9317 cind -1 prob -1
+tile transition sys 1 pind 9318 cind -1 prob -1
+tile transition sys 1 pind 9319 cind -1 prob -1
+tile transition sys 12 pind 9320 cind -1 prob -1
+tile transition sys 12 pind 9321 cind -1 prob -1
+tile transition sys 8 pind 9322 cind -1 prob -1
+tile transition sys 8 pind 9323 cind -1 prob -1
+tile transition sys 5 pind 9324 cind -1 prob -1
+tile transition sys 5 pind 9325 cind -1 prob -1
+tile transition sys 5 pind 9326 cind -1 prob -1
+tile transition sys 10 pind 9327 cind -1 prob -1
+tile transition sys 10 pind 9328 cind -1 prob -1
+tile transition sys 6 pind 9329 cind -1 prob -1
+tile transition sys 6 pind 9330 cind -1 prob -1
+tile transition sys 7 pind 9331 cind -1 prob -1
+tile transition sys 7 pind 9332 cind -1 prob -1
+tile transition sys 7 pind 9333 cind -1 prob -1
+tile transition sys 11 pind 9334 cind -1 prob -1
+tile transition sys 11 pind 9335 cind -1 prob -1
+tile transition sys 4 pind 9336 cind -1 prob -1
+tile transition sys 4 pind 9337 cind -1 prob -1
+tile transition sys 3 pind 9338 cind -1 prob -1
+tile transition sys 3 pind 9339 cind -1 prob -1
+tile transition sys 3 pind 9340 cind -1 prob -1
+tile transition sys 9 pind 9341 cind -1 prob -1
+tile transition sys 9 pind 9342 cind -1 prob -1
+tile transition sys 2 pind 9343 cind -1 prob -1
+tile transition sys 2 pind 9344 cind -1 prob -1
+enddef terrain
+
+startdef terrain Academy_A
+system 0
+tile base pind 6465 cind -1 prob -1
+tile base pind 6466 cind -1 prob -1
+tile base pind 6467 cind -1 prob -1
+tile base pind 6468 cind -1 prob -1
+tile base pind 6469 cind -1 prob -1
+tile base pind 6470 cind -1 prob -1
+tile base pind 6471 cind -1 prob -1
+tile base pind 6472 cind -1 prob -1
+enddef terrain
+
+startdef terrain Academy_B
+transition Academy_A
+system 0
+tile base pind 6473 cind -1 prob -1
+tile base pind 6474 cind -1 prob -1
+tile base pind 6475 cind -1 prob -1
+tile base pind 6476 cind -1 prob -1
+tile base pind 6477 cind -1 prob -1
+tile base pind 6478 cind -1 prob -1
+tile base pind 6479 cind -1 prob -1
+tile base pind 6480 cind -1 prob -1
+tile base pind 6481 cind -1 prob -1
+tile base pind 6482 cind -1 prob -1
+tile base pind 6483 cind -1 prob -1
+tile base pind 6484 cind -1 prob -1
+tile transition sys 1 pind 6485 cind -1 prob -1
+tile transition sys 1 pind 6486 cind -1 prob -1
+tile transition sys 1 pind 6487 cind -1 prob -1
+tile transition sys 4 pind 6488 cind -1 prob -1
+tile transition sys 4 pind 6489 cind -1 prob -1
+tile transition sys 10 pind 6490 cind -1 prob -1
+tile transition sys 10 pind 6491 cind -1 prob -1
+tile transition sys 5 pind 6492 cind -1 prob -1
+tile transition sys 5 pind 6493 cind -1 prob -1
+tile transition sys 5 pind 6494 cind -1 prob -1
+tile transition sys 8 pind 6495 cind -1 prob -1
+tile transition sys 8 pind 6496 cind -1 prob -1
+tile transition sys 9 pind 6497 cind -1 prob -1
+tile transition sys 9 pind 6498 cind -1 prob -1
+tile transition sys 7 pind 6499 cind -1 prob -1
+tile transition sys 7 pind 6500 cind -1 prob -1
+tile transition sys 7 pind 6501 cind -1 prob -1
+tile transition sys 2 pind 6502 cind -1 prob -1
+tile transition sys 2 pind 6503 cind -1 prob -1
+tile transition sys 12 pind 6504 cind -1 prob -1
+tile transition sys 12 pind 6505 cind -1 prob -1
+tile transition sys 3 pind 6506 cind -1 prob -1
+tile transition sys 3 pind 6507 cind -1 prob -1
+tile transition sys 3 pind 6508 cind -1 prob -1
+tile transition sys 6 pind 6509 cind -1 prob -1
+tile transition sys 6 pind 6510 cind -1 prob -1
+tile transition sys 11 pind 6511 cind -1 prob -1
+tile transition sys 11 pind 6512 cind -1 prob -1
+enddef terrain
+
+startdef terrain Academy
+tile base pind 9233 cind -1 prob -1
+tile base pind 9234 cind -1 prob -1
+tile base pind 9235 cind -1 prob -1
+tile base pind 9236 cind -1 prob -1
+tile base pind 9237 cind -1 prob -1
+tile base pind 9238 cind -1 prob -1
+tile base pind 9239 cind -1 prob -1
+tile base pind 9240 cind -1 prob -1
+tile base pind 9241 cind -1 prob -1
+tile base pind 9242 cind -1 prob -1
+tile base pind 9243 cind -1 prob -1
+tile base pind 9244 cind -1 prob -1
+tile base pind 9245 cind -1 prob -1
+tile base pind 9246 cind -1 prob -1
+tile base pind 9247 cind -1 prob -1
+tile base pind 9248 cind -1 prob -1
+enddef terrain
+
+startdef terrain Academy_New
+tile base pind 9345 cind -1 prob -1
+tile base pind 9346 cind -1 prob -1
+tile base pind 9347 cind -1 prob -1
+tile base pind 9348 cind -1 prob -1
+tile base pind 9349 cind -1 prob -1
+tile base pind 9350 cind -1 prob -1
+tile base pind 9351 cind -1 prob -1
+tile base pind 9352 cind -1 prob -1
+tile base pind 9353 cind -1 prob -1
+tile base pind 9354 cind -1 prob -1
+tile base pind 9355 cind -1 prob -1
+tile base pind 9356 cind -1 prob -1
+tile base pind 9357 cind -1 prob -1
+tile base pind 9358 cind -1 prob -1
+tile base pind 9359 cind -1 prob -1
+tile base pind 9360 cind -1 prob -1
+tile base pind 9361 cind -1 prob -1
+tile base pind 9362 cind -1 prob -1
+tile base pind 9363 cind -1 prob -1
+tile base pind 9364 cind -1 prob -1
+tile base pind 9365 cind -1 prob -1
+tile base pind 9366 cind -1 prob -1
+tile base pind 9367 cind -1 prob -1
+tile base pind 9368 cind -1 prob -1
+enddef terrain
+
+
+startdef terrain Temple_A
+transition Rocks_brown_A
+tile base pind 8342 cind -1 prob -1
+tile base pind 8343 cind -1 prob -1
+tile base pind 8344 cind -1 prob -1
+tile base pind 8345 cind -1 prob -1
+tile base pind 8346 cind -1 prob -1
+tile base pind 8347 cind -1 prob -1
+tile base pind 8348 cind -1 prob -1
+tile base pind 8349 cind -1 prob -1
+tile transition sys 5 pind 8350 cind -1 prob -1
+tile transition sys 5 pind 8351 cind -1 prob -1
+tile transition sys 5 pind 8352 cind -1 prob -1
+tile transition sys 4 pind 8353 cind -1 prob -1
+tile transition sys 4 pind 8354 cind -1 prob -1
+tile transition sys 10 pind 8355 cind -1 prob -1
+tile transition sys 10 pind 8356 cind -1 prob -1
+tile transition sys 1 pind 8357 cind -1 prob -1
+tile transition sys 1 pind 8358 cind -1 prob -1
+tile transition sys 1 pind 8359 cind -1 prob -1
+tile transition sys 8 pind 8360 cind -1 prob -1
+tile transition sys 8 pind 8361 cind -1 prob -1
+tile transition sys 9 pind 8362 cind -1 prob -1
+tile transition sys 9 pind 8363 cind -1 prob -1
+tile transition sys 3 pind 8364 cind -1 prob -1
+tile transition sys 3 pind 8365 cind -1 prob -1
+tile transition sys 3 pind 8366 cind -1 prob -1
+tile transition sys 2 pind 8367 cind -1 prob -1
+tile transition sys 2 pind 8368 cind -1 prob -1
+tile transition sys 12 pind 8369 cind -1 prob -1
+tile transition sys 12 pind 8370 cind -1 prob -1
+tile transition sys 7 pind 8371 cind -1 prob -1
+tile transition sys 7 pind 8372 cind -1 prob -1
+tile transition sys 7 pind 8373 cind -1 prob -1
+tile transition sys 6 pind 8374 cind -1 prob -1
+tile transition sys 6 pind 8375 cind -1 prob -1
+tile transition sys 11 pind 8376 cind -1 prob -1
+tile transition sys 11 pind 8377 cind -1 prob -1
+enddef terrain
+
+startdef terrain RR_Cave_A
+tile base pind 8566 cind -1 prob -1
+tile base pind 8567 cind -1 prob -1
+tile base pind 8568 cind -1 prob -1
+tile base pind 8569 cind -1 prob -1
+tile base pind 8570 cind -1 prob -1
+tile base pind 8571 cind -1 prob -1
+tile base pind 8572 cind -1 prob -1
+tile base pind 8573 cind -1 prob -1
+tile base pind 8574 cind -1 prob -1
+tile base pind 8575 cind -1 prob -1
+tile base pind 8576 cind -1 prob -1
+tile base pind 8577 cind -1 prob -1
+tile base pind 8578 cind -1 prob -1
+tile base pind 8579 cind -1 prob -1
+tile base pind 8580 cind -1 prob -1
+tile base pind 8581 cind -1 prob -1
+tile base pind 8582 cind -1 prob -1
+tile base pind 8583 cind -1 prob -1
+tile base pind 8584 cind -1 prob -1
+enddef terrain
+
+startdef terrain RR_Cave_B
+transition RR_Cave_A
+tile base pind 8585 cind -1 prob -1
+tile base pind 8586 cind -1 prob -1
+tile base pind 8587 cind -1 prob -1
+tile base pind 8588 cind -1 prob -1
+tile base pind 8589 cind -1 prob -1
+tile base pind 8590 cind -1 prob -1
+tile base pind 8591 cind -1 prob -1
+tile base pind 8592 cind -1 prob -1
+tile transition sys 7 pind 8593 cind -1 prob -1
+tile transition sys 7 pind 8594 cind -1 prob -1
+tile transition sys 8 pind 8595 cind -1 prob -1
+tile transition sys 12 pind 8596 cind -1 prob -1
+tile transition sys 1 pind 8597 cind -1 prob -1
+tile transition sys 1 pind 8598 cind -1 prob -1
+tile transition sys 2 pind 8599 cind -1 prob -1
+tile transition sys 9 pind 8600 cind -1 prob -1
+tile transition sys 3 pind 8601 cind -1 prob -1
+tile transition sys 3 pind 8602 cind -1 prob -1
+tile transition sys 6 pind 8603 cind -1 prob -1
+tile transition sys 11 pind 8604 cind -1 prob -1
+tile transition sys 5 pind 8605 cind -1 prob -1
+tile transition sys 5 pind 8606 cind -1 prob -1
+tile transition sys 4 pind 8607 cind -1 prob -1
+tile transition sys 10 pind 8608 cind -1 prob -1
+enddef terrain
+
+startdef terrain RR_Blue_Cave_A
+tile base pind 9162 cind -1 prob -1
+tile base pind 9163 cind -1 prob -1
+tile base pind 9164 cind -1 prob -1
+tile base pind 9165 cind -1 prob -1
+tile base pind 9166 cind -1 prob -1
+tile base pind 9167 cind -1 prob -1
+tile base pind 9168 cind -1 prob -1
+tile base pind 9169 cind -1 prob -1
+tile base pind 9170 cind -1 prob -1
+tile base pind 9171 cind -1 prob -1
+tile base pind 9172 cind -1 prob -1
+tile base pind 9173 cind -1 prob -1
+tile base pind 9174 cind -1 prob -1
+tile base pind 9175 cind -1 prob -1
+tile base pind 9176 cind -1 prob -1
+tile base pind 9177 cind -1 prob -1
+tile base pind 9178 cind -1 prob -1
+tile base pind 9179 cind -1 prob -1
+tile base pind 9180 cind -1 prob -1
+enddef terrain
+
+startdef terrain Citadel_New
+tile base pind 9249 cind -1 prob -1
+tile base pind 9250 cind -1 prob -1
+tile base pind 9251 cind -1 prob -1
+tile base pind 9252 cind -1 prob -1
+tile base pind 9253 cind -1 prob -1
+tile base pind 9254 cind -1 prob -1
+tile base pind 9255 cind -1 prob -1
+tile base pind 9256 cind -1 prob -1
+enddef terrain
