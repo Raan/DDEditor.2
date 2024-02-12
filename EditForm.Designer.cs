@@ -36,23 +36,33 @@
             toolStripButton2 = new ToolStripButton();
             toolStripButton3 = new ToolStripButton();
             toolStripButton4 = new ToolStripButton();
+            CursorYCor = new ToolStripTextBox();
+            CursorXCor = new ToolStripTextBox();
+            setCursor = new ToolStripButton();
+            DelObjectBut = new ToolStripButton();
+            CopyObjButton = new ToolStripButton();
+            FixObjectButton = new ToolStripButton();
+            StepObjectButton = new ToolStripButton();
+            TESTBUTTON = new ToolStripButton();
+            AddNewObjectButton = new ToolStripButton();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             openWorldToolStripMenuItem = new ToolStripMenuItem();
             saveWorldToolStripMenuItem = new ToolStripMenuItem();
             settingsToolStripMenuItem = new ToolStripMenuItem();
             gameFolderToolStripMenuItem = new ToolStripMenuItem();
+            saveWorldImageToolStripMenuItem = new ToolStripMenuItem();
+            saveMetaObjectsImageToolStripMenuItem = new ToolStripMenuItem();
             mainTollbar = new TabControl();
             texturesTabPage1 = new TabPage();
             texturesSplitContainer2 = new SplitContainer();
-            texturesTreeView1 = new TreeView();
+            texturesTreeView = new TreeView();
             texturesBox1 = new PictureBox();
             objectsTabPage2 = new TabPage();
-            splitContainer1 = new SplitContainer();
-            comboBox4 = new ComboBox();
-            comboBox3 = new ComboBox();
-            comboBox2 = new ComboBox();
-            comboBox1 = new ComboBox();
+            splitObjectsContainer = new SplitContainer();
+            objectsBox = new ListBox();
+            ObjectsTreeView = new TreeView();
+            objectsPictureBox = new PictureBox();
             eggsTabPage3 = new TabPage();
             effectsTabPage3 = new TabPage();
             checkBoxObject = new CheckBox();
@@ -73,9 +83,11 @@
             texturesSplitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)texturesBox1).BeginInit();
             objectsTabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
-            splitContainer1.Panel1.SuspendLayout();
-            splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitObjectsContainer).BeginInit();
+            splitObjectsContainer.Panel1.SuspendLayout();
+            splitObjectsContainer.Panel2.SuspendLayout();
+            splitObjectsContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)objectsPictureBox).BeginInit();
             effectsTabPage3.SuspendLayout();
             PanelMonoWindow.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -101,7 +113,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(30, 30);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripLabel1, toolStripButton2, toolStripButton3, toolStripButton4 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripLabel1, toolStripButton2, toolStripButton3, toolStripButton4, CursorYCor, CursorXCor, setCursor, DelObjectBut, CopyObjButton, FixObjectButton, StepObjectButton, TESTBUTTON, AddNewObjectButton });
             toolStrip1.Location = new Point(0, 28);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1488, 37);
@@ -146,7 +158,7 @@
             // 
             // toolStripButton4
             // 
-            toolStripButton4.BackColor = Color.WhiteSmoke;
+            toolStripButton4.BackColor = SystemColors.Control;
             toolStripButton4.DisplayStyle = ToolStripItemDisplayStyle.Image;
             toolStripButton4.Image = DivEditor.Properties.Resources.texRan;
             toolStripButton4.ImageTransparentColor = Color.Magenta;
@@ -154,6 +166,100 @@
             toolStripButton4.Size = new Size(34, 34);
             toolStripButton4.Text = "toolStripButton4";
             toolStripButton4.Click += toolStripButton4_Click;
+            // 
+            // CursorYCor
+            // 
+            CursorYCor.Alignment = ToolStripItemAlignment.Right;
+            CursorYCor.Name = "CursorYCor";
+            CursorYCor.Size = new Size(50, 37);
+            // 
+            // CursorXCor
+            // 
+            CursorXCor.Alignment = ToolStripItemAlignment.Right;
+            CursorXCor.Name = "CursorXCor";
+            CursorXCor.Size = new Size(50, 37);
+            // 
+            // setCursor
+            // 
+            setCursor.Alignment = ToolStripItemAlignment.Right;
+            setCursor.BackColor = SystemColors.ControlLight;
+            setCursor.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            setCursor.Image = (Image)resources.GetObject("setCursor.Image");
+            setCursor.ImageTransparentColor = Color.Magenta;
+            setCursor.Name = "setCursor";
+            setCursor.Size = new Size(32, 34);
+            setCursor.Text = "Go";
+            setCursor.Click += ToolStripButton5_Click;
+            // 
+            // DelObjectBut
+            // 
+            DelObjectBut.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            DelObjectBut.Enabled = false;
+            DelObjectBut.Image = (Image)resources.GetObject("DelObjectBut.Image");
+            DelObjectBut.ImageTransparentColor = Color.Magenta;
+            DelObjectBut.Name = "DelObjectBut";
+            DelObjectBut.Size = new Size(36, 34);
+            DelObjectBut.Text = "Del";
+            DelObjectBut.Visible = false;
+            // 
+            // CopyObjButton
+            // 
+            CopyObjButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            CopyObjButton.Enabled = false;
+            CopyObjButton.Image = (Image)resources.GetObject("CopyObjButton.Image");
+            CopyObjButton.ImageTransparentColor = Color.Magenta;
+            CopyObjButton.Name = "CopyObjButton";
+            CopyObjButton.Size = new Size(47, 34);
+            CopyObjButton.Text = "Copy";
+            CopyObjButton.Visible = false;
+            // 
+            // FixObjectButton
+            // 
+            FixObjectButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            FixObjectButton.Enabled = false;
+            FixObjectButton.Image = (Image)resources.GetObject("FixObjectButton.Image");
+            FixObjectButton.ImageTransparentColor = Color.Magenta;
+            FixObjectButton.Name = "FixObjectButton";
+            FixObjectButton.Size = new Size(31, 34);
+            FixObjectButton.Text = "Fix";
+            FixObjectButton.Visible = false;
+            // 
+            // StepObjectButton
+            // 
+            StepObjectButton.BackColor = SystemColors.Control;
+            StepObjectButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            StepObjectButton.Image = (Image)resources.GetObject("StepObjectButton.Image");
+            StepObjectButton.ImageTransparentColor = Color.Magenta;
+            StepObjectButton.Name = "StepObjectButton";
+            StepObjectButton.Size = new Size(82, 34);
+            StepObjectButton.Text = "Step 1 cell";
+            StepObjectButton.Visible = false;
+            StepObjectButton.Click += StepObjectButton_Click;
+            // 
+            // TESTBUTTON
+            // 
+            TESTBUTTON.Alignment = ToolStripItemAlignment.Right;
+            TESTBUTTON.BackColor = SystemColors.Info;
+            TESTBUTTON.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            TESTBUTTON.Image = (Image)resources.GetObject("TESTBUTTON.Image");
+            TESTBUTTON.ImageTransparentColor = Color.Magenta;
+            TESTBUTTON.Name = "TESTBUTTON";
+            TESTBUTTON.RightToLeft = RightToLeft.No;
+            TESTBUTTON.Size = new Size(101, 34);
+            TESTBUTTON.Text = "TESTBUTTON";
+            TESTBUTTON.Click += TESTBUTTON_Click;
+            // 
+            // AddNewObjectButton
+            // 
+            AddNewObjectButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            AddNewObjectButton.Enabled = false;
+            AddNewObjectButton.Image = (Image)resources.GetObject("AddNewObjectButton.Image");
+            AddNewObjectButton.ImageTransparentColor = Color.Magenta;
+            AddNewObjectButton.Name = "AddNewObjectButton";
+            AddNewObjectButton.Size = new Size(123, 34);
+            AddNewObjectButton.Text = "Add New Object";
+            AddNewObjectButton.Visible = false;
+            AddNewObjectButton.Click += AddNewObjectButton_Click;
             // 
             // menuStrip1
             // 
@@ -167,7 +273,7 @@
             // 
             // fileToolStripMenuItem
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openWorldToolStripMenuItem, saveWorldToolStripMenuItem, settingsToolStripMenuItem });
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openWorldToolStripMenuItem, saveWorldToolStripMenuItem, settingsToolStripMenuItem, saveWorldImageToolStripMenuItem, saveMetaObjectsImageToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(44, 24);
             fileToolStripMenuItem.Text = "file";
@@ -175,14 +281,14 @@
             // openWorldToolStripMenuItem
             // 
             openWorldToolStripMenuItem.Name = "openWorldToolStripMenuItem";
-            openWorldToolStripMenuItem.Size = new Size(172, 26);
+            openWorldToolStripMenuItem.Size = new Size(257, 26);
             openWorldToolStripMenuItem.Text = "Open World";
             openWorldToolStripMenuItem.Click += openWorldToolStripMenuItem_Click;
             // 
             // saveWorldToolStripMenuItem
             // 
             saveWorldToolStripMenuItem.Name = "saveWorldToolStripMenuItem";
-            saveWorldToolStripMenuItem.Size = new Size(172, 26);
+            saveWorldToolStripMenuItem.Size = new Size(257, 26);
             saveWorldToolStripMenuItem.Text = "Save World";
             saveWorldToolStripMenuItem.Click += saveWorldToolStripMenuItem_Click;
             // 
@@ -190,7 +296,7 @@
             // 
             settingsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gameFolderToolStripMenuItem });
             settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            settingsToolStripMenuItem.Size = new Size(172, 26);
+            settingsToolStripMenuItem.Size = new Size(257, 26);
             settingsToolStripMenuItem.Text = "Settings";
             // 
             // gameFolderToolStripMenuItem
@@ -199,6 +305,20 @@
             gameFolderToolStripMenuItem.Size = new Size(175, 26);
             gameFolderToolStripMenuItem.Text = "Game folder";
             gameFolderToolStripMenuItem.Click += gameFolderToolStripMenuItem_Click;
+            // 
+            // saveWorldImageToolStripMenuItem
+            // 
+            saveWorldImageToolStripMenuItem.Name = "saveWorldImageToolStripMenuItem";
+            saveWorldImageToolStripMenuItem.Size = new Size(257, 26);
+            saveWorldImageToolStripMenuItem.Text = "Save World Image";
+            saveWorldImageToolStripMenuItem.Click += SaveWorldImageToolStripMenuItem_Click;
+            // 
+            // saveMetaObjectsImageToolStripMenuItem
+            // 
+            saveMetaObjectsImageToolStripMenuItem.Name = "saveMetaObjectsImageToolStripMenuItem";
+            saveMetaObjectsImageToolStripMenuItem.Size = new Size(257, 26);
+            saveMetaObjectsImageToolStripMenuItem.Text = "Save MetaObjects Image";
+            saveMetaObjectsImageToolStripMenuItem.Click += saveMetaObjectsImageToolStripMenuItem_Click;
             // 
             // mainTollbar
             // 
@@ -212,6 +332,7 @@
             mainTollbar.SelectedIndex = 0;
             mainTollbar.Size = new Size(342, 651);
             mainTollbar.TabIndex = 4;
+            mainTollbar.SizeChanged += MainTollbar_SizeChanged;
             mainTollbar.Click += mainTollbar_Click;
             // 
             // texturesTabPage1
@@ -236,7 +357,7 @@
             // 
             // texturesSplitContainer2.Panel1
             // 
-            texturesSplitContainer2.Panel1.Controls.Add(texturesTreeView1);
+            texturesSplitContainer2.Panel1.Controls.Add(texturesTreeView);
             // 
             // texturesSplitContainer2.Panel2
             // 
@@ -245,14 +366,16 @@
             texturesSplitContainer2.SplitterDistance = 419;
             texturesSplitContainer2.TabIndex = 0;
             // 
-            // texturesTreeView1
+            // texturesTreeView
             // 
-            texturesTreeView1.Dock = DockStyle.Fill;
-            texturesTreeView1.Location = new Point(0, 0);
-            texturesTreeView1.Name = "texturesTreeView1";
-            texturesTreeView1.Size = new Size(326, 417);
-            texturesTreeView1.TabIndex = 0;
-            texturesTreeView1.AfterSelect += texturesTreeView1_AfterSelect;
+            texturesTreeView.Dock = DockStyle.Fill;
+            texturesTreeView.Location = new Point(0, 0);
+            texturesTreeView.Name = "texturesTreeView";
+            texturesTreeView.Size = new Size(326, 417);
+            texturesTreeView.TabIndex = 0;
+            texturesTreeView.TabStop = false;
+            texturesTreeView.AfterSelect += texturesTreeView1_AfterSelect;
+            texturesTreeView.KeyDown += texturesTreeView_KeyDown;
             // 
             // texturesBox1
             // 
@@ -266,7 +389,7 @@
             // objectsTabPage2
             // 
             objectsTabPage2.BackColor = SystemColors.Control;
-            objectsTabPage2.Controls.Add(splitContainer1);
+            objectsTabPage2.Controls.Add(splitObjectsContainer);
             objectsTabPage2.Location = new Point(4, 29);
             objectsTabPage2.Name = "objectsTabPage2";
             objectsTabPage2.Padding = new Padding(3);
@@ -274,54 +397,54 @@
             objectsTabPage2.TabIndex = 1;
             objectsTabPage2.Text = "Objects";
             // 
-            // splitContainer1
+            // splitObjectsContainer
             // 
-            splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(3, 3);
-            splitContainer1.Name = "splitContainer1";
-            splitContainer1.Orientation = Orientation.Horizontal;
+            splitObjectsContainer.Dock = DockStyle.Fill;
+            splitObjectsContainer.Location = new Point(3, 3);
+            splitObjectsContainer.Name = "splitObjectsContainer";
+            splitObjectsContainer.Orientation = Orientation.Horizontal;
             // 
-            // splitContainer1.Panel1
+            // splitObjectsContainer.Panel1
             // 
-            splitContainer1.Panel1.Controls.Add(comboBox4);
-            splitContainer1.Panel1.Controls.Add(comboBox3);
-            splitContainer1.Panel1.Controls.Add(comboBox2);
-            splitContainer1.Panel1.Controls.Add(comboBox1);
-            splitContainer1.Size = new Size(328, 612);
-            splitContainer1.SplitterDistance = 426;
-            splitContainer1.TabIndex = 0;
+            splitObjectsContainer.Panel1.Controls.Add(objectsBox);
+            splitObjectsContainer.Panel1.Controls.Add(ObjectsTreeView);
             // 
-            // comboBox4
+            // splitObjectsContainer.Panel2
             // 
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Location = new Point(165, 37);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(160, 28);
-            comboBox4.TabIndex = 3;
+            splitObjectsContainer.Panel2.Controls.Add(objectsPictureBox);
+            splitObjectsContainer.Size = new Size(328, 612);
+            splitObjectsContainer.SplitterDistance = 426;
+            splitObjectsContainer.TabIndex = 0;
             // 
-            // comboBox3
+            // objectsBox
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(3, 37);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(160, 28);
-            comboBox3.TabIndex = 2;
+            objectsBox.Dock = DockStyle.Right;
+            objectsBox.FormattingEnabled = true;
+            objectsBox.ItemHeight = 20;
+            objectsBox.Location = new Point(177, 0);
+            objectsBox.Name = "objectsBox";
+            objectsBox.Size = new Size(151, 426);
+            objectsBox.TabIndex = 1;
+            objectsBox.SelectedIndexChanged += ObjectsBox_SelectedIndexChanged;
+            objectsBox.SizeChanged += objectsBox_SizeChanged;
             // 
-            // comboBox2
+            // ObjectsTreeView
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(165, 3);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(160, 28);
-            comboBox2.TabIndex = 1;
+            ObjectsTreeView.Location = new Point(0, 0);
+            ObjectsTreeView.Name = "ObjectsTreeView";
+            ObjectsTreeView.Size = new Size(171, 426);
+            ObjectsTreeView.TabIndex = 0;
+            ObjectsTreeView.AfterSelect += ObjectsTreeView_AfterSelect;
+            ObjectsTreeView.KeyDown += ObjectsTreeView_KeyDown;
             // 
-            // comboBox1
+            // objectsPictureBox
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(3, 3);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(160, 28);
-            comboBox1.TabIndex = 0;
+            objectsPictureBox.Dock = DockStyle.Fill;
+            objectsPictureBox.Location = new Point(0, 0);
+            objectsPictureBox.Name = "objectsPictureBox";
+            objectsPictureBox.Size = new Size(328, 182);
+            objectsPictureBox.TabIndex = 0;
+            objectsPictureBox.TabStop = false;
             // 
             // eggsTabPage3
             // 
@@ -444,6 +567,7 @@
             Controls.Add(statusStrip1);
             Controls.Add(toolStrip1);
             Controls.Add(menuStrip1);
+            KeyPreview = true;
             MainMenuStrip = menuStrip1;
             MaximumSize = new Size(2560, 1440);
             MinimumSize = new Size(800, 600);
@@ -464,9 +588,11 @@
             texturesSplitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)texturesBox1).EndInit();
             objectsTabPage2.ResumeLayout(false);
-            splitContainer1.Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
-            splitContainer1.ResumeLayout(false);
+            splitObjectsContainer.Panel1.ResumeLayout(false);
+            splitObjectsContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitObjectsContainer).EndInit();
+            splitObjectsContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)objectsPictureBox).EndInit();
             effectsTabPage3.ResumeLayout(false);
             effectsTabPage3.PerformLayout();
             PanelMonoWindow.ResumeLayout(false);
@@ -498,13 +624,9 @@
         private TabPage eggsTabPage3;
         private SplitContainer mainSplitContainer1;
         private SplitContainer texturesSplitContainer2;
-        private TreeView texturesTreeView1;
-        private SplitContainer splitContainer1;
+        private TreeView texturesTreeView;
+        private SplitContainer splitObjectsContainer;
         private PictureBox texturesBox1;
-        private ComboBox comboBox4;
-        private ComboBox comboBox3;
-        private ComboBox comboBox2;
-        private ComboBox comboBox1;
         private ToolStripMenuItem settingsToolStripMenuItem;
         private ToolStripMenuItem gameFolderToolStripMenuItem;
         private ToolStripButton toolStripButton2;
@@ -515,5 +637,19 @@
         private CheckBox checkBoxWater;
         private CheckBox checkBoxFog;
         private CheckBox checkBoxObject;
+        private ToolStripTextBox CursorXCor;
+        private ToolStripTextBox CursorYCor;
+        private ToolStripButton setCursor;
+        private TreeView ObjectsTreeView;
+        private ListBox objectsBox;
+        private PictureBox objectsPictureBox;
+        private ToolStripButton DelObjectBut;
+        private ToolStripButton CopyObjButton;
+        private ToolStripButton FixObjectButton;
+        private ToolStripButton StepObjectButton;
+        private ToolStripButton TESTBUTTON;
+        private ToolStripMenuItem saveWorldImageToolStripMenuItem;
+        private ToolStripMenuItem saveMetaObjectsImageToolStripMenuItem;
+        private ToolStripButton AddNewObjectButton;
     }
 }

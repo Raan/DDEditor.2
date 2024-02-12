@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<empty_node>
+	<node name = "DIVINE DIVINITY">
+		<node name = "MONEY">
+		</node>
+		<node name = "KEYS">
+		</node>
+		<node name = "THIEVING GEAR">
+		</node>
+		<node name = "RINGS">
+		</node>
+		<node name = "CHARMS">
+		</node>
+		<node name = "WEAPONS">
+		</node>
+		<node name = "SPECIAL QUEST ITEMS">
+		</node>
+		<node name = "Armors">
+		</node>
+		<node name = "HAND TOOLS">
+		</node>
+		<node name = "SPELL SCROLLS">
+		</node>
+		<node name = "SPELL BOOKS">
+		</node>
+		<node name = "BOOKS AND MANUSCRIPTS">
+		</node>
+		<node name = "POTIONS">
+		</node>
+		<node name = "MUGS">
+		</node>
+		<node name = "(STONE) BOTTLES AND VASES">
+		</node>
+		<node name = "PLATES">
+		</node>
+		<node name = "FOOD">
+		</node>
+		<node name = "DR ELRATH">
+		</node>
+		<node name = "ROPES">
+		</node>
+		<node name = "CANDLES">
+		</node>
+		<node name = "MISC">
+		</node>
+		<node name = "COMMON HOUSE ITEMS">
+		</node>
+		<node name = "RUNES">
+		</node>
+		<node name = "THIEVING TRAPS">
+		</node>
+		<node name = "ElvenCeremonial">
+		</node>
+		<node name = "Polymorph Wand Cornelius">
+		</node>
+		<node name = "RICH OBJECTS">
+		</node>
+		<node name = "Beer">
+		</node>
+		<node name = "MassWine">
+		</node>
+		<node name = "barrels">
+		</node>
+		<node name = "CHESTS">
+		</node>
+		<node name = "CASTLE PIET objects">
+		</node>
+		<node name = "CASTLE THRONE">
+		</node>
+		<node name = "CASTLE TABLES">
+		</node>
+		<node name = "CASTLE WRITING TABLES">
+		</node>
+		<node name = "CASTLE CHAIRS AND COUCHES">
+		</node>
+		<node name = "CASTLE LIBRARY">
+		</node>
+		<node name = "ELVEN CHAIRS">
+		</node>
+		<node name = "ELVEN FURNITURE">
+		</node>
+		<node name = "COMMON CHAIRS">
+		</node>
+		<node name = "COMMON FENCES">
+		</node>
+		<node name = "COMMON TABLES">
+		</node>
+		<node name = "COMMON FURNITURE">
+		</node>
+		<node name = "COMMON LIBRARY">
+		</node>
+		<node name = "IKEA SHELF SETS">
+		</node>
+		<node name = "SHELFSET 1">
+		</node>
+		<node name = "SHELFSET 2">
+		</node>
+		<node name = "ABANDONED OBJECTS">
+		</node>
+		<node name = "tristan kitchen stuff">
+		</node>
+		<node name = "BEDS">
+		</node>
+		<node name = "CARPETS">
+			<node name = "CARPETS">
+			</node>
+			<node name = "BEARSKINS">
+			</node>
+		</node>
+		<node name = "GENERAL STORE COUNTERS">
+		</node>
+		<node name = "THE INN'S">
+		</node>
+		<node name = "CHURCH">
+			<node name = "ITEMS">
+			</node>
+		</node>
+		<node name = "CELLAR STUFF">
+		</node>
+		<node name = "CASTLE CELLAR WALLS">
+			<node name = "HORIZONTAL">
+			</node>
+			<node name = "VERTICAL">
+			</node>
+			<node name = "EDGES">
+			</node>
+			<node name = "DOORS">
+			</node>
+			<node name = "STAIRS">
+			</node>
+		</node>
+		<node name = "JUNK">
+		</node>
+		<node name = "DEATH AND GORE">
+		</node>
+		<node name = "TORTURE">
+		</node>
+		<node name = "BURNED STUFF">
+		</node>
+		<node name = "BURNED VILLAGE OBJECTS">
+		</node>
+		<node name = "PLAGUE FLAGS">
+		</node>
+		<node name = "CASTLE FLAGS">
+		</node>
+		<node name = "CASTLE ORNAMENTS">
+		</node>
+		<node name = "SHRINES">
+			<node name = "HORIZONTAL WALLS">
+			</node>
+			<node name = "VERTICAL WALLS">
+			</node>
+			<node name = "DOORS">
+			</node>
+			<node name = "EDGES">
+			</node>
+		</node>
+		<node name = "FIGHT PIT">
+		</node>
+		<node name = "DWARVEN ITEMS">
+		</node>
+		<node name = "WEAPON RACKS">
+		</node>
+		<node name = "TRAINING DOLLS">
+		</node>
+		<node name = "ARCHER'S GUILD">
+		</node>
+		<node name = "Archery-Contest">
+		</node>
+		<node name = "CARTS">
+		</node>
+		<node name = "TENTS">
+		</node>
+		<node name = "GRAVEYARD">
+		</node>
+		<node name = "DEAD PLANTS">
+		</node>
+		<node name = "FALLEN TREES">
+		</node>
+		<node name = "PINES">
+		</node>
+		<node name = "TREES">
+		</node>
+		<node name = "FRUIT TREES">
+		</node>
+		<node name = "BUSHES AND PLANTS">
+		</node>
+		<node name = "FLOWERS">
+		</node>
+		<node name = "SHRUBS">
+		</node>
+		<node name = "PLANTS">
+		</node>
+		<node name = "NEW NATURE">
+		</node>
+		<node name = "STONES">
+		</node>
+		<node name = "MUSHROOMS">
+		</node>
+		<node name = "SWAMP OBJECTS">
+		</node>
+		<node name = "SWAMP BUSHES">
+		</node>
+		<node name = "MISC OBJECTS">
+		</node>
+		<node name = "CORPSES">
+		</node>
+		<node name = "NEW WOODEN OBJECTS">
+		</node>
+		<node name = "RIVER RAILING">
+		</node>
+		<node name = "STATUES">
+		</node>
+		<node name = "ROADBLOCKS">
+		</node>
+		<node name = "INGMAR NEW OBJECTS">
+		</node>
+		<node name = "INGMAR FLAGS">
+		</node>
+		<node name = "ORC CAMP">
+			<node name = "OBJECTS">
+			</node>
+			<node name = "DOORS">
+			</node>
+			<node name = "HORIZONTAL">
+			</node>
+			<node name = "VERTICAL">
+			</node>
+		</node>
+		<node name = "MISC OBJECTS">
+		</node>
+		<node name = "OUTDOOR STUFF">
+		</node>
+		<node name = "WOODEN HOUSE WALLS">
+		</node>
+		<node name = "WOODEN HOUSE BROKEN">
+		</node>
+		<node name = "WOODEN HOUSE ABANDONED">
+		</node>
+		<node name = "ORC CAMP - WALLS">
+			<node name = "DIRTY HOUSE WALLS">
+			</node>
+		</node>
+		<node name = "CASTLE PIET outside wall stairs">
+		</node>
+		<node name = "CASTLE EXTERIOR WALLS">
+			<node name = "VERTICAL">
+			</node>
+			<node name = "HORIZONTAL">
+			</node>
+			<node name = "CORNERS">
+			</node>
+		</node>
+		<node name = "COUNCIL OF SEVEN">
+			<node name = "OBJECTS">
+			</node>
+			<node name = "Teleporter Blue">
+			</node>
+			<node name = "Teleporter green">
+			</node>
+			<node name = "Teleporter orange">
+			</node>
+			<node name = "Teleporter purple">
+			</node>
+			<node name = "Teleporter Red">
+			</node>
+			<node name = "Teleporter White">
+			</node>
+			<node name = "Teleporter Yellow">
+			</node>
+			<node name = "PEDESTALS">
+			</node>
+			<node name = "Teleporter Balls">
+			</node>
+			<node name = "WALLS">
+				<node name = "HORIZONTAL">
+				</node>
+				<node name = "VERTICAL">
+				</node>
+				<node name = "CORNERS">
+				</node>
+				<node name = "DOORS">
+				</node>
+				<node name = "PLATEAU">
+					<node name = "CORNERS">
+					</node>
+					<node name = "INSIDE">
+					</node>
+					<node name = "OUTSIDE">
+					</node>
+				</node>
+			</node>
+		</node>
+		<node name = "CASTLE PIET walls">
+		</node>
+		<node name = "CASTLE OUTSIDE PIET">
+		</node>
+		<node name = "CASTLE BUSH PIET">
+		</node>
+		<node name = "WITCH DUNGEON CATACOMBS OBJECTS">
+		</node>
+		<node name = "WITCH DUNGEON CATACOMBS PLATEAU">
+		</node>
+		<node name = "WITCH DUNGEON CATACOMBS WALLS LOW">
+		</node>
+		<node name = "PIET CASTLE FENCE">
+		</node>
+		<node name = "ANDRE - SMALL STONE WALLS">
+		</node>
+		<node name = "WITCH DUNGEON PRISON objects">
+		</node>
+		<node name = "WITCH DUNGEON PRISON walls">
+		</node>
+		<node name = "THE GATE (FOR HEALER VILLAGE?)">
+		</node>
+		<node name = "TOWNHOUSE WALLS">
+			<node name = "OUTSIDE">
+			</node>
+		</node>
+		<node name = "BURNED VILLAGE WALLS I">
+		</node>
+		<node name = "BURNED VILLAGE WALLS II">
+		</node>
+		<node name = "BURNED VILLAGE WALLS III">
+		</node>
+		<node name = "CHINESE WALL TEST">
+		</node>
+		<node name = "MINING OBJECTS">
+		</node>
+		<node name = "BARRACS">
+		</node>
+		<node name = "TOWNHOUSE II">
+			<node name = "EDGES">
+			</node>
+			<node name = "OUTSIDE WALLS">
+			</node>
+			<node name = "OUTSIDE DOORS">
+			</node>
+			<node name = "INSIDE WALLS">
+			</node>
+			<node name = "INSIDE DOORS">
+			</node>
+			<node name = "INTERIOR WALLS">
+			</node>
+			<node name = "INTERIOR DOORS">
+			</node>
+		</node>
+		<node name = "SEWERS">
+			<node name = "SEWERS OBJECTS">
+			</node>
+			<node name = "SEWERS WALL">
+				<node name = "HORIZONTAL OUTSIDE*">
+				</node>
+				<node name = "HORIZONTAL INSIDE*">
+				</node>
+				<node name = "HORIZONTAL DOOR">
+				</node>
+				<node name = "VERTICAL DOOR">
+				</node>
+				<node name = "VERTICAL OUTSIDE">
+				</node>
+				<node name = "VERTICAL INSIDE">
+				</node>
+				<node name = "VERTICAL DOOR">
+				</node>
+				<node name = "CORNERS">
+				</node>
+			</node>
+			<node name = "SEWER PLATEAU">
+				<node name = "EDGES">
+				</node>
+			</node>
+		</node>
+		<node name = "FARMHOUSE">
+			<node name = "VERTICAL INSIDE">
+			</node>
+			<node name = "VERTICAL OUTSIDE">
+			</node>
+			<node name = "HORIZONTAL INSIDE">
+			</node>
+			<node name = "HORIZONTAL OUTSIDE">
+			</node>
+			<node name = "CORNERS">
+			</node>
+			<node name = "DOORS">
+			</node>
+			<node name = "OBJECTS">
+			</node>
+		</node>
+		<node name = "GENERIC HOUSE">
+			<node name = "HORIZONTAL OUTSIDE">
+			</node>
+			<node name = "HORIZONTAL INSIDE">
+			</node>
+			<node name = "VERTICAL OUTSIDE">
+			</node>
+			<node name = "VERTICAL INSIDE">
+			</node>
+			<node name = "DOORS">
+			</node>
+			<node name = "CORNERS">
+			</node>
+		</node>
+		<node name = "RANGER STUFF">
+		</node>
+		<node name = "DESERT 'WALLS'">
+			<node name = "INSIDE">
+			</node>
+			<node name = "OUTSIDE">
+			</node>
+			<node name = "EDGES">
+			</node>
+			<node name = "STAIRS">
+			</node>
+			<node name = "COVER TILES">
+			</node>
+		</node>
+		<node name = "FARM FENCE">
+		</node>
+		<node name = "GENERIC CELLAR">
+			<node name = "WALLS">
+			</node>
+			<node name = "HORIZONTAL">
+			</node>
+			<node name = "VERTICAL">
+			</node>
+			<node name = "EDGES">
+			</node>
+			<node name = "DOORS">
+			</node>
+			<node name = "VERTICAL">
+			</node>
+			<node name = "HORIZONTAL">
+			</node>
+		</node>
+		<node name = "ANDRE CASTLE">
+			<node name = "WOODEN PLATEAU WALLS">
+			</node>
+			<node name = "CASTLE WALLS">
+			</node>
+			<node name = "CASTLE BACKWALLS">
+			</node>
+			<node name = "WOODEN PLATEAU OBJECTS">
+			</node>
+			<node name = "PORTAL">
+			</node>
+		</node>
+		<node name = "MOUNTAINS">
+			<node name = "INSIDE">
+			</node>
+			<node name = "OUTSIDE">
+			</node>
+			<node name = "EDGES">
+			</node>
+			<node name = "STAIRS">
+			</node>
+			<node name = "COVER TILES">
+			</node>
+		</node>
+		<node name = "Cave entrance">
+		</node>
+		<node name = "DWARVEN HALLS PLATEAU">
+			<node name = "INSIDE">
+			</node>
+			<node name = "OUTSIDE">
+			</node>
+			<node name = "EDGES">
+			</node>
+		</node>
+		<node name = "DWARVEN HALLS WALL">
+			<node name = "HORIZONTAL">
+			</node>
+			<node name = "VERTICAL">
+			</node>
+			<node name = "DOORS">
+			</node>
+		</node>
+		<node name = "DWARVEN HOUSE">
+			<node name = "INSIDE">
+			</node>
+			<node name = "OUTSIDE">
+			</node>
+			<node name = "EDGES">
+			</node>
+			<node name = "DOORS">
+			</node>
+			<node name = "DWARVEN HALLS OBJECTS">
+			</node>
+		</node>
+		<node name = "DWARVEN HALLS MINE">
+		</node>
+		<node name = "Dwarven Entrance/Exit">
+		</node>
+		<node name = "DWARVEN HALLS PLATEAU 2">
+			<node name = "INSIDE">
+			</node>
+			<node name = "OUTSIDE">
+			</node>
+			<node name = "EDGES">
+			</node>
+		</node>
+		<node name = "DWARVEN HALLS ENTRANCE">
+		</node>
+		<node name = "ARMY STUFF">
+		</node>
+		<node name = "TELEPORTERS">
+		</node>
+		<node name = "DESERT OBJECTS">
+		</node>
+		<node name = "WASTE LAND">
+			<node name = "OBJECTS">
+			</node>
+		</node>
+		<node name = "FINAL DUNGEON">
+			<node name = "OBJECTS">
+			</node>
+		</node>
+		<node name = "Crystals">
+		</node>
+		<node name = "FD-Teleports">
+		</node>
+		<node name = "Altar">
+		</node>
+		<node name = "Dragon">
+		</node>
+		<node name = "Torches">
+		</node>
+		<node name = "Plateau">
+		</node>
+		<node name = "FD Plateau stair">
+		</node>
+		<node name = "Wall">
+		</node>
+		<node name = "Door">
+		</node>
+		<node name = "DIVINE ORDER doors">
+		</node>
+		<node name = "Divine Order Objects">
+		</node>
+		<node name = "Wasteland Walls">
+		</node>
+		<node name = "Wasteland lowplateau">
+		</node>
+		<node name = "Wasteland plateau">
+		</node>
+		<node name = "The Last Village Walls">
+		</node>
+		<node name = "Last Village Fence">
+		</node>
+		<node name = "Last Village Objects">
+		</node>
+		<node name = "Cave Entrance">
+		</node>
+		<node name = "MAGIC ROBE ">
+		</node>
+		<node name = "WHOREHOUSE">
+		</node>
+		<node name = "RED BULL">
+		</node>
+		<node name = "MAGIC DOOR CELLAR">
+		</node>
+		<node name = "TREE WALL">
+		</node>
+	</node>
+	<node name = "BEOYND DIVINITY">
+		<node name = "CITADEL A">
+			<node name = "WALLS">
+				<node name = "HORIZONTAL">
+				</node>
+				<node name = "HORIZONTAL-SPECIAL">
+				</node>
+				<node name = "VERTICAL">
+				</node>
+				<node name = "VERTICAL-SPECIAL">
+				</node>
+			</node>
+			<node name = "EDGES">
+			</node>
+			<node name = "DOORS">
+				<node name = "VERTICAL">
+				</node>
+				<node name = "HORIZONTAL">
+				</node>
+			</node>
+			<node name = "OBJECTS">
+			</node>
+			<node name = "CITADEL KEYLEVEL">
+				<node name = "WALL OBJECTS">
+				</node>
+				<node name = "OBJECTS">
+				</node>
+				<node name = "WALL OBJECTS">
+				</node>
+				<node name = "OBJECTS">
+				</node>
+			</node>
+			<node name = "CITADEL PRISON">
+				<node name = "WALL OBJECTS">
+				</node>
+				<node name = "OBJECTS">
+				</node>
+				<node name = "DOORS">
+					<node name = "VERTICAL">
+					</node>
+					<node name = "HORIZONTAL">
+					</node>
+				</node>
+				<node name = "LIGHTS">
+				</node>
+			</node>
+			<node name = "HATCH">
+			</node>
+			<node name = "CITADEL FORGE">
+				<node name = "OBJECTS">
+				</node>
+			</node>
+			<node name = "CITADEL LIGHTS">
+				<node name = "OBJECTS">
+				</node>
+			</node>
+			<node name = "CITADEL QUEST OBJECTS">
+			</node>
+		</node>
+		<node name = "CITADEL B">
+			<node name = "WALLS">
+				<node name = "HORIZONTAL">
+				</node>
+				<node name = "VERTICAL">
+				</node>
+			</node>
+			<node name = "EDGES">
+			</node>
+			<node name = "DOORS">
+				<node name = "HORIZONTAL">
+				</node>
+				<node name = "VERTICAL">
+				</node>
+			</node>
+			<node name = "CORNERS">
+			</node>
+			<node name = "STAIRS">
+				<node name = "VERTICAL">
+				</node>
+				<node name = "HORIZONTAL">
+				</node>
+			</node>
+			<node name = "HATCH ">
+			</node>
+		</node>
+		<node name = "CITADEL C">
+			<node name = "WALLS">
+				<node name = "HORIZONTAL">
+				</node>
+				<node name = "HORIZONTAL SPECIAL">
+				</node>
+				<node name = "VERTICAL">
+				</node>
+				<node name = "VERTICAL SPECIAL">
+				</node>
+			</node>
+			<node name = "EDGES">
+			</node>
+			<node name = "DOORS">
+				<node name = "HORIZONTAL">
+				</node>
+				<node name = "VERTICAL">
+				</node>
+			</node>
+			<node name = "OBJECTS">
+			</node>
+			<node name = "CORNERS">
+			</node>
+		</node>
+		<node name = "CITADEL NEW">
+		</node>
+		<node name = "CITADEL ARENA">
+			<node name = "DOORS">
+			</node>
+			<node name = "HORIZONTAL">
+			</node>
+		</node>
+		<node name = "CORALS">
+		</node>
+		<node name = "MUSHROOMS">
+		</node>
+		<node name = "TREES">
+		</node>
+		<node name = "DECORATION">
+		</node>
+		<node name = "HERBS">
+		</node>
+		<node name = "FOOD AND DRINKS">
+		</node>
+		<node name = "GEMS">
+		</node>
+		<node name = "CITADEL DEMON LAIR">
+			<node name = "DOORS">
+			</node>
+		</node>
+		<node name = "RIFTRUNNER ITEMS">
+			<node name = "Summoning dolls">
+			</node>
+			<node name = "Weapons">
+			</node>
+			<node name = "Quivers">
+			</node>
+			<node name = "Armors">
+			</node>
+			<node name = "Potions">
+			</node>
+		</node>
+		<node name = "ALCHEMY">
+		</node>
+		<node name = "TRAPS">
+		</node>
+		<node name = "BOOKS AND SCROLLS">
+		</node>
+		<node name = "DAMNED ONE LIGHTS">
+		</node>
+		<node name = "DAMNED ONE STATUES">
+		</node>
+		<node name = "RAANAAR STATUES">
+		</node>
+		<node name = "BARRACKS GONG">
+		</node>
+		<node name = "GEYSERS AND SMOKE">
+		</node>
+		<node name = "RIFT RUNNER CITADEL BONE FURNITURE">
+		</node>
+		<node name = "CITADEL ENTRANCE">
+		</node>
+		<node name = "RIFT RUNNER ACADEMY">
+			<node name = "RIFT RUNNER ACADEMY ENTRANCE">
+			</node>
+			<node name = "RIFT RUNNER ACADEMY WALLS">
+				<node name = "RIFT RUNNER ACADEMY HORIZONTAL WALLS">
+				</node>
+				<node name = "RIFT RUNNER ACADEMY VERTICAL WALLS">
+				</node>
+			</node>
+			<node name = "RIFT RUNNER ACADEMY DOORS">
+			</node>
+			<node name = "RIFT RUNNER ACADEMY STAIRS">
+			</node>
+			<node name = "RIFT RUNNER ACADEMY NEW WALLS">
+			</node>
+			<node name = "RIFT RUNNER ACADEMY NEW WALLS DOORS">
+			</node>
+			<node name = "RIFT RUNNER ACADEMY GENERAL OBJECTS">
+			</node>
+			<node name = "RIFT RUNNER ACADEMY LIGHTS">
+			</node>
+		</node>
+		<node name = "GORE">
+		</node>
+		<node name = "Miscellaneous corpses">
+		</node>
+		<node name = "RIFTRUNNER ACT 2 AND 3">
+			<node name = "CHESTS AND KEYS">
+			</node>
+			<node name = "SPECIALS">
+			</node>
+			<node name = "RAANAAR GATE">
+			</node>
+			<node name = "DUCKS">
+			</node>
+			<node name = "CHAOS CRYSTALS">
+			</node>
+		</node>
+		<node name = "ACT 3 SPECIALS">
+		</node>
+		<node name = "CRYSTAL CUT">
+		</node>
+		<node name = "CRYSTAL SPIRIT">
+		</node>
+		<node name = "ROCKS">
+		</node>
+		<node name = "DARK ROCKS">
+		</node>
+		<node name = "ROCK FOREST">
+		</node>
+		<node name = "ASH CLAW TREES">
+		</node>
+		<node name = "ASH TREE SPIKE BALLS">
+		</node>
+		<node name = "CRYSTAL ROCKS">
+		</node>
+		<node name = "PLANTS">
+		</node>
+		<node name = "IMP HOUSES EXTERIOR">
+		</node>
+		<node name = "IMP HOUSES INTERIOR">
+		</node>
+		<node name = "IMP HOUSE FURNITURE">
+		</node>
+		<node name = "IMP TEXTILE">
+		</node>
+		<node name = "IMP HOUSES HATCHES">
+		</node>
+		<node name = "IMP HOUSE SPECIAL">
+		</node>
+		<node name = "IMP ALCHEMY STUFF">
+		</node>
+		<node name = "IMP GRAVES">
+		</node>
+		<node name = "FROG BUCKETS">
+		</node>
+		<node name = "LAVA CRACKS">
+		</node>
+		<node name = "CAGE">
+		</node>
+		<node name = "SPIDER COCOONS">
+		</node>
+		<node name = "FIRE CAVE">
+		</node>
+		<node name = "CAVE">
+		</node>
+		<node name = "CAVE OBJECTS">
+		</node>
+		<node name = "CAVE PLANTS">
+		</node>
+		<node name = "CAVE ROCKS">
+		</node>
+		<node name = "BLUE CAVE">
+		</node>
+		<node name = "BLUE CAVE ROCKS">
+		</node>
+		<node name = "RR CAVE ENTRANCE">
+		</node>
+		<node name = "CRYSTAL CAVE">
+		</node>
+		<node name = "RUINS">
+		</node>
+		<node name = "RUINS ENTRANCES">
+		</node>
+		<node name = "SPECIALS">
+		</node>
+		<node name = "TEMPLE">
+			<node name = "OUTSIDE WALL">
+			</node>
+		</node>
+		<node name = "FENCE">
+		</node>
+		<node name = "WALLS">
+		</node>
+		<node name = "OBJECTS">
+		</node>
+		<node name = "TEMPLE GRAVEYARD">
+		</node>
+		<node name = "TEMPLE GATE">
+		</node>
+		<node name = "TEMPLE STAIRS">
+		</node>
+		<node name = "CRYPT">
+			<node name = "CRYPT WALLS">
+				<node name = "CRYPT DOORS">
+				</node>
+			</node>
+			<node name = "CRYPT PILLARS">
+			</node>
+			<node name = "CRYPT STAIRS">
+			</node>
+		</node>
+		<node name = "SPECIALS">
+			<node name = "GOLD ISLAND">
+			</node>
+		</node>
+		<node name = "TELEPORTER ISLAND">
+		</node>
+		<node name = "Broken teleporter gem">
+		</node>
+		<node name = "Battlefield teleporter">
+		</node>
+		<node name = "Battlefield teleporter key">
+		</node>
+		<node name = "Meteorite">
+		</node>
+		<node name = "CAVE ENTRANCES">
+		</node>
+		<node name = "CRAZY BRONTHION'S DOUBLES">
+		</node>
+		<node name = "BATTLEFIELD QUEST OBJECTS">
+</node>
+</node>
+</empty_node>

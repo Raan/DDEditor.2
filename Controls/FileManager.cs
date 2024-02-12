@@ -9,6 +9,8 @@ using Editor;
 using System.IO.Compression;
 using System.Runtime.ConstrainedExecution;
 using static System.Windows.Forms.LinkLabel;
+using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DivEditor.Controls
 {
@@ -133,7 +135,7 @@ namespace DivEditor.Controls
             return objDesc;
         }
         //------------------------------------------------------------------------------------------------------------------------
-        public static void ReadWorldAndObjects(ref MetaTile[,] MTA, ref Objects[] OBJ, string inpDir, int ext)
+        public static void ReadWorldAndObjects(ref MetaTile[,] MTA, ref List<Objects> OBJ, string inpDir, int ext)
         {
             int lineLength = 28; // Длинна строки одного объекта в байтах
             long objCount = 0;
@@ -141,15 +143,16 @@ namespace DivEditor.Controls
             {
                 System.IO.FileInfo file = new(inpDir + "\\objects.x" + ext);
                 objCount = file.Length / lineLength;
+                System.Diagnostics.Debug.WriteLine("objCount in Objects file " + objCount);
             }
             else System.Diagnostics.Debug.WriteLine(inpDir + "\\objects.x" + ext + " не найден");
-            Objects[] objсt = new Objects[objCount];
+            List<Objects> objсt = new();
             if (File.Exists(inpDir + "\\objects.x" + ext))
             {
                 using BinaryReader obj = new(File.Open(inpDir + "\\objects.x" + ext, FileMode.Open));
                 for (long i = 0; i < objCount; i++)
                 {
-                    objсt[i] = new Objects(obj.ReadUInt16(),                                 // var_0
+                    objсt.Add(new Objects(obj.ReadUInt16(),                                  // var_0
                                            obj.ReadUInt16(),                                 // var_1
                                            obj.ReadUInt16(),                                 // var_2
                                            obj.ReadUInt16(),                                 // var_3
@@ -161,13 +164,15 @@ namespace DivEditor.Controls
                                            obj.ReadUInt16(),                                 // var_9
                                            new Point(obj.ReadUInt16(), obj.ReadUInt16()),    // PixelPos
                                            obj.ReadUInt16(),                                 // var_10
-                                           obj.ReadUInt16());                                // SpriteID
+                                           obj.ReadUInt16()));                               // SpriteID
                 }
             }
             else System.Diagnostics.Debug.WriteLine(inpDir + "\\objects.x" + ext + " не найден");
             MetaTile[,] metaArray = new MetaTile[Vars.maxVerticalTails, Vars.maxHorizontalTails];
             int buf1;
             int upt, downt, num, eff, var1, var2;
+            int objCount_2 = 0;
+            int a = 0;
             if (File.Exists(inpDir + "/world.x" + ext))
             {
                 using BinaryReader world = new(File.Open(inpDir + "\\world.x" + ext, FileMode.Open));
@@ -187,6 +192,7 @@ namespace DivEditor.Controls
                         var2 = world.ReadUInt16();      //var2
                         buf1 = world.ReadUInt16();
                         metaArray[y, x] = new MetaTile(downt, upt, eff, var1, var2);
+                        objCount_2 += num;
                         for (int i = 0; i < num; i++)
                         {
                             byte[] objectByte = world.ReadBytes(8);
@@ -195,16 +201,19 @@ namespace DivEditor.Controls
                             objсt[objNum].TilePosition = new Point(x, y);                                   // Положение на сетке плиток
                             objсt[objNum].Effect = objectByte[7];                                           // Еффект объекта
                             metaArray[y, x].AddObject(objNum);
+                            if (objNum > a) a = objNum;
                         }
                     }
                 }
+                System.Diagnostics.Debug.WriteLine("objCount in World file " + objCount_2);
+                System.Diagnostics.Debug.WriteLine("max object world number in World file " + a);
             }
             else System.Diagnostics.Debug.WriteLine(inpDir + "\\world.x" + ext + " не найден");
             OBJ = objсt;
             MTA = metaArray;
         }
         //------------------------------------------------------------------------------------------------------------------------
-        public static void SaveWorldAndObjects(MetaTile[,] MTA, Objects[] OBJ, string outDir, int ext, int count)
+        public static void SaveWorldAndObjects(MetaTile[,] MTA, List<Objects> OBJ, string outDir, int ext, int count)
         {
             using (BinaryWriter writer = new BinaryWriter(File.Open(outDir + "\\objects.x" + ext, FileMode.Create)))
             {
@@ -334,57 +343,138 @@ namespace DivEditor.Controls
             return ter;
         }
         //------------------------------------------------------------------------------------------------------------------------
-        public static List<Metaobjects> ReadMetaobject(string inpFile) // Читаем информацию о текстурах
+        public static List<MetaObjects> ReadMetaobject(string inpFile)
         {
-            List<Metaobjects> met = new();
-            using StreamReader reader = new(inpFile);
+            List<MetaObjects> MO = new();
             string line;
-            bool metaobject = false;
-            int metCount = -1;
             string[] words;
-            while ((line = reader.ReadLine()) != null && !metaobject)
+            List<int> num = new List<int>();
+            List<string[]> nam = new List<string[]>();
+            using StreamReader reader = new(inpFile);
+            while ((line = reader.ReadLine()) != null)
             {
                 words = line.Split(new char[] { ' ' });
-                if (words[0] == "startsection" && words[1] == "metaobjects") metaobject = true;
-            }
-            while ((line = reader.ReadLine()) != null && metaobject)
-            {
-                words = line.Split(new char[] { ' ' });
-                if (words[0] == "endsection" && words[1] == "metaobjects") metaobject = false;
                 if (words[0] == "startdef" && words[1] == "metaobject")
                 {
-                    metCount++;
-                    met.Add(new Metaobjects());
-                    if (words.Count() > 3) met[metCount].setMet(words[2] + " " + words[3]);
-                    else met[metCount].setMet(words[2]);
-
+                    MO.Add(new MetaObjects());
+                    MO[^1].type = words[2];
                 }
-                if (words[0] == "group") met[metCount].setGroup(words[1]);
-                if (words[0] == "type") met[metCount].setType(words[1]);
-                if (words[0] == "location") met[metCount].setLocation(words[1]);
-                if (words[0] == "walltype") met[metCount].setWalltype(words[1] + " " + words[2]);
-                //if (words[0] == "placement") met[metCount].setPlacement(int.Parse(words[2]));
-                if (words[0] == "size")
+                if (words[0] == "group") MO[^1].group = words[1];
+                if (words[0] == "location") MO[^1].location = words[1];
+                if (words[0] == "walltype")
                 {
-                    met[metCount].setSize(int.Parse(words[1]), int.Parse(words[2]));
+                    if (words.Count() > 2)
+                    {
+                        MO[^1].walltype[0] = words[1];
+                        MO[^1].walltype[1] = words[2];
+                    }
+                    else
+                    {
+                        MO[^1].walltype[0] = words[1];
+                        MO[^1].walltype[1] = "";
+                    }
                 }
                 if (words[0] == "object")
                 {
-                    int[] buff = new int[4];
-                    int a = 0;
-                    for (int i = 0; i < buff.Length; i++)
-                    {
-                        if (int.TryParse(words[i], out int b))
-                        {
-                            buff[a] = b;
-                            a++;
-                        }
-                    }
-                    met[metCount].addObject(buff);
+                    MO[^1].AddObject(new Object(
+                        int.Parse(words[1]),
+                        int.Parse(words[2]),
+                        int.Parse(words[3]),
+                        int.Parse(words[4])));
                 }
             }
-            return met;
+            return MO;
         }
         //------------------------------------------------------------------------------------------------------------------------
+        public static List<string[]> ReadMetaobjectHead(string inpFile)
+        {
+            using StreamReader reader = new(inpFile);
+            string line;
+            string[] words;
+            List<string[]> nam = new List<string[]>();
+            while ((line = reader.ReadLine()) != null)
+            {
+                words = line.Split(new char[] { '	' });
+                string[] buf = new string[11];
+                for (int i = 0; i < 11; i++)
+                {
+                    if (i < words.Length)
+                    {
+                        buf[i] = "" + words[i];
+                    }
+                    else buf[i] = "";
+                }
+                nam.Add(buf);
+            }
+            return nam;
+        }
+        //------------------------------------------------------------------------------------------------------------------------
+        public static void WriteXMLObjHead(List<string[]> line)
+        {
+            List<string> xml = new();
+            xml.Add("<?xml version=\"1.0\" encoding=\"utf-8\" ?>");
+            xml.Add("<empty_node>");
+            List<int> buf = new();
+            for (int i = 0; i < line.Count; i++)
+            {
+                for (int j = 10; j > 0; j--)
+                {
+                    if (line[i][j].Length > 0)
+                    {
+                        for (int k = buf.Count - 1; k >= 0; k--)
+                        {
+                            if (buf[k] >= j)
+                            {
+                                xml.Add("</node>");
+                                for (int t = 0; t < buf[k]; t++)
+                                {
+                                    xml[^1] = "\t" + xml[^1];
+                                }
+                                buf.RemoveAt(k);
+                            }
+                        }
+                        xml.Add("<node name = \"" + line[i][j] + "\">");
+                        buf.Add(j);
+                        for (int t = 0; t < j; t++)
+                        {
+                            xml[^1] = "\t" + xml[^1];
+                        }
+                        break;
+                    }
+                }
+            }
+            for (int k = buf.Count - 1; k >= 0; k--)
+            {
+                xml.Add("</node>");
+            }
+            xml.Add("</empty_node>");
+            String[] xml_2 = new string[xml.Count];
+            for (int i = 0; i < xml.Count; i++)
+            {
+                xml_2[i] = xml[i];
+            }
+            if (File.Exists(Vars.xmlMetObjHead))
+            {
+                File.Delete(Vars.xmlMetObjHead);
+            }
+            File.WriteAllLines(Vars.xmlMetObjHead, xml_2);
+        }
+        public static bool BeoyndDivinityFile(string inpDir)
+        {
+            long objectsLength = 0;
+            long tileLength = 0;
+            if (File.Exists(inpDir + "\\static\\imagelists\\CPackedb.0c")) // Проверяем размер файла со спрайтами объектов (79364096 - DD, 164421632 - BD)
+            {
+                System.IO.FileInfo file = new(inpDir + "\\static\\imagelists\\CPackedb.0c");
+                objectsLength = file.Length;
+            }
+            if (File.Exists(inpDir + "\\static\\imagelists\\CPackedb.2c")) // Проверяем размер файла со спрайтами плитки (17149952 - DD, 44376064 - BD)
+            {
+                System.IO.FileInfo file = new(inpDir + "\\static\\imagelists\\CPackedb.2c");
+                tileLength = file.Length;
+            }
+            if (objectsLength > 80000000 && tileLength > 20000000) return true;
+            else return false;
+        }
     }
 }

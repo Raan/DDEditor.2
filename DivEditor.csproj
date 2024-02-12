@@ -10,6 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controls\мер\**" />
+    <EmbeddedResource Remove="Controls\мер\**" />
+    <None Remove="Controls\мер\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="Logo.ico" />
   </ItemGroup>
   
@@ -30,10 +36,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  
-  <ItemGroup>
-    <Folder Include="Controls\мер\" />
   </ItemGroup>
 
 </Project>

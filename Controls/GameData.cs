@@ -15,19 +15,22 @@ namespace DivEditor.Controls
         public static String pathToEditWorldFolder = "";                    // Путь к сохранению
         public static int worldMapNumber = 0;                               // Номер мира
         public static List<Terrain> terrain = new();                        // Список текстур 
-        public static List<Metaobjects> metobj = new();                     // Список метаобъектов
+        public static List<MetaObjects> MObjects = new();                   // Список метаобъектов
         public static MetaTile[,] metaTileArray = default!;                 // Список данных World
         public static List<ObjectsDescriptions> objectDesc = new();         // Список описания объектов
-        public static Objects[] objects = default!;                         // Список объектов
-        public static bool READY = false;
+        public static List<Objects> objects = new();                        // Список объектов
+        public static List<string[]> metaObjHead = new();                   // Группировка объектов для списка
+        public static bool READY = false;                                   // Флаг готовности к отображению мира
 
         public static void Initialize()
         {
             Objects.clearObjectsCount();
             terrain = FileManager.ReadTerrain(Vars.pathTarrainFile);
-            //metobj = FileManager.ReadMetaobject(@"editor.dat");
             objectDesc = FileManager.ReadObjectsInfo(Vars.pathObjectDescFile);
             FileManager.ReadWorldAndObjects(ref metaTileArray, ref objects, pathToEditWorldFolder, worldMapNumber);
+            metaObjHead = FileManager.ReadMetaobjectHead(Vars.pathMetaObjHeads);
+            FileManager.WriteXMLObjHead(metaObjHead);
+            MObjects = FileManager.ReadMetaobject(Vars.pathMetaObjBody);
         }
         public static void TextureMapping(int textures, int MouseStateX, int MouseStateY, int xCor, int yCor)
         {

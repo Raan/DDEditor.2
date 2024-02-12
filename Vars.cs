@@ -10,12 +10,17 @@ namespace DivEditor.Controls
     {
         public const String pathConfigFile = @"Editor\config.ini";
         public const String pathTarrainFile = @"Editor\editor_tiles.dat";
-        public const String pathObjectDescFile = @"Editor\objects.dat";
+        public const String pathObjectDescFile = @"Editor\editor_objects_descriptions.dat";
+        public const String pathMetaObjHeads = @"Editor\editor_metaobjects_head.dat";
+        public const String pathMetaObjBody = @"Editor\editor_metaobjects_body.dat";
+        public const String xmlMetObjHead = @"Editor\editor_MOHead.xml";
         public const int maxObjectsCount = 11264;
+        public const int maxObjectsCountInTile = 14;
         public const int maxVerticalTails = 1024;
         public const int maxHorizontalTails = 512;
         public const int tileSize = 64;
         public const int maxObjectHeight = 255;
+        public const int saveWorldImageScale = 4; // Масштаб сохраняемого изображения мира (2 и более)
         public const int texturesMaximumValue = 65535; // Текстура не может занимать более 2х байт памяти
         public const int tileEffectsValueMax = 127; // Максимальная величина значения эффекта плитки
         public static readonly int[] tileEffects = new int[7] { 

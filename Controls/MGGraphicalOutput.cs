@@ -1,35 +1,25 @@
 ﻿using DivEditor.Controls;
-using Microsoft.VisualBasic.Devices;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Forms.NET.Controls;
-using SharpDX.Direct3D9;
-using System;
 using System.Diagnostics;
-using System.Drawing;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
-using System.Reflection.Metadata;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
 using Color = Microsoft.Xna.Framework.Color;
-using Keyboard = Microsoft.Xna.Framework.Input.Keyboard;
-using Keys = Microsoft.Xna.Framework.Input.Keys;
 using Mouse = Microsoft.Xna.Framework.Input.Mouse;
 using Point = Microsoft.Xna.Framework.Point;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
-using SharpDX.Direct2D1.Effects;
 
 namespace Editor.Controls
 {
     public class MGGraphicalOutput : MonoGameControl
     {
-        
-        static List<int[]> ObjectShow = new();// 0 - мировой номер, 1 - SpriteID, 2 - поведение, 3 - координата Х, 4 - координата Y
+
+        static List<int[]> ObjectShow = new(); // 0 - мировой номер, 1 - SpriteID, 2 - поведение, 3 - координата Х, 4 - координата Y, 5 - сортировка
         static int WindowWidth, WindowHeight;
         static int vScrollPos = 0;
         static int hScrollPos = 0;
-        private Texture2D? Menu, vScroll, hScroll, point;
+        private Texture2D? vScroll, hScroll, point;
         private static Texture2D[,] TilesUpTextures = new Texture2D[Vars.maxVerticalTails, Vars.maxHorizontalTails];
         private static Texture2D[,] TilesDownTextures = new Texture2D[Vars.maxVerticalTails, Vars.maxHorizontalTails];
         private static Texture2D[] ObjectTextures = new Texture2D[Vars.maxObjectsCount];
@@ -38,18 +28,26 @@ namespace Editor.Controls
         static bool mouseRBState;
         static bool mouseLBOldState;
         static bool mouseRBOldState;
+        static Point mouseOldPosition;
         static bool vScrollChange;
         static bool hScrollChange;
         static bool mouseClickHandler = false;
 
-        static int[] selectedObject = new int[5];// 0 - мировой номер, 1 - SpriteID, 2 - поведение, 3 - координата Х, 4 - координата Y
-        bool processMovingObject = false;
+        static int[] selectedObject = new int[6];       // 0 - мировой номер, 1 - SpriteID, 2 - поведение, 3 - координата Х, 4 - координата Y, 5 - сортировка
+        public static List<int[]> newObject = new();    // 0 - мировой номер, 1 - SpriteID, 2 - поведение, 3 - координата Х, 4 - координата Y, 5 - сортировка, 6 - смещение по Х, 7 - смещение по Y
+        public static bool procMovingObject = false;
+        public static bool procMovingNewObject = false;
         int procMovObjCursOffsetX = 0;
         int procMovObjCursOffsetY = 0;
+        int procMovObjCorInTileX;
+        int procMovObjCorInTileY;
+
+        
+
 
         static int vScrollDiff = 0;
         static int hScrollDiff = 0;
-        static int tileBiasY, tileBiasX; // Координаты смещения экрана в плитках
+        public static int tileBiasY, tileBiasX; // Координаты смещения экрана в плитках
         long timer = 0;
 
         //------------------------------------------------------------------------------------------------------------------------
@@ -58,7 +56,6 @@ namespace Editor.Controls
             SetMultiSampleCount(8);
             //Components.Remove(Editor.FPSCounter);
             //Editor.RemoveDefaultComponents();
-            Menu = Editor.Content.Load<Texture2D>("images/icon_menu");
             vScroll = Editor.Content.Load<Texture2D>("images/vScroll");
             hScroll = Editor.Content.Load<Texture2D>("images/hScroll");
             point = Editor.Content.Load<Texture2D>("images/point");
@@ -91,12 +88,45 @@ namespace Editor.Controls
                 else mouseLBState = false;
                 if (currentMouseState.RightButton == ButtonState.Pressed) mouseRBState = true;
                 else mouseRBState = false;
+
+                bool shift = Keyboard.IsKeyDown(System.Windows.Forms.Keys.Shift);
+                bool ctrl = Keyboard.IsKeyDown(System.Windows.Forms.Keys.Control);
+                bool alt = Keyboard.IsKeyDown(System.Windows.Forms.Keys.Alt);
+
                 UpdateTileTexture();
                 UpdateShowObjects();
 
                 if (!mouseClickHandler) // Обработка нажатия на ползунок
                 {
                     mouseClickHandler = Scrolls(currentMouseState.X, currentMouseState.Y);
+                }
+                if (Keyboard.IsKeyDown(System.Windows.Forms.Keys.D)) // Обработка клавиши D
+                {
+                    tileBiasX++;
+                    if (shift) tileBiasX += 5;
+                    if (tileBiasX > 511) tileBiasX = 511;
+                    updateScrollPosition();
+                }
+                if (Keyboard.IsKeyDown(System.Windows.Forms.Keys.A)) // Обработка клавиши A
+                {
+                    tileBiasX--;
+                    if (shift) tileBiasX -= 5;
+                    if (tileBiasX < 0) tileBiasX = 0;
+                    updateScrollPosition();
+                }
+                if (Keyboard.IsKeyDown(System.Windows.Forms.Keys.S)) // Обработка клавиши S
+                {
+                    tileBiasY++;
+                    if (shift) tileBiasY += 5;
+                    if (tileBiasY > 1023) tileBiasY = 1023;
+                    updateScrollPosition();
+                }
+                if (Keyboard.IsKeyDown(System.Windows.Forms.Keys.W)) // Обработка клавиши W
+                {
+                    tileBiasY--;
+                    if (shift) tileBiasY -= 5;
+                    if (tileBiasY < 0) tileBiasY = 0;
+                    updateScrollPosition();
                 }
                 if (EditForm.selectTollBarPage == 0) // Обработка мыши для вкладки текстур
                 {
@@ -118,7 +148,7 @@ namespace Editor.Controls
                 {
                     // Выбор объекта
                     if (mouseLBState &&
-                        !processMovingObject &&
+                        !procMovingObject &&
                         !mouseLBOldState &&
                         !mouseRBState &&
                         !mouseClickHandler &&
@@ -135,6 +165,7 @@ namespace Editor.Controls
                                 selectedObject[0] = ObjectShow[i][0];
                                 selectedObject[1] = GameData.objects[selectedObject[0]].SpriteID;
                                 selectedObject[2] = 3;
+                                selectedObject[5] = 0;
                                 break;
                             }
                             else
@@ -142,14 +173,14 @@ namespace Editor.Controls
                                 selectedObject[0] = -1;
                             }
                         }
-                        processMovingObject = false;
+                        procMovingObject = false;
                         mouseClickHandler = true;
                         timer = Stopwatch.GetTimestamp();
                     }
                     // Начало перемещения объекта
                     if (mouseLBState &&
                         mouseLBOldState &&
-                        !processMovingObject &&
+                        !procMovingObject &&
                         !mouseRBState &&
                         !mouseClickHandler &&
                         currentMouseState.X > 0 &&
@@ -166,13 +197,15 @@ namespace Editor.Controls
                                 {
                                     procMovObjCursOffsetX = currentMouseState.X - ObjectShow[i][3];
                                     procMovObjCursOffsetY = currentMouseState.Y - ObjectShow[i][4];
-                                    processMovingObject = true;
+                                    procMovObjCorInTileX = GameData.objects[ObjectShow[i][0]].AbsolutePixelPosition.X % 64;
+                                    procMovObjCorInTileY = GameData.objects[ObjectShow[i][0]].AbsolutePixelPosition.Y % 64;
+                                    procMovingObject = true;
                                     break;
                                 }
                             }
                             else
                             {
-                                processMovingObject = false;
+                                procMovingObject = false;
                             }
                         }
                         mouseClickHandler = true;
@@ -181,7 +214,7 @@ namespace Editor.Controls
                     // Перемещение объекта
                     if (mouseLBState &&
                         mouseLBOldState &&
-                        processMovingObject &&
+                        procMovingObject &&
                         !mouseRBState &&
                         !mouseClickHandler &&
                         currentMouseState.X > 0 &&
@@ -190,14 +223,23 @@ namespace Editor.Controls
                         currentMouseState.Y < WindowHeight &&
                         Stopwatch.GetTimestamp() - timer > 20000)
                     {
-                        selectedObject[3] = currentMouseState.X - procMovObjCursOffsetX;
-                        selectedObject[4] = currentMouseState.Y - procMovObjCursOffsetY;
+                        if (EditForm.objectStepOneCell)
+                        {
+                            selectedObject[3] = (currentMouseState.X - procMovObjCursOffsetX) / 64 * 64 + procMovObjCorInTileX;
+                            selectedObject[4] = (currentMouseState.Y - procMovObjCursOffsetY) / 64 * 64 + procMovObjCorInTileY;
+                        }
+                        else
+                        {
+                            selectedObject[3] = currentMouseState.X - procMovObjCursOffsetX;
+                            selectedObject[4] = currentMouseState.Y - procMovObjCursOffsetY;
+                        }
+                        selectedObject[5] = (selectedObject[4] + GameData.objectDesc[GameData.objects[selectedObject[0]].SpriteID].TouchPoint.Y + tileBiasY * Vars.tileSize) * Vars.maxHorizontalTails * Vars.tileSize + selectedObject[3] + tileBiasX * Vars.tileSize;
                         timer = Stopwatch.GetTimestamp();
                     }
                     // Вставка объекта после перемещения
                     if (!mouseLBState &&
                         mouseLBOldState &&
-                        processMovingObject &&
+                        procMovingObject &&
                         !mouseRBState &&
                         !mouseClickHandler &&
                         currentMouseState.X > 0 &&
@@ -221,7 +263,6 @@ namespace Editor.Controls
                         if (selectedObject[4] > (Vars.maxVerticalTails - 1) * Vars.tileSize) selectedObject[4] = (Vars.maxVerticalTails - 1) * Vars.tileSize;
                         int tileX = tileBiasX + (selectedObject[3] / Vars.tileSize);
                         int tileY = tileBiasY + (selectedObject[4] / Vars.tileSize);
-
                         if (GameData.metaTileArray[tileY, tileX].GetObjectsCount() < Vars.maxObjectsCount)
                         {
                             GameData.metaTileArray[tileY, tileX].AddObject(selectedObject[0]);
@@ -230,7 +271,55 @@ namespace Editor.Controls
                         GameData.objects[selectedObject[0]].TilePosition = new System.Drawing.Point(tileX, tileY);
                         selectedObject[0] = -1;
                         UpdateShowObjects();
-                        processMovingObject = false;
+                        procMovingObject = false;
+                    }
+                    // Перемещение нового объекта
+                    if (newObject.Count > 0 && 
+                        procMovingNewObject &&
+                        currentMouseState.X > 0 &&
+                        currentMouseState.Y > 0 &&
+                        currentMouseState.X < WindowWidth &&
+                        currentMouseState.Y < WindowHeight &&
+                        !mouseLBState &&
+                        Stopwatch.GetTimestamp() - timer > 20000) 
+                    {
+                        for(int i = 0; i < newObject.Count; i++) 
+                        {
+                            newObject[i][3] = currentMouseState.X + newObject[i][6];
+                            newObject[i][4] = currentMouseState.Y + newObject[i][7];
+                            newObject[i][5] = (newObject[i][4] + GameData.objectDesc[GameData.objects[newObject[i][0]].SpriteID].TouchPoint.Y + tileBiasY * Vars.tileSize) * Vars.maxHorizontalTails * Vars.tileSize + newObject[i][3] + tileBiasX * Vars.tileSize;
+                        }
+                        timer = Stopwatch.GetTimestamp();
+                    }
+                    // Вставка нового объекта
+                    if (newObject.Count > 0 &&
+                        procMovingNewObject &&
+                        !mouseClickHandler &&
+                        currentMouseState.X > 0 &&
+                        currentMouseState.Y > 0 &&
+                        currentMouseState.X < WindowWidth &&
+                        currentMouseState.Y < WindowHeight &&
+                        mouseLBState &&
+                        Stopwatch.GetTimestamp() - timer > 20000)
+                    {
+                        procMovingNewObject = false;
+                        for (int i = 0; i < newObject.Count; i++)
+                        {
+                            
+                            int tileX = tileBiasX + (newObject[i][3] / Vars.tileSize);
+                            int tileY = tileBiasY + (newObject[i][4] / Vars.tileSize);
+                            if (GameData.metaTileArray[tileY, tileX].GetObjectsCount() < Vars.maxObjectsCountInTile)
+                            {
+                                GameData.metaTileArray[tileY, tileX].AddObject(newObject[i][0]);
+                                GameData.objects[newObject[i][0]].AbsolutePixelPosition = new System.Drawing.Point(newObject[i][3] + tileBiasX * Vars.tileSize, newObject[i][4] + tileBiasY * Vars.tileSize);
+                                GameData.objects[newObject[i][0]].TilePosition = new System.Drawing.Point(tileX, tileY);
+                            }
+                        }
+                        UpdateShowObjects();
+                        newObject.Clear();
+                        mouseClickHandler = false;
+                        Cursor.Show();
+                        timer = Stopwatch.GetTimestamp();
                     }
                 }
                 if (EditForm.selectTollBarPage == 2) // Обработка мыши для вкладки болванчиков
@@ -266,12 +355,13 @@ namespace Editor.Controls
                         timer = Stopwatch.GetTimestamp();
                     }
                 }
-                
-                //Сохраняем последние состояния кнопок мыши
+                // Сохраняем последние состояния кнопок мыши
                 if (currentMouseState.LeftButton == ButtonState.Pressed) mouseLBOldState = true;
                 else mouseLBOldState = false;
                 if (currentMouseState.RightButton == ButtonState.Pressed) mouseRBOldState = true;
                 else mouseRBOldState = false;
+                mouseOldPosition.X = currentMouseState.X;
+                mouseOldPosition.Y = currentMouseState.Y;
             }
         }
         //------------------------------------------------------------------------------------------------------------------------
@@ -302,53 +392,56 @@ namespace Editor.Controls
                     {
                         for (int x = 0; x < WindowWidth / Vars.tileSize + 1; x++)
                         {
-                            if (GameData.metaTileArray[y + tileBiasY, x + tileBiasX].TileEffects != 0) // Если есть эффект
+                            if (y + tileBiasY < Vars.maxVerticalTails && x + tileBiasX < Vars.maxHorizontalTails)
                             {
-                                if (((GameData.metaTileArray[y + tileBiasY, x + tileBiasX].TileEffects & (1 << Vars.tileEffectByteNumber_UpDiagonal)) == 0) &&
-                                ((GameData.metaTileArray[y + tileBiasY, x + tileBiasX].TileEffects & (1 << Vars.tileEffectByteNumber_DownDiagonal)) == 0)) // Если без диагонали
+                                if (GameData.metaTileArray[y + tileBiasY, x + tileBiasX].TileEffects != 0) // Если есть эффект
                                 {
-                                    for (int a = 0; a < 64; a++)
+                                    if (((GameData.metaTileArray[y + tileBiasY, x + tileBiasX].TileEffects & (1 << Vars.tileEffectByteNumber_UpDiagonal)) == 0) &&
+                                    ((GameData.metaTileArray[y + tileBiasY, x + tileBiasX].TileEffects & (1 << Vars.tileEffectByteNumber_DownDiagonal)) == 0)) // Если без диагонали
                                     {
-                                        Editor.spriteBatch.Draw(point, new Rectangle(x * Vars.tileSize, y * Vars.tileSize + a, 1, 1), Color.Gray);
-                                        Editor.spriteBatch.Draw(point, new Rectangle(x * Vars.tileSize + a, y * Vars.tileSize, 1, 1), Color.Gray);
-                                        Editor.spriteBatch.Draw(point, new Rectangle(x * Vars.tileSize + 64, y * Vars.tileSize + a, 1, 1), Color.Gray);
-                                        Editor.spriteBatch.Draw(point, new Rectangle(x * Vars.tileSize + a, y * Vars.tileSize + 64, 1, 1), Color.Gray);
+                                        for (int a = 0; a < 64; a++)
+                                        {
+                                            Editor.spriteBatch.Draw(point, new Rectangle(x * Vars.tileSize, y * Vars.tileSize + a, 1, 1), Color.Gray);
+                                            Editor.spriteBatch.Draw(point, new Rectangle(x * Vars.tileSize + a, y * Vars.tileSize, 1, 1), Color.Gray);
+                                            Editor.spriteBatch.Draw(point, new Rectangle(x * Vars.tileSize + 64, y * Vars.tileSize + a, 1, 1), Color.Gray);
+                                            Editor.spriteBatch.Draw(point, new Rectangle(x * Vars.tileSize + a, y * Vars.tileSize + 64, 1, 1), Color.Gray);
+                                        }
+                                    }
+                                    else if ((GameData.metaTileArray[y + tileBiasY, x + tileBiasX].TileEffects & (1 << Vars.tileEffectByteNumber_UpDiagonal)) != 0) // Если верхняя диагонать
+                                    {
+                                        for (int a = 0; a < 64; a++)
+                                        {
+                                            Editor.spriteBatch.Draw(point, new Rectangle(x * Vars.tileSize, y * Vars.tileSize + a, 1, 1), Color.Gray);
+                                            Editor.spriteBatch.Draw(point, new Rectangle(x * Vars.tileSize + a, y * Vars.tileSize, 1, 1), Color.Gray);
+                                            Editor.spriteBatch.Draw(point, new Rectangle(x * Vars.tileSize + a, y * Vars.tileSize + 64 - a, 1, 1), Color.Gray);
+                                        }
+                                    }
+                                    else // Если нижняя диагонать
+                                    {
+                                        for (int a = 0; a < 64; a++)
+                                        {
+                                            Editor.spriteBatch.Draw(point, new Rectangle(x * Vars.tileSize + 64, y * Vars.tileSize + a, 1, 1), Color.Gray);
+                                            Editor.spriteBatch.Draw(point, new Rectangle(x * Vars.tileSize + a, y * Vars.tileSize + 64, 1, 1), Color.Gray);
+                                            Editor.spriteBatch.Draw(point, new Rectangle(x * Vars.tileSize + a, y * Vars.tileSize + 64 - a, 1, 1), Color.Gray);
+                                        }
                                     }
                                 }
-                                else if ((GameData.metaTileArray[y + tileBiasY, x + tileBiasX].TileEffects & (1 << Vars.tileEffectByteNumber_UpDiagonal)) != 0) // Если верхняя диагонать
+                                if ((GameData.metaTileArray[y + tileBiasY, x + tileBiasX].TileEffects & (1 << Vars.tileEffectByteNumber_Water)) != 0) // Вода
                                 {
-                                    for (int a = 0; a < 64; a++)
-                                    {
-                                        Editor.spriteBatch.Draw(point, new Rectangle(x * Vars.tileSize, y * Vars.tileSize + a, 1, 1), Color.Gray);
-                                        Editor.spriteBatch.Draw(point, new Rectangle(x * Vars.tileSize + a, y * Vars.tileSize, 1, 1), Color.Gray);
-                                        Editor.spriteBatch.Draw(point, new Rectangle(x * Vars.tileSize + a, y * Vars.tileSize + 64 - a, 1, 1), Color.Gray);
-                                    } 
-                                } 
-                                else // Если нижняя диагонать
-                                {
-                                    for (int a = 0; a < 64; a++)
-                                    {
-                                        Editor.spriteBatch.Draw(point, new Rectangle(x * Vars.tileSize + 64, y * Vars.tileSize + a, 1, 1), Color.Gray);
-                                        Editor.spriteBatch.Draw(point, new Rectangle(x * Vars.tileSize + a, y * Vars.tileSize + 64, 1, 1), Color.Gray);
-                                        Editor.spriteBatch.Draw(point, new Rectangle(x * Vars.tileSize + a, y * Vars.tileSize + 64 - a, 1, 1), Color.Gray);
-                                    }
+                                    Editor.spriteBatch.DrawString(DrawFont, "water", new Vector2(x * Vars.tileSize + 3, y * Vars.tileSize - 3), Color.Aqua);
                                 }
-                            }
-                            if ((GameData.metaTileArray[y + tileBiasY, x + tileBiasX].TileEffects & (1 << Vars.tileEffectByteNumber_Water)) != 0) // Вода
-                            {
-                                Editor.spriteBatch.DrawString(DrawFont, "water", new Vector2(x * Vars.tileSize + 3, y * Vars.tileSize - 3), Color.Aqua);
-                            }
-                            if ((GameData.metaTileArray[y + tileBiasY, x + tileBiasX].TileEffects & (1 << Vars.tileEffectByteNumber_Indoors)) != 0) // Помещение
-                            {
-                                Editor.spriteBatch.DrawString(DrawFont, "indoor", new Vector2(x * Vars.tileSize + 3, y * Vars.tileSize + 12), Color.Coral);
-                            }
-                            if ((GameData.metaTileArray[y + tileBiasY, x + tileBiasX].TileEffects & (1 << Vars.tileEffectByteNumber_Fog)) != 0) // Туман
-                            {
-                                Editor.spriteBatch.DrawString(DrawFont, "fog", new Vector2(x * Vars.tileSize + 3, y * Vars.tileSize + 27), Color.LightSteelBlue);
-                            }
-                            if ((GameData.metaTileArray[y + tileBiasY, x + tileBiasX].TileEffects & (1 << Vars.tileEffectByteNumber_Object)) != 0) // Квест
-                            {
-                                Editor.spriteBatch.DrawString(DrawFont, "object", new Vector2(x * Vars.tileSize + 3, y * Vars.tileSize + 42), Color.LightSteelBlue);
+                                if ((GameData.metaTileArray[y + tileBiasY, x + tileBiasX].TileEffects & (1 << Vars.tileEffectByteNumber_Indoors)) != 0) // Помещение
+                                {
+                                    Editor.spriteBatch.DrawString(DrawFont, "indoor", new Vector2(x * Vars.tileSize + 3, y * Vars.tileSize + 12), Color.Coral);
+                                }
+                                if ((GameData.metaTileArray[y + tileBiasY, x + tileBiasX].TileEffects & (1 << Vars.tileEffectByteNumber_Fog)) != 0) // Туман
+                                {
+                                    Editor.spriteBatch.DrawString(DrawFont, "fog", new Vector2(x * Vars.tileSize + 3, y * Vars.tileSize + 27), Color.LightSteelBlue);
+                                }
+                                if ((GameData.metaTileArray[y + tileBiasY, x + tileBiasX].TileEffects & (1 << Vars.tileEffectByteNumber_Object)) != 0) // Квест
+                                {
+                                    Editor.spriteBatch.DrawString(DrawFont, "object", new Vector2(x * Vars.tileSize + 3, y * Vars.tileSize + 42), Color.LightSteelBlue);
+                                }
                             }
                         }
                     }
@@ -430,47 +523,37 @@ namespace Editor.Controls
                             int spriteID = GameData.objects[worldNum].SpriteID;
                             int posX = (GameData.objects[worldNum].TilePosition.X - tileBiasX) * Vars.tileSize + GameData.objects[worldNum].PixelPositionInTile.X;
                             int posY = (GameData.objects[worldNum].TilePosition.Y - tileBiasY) * Vars.tileSize + GameData.objects[worldNum].PixelPositionInTile.Y;
+                            int sort = (GameData.objects[worldNum].AbsolutePixelPosition.Y + GameData.objectDesc[GameData.objects[worldNum].SpriteID].TouchPoint.Y) * Vars.maxHorizontalTails * Vars.tileSize + GameData.objects[worldNum].AbsolutePixelPosition.X + GameData.objectDesc[GameData.objects[worldNum].SpriteID].TouchPoint.X;
                             int actions = 1;
                             if (selectedObject[0] == worldNum)
                             {
                                 actions = 2;
                             }
-                            if (processMovingObject && selectedObject[0] == worldNum)
+                            if (procMovingObject && selectedObject[0] == worldNum)
                             {
                                 actions = 0;
                             }
-                            ObjectShow.Add(new int[] { worldNum, spriteID, actions, posX, posY });
+                            ObjectShow.Add(new int[] { worldNum, spriteID, actions, posX, posY, sort });
                         }
                     }
                 }
             }
-            if (processMovingObject && selectedObject[0] != -1)
+            if (procMovingObject && selectedObject[0] != -1)
             {
                 ObjectShow.Add(selectedObject);
             }
-            bool sorted = false;
-            int[] temp;
-            while (sorted != true)
+            if (procMovingNewObject)
             {
-                sorted = true;
-                for (int a = 0; a < ObjectShow.Count - 1; a++)
+                for( int i = 0; i < newObject.Count; i++)
                 {
-                    int TP0 = (ObjectShow[a][4] + GameData.objectDesc[GameData.objects[ObjectShow[a][0]].SpriteID].TouchPoint.Y - 1) * WindowWidth +
-                               ObjectShow[a][3] + GameData.objectDesc[GameData.objects[ObjectShow[a][0]].SpriteID].TouchPoint.X;
-                    int TP1 = (ObjectShow[a + 1][4] + GameData.objectDesc[GameData.objects[ObjectShow[a + 1][0]].SpriteID].TouchPoint.Y - 1) * WindowWidth +
-                               ObjectShow[a + 1][3] + GameData.objectDesc[GameData.objects[ObjectShow[a + 1][0]].SpriteID].TouchPoint.X;
-                    if (TP0 > TP1)
-                    {
-                        temp = ObjectShow[a];
-                        ObjectShow[a] = ObjectShow[a + 1];
-                        ObjectShow[a + 1] = temp;
-                        sorted = false;
-                    }
+                    ObjectShow.Add(newObject[i]);
                 }
             }
+            ObjectShow.Sort((x, y) => x[5].CompareTo(y[5]));
             if (EditForm.ShowSort)
             {
-                sorted = false;
+                bool sorted = false;
+                int[] temp;
                 int b = 0;
                 while (sorted != true)
                 {
@@ -558,12 +641,14 @@ namespace Editor.Controls
                 mouseClickHandler = true;
             }
             else hScrollChange = false;
-
-            tileBiasY = (1023 - WindowHeight / Vars.tileSize) * vScrollPos / (WindowHeight - 53); // 53 - высота иконки прокрутки
-            tileBiasX = (511 - WindowWidth / Vars.tileSize) * hScrollPos / (WindowWidth - 53);
-            if (hScrollPos > WindowWidth - 53) hScrollPos = WindowWidth - 53;
-            if (vScrollPos > WindowHeight - 53) vScrollPos = WindowHeight - 53;
-
+            if (mouseClickHandler)
+            {
+                tileBiasY = (Vars.maxVerticalTails - 1 - WindowHeight / Vars.tileSize) * vScrollPos / (WindowHeight - 53); // 53 - высота иконки прокрутки
+                tileBiasX = (Vars.maxHorizontalTails - 1 - WindowWidth / Vars.tileSize) * hScrollPos / (WindowWidth - 53);
+                if (hScrollPos > WindowWidth - 53) hScrollPos = WindowWidth - 53;
+                if (vScrollPos > WindowHeight - 53) vScrollPos = WindowHeight - 53;
+                EditForm.timer.Start();
+            }
             return mouseClickHandler;
         }
         //------------------------------------------------------------------------------------------------------------------------
@@ -607,10 +692,38 @@ namespace Editor.Controls
             }
             return colors2D;
         }
-
-
-
-
+        //------------------------------------------------------------------------------------------------------------------------
+        public Texture2D getTexture2D(string path)
+        {
+            Texture2D t;
+            t = Editor.Content.Load<Texture2D>(path);
+            return t;
+        }
+        //------------------------------------------------------------------------------------------------------------------------
+        public static void setCursor(int X, int Y)
+        {
+            tileBiasY = (Vars.maxVerticalTails - 1 - WindowHeight / Vars.tileSize) * vScrollPos / (WindowHeight - 53); // 53 - высота иконки прокрутки
+            tileBiasX = (Vars.maxHorizontalTails - 1 - WindowWidth / Vars.tileSize) * hScrollPos / (WindowWidth - 53);
+            tileBiasX = X;
+            tileBiasY = Y;
+            updateScrollPosition();
+        }
+        public static Point getCursor()
+        {
+            return new Point(tileBiasX, tileBiasY);
+        }
+        private static void updateScrollPosition()
+        {
+            if (tileBiasX < 0) tileBiasX = 0;
+            if (tileBiasX > Vars.maxHorizontalTails - 1 - WindowWidth / Vars.tileSize) tileBiasX = Vars.maxHorizontalTails - WindowWidth / Vars.tileSize;
+            if (tileBiasY < 0) tileBiasY = 0;
+            if (tileBiasY > Vars.maxVerticalTails - 1 - WindowHeight / Vars.tileSize) tileBiasY = Vars.maxVerticalTails - WindowHeight / Vars.tileSize;
+            hScrollPos = tileBiasX * (WindowWidth - 53) / (Vars.maxHorizontalTails - 1 - WindowWidth / Vars.tileSize);
+            vScrollPos = tileBiasY * (WindowHeight - 53) / (Vars.maxVerticalTails - 1 - WindowHeight / Vars.tileSize);
+            hScrollPos += 1;
+            vScrollPos += 1;
+            EditForm.timer.Start();
+        }
 
 
 
