@@ -1,5 +1,6 @@
 ﻿using DivEditor.Controls;
 using Editor.Controls;
+using Lzo64;
 using Microsoft.Xna.Framework.Graphics;
 using System.Drawing.Imaging;
 using System.Linq;
@@ -20,10 +21,11 @@ namespace Editor
         public static int selectTextures = -1;
         public static int selectTollBarPage = 0;
         public static int effects = 0;
-        public static Timer timer;
+        public static Timer? timer;
         private int treeViewCounter = 0;
         private int objectsTreeViewNodePrevious = 0;
         XmlDocument xmlDoc;
+        public static readonly LZOCompressor compressor = new LZOCompressor();
         //------------------------------------------------------------------------------------------------------------------------
         public EditForm()
         {
@@ -56,7 +58,7 @@ namespace Editor
                 System.Diagnostics.Debug.WriteLine(GameData.pathToEditWorldFolder);
                 System.Diagnostics.Debug.WriteLine(GameData.worldMapNumber);
                 GameData.READY = true;
-                informationField.Text = "config file load";
+                informationField.Text = "Loading textures";
             }
             else
             {
@@ -263,13 +265,13 @@ namespace Editor
         {
             if (Int32.TryParse(CursorXCor.Text, out int x) && Int32.TryParse(CursorYCor.Text, out int y))
             {
-                Editor.Controls.MGGraphicalOutput.setCursor(x, y);
+                Editor.Controls.MGGraphicalOutput.SetCursor(x, y);
             }
         }
         //------------------------------------------------------------------------------------------------------------------------
         private void Timer_Tick(object sender, EventArgs e)
         {
-            var cur = Editor.Controls.MGGraphicalOutput.getCursor();
+            var cur = Editor.Controls.MGGraphicalOutput.GetCursor();
             CursorXCor.Text = cur.X.ToString();
             CursorYCor.Text = cur.Y.ToString();
             timer.Stop();
@@ -422,8 +424,7 @@ namespace Editor
         private Microsoft.Xna.Framework.Color[,] GetColorArray(int obj)
         {
             Texture2D SelectObj;
-            int objName = obj;
-            SelectObj = MonoWindow.getTexture2D("objects/" + objName.ToString().PadLeft(6, '0'));
+            SelectObj = MGGraphicalOutput.GetObjectTexture(obj);
             Microsoft.Xna.Framework.Color[] ColorArray = new Microsoft.Xna.Framework.Color[SelectObj.Height * SelectObj.Width];
             SelectObj.GetData(ColorArray);
             Microsoft.Xna.Framework.Color[,] colors2D = new Microsoft.Xna.Framework.Color[SelectObj.Width, SelectObj.Height];
@@ -470,8 +471,7 @@ namespace Editor
                     // Добавляем нижнюю текстуру
                     if (GameData.metaTileArray[y, x].DownTileTexture < 65535 && GameData.metaTileArray[y, x].DownTileTexture != 1996)
                     {
-                        string textureName = GameData.metaTileArray[y, x].DownTileTexture.ToString();
-                        Texture2D tile = MonoWindow.getTexture2D("floor/" + textureName.ToString().PadLeft(6, '0'));
+                        Texture2D tile = MGGraphicalOutput.GetTileTexture(GameData.metaTileArray[y, x].DownTileTexture);
                         Microsoft.Xna.Framework.Color[] ColorArray = new Microsoft.Xna.Framework.Color[Vars.tileSize * Vars.tileSize];
                         tile.GetData(ColorArray);
                         Microsoft.Xna.Framework.Color[,] colors2D = new Microsoft.Xna.Framework.Color[Vars.tileSize / scale, Vars.tileSize / scale];
@@ -494,8 +494,7 @@ namespace Editor
                     // Добавляем верхнюю текстуру
                     if (GameData.metaTileArray[y, x].UpTileTexture < 65535 && GameData.metaTileArray[y, x].UpTileTexture != 1996)
                     {
-                        string textureName = GameData.metaTileArray[y, x].UpTileTexture.ToString();
-                        Texture2D tile = MonoWindow.getTexture2D("floor/" + textureName.ToString().PadLeft(6, '0'));
+                        Texture2D tile = MGGraphicalOutput.GetTileTexture(GameData.metaTileArray[y, x].UpTileTexture);
                         Microsoft.Xna.Framework.Color[] ColorArray = new Microsoft.Xna.Framework.Color[Vars.tileSize * Vars.tileSize];
                         tile.GetData(ColorArray);
                         Microsoft.Xna.Framework.Color[,] colors2D = new Microsoft.Xna.Framework.Color[Vars.tileSize / scale, Vars.tileSize / scale];
@@ -541,12 +540,11 @@ namespace Editor
                     informationField.Text = "Save object image... " + k * 100 / objects.Count + " %";
                     this.Refresh();
                 }
-                string objName = objects[k][0].ToString();
                 int objPosX = (int)objects[k][1];
                 int objPosY = (int)objects[k][2];
                 if ((objPosX < width * Vars.tileSize) && (objPosY < height * Vars.tileSize))
                 {
-                    Texture2D obj = MonoWindow.getTexture2D("objects/" + objName.ToString().PadLeft(6, '0'));
+                    Texture2D obj = MGGraphicalOutput.GetObjectTexture((int)objects[k][0]);
                     Microsoft.Xna.Framework.Color[] ColorArray = new Microsoft.Xna.Framework.Color[obj.Width * obj.Height];
                     obj.GetData(ColorArray);
                     Microsoft.Xna.Framework.Color[,] colors2D = new Microsoft.Xna.Framework.Color[obj.Width / scale, obj.Height / scale];
@@ -572,7 +570,7 @@ namespace Editor
                     }
                 }
             }
-            Bitmap b2 = new Bitmap(bitmap, new Size(bitmap.Width / 1, bitmap.Height / 1));
+            Bitmap b2 = new Bitmap(bitmap, new Size(bitmap.Width / 2, bitmap.Height / 2));
             b2.Save("Content\\world images\\world_" + GameData.worldMapNumber + ".jpg", ImageFormat.Jpeg);
             informationField.Text = " Done";
         }

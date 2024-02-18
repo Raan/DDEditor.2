@@ -179,7 +179,7 @@
             CursorXCor.Name = "CursorXCor";
             CursorXCor.Size = new Size(50, 37);
             // 
-            // setCursor
+            // SetCursor
             // 
             setCursor.Alignment = ToolStripItemAlignment.Right;
             setCursor.BackColor = SystemColors.ControlLight;

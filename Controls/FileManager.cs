@@ -11,6 +11,14 @@ using System.Runtime.ConstrainedExecution;
 using static System.Windows.Forms.LinkLabel;
 using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
+using System.IO;
+using Lzo64;
+using System.ComponentModel;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Graphics.PackedVector;
+using System.Windows.Forms;
+using System.Reflection;
+using SharpDX.DirectWrite;
 
 namespace DivEditor.Controls
 {
@@ -27,6 +35,8 @@ namespace DivEditor.Controls
                     GameData.pathToDivFolder = lines[3];
                     GameData.pathToEditWorldFolder = lines[5];
                     GameData.worldMapNumber = int.Parse(lines[7]);
+                    GameData.pathToTileTexturesFolder = GameData.pathToDivFolder + "\\static\\imagelists\\CPackedi.2c";
+                    GameData.pathToObjectsTexturesFolder = GameData.pathToDivFolder + "\\static\\imagelists\\CPackedi.0c";
                     return true;
                 }
                 else
@@ -475,6 +485,180 @@ namespace DivEditor.Controls
             }
             if (objectsLength > 80000000 && tileLength > 20000000) return true;
             else return false;
+        }
+        public static List<Sprite>? GetSprites(string path)
+        {
+            string inpDirI = path;
+            string inpDirB = inpDirI.Remove(inpDirI.Length - 4, 1).Insert(inpDirI.Length - 4, "b");
+            System.Diagnostics.Debug.WriteLine(inpDirI);
+            System.Diagnostics.Debug.WriteLine(inpDirB);
+            List<Sprite> spriteList = new List<Sprite>();
+            List<Int64[]> H = new();
+            int lineLength = 56;
+            long lineCount = 0;
+            if (File.Exists(inpDirI))
+            {
+                System.IO.FileInfo IFile = new(inpDirI);
+                lineCount = IFile.Length / lineLength;
+                using BinaryReader ISprite = new(File.Open(inpDirI, FileMode.Open));
+                {
+                    for (long i = 0; i < lineCount; i++)
+                    {
+                        H.Add(new Int64[14] { ISprite.ReadUInt32(),
+                                    ISprite.ReadUInt32(),
+                                    ISprite.ReadUInt32() ,
+                                    ISprite.ReadUInt32() ,
+                                    ISprite.ReadUInt32() ,
+                                    ISprite.ReadUInt32() ,
+                                    ISprite.ReadUInt32() ,
+                                    ISprite.ReadUInt32() ,
+                                    ISprite.ReadUInt32() ,
+                                    ISprite.ReadUInt32() ,
+                                    ISprite.ReadUInt32() ,
+                                    ISprite.ReadUInt32() ,
+                                    ISprite.ReadUInt32() ,
+                                    ISprite.ReadUInt32()});
+                    }
+                }
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine(inpDirI + " не найден");
+                return null;
+            }
+
+            if (File.Exists(inpDirB))
+            {
+                System.IO.FileInfo BFile = new(inpDirB);
+                lineCount = BFile.Length;
+                byte[] file = new byte[lineCount];
+                using BinaryReader BSprite = new(File.Open(inpDirB, FileMode.Open));
+                {
+                    file = BSprite.ReadBytes((int)lineCount);
+                }
+                Int64 statrPoint;
+                Int64 endPoint;
+                Int64 decompressArraySize;
+                Int64 imgSizeX;
+                Int64 imgSizeY;
+                for (int i = 0; i < H.Count; i++)
+                {
+                    statrPoint = H[i][0];
+                    if (i == H.Count - 1)
+                    {
+                        endPoint = file.Length;
+                    }
+                    else
+                    {
+                        endPoint = H[i + 1][0];
+                    }
+                    imgSizeX = H[i][1];
+                    imgSizeY = H[i][2];
+                    decompressArraySize = file[statrPoint] + (file[statrPoint + 1] << 8) + (file[statrPoint + 2] << 16) + (file[statrPoint + 3] << 24);
+
+                    byte[] compressData = new byte[endPoint - statrPoint - 0];
+
+                    for (Int64 j = statrPoint + 4; j < endPoint; j++)
+                    {
+                        compressData[j - statrPoint - 4] = file[j];
+                    }
+
+                    compressData[endPoint - statrPoint - 4] = file[statrPoint + 0];
+                    compressData[endPoint - statrPoint - 3] = file[statrPoint + 1];
+                    compressData[endPoint - statrPoint - 2] = file[statrPoint + 2];
+                    compressData[endPoint - statrPoint - 1] = file[statrPoint + 3];
+
+                    byte[] decompressData = new byte[decompressArraySize];
+
+                    decompressData = EditForm.compressor.Decompress(compressData);
+
+                    int count = 0;
+                    if (H[i][3] == 0) // Если ттекстура без прозрачности
+                    {
+                        Microsoft.Xna.Framework.Color[] colors = new Microsoft.Xna.Framework.Color[(int)imgSizeX * (int)imgSizeY];
+                        int[] d = new int[(int)imgSizeX * (int)imgSizeY];
+                        int a = 0;
+                        for (int y = 0; y < imgSizeY; y++)
+                        {
+                            for (int x = 0; x < imgSizeX; x++)
+                            {
+                                colors[a++] = getPixelColor(decompressData[count++] + (decompressData[count++] << 8));
+                            }
+                        }
+                        spriteList.Add(new Sprite((int)imgSizeY, (int)imgSizeX, colors));
+                    }
+                    else // Если ттекстура с прозрачностю
+                    {
+                        int len = decompressData[count++] + (decompressData[count++] << 8) + (decompressData[count++] << 16) + (decompressData[count++] << 24);
+                        int datBiasBig = decompressData[count++] + (decompressData[count++] << 8) + (decompressData[count++] << 16) + (decompressData[count++] << 24);
+                        int width = decompressData[count++] + (decompressData[count++] << 8);
+                        int heigth = decompressData[count++] + (decompressData[count++] << 8);
+                        Microsoft.Xna.Framework.Color[] colors = new Microsoft.Xna.Framework.Color[heigth * width];
+                        for(int h = 0; h < heigth * width; h++)
+                        {
+                            colors[h] = new Microsoft.Xna.Framework.Color(0, 0, 0, 0);
+                        }
+                        for (int y = 0; y < heigth; y++)
+                        {
+                            int numberOfLines = decompressData[count++] + (decompressData[count++] << 8);
+                            if (numberOfLines != 0)
+                            {
+                                int datBiasSmall = decompressData[count++] + (decompressData[count++] << 8) + (decompressData[count++] << 16) + (decompressData[count++] << 24);
+                                int picCnt = 0;
+                                for (int l = 0; l < numberOfLines; l++)
+                                {
+                                    int pixelBias = decompressData[count++] + (decompressData[count++] << 8);
+                                    int pixelCount = decompressData[count++] + (decompressData[count++] << 8);
+                                    for (int p = 0; p < pixelCount; p++)
+                                    {
+                                        colors[y * width + p + pixelBias] = getPixelColor(decompressData[datBiasBig + datBiasSmall + picCnt++] + (decompressData[datBiasBig + datBiasSmall + picCnt++] << 8));
+                                    }
+                                }
+                                count += 2;
+                            }
+                            else
+                            {
+                                count += 6;
+                            }
+                        }
+                        spriteList.Add(new Sprite(heigth, width, colors));
+                    }
+                }
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine(inpDirB + " не найден");
+                return null;
+            }
+            return spriteList;
+        }
+
+        private static Microsoft.Xna.Framework.Color getPixelColor(int color)
+        {
+            int red, green, blue, alpha;
+
+            color &= 0xFFFF;
+            blue = (((color >> 0) & 0x1f) << 3) | 0x7;
+            green = (((color >> 5) & 0x3f) << 2) | 0x3;
+            red = (((color >> 11) & 0x1f) << 3) | 0x7;
+            alpha = 0xFF;
+
+            if (red < 0)
+                red = 0;
+            else if (red > 0xFF)
+                red = 0xFF;
+
+            if (green < 0)
+                green = 0;
+            else if (green > 0xFF)
+                green = 0xFF;
+
+            if (blue < 0)
+                blue = 0;
+            else if (blue > 0xFF)
+                blue = 0xFF;
+
+            return new Microsoft.Xna.Framework.Color(red, green, blue, alpha);
         }
     }
 }

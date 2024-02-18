@@ -13,6 +13,8 @@ namespace DivEditor.Controls
     {
         public static String pathToDivFolder = "";                          // Путь к корневой папке игры
         public static String pathToEditWorldFolder = "";                    // Путь к сохранению
+        public static String pathToTileTexturesFolder = "";                 // Путь к текстурам плиток
+        public static String pathToObjectsTexturesFolder = "";              // Путь к текстурам объектов
         public static int worldMapNumber = 0;                               // Номер мира
         public static List<Terrain> terrain = new();                        // Список текстур 
         public static List<MetaObjects> MObjects = new();                   // Список метаобъектов
