@@ -45,6 +45,7 @@
             StepObjectButton = new ToolStripButton();
             TESTBUTTON = new ToolStripButton();
             AddNewObjectButton = new ToolStripButton();
+            SearchObjectButton = new ToolStripButton();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             openWorldToolStripMenuItem = new ToolStripMenuItem();
@@ -53,6 +54,7 @@
             gameFolderToolStripMenuItem = new ToolStripMenuItem();
             saveWorldImageToolStripMenuItem = new ToolStripMenuItem();
             saveMetaObjectsImageToolStripMenuItem = new ToolStripMenuItem();
+            helpToolStripMenuItem = new ToolStripMenuItem();
             mainTollbar = new TabControl();
             texturesTabPage1 = new TabPage();
             texturesSplitContainer2 = new SplitContainer();
@@ -113,7 +115,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(30, 30);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripLabel1, toolStripButton2, toolStripButton3, toolStripButton4, CursorYCor, CursorXCor, setCursor, DelObjectBut, CopyObjButton, FixObjectButton, StepObjectButton, TESTBUTTON, AddNewObjectButton });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripLabel1, toolStripButton2, toolStripButton3, toolStripButton4, CursorYCor, CursorXCor, setCursor, DelObjectBut, CopyObjButton, FixObjectButton, StepObjectButton, TESTBUTTON, AddNewObjectButton, SearchObjectButton });
             toolStrip1.Location = new Point(0, 28);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1488, 37);
@@ -179,7 +181,7 @@
             CursorXCor.Name = "CursorXCor";
             CursorXCor.Size = new Size(50, 37);
             // 
-            // SetCursor
+            // setCursor
             // 
             setCursor.Alignment = ToolStripItemAlignment.Right;
             setCursor.BackColor = SystemColors.ControlLight;
@@ -261,10 +263,21 @@
             AddNewObjectButton.Visible = false;
             AddNewObjectButton.Click += AddNewObjectButton_Click;
             // 
+            // SearchObjectButton
+            // 
+            SearchObjectButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            SearchObjectButton.Image = (Image)resources.GetObject("SearchObjectButton.Image");
+            SearchObjectButton.ImageTransparentColor = Color.Magenta;
+            SearchObjectButton.Name = "SearchObjectButton";
+            SearchObjectButton.Size = new Size(103, 34);
+            SearchObjectButton.Text = "Search object";
+            SearchObjectButton.Visible = false;
+            SearchObjectButton.Click += SearchObjectButton_Click_1;
+            // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, helpToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1488, 28);
@@ -319,6 +332,13 @@
             saveMetaObjectsImageToolStripMenuItem.Size = new Size(257, 26);
             saveMetaObjectsImageToolStripMenuItem.Text = "Save MetaObjects Image";
             saveMetaObjectsImageToolStripMenuItem.Click += saveMetaObjectsImageToolStripMenuItem_Click;
+            // 
+            // helpToolStripMenuItem
+            // 
+            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            helpToolStripMenuItem.Size = new Size(52, 24);
+            helpToolStripMenuItem.Text = "help";
+            helpToolStripMenuItem.Click += helpToolStripMenuItem_Click;
             // 
             // mainTollbar
             // 
@@ -651,5 +671,7 @@
         private ToolStripMenuItem saveWorldImageToolStripMenuItem;
         private ToolStripMenuItem saveMetaObjectsImageToolStripMenuItem;
         private ToolStripButton AddNewObjectButton;
+        private ToolStripMenuItem helpToolStripMenuItem;
+        private ToolStripButton SearchObjectButton;
     }
 }

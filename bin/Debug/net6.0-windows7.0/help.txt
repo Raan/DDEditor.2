@@ -1,0 +1,3 @@
+object mode:
+	del - delete object
+	ctrl + c - copy object

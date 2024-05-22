@@ -2,11 +2,14 @@
 using Editor.Controls;
 using Lzo64;
 using Microsoft.Xna.Framework.Graphics;
+using System.Diagnostics;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 using System.Xml;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Timer = System.Windows.Forms.Timer;
 //using Color = Microsoft.Xna.Framework.Color;
 
@@ -123,6 +126,7 @@ namespace Editor
                     GameData.worldMapNumber = int.Parse(path.Remove(0, path.Length - 1));
                     GameData.Initialize();
                     FileManager.WriteConfig();
+                    Editor.Controls.MGGraphicalOutput.UpdateFullTileTexture();
                 }
                 else informationField.Text = "Couldn't open world";
             }
@@ -196,6 +200,7 @@ namespace Editor
             toolStripButton2.Visible = false;
             toolStripButton3.Visible = false;
             toolStripButton4.Visible = false;
+            SearchObjectButton.Visible = false;
             DelObjectBut.Visible = false;
             CopyObjButton.Visible = false;
             FixObjectButton.Visible = false;
@@ -214,6 +219,7 @@ namespace Editor
                 FixObjectButton.Visible = true;
                 StepObjectButton.Visible = true;
                 AddNewObjectButton.Visible = true;
+                SearchObjectButton.Visible = true;
             }
             ObjectsTreeView.Size = new System.Drawing.Size(splitObjectsContainer.Panel1.Width / 2, splitObjectsContainer.Panel1.Height);
             objectsBox.Size = new System.Drawing.Size(splitObjectsContainer.Panel1.Width / 2, splitObjectsContainer.Panel1.Height);
@@ -681,13 +687,32 @@ namespace Editor
                     };
                     GameData.objects.Add(objNew);
                 }
+                Cursor.Hide();
             }
-            Cursor.Hide();
         }
 
         private void objectsBox_SizeChanged(object sender, EventArgs e)
         {
             ObjectsTreeView.Size = new System.Drawing.Size(splitObjectsContainer.Panel1.Width / 2, objectsBox.Height);
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("notepad.exe", "help.txt");
+        }
+
+        private void SearchObjectButton_Click_1(object sender, EventArgs e)
+        {
+            string result = Microsoft.VisualBasic.Interaction.InputBox("Enter object ID ( " + (GameData.objects.Count-1) + " max)");
+            int ID = 0;
+
+            if (Int32.TryParse(result, out ID) && GameData.objects[ID].SpriteID != 0xffff && ID < GameData.objects.Count)
+            {
+                System.Diagnostics.Debug.WriteLine(ID);
+                MGGraphicalOutput.tileBiasX = GameData.objects[ID].TilePosition.X;
+                MGGraphicalOutput.tileBiasY = GameData.objects[ID].TilePosition.Y;
+                MGGraphicalOutput.selectedObjID = ID;
+            }
         }
     }
     //-------------------------------------------------------------------------------------------------------------------------

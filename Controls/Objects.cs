@@ -154,7 +154,7 @@ namespace DivEditor.Controls
             }
             set
             {
-                if (value.X >= 0 && value.X < Vars.tileSize * Vars.maxHorizontalTails && value.Y > 0 && value.Y <= Vars.tileSize * Vars.maxVerticalTails)
+                if (value.X >= 0 && value.X < Vars.tileSize * Vars.maxHorizontalTails && value.Y >= 0 && value.Y < Vars.tileSize * Vars.maxVerticalTails)
                 {
                     absolutPpixelPosition = value;
                 }
@@ -191,6 +191,7 @@ namespace DivEditor.Controls
             if (name == 65535) this.objectExists = false;
             count++;
         }
+
         public void setTilePosition(int y, int x)
         {
             this.tilePosition.X = x;

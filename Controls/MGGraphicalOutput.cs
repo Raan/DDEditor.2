@@ -40,8 +40,7 @@ namespace Editor.Controls
         static bool vScrollChange;
         static bool hScrollChange;
         static bool mouseClickHandler = false;
-
-        static int[] selectedObject = new int[6];       // 0 - мировой номер, 1 - SpriteID, 2 - поведение, 3 - координата Х, 4 - координата Y, 5 - сортировка
+        public static int selectedObjID = -1;
         public static List<int[]> newObject = new();    // 0 - мировой номер, 1 - SpriteID, 2 - поведение, 3 - координата Х, 4 - координата Y, 5 - сортировка, 6 - смещение по Х, 7 - смещение по Y
         public static bool procMovingObject = false;
         public static bool procMovingNewObject = false;
@@ -69,7 +68,6 @@ namespace Editor.Controls
             point = Editor.Content.Load<Texture2D>("images/point");
             DrawFont = Editor.Content.Load<SpriteFont>("text");
             graphics = Editor.GraphicsDevice;
-            
             System.Diagnostics.Debug.WriteLine("Graphic Profile: " + Editor.GraphicsDevice.GraphicsProfile);
 
         }
@@ -80,6 +78,7 @@ namespace Editor.Controls
             {
                 if (tileTextures == null || objectTextures == null) // Загрузка текстур
                 {
+                    Cursor.Current = Cursors.WaitCursor;
                     tileSprite = FileManager.GetSprites(GameData.pathToTileTexturesFolder);
                     if (tileSprite != null)
                     {
@@ -101,6 +100,7 @@ namespace Editor.Controls
                         }
                     }
                     UpdateFullTileTexture();
+                    Cursor.Current = Cursors.Default;
                 }
                 mouseClickHandler = false;
                 WindowWidth = Editor.GraphicsDevice.Viewport.Width;
@@ -192,15 +192,12 @@ namespace Editor.Controls
                         {
                             if (CheckCursorInSprite(ObjectShow[i][0], tileBiasX, tileBiasY, currentMouseState.X, currentMouseState.Y))
                             {
-                                selectedObject[0] = ObjectShow[i][0];
-                                selectedObject[1] = GameData.objects[selectedObject[0]].SpriteID;
-                                selectedObject[2] = 3;
-                                selectedObject[5] = 0;
+                                selectedObjID = ObjectShow[i][0];
                                 break;
                             }
                             else
                             {
-                                selectedObject[0] = -1;
+                                selectedObjID = -1;
                             }
                         }
                         procMovingObject = false;
@@ -223,13 +220,20 @@ namespace Editor.Controls
                         {
                             if (CheckCursorInSprite(ObjectShow[i][0], tileBiasX, tileBiasY, currentMouseState.X, currentMouseState.Y))
                             {
-                                if (selectedObject[0] == ObjectShow[i][0])
+                                if (selectedObjID == ObjectShow[i][0])
                                 {
                                     procMovObjCursOffsetX = currentMouseState.X - ObjectShow[i][3];
                                     procMovObjCursOffsetY = currentMouseState.Y - ObjectShow[i][4];
                                     procMovObjCorInTileX = GameData.objects[ObjectShow[i][0]].AbsolutePixelPosition.X % 64;
                                     procMovObjCorInTileY = GameData.objects[ObjectShow[i][0]].AbsolutePixelPosition.Y % 64;
                                     procMovingObject = true;
+                                    ObjectBuffer.ID = ObjectShow[i][0];
+                                    ObjectBuffer.SpriteID = GameData.objects[ObjectBuffer.ID].SpriteID;
+                                    ObjectBuffer.State = 3;
+                                    ObjectBuffer.Sort = 0;
+                                    ObjectBuffer.Xpos = currentMouseState.X - procMovObjCursOffsetX;
+                                    ObjectBuffer.Ypos = currentMouseState.Y - procMovObjCursOffsetY;
+                                    ObjectBuffer.Sort = ObjectDepth(ObjectBuffer.Ypos, ObjectBuffer.Xpos, ObjectBuffer.ID);
                                     break;
                                 }
                             }
@@ -255,15 +259,15 @@ namespace Editor.Controls
                     {
                         if (EditForm.objectStepOneCell)
                         {
-                            selectedObject[3] = (currentMouseState.X - procMovObjCursOffsetX) / 64 * 64 + procMovObjCorInTileX;
-                            selectedObject[4] = (currentMouseState.Y - procMovObjCursOffsetY) / 64 * 64 + procMovObjCorInTileY;
+                            ObjectBuffer.Xpos = (currentMouseState.X - procMovObjCursOffsetX) / 64 * 64 + procMovObjCorInTileX;
+                            ObjectBuffer.Ypos = (currentMouseState.Y - procMovObjCursOffsetY) / 64 * 64 + procMovObjCorInTileY;
                         }
                         else
                         {
-                            selectedObject[3] = currentMouseState.X - procMovObjCursOffsetX;
-                            selectedObject[4] = currentMouseState.Y - procMovObjCursOffsetY;
+                            ObjectBuffer.Xpos = currentMouseState.X - procMovObjCursOffsetX;
+                            ObjectBuffer.Ypos = currentMouseState.Y - procMovObjCursOffsetY;
                         }
-                        selectedObject[5] = (selectedObject[4] + GameData.objectDesc[GameData.objects[selectedObject[0]].SpriteID].TouchPoint.Y + tileBiasY * Vars.tileSize) * Vars.maxHorizontalTails * Vars.tileSize + selectedObject[3] + tileBiasX * Vars.tileSize;
+                        ObjectBuffer.Sort = ObjectDepth(ObjectBuffer.Ypos, ObjectBuffer.Xpos, ObjectBuffer.ID);
                         timer = Stopwatch.GetTimestamp();
                     }
                     // Вставка объекта после перемещения
@@ -287,19 +291,22 @@ namespace Editor.Controls
                                 GameData.metaTileArray[Y, X].DelObject(ObjectShow[i][0]);
                             }
                         }
-                        if (selectedObject[3] < 0) selectedObject[3] = 0;
-                        if (selectedObject[4] < 0) selectedObject[4] = 0;
-                        if (selectedObject[3] > (Vars.maxHorizontalTails - 1) * Vars.tileSize) selectedObject[3] = (Vars.maxHorizontalTails - 1) * Vars.tileSize;
-                        if (selectedObject[4] > (Vars.maxVerticalTails - 1) * Vars.tileSize) selectedObject[4] = (Vars.maxVerticalTails - 1) * Vars.tileSize;
-                        int tileX = tileBiasX + (selectedObject[3] / Vars.tileSize);
-                        int tileY = tileBiasY + (selectedObject[4] / Vars.tileSize);
+                        if (ObjectBuffer.Xpos < 0) ObjectBuffer.Xpos = 0;
+                        if (ObjectBuffer.Ypos < 0) ObjectBuffer.Ypos = 0;
+                        if (ObjectBuffer.Xpos > (Vars.maxHorizontalTails - 1) * Vars.tileSize) ObjectBuffer.Xpos = (Vars.maxHorizontalTails - 1) * Vars.tileSize;
+                        if (ObjectBuffer.Ypos > (Vars.maxVerticalTails - 1) * Vars.tileSize) ObjectBuffer.Ypos = (Vars.maxVerticalTails - 1) * Vars.tileSize;
+                        int tileX = tileBiasX + (ObjectBuffer.Xpos / Vars.tileSize);
+                        int tileY = tileBiasY + (ObjectBuffer.Ypos / Vars.tileSize);
+                        if (tileX >= Vars.maxHorizontalTails) tileX = Vars.maxHorizontalTails - 1;
+                        if (tileY >= Vars.maxVerticalTails) tileY = Vars.maxVerticalTails - 1;
                         if (GameData.metaTileArray[tileY, tileX].GetObjectsCount() < Vars.maxObjectsCount)
                         {
-                            GameData.metaTileArray[tileY, tileX].AddObject(selectedObject[0]);
+                            GameData.metaTileArray[tileY, tileX].AddObject(ObjectBuffer.ID);
                         }
-                        GameData.objects[selectedObject[0]].AbsolutePixelPosition = new System.Drawing.Point(selectedObject[3] + tileBiasX * Vars.tileSize, selectedObject[4] + tileBiasY * Vars.tileSize);
-                        GameData.objects[selectedObject[0]].TilePosition = new System.Drawing.Point(tileX, tileY);
-                        selectedObject[0] = -1;
+                        GameData.objects[ObjectBuffer.ID].AbsolutePixelPosition = new System.Drawing.Point(ObjectBuffer.Xpos + tileBiasX * Vars.tileSize, ObjectBuffer.Ypos + tileBiasY * Vars.tileSize);
+                        GameData.objects[ObjectBuffer.ID].TilePosition = new System.Drawing.Point(tileX, tileY);
+                        ObjectBuffer.Clear();
+                        selectedObjID = -1;
                         UpdateShowObjects();
                         procMovingObject = false;
                     }
@@ -317,7 +324,7 @@ namespace Editor.Controls
                         {
                             newObject[i][3] = currentMouseState.X + newObject[i][6];
                             newObject[i][4] = currentMouseState.Y + newObject[i][7];
-                            newObject[i][5] = (newObject[i][4] + GameData.objectDesc[GameData.objects[newObject[i][0]].SpriteID].TouchPoint.Y + tileBiasY * Vars.tileSize) * Vars.maxHorizontalTails * Vars.tileSize + newObject[i][3] + tileBiasX * Vars.tileSize;
+                            newObject[i][5] = ObjectDepth(newObject[i][4], newObject[i][3], newObject[i][0]);
                         }
                         timer = Stopwatch.GetTimestamp();
                     }
@@ -332,10 +339,8 @@ namespace Editor.Controls
                         mouseLBState &&
                         Stopwatch.GetTimestamp() - timer > 20000)
                     {
-                        procMovingNewObject = false;
                         for (int i = 0; i < newObject.Count; i++)
                         {
-                            
                             int tileX = tileBiasX + (newObject[i][3] / Vars.tileSize);
                             int tileY = tileBiasY + (newObject[i][4] / Vars.tileSize);
                             if (GameData.metaTileArray[tileY, tileX].GetObjectsCount() < Vars.maxObjectsCountInTile)
@@ -343,12 +348,57 @@ namespace Editor.Controls
                                 GameData.metaTileArray[tileY, tileX].AddObject(newObject[i][0]);
                                 GameData.objects[newObject[i][0]].AbsolutePixelPosition = new System.Drawing.Point(newObject[i][3] + tileBiasX * Vars.tileSize, newObject[i][4] + tileBiasY * Vars.tileSize);
                                 GameData.objects[newObject[i][0]].TilePosition = new System.Drawing.Point(tileX, tileY);
+                                procMovingNewObject = false;
                             }
                         }
                         UpdateShowObjects();
                         newObject.Clear();
                         mouseClickHandler = false;
                         Cursor.Show();
+                        timer = Stopwatch.GetTimestamp();
+                    }
+                    if (Keyboard.IsKeyDown(System.Windows.Forms.Keys.Delete) && 
+                        ObjectBuffer.ID >= 0) // Обработка клавиши DEL
+                    {
+                        int X = tileBiasX + (ObjectBuffer.Xpos / Vars.tileSize);
+                        int Y = tileBiasY + (ObjectBuffer.Ypos / Vars.tileSize);
+                        GameData.metaTileArray[Y, X].DelObject(ObjectBuffer.ID);
+                        ObjectBuffer.ID = -1;
+                    }
+                    if (Keyboard.IsKeyDown(System.Windows.Forms.Keys.Control) && 
+                        Keyboard.IsKeyDown(System.Windows.Forms.Keys.C) &&
+                        selectedObjID >= 0 &&
+                        !procMovingNewObject &&
+                        Stopwatch.GetTimestamp() - timer > 2000000) // Обработка клавиши Ctrl + C
+                    {
+                        newObject.Add(new int[8] { Objects.getObjectsCount(), GameData.objects[selectedObjID].SpriteID, 1, 0, 0, 0, 0, 0 });
+                        Objects objNew = new(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, new System.Drawing.Point(0,0), 0, GameData.objects[selectedObjID].SpriteID)
+                        {
+                            Height = 0
+                        };
+                        GameData.objects.Add(objNew);
+                        procMovingNewObject = true;
+                        selectedObjID = -1;
+                        Cursor.Hide();
+                        timer = Stopwatch.GetTimestamp();
+                    }
+                    if (Keyboard.IsKeyDown(System.Windows.Forms.Keys.Space) &&
+                        selectedObjID >= 0 &&
+                        !procMovingNewObject &&
+                        Stopwatch.GetTimestamp() - timer > 2000000) // Обработка клавиши Space
+                    {
+                        ObjectProperties ObjPropForm = new ObjectProperties(new int[] { GameData.objects[selectedObjID].Var_0, 
+                            GameData.objects[selectedObjID].Var_1, 
+                            GameData.objects[selectedObjID].Var_2, 
+                            GameData.objects[selectedObjID].Var_3, 
+                            GameData.objects[selectedObjID].Var_4, 
+                            GameData.objects[selectedObjID].Var_5, 
+                            GameData.objects[selectedObjID].Var_6, 
+                            GameData.objects[selectedObjID].Var_7, 
+                            GameData.objects[selectedObjID].Var_8, 
+                            GameData.objects[selectedObjID].Var_9, 
+                            GameData.objects[selectedObjID].Var_10}, selectedObjID);
+                        ObjPropForm.Show();
                         timer = Stopwatch.GetTimestamp();
                     }
                 }
@@ -484,13 +534,16 @@ namespace Editor.Controls
                         int Ycor = ObjectShow[i][4];
                         int heigth = GameData.objects[ObjectShow[i][0]].Height;
                         Vector2 objPosition = new(Xcor, Ycor - heigth);
-                        if (ObjectShow[i][0] == selectedObject[0])
-                        { // Если объект выделен
-                            Editor.spriteBatch.Draw(objectTextures[ObjectShow[i][1]], objPosition, Color.Yellow);
-                        }
-                        else
+                        if (objectTextures is not null)
                         {
-                            Editor.spriteBatch.Draw(objectTextures[ObjectShow[i][1]], objPosition, Color.White);
+                            if (ObjectShow[i][0] == selectedObjID)
+                            { // Если объект выделен
+                                Editor.spriteBatch.Draw(objectTextures[ObjectShow[i][1]], objPosition, Color.Yellow);
+                            }
+                            else
+                            {
+                                Editor.spriteBatch.Draw(objectTextures[ObjectShow[i][1]], objPosition, Color.White);
+                            }
                         }
                     }
                 }
@@ -503,7 +556,7 @@ namespace Editor.Controls
             }
         }
         //------------------------------------------------------------------------------------------------------------------------
-        private static void UpdateFullTileTexture()
+        public static void UpdateFullTileTexture()
         {
             for (int y = 0; y < Vars.maxVerticalTails; y++)
             {
@@ -557,22 +610,22 @@ namespace Editor.Controls
                             int posY = (GameData.objects[worldNum].TilePosition.Y - tileBiasY) * Vars.tileSize + GameData.objects[worldNum].PixelPositionInTile.Y;
                             int sort = (GameData.objects[worldNum].AbsolutePixelPosition.Y + GameData.objectDesc[GameData.objects[worldNum].SpriteID].TouchPoint.Y) * Vars.maxHorizontalTails * Vars.tileSize + GameData.objects[worldNum].AbsolutePixelPosition.X + GameData.objectDesc[GameData.objects[worldNum].SpriteID].TouchPoint.X;
                             int actions = 1;
-                            if (selectedObject[0] == worldNum)
+                            if (ObjectBuffer.ID == worldNum)
                             {
                                 actions = 2;
                             }
-                            if (procMovingObject && selectedObject[0] == worldNum)
+                            if (procMovingObject && ObjectBuffer.ID == worldNum)
                             {
-                                actions = 0;
+                                actions = 0; //Объект невидим
                             }
                             ObjectShow.Add(new int[] { worldNum, spriteID, actions, posX, posY, sort });
                         }
                     }
                 }
             }
-            if (procMovingObject && selectedObject[0] != -1)
+            if (procMovingObject && ObjectBuffer.ID != -1)
             {
-                ObjectShow.Add(selectedObject);
+                ObjectShow.Add(new int[] { ObjectBuffer.ID , ObjectBuffer.SpriteID, ObjectBuffer.State, ObjectBuffer.Xpos, ObjectBuffer.Ypos, ObjectBuffer.Sort});
             }
             if (procMovingNewObject)
             {
@@ -756,21 +809,37 @@ namespace Editor.Controls
             vScrollPos += 1;
             EditForm.timer.Start();
         }
-
-
-
-
-
-
-
-
-
+        private static int ObjectDepth(int Ypos, int Xpos, int ID) // Число, характеризующее парядок вывода объекта на экран
+        {
+            //ObjectBuffer.Sort = (ObjectBuffer.Ypos + GameData.objectDesc[GameData.objects[ObjectBuffer.ID].SpriteID].TouchPoint.Y + tileBiasY * Vars.tileSize) * Vars.maxHorizontalTails * Vars.tileSize + ObjectBuffer.Xpos + tileBiasX * Vars.tileSize;
+            return (Ypos + GameData.objectDesc[GameData.objects[ID].SpriteID].TouchPoint.Y + tileBiasY * Vars.tileSize) * Vars.maxHorizontalTails * Vars.tileSize + Xpos + tileBiasX * Vars.tileSize;
+        }
     }
-
-
+    public static class ObjectBuffer
+    {
+        public static int ID, Xpos, Ypos, SpriteID, Sort, State, Xbias, Ybias;
+        public static void Clear()
+        {
+            ID = -1;
+            Xpos = -1;
+            Ypos = -1;
+            SpriteID = -1;
+            Sort = -1;
+            State = -1;
+            Xbias = -1;
+            Ybias = -1;
+        }
+    }
 
 
 
 
 }
 //System.Diagnostics.Debug.WriteLine("Graphic Profile: " + Editor.GraphicsDevice.GraphicsProfile);
+
+/*
+ * добавить удаление объекта +
+ * добавить копирование объекта +
+ * добавить изменение свойств объекта
+ * 
+ */

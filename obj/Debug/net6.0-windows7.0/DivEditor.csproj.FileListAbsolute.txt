@@ -80,3 +80,4 @@ C:\Users\Никита\source\repos\DivEdit 0.2\obj\Debug\net6.0-windows7.0\ref\D
 C:\Users\Никита\source\repos\DivEdit 0.2\obj\Debug\net6.0-windows7.0\Editor.EditForm.resources
 C:\Users\Никита\source\repos\DivEdit 0.2\obj\Debug\net6.0-windows7.0\DivEditor.Properties.Resources.resources
 C:\Users\Никита\source\repos\DivEdit 0.2\obj\Debug\net6.0-windows7.0\Editor.Controls.MGGraphicalOutput.resources
+C:\Users\Никита\source\repos\DivEdit 0.2\obj\Debug\net6.0-windows7.0\DivEditor.Controls.ObjectProperties.resources

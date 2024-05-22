@@ -66,7 +66,6 @@ namespace DivEditor.Controls
                     if (openFileDialog1.ShowDialog() == DialogResult.OK)
                     {
                         String path = openFileDialog1.FileName;
-                        //F:\SteamLibrary\steamapps\common\divine_divinity\div.exe
                         if (path.Remove(0, path.Length - 7) == "div.exe")
                         {
                             GameData.pathToDivFolder = path.Remove(path.Length - 8, 8);
@@ -102,6 +101,8 @@ namespace DivEditor.Controls
                         {
                             GameData.pathToEditWorldFolder = path.Remove(path.Length - 9, 9);
                             GameData.worldMapNumber = int.Parse(path.Remove(0, path.Length - 1));
+                            GameData.pathToTileTexturesFolder = GameData.pathToDivFolder + "\\static\\imagelists\\CPackedi.2c";
+                            GameData.pathToObjectsTexturesFolder = GameData.pathToDivFolder + "\\static\\imagelists\\CPackedi.0c";
                             fileRead = true;
                         }
                     }
