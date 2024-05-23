@@ -21,6 +21,7 @@ namespace Editor
         public static bool BigfillingTex = false;
         public static bool RandfillingTex = false;
         public static bool objectStepOneCell = false;
+        public static bool formIsActive = true;
         public static int selectTextures = -1;
         public static int selectTollBarPage = 0;
         public static int effects = 0;
@@ -681,7 +682,7 @@ namespace Editor
                     int sort = (Ycor + GameData.objectDesc[Id].TouchPoint.Y) * Vars.maxHorizontalTails * Vars.tileSize + Xcor;
                     int worldID = Objects.getObjectsCount();
                     MGGraphicalOutput.newObject.Add(new int[8] { worldID, Id, 1, Xcor, Ycor, sort, biasX, biasY });
-                    Objects objNew = new(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, new Point(Xcor, Ycor), 0, Id)
+                    Objects objNew = new(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, new Point(Xcor, Ycor), heigth, Id)
                     {
                         Height = heigth
                     };
@@ -703,7 +704,7 @@ namespace Editor
 
         private void SearchObjectButton_Click_1(object sender, EventArgs e)
         {
-            string result = Microsoft.VisualBasic.Interaction.InputBox("Enter object ID ( " + (GameData.objects.Count-1) + " max)");
+            string result = Microsoft.VisualBasic.Interaction.InputBox("Enter object ID ( " + (GameData.objects.Count - 1) + " max)");
             int ID = 0;
 
             if (Int32.TryParse(result, out ID) && GameData.objects[ID].SpriteID != 0xffff && ID < GameData.objects.Count)
@@ -713,6 +714,16 @@ namespace Editor
                 MGGraphicalOutput.tileBiasY = GameData.objects[ID].TilePosition.Y;
                 MGGraphicalOutput.selectedObjID = ID;
             }
+        }
+
+        private void EditForm_Activated(object sender, EventArgs e)
+        {
+            formIsActive = true;
+        }
+
+        private void EditForm_Deactivate(object sender, EventArgs e)
+        {
+            formIsActive = false;
         }
     }
     //-------------------------------------------------------------------------------------------------------------------------
@@ -755,5 +766,7 @@ namespace Editor
         {
             return KeyStates.Toggled == (GetKeyState(key) & KeyStates.Toggled);
         }
+
+
     }
 }

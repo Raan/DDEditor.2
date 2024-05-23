@@ -37,17 +37,17 @@ namespace DivEditor.Controls
             { 
                 if (GameData.objects[i].SpriteID == SID) 
                 {
-                    textBox1.Text += Convert.ToString(GameData.objects[i].Var_0, 2).PadLeft(16, '0') + " " +
-                            Convert.ToString(GameData.objects[i].Var_1, 2).PadLeft(16, '0') + " " +
-                            Convert.ToString(GameData.objects[i].Var_2, 2).PadLeft(16, '0') + " " +
-                            Convert.ToString(GameData.objects[i].Var_3, 2).PadLeft(16, '0') + " " +
-                            Convert.ToString(GameData.objects[i].Var_4, 2).PadLeft(16, '0') + " " +
-                            Convert.ToString(GameData.objects[i].Var_5, 2).PadLeft(16, '0') + " " +
-                            Convert.ToString(GameData.objects[i].Var_6, 2).PadLeft(16, '0') + " " +
-                            Convert.ToString(GameData.objects[i].Var_7, 2).PadLeft(16, '0') + " " +
-                            Convert.ToString(GameData.objects[i].Var_8, 2).PadLeft(16, '0') + " " +
-                            Convert.ToString(GameData.objects[i].Var_9, 2).PadLeft(16, '0') + " " +
-                            Convert.ToString(GameData.objects[i].Var_10, 2).PadLeft(16, '0') + " " + i;
+                    textBox1.Text += Convert.ToString(GameData.objects[i].Var_0, 2).PadLeft(16, '0') + " (" + GameData.objects[i].Var_0.ToString().PadLeft(6, '0') + ") " +
+                            Convert.ToString(GameData.objects[i].Var_1, 2).PadLeft(16, '0') + " (" + GameData.objects[i].Var_1.ToString().PadLeft(6, '0') + ") " +
+                            Convert.ToString(GameData.objects[i].Var_2, 2).PadLeft(16, '0') + " (" + GameData.objects[i].Var_2.ToString().PadLeft(6, '0') + ") " +
+                            Convert.ToString(GameData.objects[i].Var_3, 2).PadLeft(16, '0') + " (" + GameData.objects[i].Var_3.ToString().PadLeft(6, '0') + ") " +
+                            Convert.ToString(GameData.objects[i].Var_4, 2).PadLeft(16, '0') + " (" + GameData.objects[i].Var_4.ToString().PadLeft(6, '0') + ") " +
+                            Convert.ToString(GameData.objects[i].Var_5, 2).PadLeft(16, '0') + " (" + GameData.objects[i].Var_5.ToString().PadLeft(6, '0') + ") " +
+                            Convert.ToString(GameData.objects[i].Var_6, 2).PadLeft(16, '0') + " (" + GameData.objects[i].Var_6.ToString().PadLeft(6, '0') + ") " +
+                            Convert.ToString(GameData.objects[i].Var_7, 2).PadLeft(16, '0') + " (" + GameData.objects[i].Var_7.ToString().PadLeft(6, '0') + ") " +
+                            Convert.ToString(GameData.objects[i].Var_8, 2).PadLeft(16, '0') + " (" + GameData.objects[i].Var_8.ToString().PadLeft(6, '0') + ") " +
+                            Convert.ToString(GameData.objects[i].Var_9, 2).PadLeft(16, '0') + " (" + GameData.objects[i].Var_9.ToString().PadLeft(6, '0') + ") " +
+                            GameData.objects[i].Var_10.ToString().PadLeft(2, '0') + " " + i;
                     textBox1.Text += "\r\n";
                 }
             }

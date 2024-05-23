@@ -27,7 +27,7 @@ namespace DivEditor.Controls
         private int var_7;
         private int var_8;
         private int var_9;
-        private int var_10;
+        private int var_10;                         // Высота объекта
         private static int count = 0;
         public bool Exists
         {

@@ -74,7 +74,7 @@ namespace Editor.Controls
         //------------------------------------------------------------------------------------------------------------------------
         protected override void Update(GameTime gameTime)
         {
-            if (GameData.READY)
+            if (GameData.READY && EditForm.formIsActive)
             {
                 if (tileTextures == null || objectTextures == null) // Загрузка текстур
                 {
@@ -128,7 +128,6 @@ namespace Editor.Controls
                 {
                     UpdateScrollPosition();
                 }
-
 
                 if (Keyboard.IsKeyDown(System.Windows.Forms.Keys.D)) // Обработка клавиши D
                 {
@@ -234,6 +233,8 @@ namespace Editor.Controls
                                     ObjectBuffer.Xpos = currentMouseState.X - procMovObjCursOffsetX;
                                     ObjectBuffer.Ypos = currentMouseState.Y - procMovObjCursOffsetY;
                                     ObjectBuffer.Sort = ObjectDepth(ObjectBuffer.Ypos, ObjectBuffer.Xpos, ObjectBuffer.ID);
+                                    ObjectBuffer.ParentTileObjPosX = GameData.objects[ObjectShow[i][0]].TilePosition.X;
+                                    ObjectBuffer.ParentTileObjPosY = GameData.objects[ObjectShow[i][0]].TilePosition.Y;
                                     break;
                                 }
                             }
@@ -282,15 +283,21 @@ namespace Editor.Controls
                         currentMouseState.Y < WindowHeight)
                     {
                         // Удаляем спрятанный объект из MetaTile
-                        for (int i = 0; i < ObjectShow.Count; i++)
-                        {
-                            if (ObjectShow[i][2] == 0)
-                            {
-                                int X = tileBiasX + (ObjectShow[i][3] / Vars.tileSize);
-                                int Y = tileBiasY + (ObjectShow[i][4] / Vars.tileSize);
-                                GameData.metaTileArray[Y, X].DelObject(ObjectShow[i][0]);
-                            }
-                        }
+                        //for (int i = 0; i < ObjectShow.Count; i++)
+                        //{
+                        //    if (ObjectShow[i][2] == 0)
+                        //    {
+                        //        int X = tileBiasX + (ObjectShow[i][3] / Vars.tileSize);
+                        //        int Y = tileBiasY + (ObjectShow[i][4] / Vars.tileSize);
+                        //        GameData.metaTileArray[Y, X].DelObject(ObjectShow[i][0]);
+                        //    }
+                        //}
+
+                        int X = ObjectBuffer.ParentTileObjPosX;
+                        int Y = ObjectBuffer.ParentTileObjPosY;
+                        GameData.metaTileArray[Y, X].DelObject(ObjectBuffer.ID);
+
+                        System.Diagnostics.Debug.WriteLine(ObjectBuffer.Xpos + "  " + ObjectBuffer.Ypos);
                         if (ObjectBuffer.Xpos < 0) ObjectBuffer.Xpos = 0;
                         if (ObjectBuffer.Ypos < 0) ObjectBuffer.Ypos = 0;
                         if (ObjectBuffer.Xpos > (Vars.maxHorizontalTails - 1) * Vars.tileSize) ObjectBuffer.Xpos = (Vars.maxHorizontalTails - 1) * Vars.tileSize;
@@ -357,13 +364,13 @@ namespace Editor.Controls
                         Cursor.Show();
                         timer = Stopwatch.GetTimestamp();
                     }
-                    if (Keyboard.IsKeyDown(System.Windows.Forms.Keys.Delete) && 
-                        ObjectBuffer.ID >= 0) // Обработка клавиши DEL
+                    if (Keyboard.IsKeyDown(System.Windows.Forms.Keys.Delete) &&
+                        selectedObjID >= 0) // Обработка клавиши DEL
                     {
-                        int X = tileBiasX + (ObjectBuffer.Xpos / Vars.tileSize);
-                        int Y = tileBiasY + (ObjectBuffer.Ypos / Vars.tileSize);
-                        GameData.metaTileArray[Y, X].DelObject(ObjectBuffer.ID);
-                        ObjectBuffer.ID = -1;
+                        int X = GameData.objects[selectedObjID].TilePosition.X;
+                        int Y = GameData.objects[selectedObjID].TilePosition.Y;
+                        GameData.metaTileArray[Y, X].DelObject(selectedObjID);
+                        selectedObjID = -1;
                     }
                     if (Keyboard.IsKeyDown(System.Windows.Forms.Keys.Control) && 
                         Keyboard.IsKeyDown(System.Windows.Forms.Keys.C) &&
@@ -372,9 +379,25 @@ namespace Editor.Controls
                         Stopwatch.GetTimestamp() - timer > 2000000) // Обработка клавиши Ctrl + C
                     {
                         newObject.Add(new int[8] { Objects.getObjectsCount(), GameData.objects[selectedObjID].SpriteID, 1, 0, 0, 0, 0, 0 });
-                        Objects objNew = new(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, new System.Drawing.Point(0,0), 0, GameData.objects[selectedObjID].SpriteID)
+                        //Objects objNew = new(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, new System.Drawing.Point(0,0), 0, GameData.objects[selectedObjID].SpriteID)
+                        //{
+                        //    Height = 0
+                        //};
+                        Objects objNew = new(GameData.objects[selectedObjID].Var_0,
+                            GameData.objects[selectedObjID].Var_1,
+                            GameData.objects[selectedObjID].Var_2,
+                            GameData.objects[selectedObjID].Var_3,
+                            GameData.objects[selectedObjID].Var_4,
+                            GameData.objects[selectedObjID].Var_5,
+                            GameData.objects[selectedObjID].Var_6,
+                            GameData.objects[selectedObjID].Var_7,
+                            GameData.objects[selectedObjID].Var_8,
+                            GameData.objects[selectedObjID].Var_9,
+                            new System.Drawing.Point(0, 0),
+                            GameData.objects[selectedObjID].Var_10,
+                            GameData.objects[selectedObjID].SpriteID)
                         {
-                            Height = 0
+                            Height = GameData.objects[selectedObjID].Height
                         };
                         GameData.objects.Add(objNew);
                         procMovingNewObject = true;
@@ -562,8 +585,11 @@ namespace Editor.Controls
             {
                 for (int x = 0; x < Vars.maxHorizontalTails; x++)
                 {
-                    TilesDownTextures[y, x] = tileTextures[GameData.metaTileArray[y, x].DownTileTexture];
-                    if (GameData.metaTileArray[y, x].UpTileTexture < 65535)
+                    if (GameData.metaTileArray[y, x].DownTileTexture < 0xffff)
+                    {
+                        TilesDownTextures[y, x] = tileTextures[GameData.metaTileArray[y, x].DownTileTexture];
+                    }
+                    if (GameData.metaTileArray[y, x].UpTileTexture < 0xffff)
                     {
                         TilesUpTextures[y, x] = tileTextures[GameData.metaTileArray[y, x].UpTileTexture];
                     }
@@ -579,8 +605,16 @@ namespace Editor.Controls
                 {
                     if (y < Vars.maxVerticalTails && x < Vars.maxHorizontalTails)
                     {
-                        TilesDownTextures[y, x] = tileTextures[GameData.metaTileArray[y, x].DownTileTexture];
-                        if (GameData.metaTileArray[y, x].UpTileTexture < 65535)
+                        if (GameData.metaTileArray[y, x].DownTileTexture < 0xffff)
+                        {
+                            TilesDownTextures[y, x] = tileTextures[GameData.metaTileArray[y, x].DownTileTexture];
+                        }
+                        else
+                        {
+                            if (TilesDownTextures[y, x] != null) TilesDownTextures[y, x].Dispose();
+                        }
+                        
+                        if (GameData.metaTileArray[y, x].UpTileTexture < 0xffff)
                         {
                             TilesUpTextures[y, x] = tileTextures[GameData.metaTileArray[y, x].UpTileTexture];
                         }
@@ -817,7 +851,7 @@ namespace Editor.Controls
     }
     public static class ObjectBuffer
     {
-        public static int ID, Xpos, Ypos, SpriteID, Sort, State, Xbias, Ybias;
+        public static int ID, Xpos, Ypos, SpriteID, Sort, State, Xbias, Ybias, ParentTileObjPosX, ParentTileObjPosY;
         public static void Clear()
         {
             ID = -1;

@@ -594,6 +594,8 @@
             Name = "EditForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Divinity Editor";
+            Activated += EditForm_Activated;
+            Deactivate += EditForm_Deactivate;
             Load += Form2_Load;
             Shown += EditForm_Shown;
             toolStrip1.ResumeLayout(false);
