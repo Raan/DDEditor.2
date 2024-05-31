@@ -66,6 +66,8 @@
             ObjectsTreeView = new TreeView();
             objectsPictureBox = new PictureBox();
             eggsTabPage3 = new TabPage();
+            splitContainer1 = new SplitContainer();
+            EggsListBox = new ListBox();
             effectsTabPage3 = new TabPage();
             checkBoxObject = new CheckBox();
             checkBoxFog = new CheckBox();
@@ -90,6 +92,10 @@
             splitObjectsContainer.Panel2.SuspendLayout();
             splitObjectsContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)objectsPictureBox).BeginInit();
+            eggsTabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
+            splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.SuspendLayout();
             effectsTabPage3.SuspendLayout();
             PanelMonoWindow.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -108,7 +114,7 @@
             MonoWindow.Location = new Point(0, 0);
             MonoWindow.MouseHoverUpdatesOnly = false;
             MonoWindow.Name = "MonoWindow";
-            MonoWindow.Size = new Size(1116, 649);
+            MonoWindow.Size = new Size(1128, 649);
             MonoWindow.TabIndex = 1;
             MonoWindow.Text = "MonoWindow";
             // 
@@ -469,12 +475,39 @@
             // eggsTabPage3
             // 
             eggsTabPage3.BackColor = SystemColors.Control;
+            eggsTabPage3.Controls.Add(splitContainer1);
             eggsTabPage3.Location = new Point(4, 29);
             eggsTabPage3.Name = "eggsTabPage3";
             eggsTabPage3.Padding = new Padding(3);
             eggsTabPage3.Size = new Size(334, 618);
             eggsTabPage3.TabIndex = 2;
             eggsTabPage3.Text = "Eggs";
+            // 
+            // splitContainer1
+            // 
+            splitContainer1.Dock = DockStyle.Fill;
+            splitContainer1.Location = new Point(3, 3);
+            splitContainer1.Name = "splitContainer1";
+            splitContainer1.Orientation = Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            splitContainer1.Panel1.Controls.Add(EggsListBox);
+            splitContainer1.Size = new Size(328, 612);
+            splitContainer1.SplitterDistance = 346;
+            splitContainer1.TabIndex = 0;
+            // 
+            // EggsListBox
+            // 
+            EggsListBox.Dock = DockStyle.Fill;
+            EggsListBox.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            EggsListBox.FormattingEnabled = true;
+            EggsListBox.ItemHeight = 18;
+            EggsListBox.Location = new Point(0, 0);
+            EggsListBox.Name = "EggsListBox";
+            EggsListBox.Size = new Size(328, 346);
+            EggsListBox.TabIndex = 0;
+            EggsListBox.MouseDoubleClick += EggsListBox_MouseDoubleClick;
             // 
             // effectsTabPage3
             // 
@@ -541,7 +574,7 @@
             PanelMonoWindow.Controls.Add(MonoWindow);
             PanelMonoWindow.Location = new Point(3, 3);
             PanelMonoWindow.Name = "PanelMonoWindow";
-            PanelMonoWindow.Size = new Size(1118, 651);
+            PanelMonoWindow.Size = new Size(1130, 651);
             PanelMonoWindow.TabIndex = 5;
             // 
             // statusStrip1
@@ -573,7 +606,7 @@
             // mainSplitContainer1.Panel2
             // 
             mainSplitContainer1.Panel2.Controls.Add(PanelMonoWindow);
-            mainSplitContainer1.Size = new Size(1476, 657);
+            mainSplitContainer1.Size = new Size(1488, 657);
             mainSplitContainer1.SplitterDistance = 348;
             mainSplitContainer1.TabIndex = 7;
             // 
@@ -615,6 +648,10 @@
             ((System.ComponentModel.ISupportInitialize)splitObjectsContainer).EndInit();
             splitObjectsContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)objectsPictureBox).EndInit();
+            eggsTabPage3.ResumeLayout(false);
+            splitContainer1.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
+            splitContainer1.ResumeLayout(false);
             effectsTabPage3.ResumeLayout(false);
             effectsTabPage3.PerformLayout();
             PanelMonoWindow.ResumeLayout(false);
@@ -675,5 +712,7 @@
         private ToolStripButton AddNewObjectButton;
         private ToolStripMenuItem helpToolStripMenuItem;
         private ToolStripButton SearchObjectButton;
+        private SplitContainer splitContainer1;
+        private ListBox EggsListBox;
     }
 }

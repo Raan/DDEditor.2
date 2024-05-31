@@ -23,6 +23,9 @@ namespace DivEditor.Controls
         public static List<Objects> objects = new();                        // Список объектов
         public static List<string[]> metaObjHead = new();                   // Группировка объектов для списка
         public static bool READY = false;                                   // Флаг готовности к отображению мира
+        public static List<Eggs> Eggs = new ();                             // Список болванчиков
+        public static List<AgentClasses> AC = new();                        // Список классов болванчиков
+        public static string[]? AgentClassesName;                           // Имена классов нпс
 
         public static void Initialize()
         {
@@ -33,6 +36,12 @@ namespace DivEditor.Controls
             metaObjHead = FileManager.ReadMetaobjectHead(Vars.pathMetaObjHeads);
             FileManager.WriteXMLObjHead(metaObjHead);
             MObjects = FileManager.ReadMetaobject(Vars.pathMetaObjBody);
+            DataFile DF = new DataFile();
+            DataFile.Disassembly(pathToEditWorldFolder + "\\data.000");
+            Eggs = DataFile.ReadEggs(Vars.dirDataFile + "\\05_Eggs.000");
+            AC = DataFile.ReadAgentClasses(Vars.dirDataFile + "\\03_AgentClasses.000");
+            AgentClassesName = FileManager.ReadAgentClassesName(Vars.pathAgentClassesName);
+
         }
         public static void TextureMapping(int textures, int MouseStateX, int MouseStateY, int xCor, int yCor)
         {

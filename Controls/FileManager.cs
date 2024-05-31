@@ -470,6 +470,7 @@ namespace DivEditor.Controls
             }
             File.WriteAllLines(Vars.xmlMetObjHead, xml_2);
         }
+        //------------------------------------------------------------------------------------------------------------------------
         public static bool BeoyndDivinityFile(string inpDir)
         {
             long objectsLength = 0;
@@ -487,6 +488,7 @@ namespace DivEditor.Controls
             if (objectsLength > 80000000 && tileLength > 20000000) return true;
             else return false;
         }
+        //------------------------------------------------------------------------------------------------------------------------
         public static List<Sprite>? GetSprites(string path)
         {
             string inpDirI = path;
@@ -633,7 +635,7 @@ namespace DivEditor.Controls
             }
             return spriteList;
         }
-
+        //------------------------------------------------------------------------------------------------------------------------
         private static Microsoft.Xna.Framework.Color getPixelColor(int color)
         {
             int red, green, blue, alpha;
@@ -661,5 +663,16 @@ namespace DivEditor.Controls
 
             return new Microsoft.Xna.Framework.Color(red, green, blue, alpha);
         }
+        //------------------------------------------------------------------------------------------------------------------------
+        public static string[] ReadAgentClassesName(string inpFile)
+        {
+            string[] lines = File.ReadLines(inpFile).ToArray();
+            return lines;
+        }
+            //------------------------------------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------------------------------------
     }
 }

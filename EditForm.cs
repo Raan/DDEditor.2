@@ -1,5 +1,6 @@
 ﻿using DivEditor.Controls;
 using Editor.Controls;
+using DivEditor;
 using Lzo64;
 using Microsoft.Xna.Framework.Graphics;
 using System.Diagnostics;
@@ -80,6 +81,20 @@ namespace Editor
 
             toolStripLabel1.Text = "Objects sort: " + ShowSort.ToString();
 
+            // Заполняем список болванчиков
+            for (int i = 0; i < GameData.AC.Count; i++)
+            {
+                EggsListBox.Items.Add(i + " " + GameData.AC[i].name.PadRight(25, ' ') + " " + GameData.AC[i].attitude);
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData) // Отключаем реакцию на клавиатуру в листбоксах
+        {
+            if (msg.HWnd == EggsListBox.Handle || msg.HWnd == objectsBox.Handle)
+            {
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
         //------------------------------------------------------------------------------------------------------------------------
         private void texturesTreeView1_AfterSelect(object sender, TreeViewEventArgs e) //Выбор текстуры из списка
@@ -187,10 +202,13 @@ namespace Editor
             informationField.Text = "Random texture mapping mode";
         }
         //------------------------------------------------------------------------------------------------------------------------
-        private void saveWorldToolStripMenuItem_Click(object sender, EventArgs e)
+        private void saveWorldToolStripMenuItem_Click(object sender, EventArgs e) // Сохраняем мир
         {
             FileManager.SaveWorldAndObjects(GameData.metaTileArray, GameData.objects, GameData.pathToEditWorldFolder, GameData.worldMapNumber, Objects.getObjectsCount());
-            informationField.Text = "Save world and objects completed";
+            DataFile.WriteEggs(GameData.Eggs, Vars.dirDataFile + "\\05_Eggs.000");
+
+            DataFile.Assembly(GameData.pathToEditWorldFolder + "\\data.000");
+            informationField.Text = "Save completed";
         }
         //------------------------------------------------------------------------------------------------------------------------
         private void mainTollbar_Click(object sender, EventArgs e) // Выбор вкладки (текстурирование, объекты и т.д.)
@@ -724,6 +742,28 @@ namespace Editor
         private void EditForm_Deactivate(object sender, EventArgs e)
         {
             formIsActive = false;
+        }
+
+        private void MonoWindow_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EggsListBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (EggsListBox.SelectedIndex > 0)
+            {
+                WriteLine("Add new " + GameData.AC[EggsListBox.SelectedIndex].name + " egg");
+                MonoWindow.Focus();
+                GameData.Eggs.Add(new Eggs(new int[]{(MGGraphicalOutput.tileBiasX) * Vars.tileSize,
+                (MGGraphicalOutput.tileBiasY) * Vars.tileSize,
+                EggsListBox.SelectedIndex,1,-1,-1,-1,-1,GameData.Eggs.Count,GameData.worldMapNumber}));
+                MGGraphicalOutput.procMovingNewEgg = true;
+            }
+        }
+        private static void WriteLine(String line)
+        {
+            System.Diagnostics.Debug.WriteLine(line);
         }
     }
     //-------------------------------------------------------------------------------------------------------------------------
