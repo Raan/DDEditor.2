@@ -858,7 +858,7 @@ namespace DivEditor
                 }
                 wordLength = getInt32(buffer[cursor], buffer[cursor + 1], buffer[cursor + 2], buffer[cursor + 3]);
                 cursor += 4;
-                for (int j = 0; j < wordLength; j++)
+                for (int j = 0; j < wordLength - 1; j++)
                 {
                     buff += Convert.ToChar(buffer[cursor + j]);
                 }
@@ -920,6 +920,78 @@ namespace DivEditor
             }
             return AC;
         }
+        public static void WriteAgentClasses(List<AgentClasses> AC, String outFile)
+        {
+            using (BinaryWriter writer = new BinaryWriter(File.Open(outFile, FileMode.Create)))
+            {
+                writer.Write(AC.Count);
+                // Hero
+                for (int i = 0; i < AC[0].var_0.Count; i++)
+                {
+                    writer.Write(Convert.ToInt16(AC[0].var_0[i]));
+                }
+                writer.Write(AC[0].name.Length + 1);
+                byte[] bytes = Encoding.ASCII.GetBytes(AC[0].name);
+                foreach (byte b in bytes)
+                {
+                    writer.Write(b);
+                }
+                writer.Write((byte)0);
+                for (int i = 0; i < AC[0].var_1.Count; i++)
+                {
+                    writer.Write(AC[0].var_1[i]);
+                }
+                writer.Write(AC[0].attitude.Length + 1);
+                bytes = Encoding.ASCII.GetBytes(AC[0].attitude);
+                foreach (byte b in bytes)
+                {
+                    writer.Write(b);
+                }
+                writer.Write((byte)0);
+                writer.Write((int)0);
+                for (int i = 0; i < 1140; i++)
+                {
+                    writer.Write((byte)0xFF);
+                }
+                // Another nps
+                for (int j = 1; j < AC.Count; j++)
+                {
+                    for (int i = 0; i < AC[j].var_0.Count; i++)
+                    {
+                        writer.Write(Convert.ToInt16(AC[j].var_0[i]));
+                    }
+                    writer.Write(AC[j].name.Length + 1);
+                    bytes = Encoding.ASCII.GetBytes(AC[j].name);
+                    foreach (byte b in bytes)
+                    {
+                        writer.Write(b);
+                    }
+                    writer.Write((byte)0);
+                    for (int i = 0; i < AC[j].var_1.Count; i++)
+                    {
+                        writer.Write(AC[j].var_1[i]);
+                    }
+                    writer.Write(AC[j].attitude.Length + 1);
+                    bytes = Encoding.ASCII.GetBytes(AC[j].attitude);
+                    foreach (byte b in bytes)
+                    {
+                        writer.Write(b);
+                    }
+                    writer.Write((byte)0);
+                    writer.Write(AC[j].type.Length + 1);
+                    bytes = Encoding.ASCII.GetBytes(AC[j].type);
+                    foreach (byte b in bytes)
+                    {
+                        writer.Write(b);
+                    }
+                    writer.Write((byte)0);
+                    for (int i = 0; i < AC[j].var_2.Count; i++)
+                    {
+                        writer.Write(AC[j].var_2[i]);
+                    }
+                }
+            }
+        }
 
         static int getInt16(int a, int b)
         {
@@ -957,17 +1029,17 @@ namespace DivEditor
         public List<int> var_0 = new List<int>();
         public List<int> var_1 = new List<int>();
         public List<int> var_2 = new List<int>();
-        static int LVL_0 = 6;
-        static int LVL_1 = 19;
-        static int attack = 17;
-        static int protection = 18;
-        static int view_radius = 20;
-        static int hearing_radius = 21;
-        static int lightning_resistance = 22;
-        static int poison_resistance = 23;
-        static int fire_resistance = 24;
-        static int spirit_resistance = 25;
-        static int armor = 32;
+        public static int LVL_0 = 6;
+        public static int LVL_1 = 19;
+        public static int attack = 17;
+        public static int protection = 18;
+        public static int view_radius = 20;
+        public static int hearing_radius = 21;
+        public static int lightning_resistance = 22;
+        public static int poison_resistance = 23;
+        public static int fire_resistance = 24;
+        public static int spirit_resistance = 25;
+        public static int armor = 32;
     }
 }
 

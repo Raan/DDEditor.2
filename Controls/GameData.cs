@@ -43,7 +43,7 @@ namespace DivEditor.Controls
             AgentClassesName = FileManager.ReadAgentClassesName(Vars.pathAgentClassesName);
 
         }
-        public static void TextureMapping(int textures, int MouseStateX, int MouseStateY, int xCor, int yCor)
+        public static void TextureMapping(int textures, int MouseStateX, int MouseStateY, int xCor, int yCor, bool rand, bool largeBrush)
         {
             int y = MouseStateY / Vars.tileSize + yCor;
             int x = MouseStateX / Vars.tileSize + xCor;
@@ -150,7 +150,7 @@ namespace DivEditor.Controls
                                     tilesDownNew[i, j] = terrain[textures].getBaseTileDown(r);
                                     tilesUpNew[i, j] = terrain[textures].getBaseTileUp(r);
                                 }
-                                else if (EditForm.RandfillingTex)
+                                else if (rand) //EditForm.RandfillingTex
                                 {
                                     Random rnd = new();
                                     int r = 0;
@@ -174,7 +174,7 @@ namespace DivEditor.Controls
                                                     b = true;
                                                 }
                                             }
-                                            if (!b || EditForm.RandfillingTex)
+                                            if (!b || rand)
                                             {
                                                 Random rnd = new();
                                                 int r = 0;
@@ -201,7 +201,7 @@ namespace DivEditor.Controls
                                                     b = true;
                                                 }
                                             }
-                                            if (!b || EditForm.RandfillingTex)
+                                            if (!b || rand)
                                             {
                                                 Random rnd = new();
                                                 int r = 0;
@@ -228,7 +228,7 @@ namespace DivEditor.Controls
                                                     b = true;
                                                 }
                                             }
-                                            if (!b || EditForm.RandfillingTex)
+                                            if (!b || rand)
                                             {
                                                 Random rnd = new();
                                                 int r = 0;
@@ -255,7 +255,7 @@ namespace DivEditor.Controls
                                                     b = true;
                                                 }
                                             }
-                                            if (!b || EditForm.RandfillingTex)
+                                            if (!b || rand)
                                             {
                                                 Random rnd = new();
                                                 int r = 0;
@@ -282,7 +282,7 @@ namespace DivEditor.Controls
                                                     b = true;
                                                 }
                                             }
-                                            if (!b || EditForm.RandfillingTex)
+                                            if (!b || rand)
                                             {
                                                 Random rnd = new();
                                                 int r = 0;
@@ -309,7 +309,7 @@ namespace DivEditor.Controls
                                                     b = true;
                                                 }
                                             }
-                                            if (!b || EditForm.RandfillingTex)
+                                            if (!b || rand)
                                             {
                                                 Random rnd = new();
                                                 int r = 0;
@@ -336,7 +336,7 @@ namespace DivEditor.Controls
                                                     b = true;
                                                 }
                                             }
-                                            if (!b || EditForm.RandfillingTex)
+                                            if (!b || rand)
                                             {
                                                 Random rnd = new();
                                                 int r = 0;
@@ -363,7 +363,7 @@ namespace DivEditor.Controls
                                                     b = true;
                                                 }
                                             }
-                                            if (!b || EditForm.RandfillingTex)
+                                            if (!b || rand)
                                             {
                                                 Random rnd = new();
                                                 int r = 0;
@@ -390,7 +390,7 @@ namespace DivEditor.Controls
                                                     b = true;
                                                 }
                                             }
-                                            if (!b || EditForm.RandfillingTex)
+                                            if (!b || rand)
                                             {
                                                 Random rnd = new();
                                                 int r = 0;
@@ -417,7 +417,7 @@ namespace DivEditor.Controls
                                                     b = true;
                                                 }
                                             }
-                                            if (!b || EditForm.RandfillingTex)
+                                            if (!b || rand)
                                             {
                                                 Random rnd = new();
                                                 int r = 0;
@@ -444,7 +444,7 @@ namespace DivEditor.Controls
                                                     b = true;
                                                 }
                                             }
-                                            if (!b || EditForm.RandfillingTex)
+                                            if (!b || rand)
                                             {
                                                 Random rnd = new();
                                                 int r = 0;
@@ -471,7 +471,7 @@ namespace DivEditor.Controls
                                                     b = true;
                                                 }
                                             }
-                                            if (!b || EditForm.RandfillingTex)
+                                            if (!b || rand)
                                             {
                                                 Random rnd = new();
                                                 int r = 0;
@@ -498,7 +498,7 @@ namespace DivEditor.Controls
                                                     b = true;
                                                 }
                                             }
-                                            if (!b || EditForm.RandfillingTex)
+                                            if (!b || rand)
                                             {
                                                 Random rnd = new();
                                                 int r = 0;
@@ -525,7 +525,7 @@ namespace DivEditor.Controls
                                                     b = true;
                                                 }
                                             }
-                                            if (!b || EditForm.RandfillingTex)
+                                            if (!b || rand)
                                             {
                                                 Random rnd = new();
                                                 int r = 0;
@@ -552,9 +552,9 @@ namespace DivEditor.Controls
                 }
                 else
                 {
-                    if (!EditForm.BigfillingTex) // Если кисть 1х1
+                    if (!largeBrush) // Если кисть 1х1
                     {
-                        if (!EditForm.RandfillingTex) // Рандом отключен
+                        if (!rand) // Рандом отключен
                         {
                             bool a = false;
                             for (int k = 0; k < terrain[textures].BaseTileCount; k++)
@@ -587,7 +587,7 @@ namespace DivEditor.Controls
                         }
                     }
                     else // Если кисть 3х3
-                    if (!EditForm.RandfillingTex)  // Рандом отключен
+                    if (!rand)  // Рандом отключен
                     {
                         for (int i = 0; i < 3; i++)
                         {
@@ -637,38 +637,42 @@ namespace DivEditor.Controls
         {
             int y = MouseStateY / Vars.tileSize + yCor;
             int x = MouseStateX / Vars.tileSize + xCor;
-            if (effect == 0)
+            if (x >= 0 && x < Vars.maxHorizontalTails && y >= 0 && y < Vars.maxVerticalTails) 
             {
-                metaTileArray[y, x].TileEffects = 0;
-            }
-            else
-            {
-                if (metaTileArray[y, x].TileEffects != effect)
+                if (effect == 0)
                 {
-                    if ((MouseStateY % Vars.tileSize) + (MouseStateX % Vars.tileSize) < Vars.tileSize) // Если курсор в верхней диагонали
+                    metaTileArray[y, x].TileEffects = 0;
+                }
+                else
+                {
+                    if (metaTileArray[y, x].TileEffects != effect)
                     {
-                        if ((metaTileArray[y, x].TileEffects & (1 << Vars.tileEffectByteNumber_DownDiagonal)) != 0) // Если уже есть нижняя диагональ
+                        if ((MouseStateY % Vars.tileSize) + (MouseStateX % Vars.tileSize) < Vars.tileSize) // Если курсор в верхней диагонали
                         {
-                            metaTileArray[y, x].TileEffects = effect;
+                            if ((metaTileArray[y, x].TileEffects & (1 << Vars.tileEffectByteNumber_DownDiagonal)) != 0) // Если уже есть нижняя диагональ
+                            {
+                                metaTileArray[y, x].TileEffects = effect;
+                            }
+                            else
+                            {
+                                metaTileArray[y, x].TileEffects = effect | Vars.tileEffect_UpDiagonal;
+                            }
                         }
-                        else
+                        else // Если курсор в нижней диагонали
                         {
-                            metaTileArray[y, x].TileEffects = effect | Vars.tileEffect_UpDiagonal;
-                        }
-                    }
-                    else // Если курсор в нижней диагонали
-                    {
-                        if ((metaTileArray[y, x].TileEffects & (1 << Vars.tileEffectByteNumber_UpDiagonal)) != 0) // Если уже есть верхняя диагональ
-                        {
-                            metaTileArray[y, x].TileEffects = effect;
-                        }
-                        else
-                        {
-                            metaTileArray[y, x].TileEffects = effect | Vars.tileEffect_DownDiagonal;
+                            if ((metaTileArray[y, x].TileEffects & (1 << Vars.tileEffectByteNumber_UpDiagonal)) != 0) // Если уже есть верхняя диагональ
+                            {
+                                metaTileArray[y, x].TileEffects = effect;
+                            }
+                            else
+                            {
+                                metaTileArray[y, x].TileEffects = effect | Vars.tileEffect_DownDiagonal;
+                            }
                         }
                     }
                 }
             }
+            
         }
     }
 }

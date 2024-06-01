@@ -16,7 +16,9 @@ namespace DivEditor.Controls
         public const String xmlMetObjHead = @"Editor\editor_MOHead.xml";
         public const String dirDataFile = @"Editor\DataFile";
         public const String pathAgentClassesName = @"Editor\editor_NPCClass_name.dat";
-        public const String dirAgentClassesImg = @"Content\units";
+        public const String dirAgentClassesImg = @"Content\units\\";
+        public const String dirAgentClassesImgPNG = @"Content\unitsPNG\\";
+        public const String dirTexturesPreview = @"Content\textures\\";
         public const int maxObjectsCount = 11264;
         public const int maxObjectsCountInTile = 14;
         public const int maxVerticalTails = 1024;

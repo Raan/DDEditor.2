@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using System.Xml;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Timer = System.Windows.Forms.Timer;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Net.WebRequestMethods;
 //using Color = Microsoft.Xna.Framework.Color;
 
 namespace Editor
@@ -40,6 +42,7 @@ namespace Editor
             timer.Tick += new EventHandler(Timer_Tick!);
             timer.Interval = 100;
             timer.Start();
+            eggsPicturePNG.Dock = DockStyle.Fill;
         }
 
         //------------------------------------------------------------------------------------------------------------------------
@@ -51,7 +54,6 @@ namespace Editor
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             ShowSort = !ShowSort;
-            toolStripLabel1.Text = "Objects sort: " + ShowSort.ToString();
         }
         //------------------------------------------------------------------------------------------------------------------------
         private void EditForm_Shown(object sender, EventArgs e) //Заполнение контейнеров после загрузки основной формы
@@ -79,8 +81,6 @@ namespace Editor
             xmlDoc.Load(Vars.xmlMetObjHead);
             LoadTreeFromXmlDocument(xmlDoc);
 
-            toolStripLabel1.Text = "Objects sort: " + ShowSort.ToString();
-
             // Заполняем список болванчиков
             for (int i = 0; i < GameData.AC.Count; i++)
             {
@@ -105,7 +105,7 @@ namespace Editor
             {
                 if (selectedTextures == "TreeNode: " + GameData.terrain[i].TerrName)
                 {
-                    texturesBox1.ImageLocation = @"Content\\textures\\" + i.ToString().PadLeft(2, '0') + ".png";
+                    texturesBox1.ImageLocation = Vars.dirTexturesPreview + i.ToString().PadLeft(2, '0') + ".png";
                     texturesBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                     selectTextures = i;
                 }
@@ -181,24 +181,18 @@ namespace Editor
         private void toolStripButton2_Click(object sender, EventArgs e) // Заполение текстурой 3х3
         {
             BigfillingTex = true;
-            toolStripButton3.BackColor = Color.WhiteSmoke;
-            toolStripButton2.BackColor = Color.LightGray;
             informationField.Text = "Large texture mapping mode";
         }
         //------------------------------------------------------------------------------------------------------------------------
         private void toolStripButton3_Click(object sender, EventArgs e) // Заполение текстурой 1х1
         {
             BigfillingTex = false;
-            toolStripButton2.BackColor = Color.WhiteSmoke;
-            toolStripButton3.BackColor = Color.LightGray;
             informationField.Text = "Small texture mapping mode";
         }
         //------------------------------------------------------------------------------------------------------------------------
         private void toolStripButton4_Click(object sender, EventArgs e) // Заполение случайной текстурой
         {
             RandfillingTex = !RandfillingTex;
-            if (!RandfillingTex) toolStripButton4.BackColor = Color.WhiteSmoke;
-            else toolStripButton4.BackColor = Color.LightGray;
             informationField.Text = "Random texture mapping mode";
         }
         //------------------------------------------------------------------------------------------------------------------------
@@ -206,7 +200,7 @@ namespace Editor
         {
             FileManager.SaveWorldAndObjects(GameData.metaTileArray, GameData.objects, GameData.pathToEditWorldFolder, GameData.worldMapNumber, Objects.getObjectsCount());
             DataFile.WriteEggs(GameData.Eggs, Vars.dirDataFile + "\\05_Eggs.000");
-
+            DataFile.WriteAgentClasses(GameData.AC, Vars.dirDataFile + "\\03_AgentClasses.000");
             DataFile.Assembly(GameData.pathToEditWorldFolder + "\\data.000");
             informationField.Text = "Save completed";
         }
@@ -214,30 +208,16 @@ namespace Editor
         private void mainTollbar_Click(object sender, EventArgs e) // Выбор вкладки (текстурирование, объекты и т.д.)
         {
             selectTollBarPage = mainTollbar.SelectedIndex;
-            AddNewObjectButton.Enabled = false;
-            AddNewObjectButton.Visible = false;
-            toolStripButton2.Visible = false;
-            toolStripButton3.Visible = false;
-            toolStripButton4.Visible = false;
             SearchObjectButton.Visible = false;
-            DelObjectBut.Visible = false;
-            CopyObjButton.Visible = false;
-            FixObjectButton.Visible = false;
             StepObjectButton.Visible = false;
 
             if (selectTollBarPage == 0) // Если выбрано текстурирование
             {
-                toolStripButton2.Visible = true;
-                toolStripButton3.Visible = true;
-                toolStripButton4.Visible = true;
+
             }
             if (selectTollBarPage == 1) // Если выбрана работа с объектами
             {
-                DelObjectBut.Visible = true;
-                CopyObjButton.Visible = true;
-                FixObjectButton.Visible = true;
                 StepObjectButton.Visible = true;
-                AddNewObjectButton.Visible = true;
                 SearchObjectButton.Visible = true;
             }
             ObjectsTreeView.Size = new System.Drawing.Size(splitObjectsContainer.Panel1.Width / 2, splitObjectsContainer.Panel1.Height);
@@ -414,7 +394,6 @@ namespace Editor
 
         private void ObjectsBox_SelectedIndexChanged(object sender, EventArgs e) // Выводим выбранный метаобъект в окно просмота
         {
-            AddNewObjectButton.Enabled = true;
             string[] words = objectsBox.Text.Split(new char[] { ' ' });
             if (words.Length > 1 && int.TryParse(words[1], out int objectSelect))
             {
@@ -438,7 +417,7 @@ namespace Editor
                 }
                 else
                 {
-                    if (File.Exists(@"Content\MetaObjects\" + objectSelect.ToString().PadLeft(6, '0') + ".png"))
+                    if (System.IO.File.Exists(@"Content\MetaObjects\" + objectSelect.ToString().PadLeft(6, '0') + ".png"))
                     {
                         objectsPictureBox.Image = System.Drawing.Image.FromFile(@"Content\MetaObjects\" + objectSelect.ToString().PadLeft(6, '0') + ".png");
                     }
@@ -680,36 +659,6 @@ namespace Editor
             }
             informationField.Text = " Done";
         }
-
-        private void AddNewObjectButton_Click(object sender, EventArgs e)
-        {
-            //// 0 - мировой номер, 1 - SpriteID, 2 - поведение, 3 - координата Х, 4 - координата Y, 5 - сортировка
-            string[] words = objectsBox.Text.Split(new char[] { ' ' });
-            if (words.Length > 1 && int.TryParse(words[1], out int objectSelect))
-            {
-                MGGraphicalOutput.procMovingNewObject = true;
-                int objCount = GameData.MObjects[objectSelect].objects.Count;
-                for (int i = 0; i < objCount; i++)
-                {
-                    int Id = GameData.MObjects[objectSelect].objects[i].Id;
-                    int Xcor = 0;
-                    int Ycor = 0;
-                    int heigth = GameData.MObjects[objectSelect].objects[i].posZ;
-                    int biasX = GameData.objectDesc[GameData.MObjects[objectSelect].objects[0].Id].TouchPoint.X + GameData.MObjects[objectSelect].objects[i].posX - GameData.objectDesc[GameData.MObjects[objectSelect].objects[i].Id].TouchPoint.X;
-                    int biasY = GameData.objectDesc[GameData.MObjects[objectSelect].objects[0].Id].TouchPoint.Y - GameData.MObjects[objectSelect].objects[i].posY - GameData.objectDesc[GameData.MObjects[objectSelect].objects[i].Id].TouchPoint.Y;
-                    int sort = (Ycor + GameData.objectDesc[Id].TouchPoint.Y) * Vars.maxHorizontalTails * Vars.tileSize + Xcor;
-                    int worldID = Objects.getObjectsCount();
-                    MGGraphicalOutput.newObject.Add(new int[8] { worldID, Id, 1, Xcor, Ycor, sort, biasX, biasY });
-                    Objects objNew = new(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, new Point(Xcor, Ycor), heigth, Id)
-                    {
-                        Height = heigth
-                    };
-                    GameData.objects.Add(objNew);
-                }
-                Cursor.Hide();
-            }
-        }
-
         private void objectsBox_SizeChanged(object sender, EventArgs e)
         {
             ObjectsTreeView.Size = new System.Drawing.Size(splitObjectsContainer.Panel1.Width / 2, objectsBox.Height);
@@ -749,7 +698,7 @@ namespace Editor
 
         }
 
-        private void EggsListBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void EggsListBox_MouseDoubleClick(object sender, MouseEventArgs e) // Добавляем болванчика
         {
             if (EggsListBox.SelectedIndex > 0)
             {
@@ -759,11 +708,175 @@ namespace Editor
                 (MGGraphicalOutput.tileBiasY) * Vars.tileSize,
                 EggsListBox.SelectedIndex,1,-1,-1,-1,-1,GameData.Eggs.Count,GameData.worldMapNumber}));
                 MGGraphicalOutput.procMovingNewEgg = true;
+                Cursor.Hide();
             }
         }
         private static void WriteLine(String line)
         {
             System.Diagnostics.Debug.WriteLine(line);
+        }
+
+        private void objectsBox_MouseDoubleClick(object sender, MouseEventArgs e) // Добавляем объект
+        {
+            //// 0 - мировой номер, 1 - SpriteID, 2 - поведение, 3 - координата Х, 4 - координата Y, 5 - сортировка
+            string[] words = objectsBox.Text.Split(new char[] { ' ' });
+            if (words.Length > 1 && int.TryParse(words[1], out int objectSelect))
+            {
+                MGGraphicalOutput.procMovingNewObject = true;
+                int objCount = GameData.MObjects[objectSelect].objects.Count;
+                for (int i = 0; i < objCount; i++)
+                {
+                    int Id = GameData.MObjects[objectSelect].objects[i].Id;
+                    int Xcor = 0;
+                    int Ycor = 0;
+                    int heigth = GameData.MObjects[objectSelect].objects[i].posZ;
+                    int biasX = GameData.objectDesc[GameData.MObjects[objectSelect].objects[0].Id].TouchPoint.X + GameData.MObjects[objectSelect].objects[i].posX - GameData.objectDesc[GameData.MObjects[objectSelect].objects[i].Id].TouchPoint.X;
+                    int biasY = GameData.objectDesc[GameData.MObjects[objectSelect].objects[0].Id].TouchPoint.Y - GameData.MObjects[objectSelect].objects[i].posY - GameData.objectDesc[GameData.MObjects[objectSelect].objects[i].Id].TouchPoint.Y;
+                    int sort = (Ycor + GameData.objectDesc[Id].TouchPoint.Y) * Vars.maxHorizontalTails * Vars.tileSize + Xcor;
+                    int worldID = Objects.getObjectsCount();
+                    MGGraphicalOutput.newObject.Add(new int[8] { worldID, Id, 1, Xcor, Ycor, sort, biasX, biasY });
+                    Objects objNew = new(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, new Point(Xcor, Ycor), heigth, Id)
+                    {
+                        Height = heigth
+                    };
+                    GameData.objects.Add(objNew);
+                }
+                Cursor.Hide();
+            }
+        }
+
+        private void EggsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (EggsListBox.SelectedIndex > 0)
+            {
+                eggsPicturePNG.Visible = true;
+                eggsPicturePNG.ImageLocation = Vars.dirAgentClassesImgPNG + EggsListBox.SelectedIndex.ToString() + ".png";
+                ACPropertyBox_0.Text = GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.LVL_0].ToString();
+                ACPropertyBox_1.Text = GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.attack].ToString();
+                ACPropertyBox_2.Text = GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.protection].ToString();
+                ACPropertyBox_3.Text = GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.armor].ToString();
+                ACPropertyBox_4.Text = GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.view_radius].ToString();
+                ACPropertyBox_5.Text = GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.hearing_radius].ToString();
+                ACPropertyBox_6.Text = GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.lightning_resistance].ToString();
+                ACPropertyBox_7.Text = GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.poison_resistance].ToString();
+                ACPropertyBox_8.Text = GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.fire_resistance].ToString();
+                ACPropertyBox_9.Text = GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.spirit_resistance].ToString();
+            }
+            else
+            {
+                eggsPicturePNG.Visible = false;
+                ACPropertyBox_0.Text = "";
+                ACPropertyBox_1.Text = "";
+                ACPropertyBox_2.Text = "";
+                ACPropertyBox_3.Text = "";
+                ACPropertyBox_4.Text = "";
+                ACPropertyBox_5.Text = "";
+                ACPropertyBox_6.Text = "";
+                ACPropertyBox_7.Text = "";
+                ACPropertyBox_8.Text = "";
+                ACPropertyBox_9.Text = "";
+            }
+
+
+        }
+
+        private void EggsListBox_Leave(object sender, EventArgs e)
+        {
+            //eggsPicturePNG.Visible = false;
+        }
+
+        private void EggsListBox_Enter(object sender, EventArgs e)
+        {
+            //eggsPicturePNG.Visible = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (EggsListBox.SelectedIndex > 0)
+            {
+                int x = 0;
+                if (Int32.TryParse(ACPropertyBox_0.Text, out x)) // Save LVL
+                {
+                    if (x > 0 && x <= 100)
+                    {
+                        GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.LVL_0] = x;
+                        GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.LVL_1] = x;
+                    }
+                }
+                if (Int32.TryParse(ACPropertyBox_1.Text, out x)) // Save attack
+                {
+                    if (x >= -255 && x <= 255)
+                    {
+                        GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.attack] = x;
+                    }
+                }
+                if (Int32.TryParse(ACPropertyBox_2.Text, out x)) // Save protection
+                {
+                    if (x >= -255 && x <= 255)
+                    {
+                        GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.protection] = x;
+                    }
+                }
+                if (Int32.TryParse(ACPropertyBox_3.Text, out x)) // Save armor
+                {
+                    if (x >= -255 && x <= 255)
+                    {
+                        GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.armor] = x;
+                    }
+                }
+                if (Int32.TryParse(ACPropertyBox_4.Text, out x)) // Save view_radius
+                {
+                    if (x >= 0 && x <= 100)
+                    {
+                        GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.view_radius] = x;
+                    }
+                }
+                if (Int32.TryParse(ACPropertyBox_5.Text, out x)) // Save hearing_radius
+                {
+                    if (x >= 0 && x <= 100)
+                    {
+                        GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.hearing_radius] = x;
+                    }
+                }
+                if (Int32.TryParse(ACPropertyBox_6.Text, out x)) // Save lightning_resistance
+                {
+                    if (x >= -100 && x <= 100)
+                    {
+                        GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.lightning_resistance] = x;
+                    }
+                }
+                if (Int32.TryParse(ACPropertyBox_7.Text, out x)) // Save poison_resistance
+                {
+                    if (x >= -100 && x <= 100)
+                    {
+                        GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.poison_resistance] = x;
+                    }
+                }
+                if (Int32.TryParse(ACPropertyBox_8.Text, out x)) // Save fire_resistance
+                {
+                    if (x >= -100 && x <= 100)
+                    {
+                        GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.fire_resistance] = x;
+                    }
+                }
+                if (Int32.TryParse(ACPropertyBox_9.Text, out x)) // Save spirit_resistance
+                {
+                    if (x >= -100 && x <= 100)
+                    {
+                        GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.spirit_resistance] = x;
+                    }
+                }
+                ACPropertyBox_0.Text = GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.LVL_0].ToString();
+                ACPropertyBox_1.Text = GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.attack].ToString();
+                ACPropertyBox_2.Text = GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.protection].ToString();
+                ACPropertyBox_3.Text = GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.armor].ToString();
+                ACPropertyBox_4.Text = GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.view_radius].ToString();
+                ACPropertyBox_5.Text = GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.hearing_radius].ToString();
+                ACPropertyBox_6.Text = GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.lightning_resistance].ToString();
+                ACPropertyBox_7.Text = GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.poison_resistance].ToString();
+                ACPropertyBox_8.Text = GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.fire_resistance].ToString();
+                ACPropertyBox_9.Text = GameData.AC[EggsListBox.SelectedIndex].var_1[AgentClasses.spirit_resistance].ToString();
+            }
         }
     }
     //-------------------------------------------------------------------------------------------------------------------------

@@ -182,7 +182,7 @@ namespace Editor.Controls
                 if (EditForm.selectTollBarPage == 0) // Обработка мыши для вкладки текстур
                 {
                     // Наложение текстуры
-                    if (mouseLBState &&
+                    if ((mouseLBState || mouseRBState) &&
                     !mouseClickHandler &&
                     currentMouseState.X > 0 &&
                     currentMouseState.Y > 0 &&
@@ -190,7 +190,28 @@ namespace Editor.Controls
                     currentMouseState.Y < WindowHeight &&
                     Stopwatch.GetTimestamp() - timer > 200000)
                     {
-                        GameData.TextureMapping(EditForm.selectTextures, currentMouseState.X, currentMouseState.Y, tileBiasX, tileBiasY);
+                        if (Keyboard.IsKeyDown(System.Windows.Forms.Keys.Shift))
+                        {
+                            if (mouseLBState)
+                            {
+                                GameData.TextureMapping(EditForm.selectTextures, currentMouseState.X, currentMouseState.Y, tileBiasX, tileBiasY, false, true);
+                            }
+                            if (mouseRBState)
+                            {
+                                GameData.TextureMapping(EditForm.selectTextures, currentMouseState.X, currentMouseState.Y, tileBiasX, tileBiasY, true, true);
+                            }
+                        }
+                        else
+                        {
+                            if (mouseLBState)
+                            {
+                                GameData.TextureMapping(EditForm.selectTextures, currentMouseState.X, currentMouseState.Y, tileBiasX, tileBiasY, false, false);
+                            }
+                            if (mouseRBState)
+                            {
+                                GameData.TextureMapping(EditForm.selectTextures, currentMouseState.X, currentMouseState.Y, tileBiasX, tileBiasY, true, false);
+                            }
+                        }
                         mouseClickHandler = true;
                         timer = Stopwatch.GetTimestamp();
                     }
@@ -369,6 +390,7 @@ namespace Editor.Controls
                     {
                         procMovingNewEgg = false;
                         ObjectBuffer.Clear();
+                        Cursor.Show();
                     }
                     // Перемещение нового объекта
                     if (newObject.Count > 0 && 
@@ -660,18 +682,34 @@ namespace Editor.Controls
                                         Editor.spriteBatch.Draw(egg, new Vector2(IMGPosX, IMGPosY), Color.Yellow);
                                     }
                                 }
-                                Editor.spriteBatch.DrawString(DrawFont, i + " " + objectsShow[i].AgentClass + " " + GameData.AC[objectsShow[i].AgentClass].name, new Vector2(X, Y), Color.White);
-                                Editor.spriteBatch.DrawString(DrawFont, GameData.AC[objectsShow[i].AgentClass].type, new Vector2(X, Y + 15), Color.White);
-                                Editor.spriteBatch.DrawString(DrawFont, GameData.AC[objectsShow[i].AgentClass].attitude, new Vector2(X, Y + 30), Color.White);
+                                String message = objectsShow[i].AgentClass + " " + GameData.AC[objectsShow[i].AgentClass].name;
+                                Vector2 Vr = new Vector2(X - (Editor.Font.MeasureString(message).X / 2), Y);
+                                Editor.spriteBatch.DrawString(Editor.Font, message, Vr, Color.White);
+
+                                message = GameData.AC[objectsShow[i].AgentClass].type;
+                                Vr = new Vector2(X - (Editor.Font.MeasureString(message).X / 2), Y + 16);
+                                Editor.spriteBatch.DrawString(Editor.Font, message, Vr, Color.White);
+
+                                message = GameData.AC[objectsShow[i].AgentClass].attitude;
+                                Vr = new Vector2(X - (Editor.Font.MeasureString(message).X / 2), Y + 32);
+                                Editor.spriteBatch.DrawString(Editor.Font, message, Vr, Color.White);
                             }
                             else
                             {
                                 if (objectsShow[i].ID == selectedObjID)
                                 {
                                     Editor.spriteBatch.Draw(egg, new Vector2(IMGPosX, IMGPosY), Color.Yellow);
-                                    Editor.spriteBatch.DrawString(DrawFont, objectsShow[i].AgentClass + " " + GameData.AC[objectsShow[i].AgentClass].name, new Vector2(X, Y), Color.White);
-                                    Editor.spriteBatch.DrawString(DrawFont, GameData.AC[objectsShow[i].AgentClass].type, new Vector2(X, Y + 15), Color.White);
-                                    Editor.spriteBatch.DrawString(DrawFont, GameData.AC[objectsShow[i].AgentClass].attitude, new Vector2(X, Y + 30), Color.White);
+                                    String message = objectsShow[i].AgentClass + " " + GameData.AC[objectsShow[i].AgentClass].name;
+                                    Vector2 Vr = new Vector2(X - (Editor.Font.MeasureString(message).X / 2), Y);
+                                    Editor.spriteBatch.DrawString(Editor.Font, message, Vr, Color.White);
+
+                                    message = GameData.AC[objectsShow[i].AgentClass].type;
+                                    Vr = new Vector2(X - (Editor.Font.MeasureString(message).X / 2), Y + 16);
+                                    Editor.spriteBatch.DrawString(Editor.Font, message, Vr, Color.White);
+
+                                    message = GameData.AC[objectsShow[i].AgentClass].attitude;
+                                    Vr = new Vector2(X - (Editor.Font.MeasureString(message).X / 2), Y + 32);
+                                    Editor.spriteBatch.DrawString(Editor.Font, message, Vr, Color.White);
                                 }
                                 else
                                 {

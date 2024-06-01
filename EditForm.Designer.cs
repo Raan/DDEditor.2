@@ -31,20 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditForm));
             MonoWindow = new Controls.MGGraphicalOutput();
             toolStrip1 = new ToolStrip();
-            toolStripButton1 = new ToolStripButton();
-            toolStripLabel1 = new ToolStripLabel();
-            toolStripButton2 = new ToolStripButton();
-            toolStripButton3 = new ToolStripButton();
-            toolStripButton4 = new ToolStripButton();
             CursorYCor = new ToolStripTextBox();
             CursorXCor = new ToolStripTextBox();
             setCursor = new ToolStripButton();
-            DelObjectBut = new ToolStripButton();
-            CopyObjButton = new ToolStripButton();
-            FixObjectButton = new ToolStripButton();
             StepObjectButton = new ToolStripButton();
             TESTBUTTON = new ToolStripButton();
-            AddNewObjectButton = new ToolStripButton();
             SearchObjectButton = new ToolStripButton();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
@@ -68,6 +59,28 @@
             eggsTabPage3 = new TabPage();
             splitContainer1 = new SplitContainer();
             EggsListBox = new ListBox();
+            button1 = new Button();
+            label10 = new Label();
+            label9 = new Label();
+            label8 = new Label();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            ACPropertyBox_9 = new TextBox();
+            ACPropertyBox_8 = new TextBox();
+            ACPropertyBox_7 = new TextBox();
+            ACPropertyBox_6 = new TextBox();
+            ACPropertyBox_5 = new TextBox();
+            ACPropertyBox_4 = new TextBox();
+            ACPropertyBox_3 = new TextBox();
+            ACPropertyBox_2 = new TextBox();
+            ACPropertyBox_1 = new TextBox();
+            ACPropertyBox_0 = new TextBox();
+            eggsPicturePNG = new PictureBox();
             effectsTabPage3 = new TabPage();
             checkBoxObject = new CheckBox();
             checkBoxFog = new CheckBox();
@@ -95,7 +108,9 @@
             eggsTabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)eggsPicturePNG).BeginInit();
             effectsTabPage3.SuspendLayout();
             PanelMonoWindow.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -114,78 +129,31 @@
             MonoWindow.Location = new Point(0, 0);
             MonoWindow.MouseHoverUpdatesOnly = false;
             MonoWindow.Name = "MonoWindow";
-            MonoWindow.Size = new Size(1128, 649);
+            MonoWindow.Size = new Size(1128, 831);
             MonoWindow.TabIndex = 1;
             MonoWindow.Text = "MonoWindow";
             // 
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(30, 30);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripLabel1, toolStripButton2, toolStripButton3, toolStripButton4, CursorYCor, CursorXCor, setCursor, DelObjectBut, CopyObjButton, FixObjectButton, StepObjectButton, TESTBUTTON, AddNewObjectButton, SearchObjectButton });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { CursorYCor, CursorXCor, setCursor, StepObjectButton, TESTBUTTON, SearchObjectButton });
             toolStrip1.Location = new Point(0, 28);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1488, 37);
+            toolStrip1.Size = new Size(1488, 27);
             toolStrip1.TabIndex = 2;
             toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(34, 34);
-            toolStripButton1.Text = "toolStripButton1";
-            toolStripButton1.Click += toolStripButton1_Click;
-            // 
-            // toolStripLabel1
-            // 
-            toolStripLabel1.Name = "toolStripLabel1";
-            toolStripLabel1.Size = new Size(111, 34);
-            toolStripLabel1.Text = "toolStripLabel1";
-            // 
-            // toolStripButton2
-            // 
-            toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton2.Image = DivEditor.Properties.Resources.texBig;
-            toolStripButton2.ImageTransparentColor = Color.Magenta;
-            toolStripButton2.Name = "toolStripButton2";
-            toolStripButton2.Size = new Size(34, 34);
-            toolStripButton2.Text = "toolStripButton2";
-            toolStripButton2.Click += toolStripButton2_Click;
-            // 
-            // toolStripButton3
-            // 
-            toolStripButton3.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton3.Image = DivEditor.Properties.Resources.texSmall;
-            toolStripButton3.ImageTransparentColor = Color.Magenta;
-            toolStripButton3.Name = "toolStripButton3";
-            toolStripButton3.Size = new Size(34, 34);
-            toolStripButton3.Text = "toolStripButton3";
-            toolStripButton3.Click += toolStripButton3_Click;
-            // 
-            // toolStripButton4
-            // 
-            toolStripButton4.BackColor = SystemColors.Control;
-            toolStripButton4.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton4.Image = DivEditor.Properties.Resources.texRan;
-            toolStripButton4.ImageTransparentColor = Color.Magenta;
-            toolStripButton4.Name = "toolStripButton4";
-            toolStripButton4.Size = new Size(34, 34);
-            toolStripButton4.Text = "toolStripButton4";
-            toolStripButton4.Click += toolStripButton4_Click;
             // 
             // CursorYCor
             // 
             CursorYCor.Alignment = ToolStripItemAlignment.Right;
             CursorYCor.Name = "CursorYCor";
-            CursorYCor.Size = new Size(50, 37);
+            CursorYCor.Size = new Size(50, 27);
             // 
             // CursorXCor
             // 
             CursorXCor.Alignment = ToolStripItemAlignment.Right;
             CursorXCor.Name = "CursorXCor";
-            CursorXCor.Size = new Size(50, 37);
+            CursorXCor.Size = new Size(50, 27);
             // 
             // setCursor
             // 
@@ -195,42 +163,9 @@
             setCursor.Image = (Image)resources.GetObject("setCursor.Image");
             setCursor.ImageTransparentColor = Color.Magenta;
             setCursor.Name = "setCursor";
-            setCursor.Size = new Size(32, 34);
+            setCursor.Size = new Size(32, 24);
             setCursor.Text = "Go";
             setCursor.Click += ToolStripButton5_Click;
-            // 
-            // DelObjectBut
-            // 
-            DelObjectBut.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            DelObjectBut.Enabled = false;
-            DelObjectBut.Image = (Image)resources.GetObject("DelObjectBut.Image");
-            DelObjectBut.ImageTransparentColor = Color.Magenta;
-            DelObjectBut.Name = "DelObjectBut";
-            DelObjectBut.Size = new Size(36, 34);
-            DelObjectBut.Text = "Del";
-            DelObjectBut.Visible = false;
-            // 
-            // CopyObjButton
-            // 
-            CopyObjButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            CopyObjButton.Enabled = false;
-            CopyObjButton.Image = (Image)resources.GetObject("CopyObjButton.Image");
-            CopyObjButton.ImageTransparentColor = Color.Magenta;
-            CopyObjButton.Name = "CopyObjButton";
-            CopyObjButton.Size = new Size(47, 34);
-            CopyObjButton.Text = "Copy";
-            CopyObjButton.Visible = false;
-            // 
-            // FixObjectButton
-            // 
-            FixObjectButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            FixObjectButton.Enabled = false;
-            FixObjectButton.Image = (Image)resources.GetObject("FixObjectButton.Image");
-            FixObjectButton.ImageTransparentColor = Color.Magenta;
-            FixObjectButton.Name = "FixObjectButton";
-            FixObjectButton.Size = new Size(31, 34);
-            FixObjectButton.Text = "Fix";
-            FixObjectButton.Visible = false;
             // 
             // StepObjectButton
             // 
@@ -239,7 +174,7 @@
             StepObjectButton.Image = (Image)resources.GetObject("StepObjectButton.Image");
             StepObjectButton.ImageTransparentColor = Color.Magenta;
             StepObjectButton.Name = "StepObjectButton";
-            StepObjectButton.Size = new Size(82, 34);
+            StepObjectButton.Size = new Size(82, 24);
             StepObjectButton.Text = "Step 1 cell";
             StepObjectButton.Visible = false;
             StepObjectButton.Click += StepObjectButton_Click;
@@ -253,21 +188,9 @@
             TESTBUTTON.ImageTransparentColor = Color.Magenta;
             TESTBUTTON.Name = "TESTBUTTON";
             TESTBUTTON.RightToLeft = RightToLeft.No;
-            TESTBUTTON.Size = new Size(101, 34);
+            TESTBUTTON.Size = new Size(101, 24);
             TESTBUTTON.Text = "TESTBUTTON";
             TESTBUTTON.Click += TESTBUTTON_Click;
-            // 
-            // AddNewObjectButton
-            // 
-            AddNewObjectButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            AddNewObjectButton.Enabled = false;
-            AddNewObjectButton.Image = (Image)resources.GetObject("AddNewObjectButton.Image");
-            AddNewObjectButton.ImageTransparentColor = Color.Magenta;
-            AddNewObjectButton.Name = "AddNewObjectButton";
-            AddNewObjectButton.Size = new Size(123, 34);
-            AddNewObjectButton.Text = "Add New Object";
-            AddNewObjectButton.Visible = false;
-            AddNewObjectButton.Click += AddNewObjectButton_Click;
             // 
             // SearchObjectButton
             // 
@@ -275,7 +198,7 @@
             SearchObjectButton.Image = (Image)resources.GetObject("SearchObjectButton.Image");
             SearchObjectButton.ImageTransparentColor = Color.Magenta;
             SearchObjectButton.Name = "SearchObjectButton";
-            SearchObjectButton.Size = new Size(103, 34);
+            SearchObjectButton.Size = new Size(103, 24);
             SearchObjectButton.Text = "Search object";
             SearchObjectButton.Visible = false;
             SearchObjectButton.Click += SearchObjectButton_Click_1;
@@ -356,7 +279,7 @@
             mainTollbar.Location = new Point(3, 3);
             mainTollbar.Name = "mainTollbar";
             mainTollbar.SelectedIndex = 0;
-            mainTollbar.Size = new Size(342, 651);
+            mainTollbar.Size = new Size(342, 833);
             mainTollbar.TabIndex = 4;
             mainTollbar.SizeChanged += MainTollbar_SizeChanged;
             mainTollbar.Click += mainTollbar_Click;
@@ -369,7 +292,7 @@
             texturesTabPage1.Location = new Point(4, 29);
             texturesTabPage1.Name = "texturesTabPage1";
             texturesTabPage1.Padding = new Padding(3);
-            texturesTabPage1.Size = new Size(334, 618);
+            texturesTabPage1.Size = new Size(334, 800);
             texturesTabPage1.TabIndex = 0;
             texturesTabPage1.Text = " Textures";
             // 
@@ -388,8 +311,8 @@
             // texturesSplitContainer2.Panel2
             // 
             texturesSplitContainer2.Panel2.Controls.Add(texturesBox1);
-            texturesSplitContainer2.Size = new Size(328, 612);
-            texturesSplitContainer2.SplitterDistance = 419;
+            texturesSplitContainer2.Size = new Size(328, 794);
+            texturesSplitContainer2.SplitterDistance = 543;
             texturesSplitContainer2.TabIndex = 0;
             // 
             // texturesTreeView
@@ -397,7 +320,7 @@
             texturesTreeView.Dock = DockStyle.Fill;
             texturesTreeView.Location = new Point(0, 0);
             texturesTreeView.Name = "texturesTreeView";
-            texturesTreeView.Size = new Size(326, 417);
+            texturesTreeView.Size = new Size(326, 541);
             texturesTreeView.TabIndex = 0;
             texturesTreeView.TabStop = false;
             texturesTreeView.AfterSelect += texturesTreeView1_AfterSelect;
@@ -408,7 +331,7 @@
             texturesBox1.Dock = DockStyle.Fill;
             texturesBox1.Location = new Point(0, 0);
             texturesBox1.Name = "texturesBox1";
-            texturesBox1.Size = new Size(326, 187);
+            texturesBox1.Size = new Size(326, 245);
             texturesBox1.TabIndex = 0;
             texturesBox1.TabStop = false;
             // 
@@ -419,7 +342,7 @@
             objectsTabPage2.Location = new Point(4, 29);
             objectsTabPage2.Name = "objectsTabPage2";
             objectsTabPage2.Padding = new Padding(3);
-            objectsTabPage2.Size = new Size(334, 618);
+            objectsTabPage2.Size = new Size(334, 800);
             objectsTabPage2.TabIndex = 1;
             objectsTabPage2.Text = "Objects";
             // 
@@ -438,8 +361,8 @@
             // splitObjectsContainer.Panel2
             // 
             splitObjectsContainer.Panel2.Controls.Add(objectsPictureBox);
-            splitObjectsContainer.Size = new Size(328, 612);
-            splitObjectsContainer.SplitterDistance = 426;
+            splitObjectsContainer.Size = new Size(328, 794);
+            splitObjectsContainer.SplitterDistance = 552;
             splitObjectsContainer.TabIndex = 0;
             // 
             // objectsBox
@@ -449,10 +372,11 @@
             objectsBox.ItemHeight = 20;
             objectsBox.Location = new Point(177, 0);
             objectsBox.Name = "objectsBox";
-            objectsBox.Size = new Size(151, 426);
+            objectsBox.Size = new Size(151, 552);
             objectsBox.TabIndex = 1;
             objectsBox.SelectedIndexChanged += ObjectsBox_SelectedIndexChanged;
             objectsBox.SizeChanged += objectsBox_SizeChanged;
+            objectsBox.MouseDoubleClick += objectsBox_MouseDoubleClick;
             // 
             // ObjectsTreeView
             // 
@@ -468,7 +392,7 @@
             objectsPictureBox.Dock = DockStyle.Fill;
             objectsPictureBox.Location = new Point(0, 0);
             objectsPictureBox.Name = "objectsPictureBox";
-            objectsPictureBox.Size = new Size(328, 182);
+            objectsPictureBox.Size = new Size(328, 238);
             objectsPictureBox.TabIndex = 0;
             objectsPictureBox.TabStop = false;
             // 
@@ -479,7 +403,7 @@
             eggsTabPage3.Location = new Point(4, 29);
             eggsTabPage3.Name = "eggsTabPage3";
             eggsTabPage3.Padding = new Padding(3);
-            eggsTabPage3.Size = new Size(334, 618);
+            eggsTabPage3.Size = new Size(334, 800);
             eggsTabPage3.TabIndex = 2;
             eggsTabPage3.Text = "Eggs";
             // 
@@ -493,8 +417,34 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.Controls.Add(EggsListBox);
-            splitContainer1.Size = new Size(328, 612);
-            splitContainer1.SplitterDistance = 346;
+            // 
+            // splitContainer1.Panel2
+            // 
+            splitContainer1.Panel2.AutoScroll = true;
+            splitContainer1.Panel2.Controls.Add(button1);
+            splitContainer1.Panel2.Controls.Add(label10);
+            splitContainer1.Panel2.Controls.Add(label9);
+            splitContainer1.Panel2.Controls.Add(label8);
+            splitContainer1.Panel2.Controls.Add(label7);
+            splitContainer1.Panel2.Controls.Add(label6);
+            splitContainer1.Panel2.Controls.Add(label5);
+            splitContainer1.Panel2.Controls.Add(label4);
+            splitContainer1.Panel2.Controls.Add(label3);
+            splitContainer1.Panel2.Controls.Add(label2);
+            splitContainer1.Panel2.Controls.Add(label1);
+            splitContainer1.Panel2.Controls.Add(ACPropertyBox_9);
+            splitContainer1.Panel2.Controls.Add(ACPropertyBox_8);
+            splitContainer1.Panel2.Controls.Add(ACPropertyBox_7);
+            splitContainer1.Panel2.Controls.Add(ACPropertyBox_6);
+            splitContainer1.Panel2.Controls.Add(ACPropertyBox_5);
+            splitContainer1.Panel2.Controls.Add(ACPropertyBox_4);
+            splitContainer1.Panel2.Controls.Add(ACPropertyBox_3);
+            splitContainer1.Panel2.Controls.Add(ACPropertyBox_2);
+            splitContainer1.Panel2.Controls.Add(ACPropertyBox_1);
+            splitContainer1.Panel2.Controls.Add(ACPropertyBox_0);
+            splitContainer1.Panel2.Controls.Add(eggsPicturePNG);
+            splitContainer1.Size = new Size(328, 794);
+            splitContainer1.SplitterDistance = 391;
             splitContainer1.TabIndex = 0;
             // 
             // EggsListBox
@@ -505,9 +455,231 @@
             EggsListBox.ItemHeight = 18;
             EggsListBox.Location = new Point(0, 0);
             EggsListBox.Name = "EggsListBox";
-            EggsListBox.Size = new Size(328, 346);
+            EggsListBox.Size = new Size(328, 391);
             EggsListBox.TabIndex = 0;
+            EggsListBox.SelectedIndexChanged += EggsListBox_SelectedIndexChanged;
+            EggsListBox.Enter += EggsListBox_Enter;
+            EggsListBox.Leave += EggsListBox_Leave;
             EggsListBox.MouseDoubleClick += EggsListBox_MouseDoubleClick;
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button1.Location = new Point(224, 343);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 1;
+            button1.Text = "Save";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // label10
+            // 
+            label10.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label10.AutoSize = true;
+            label10.Location = new Point(141, 303);
+            label10.Name = "label10";
+            label10.RightToLeft = RightToLeft.No;
+            label10.Size = new Size(113, 20);
+            label10.TabIndex = 20;
+            label10.Text = "Spirit resistance";
+            label10.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            label9.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label9.AutoSize = true;
+            label9.Location = new Point(150, 270);
+            label9.Name = "label9";
+            label9.RightToLeft = RightToLeft.No;
+            label9.Size = new Size(102, 20);
+            label9.TabIndex = 19;
+            label9.Text = "Fire resistance";
+            label9.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            label8.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label8.AutoSize = true;
+            label8.Location = new Point(133, 237);
+            label8.Name = "label8";
+            label8.RightToLeft = RightToLeft.No;
+            label8.Size = new Size(121, 20);
+            label8.TabIndex = 18;
+            label8.Text = "Poison resistance";
+            label8.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            label7.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label7.AutoSize = true;
+            label7.Location = new Point(115, 204);
+            label7.Name = "label7";
+            label7.RightToLeft = RightToLeft.No;
+            label7.Size = new Size(140, 20);
+            label7.TabIndex = 17;
+            label7.Text = "Lightning resistance";
+            label7.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label6.AutoSize = true;
+            label6.Location = new Point(150, 171);
+            label6.Name = "label6";
+            label6.RightToLeft = RightToLeft.No;
+            label6.Size = new Size(105, 20);
+            label6.TabIndex = 16;
+            label6.Text = "Healing radius";
+            label6.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            label5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label5.AutoSize = true;
+            label5.Location = new Point(167, 138);
+            label5.Name = "label5";
+            label5.RightToLeft = RightToLeft.No;
+            label5.Size = new Size(85, 20);
+            label5.TabIndex = 15;
+            label5.Text = "View radius";
+            label5.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label4.AutoSize = true;
+            label4.Location = new Point(204, 105);
+            label4.Name = "label4";
+            label4.RightToLeft = RightToLeft.No;
+            label4.Size = new Size(51, 20);
+            label4.TabIndex = 14;
+            label4.Text = "Armor";
+            label4.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.Location = new Point(177, 72);
+            label3.Name = "label3";
+            label3.RightToLeft = RightToLeft.No;
+            label3.Size = new Size(77, 20);
+            label3.TabIndex = 13;
+            label3.Text = "Protection";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.Location = new Point(204, 39);
+            label2.Name = "label2";
+            label2.RightToLeft = RightToLeft.No;
+            label2.Size = new Size(51, 20);
+            label2.TabIndex = 12;
+            label2.Text = "Attack";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.Location = new Point(224, 6);
+            label1.Name = "label1";
+            label1.RightToLeft = RightToLeft.No;
+            label1.Size = new Size(31, 20);
+            label1.TabIndex = 11;
+            label1.Text = "LVL";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // ACPropertyBox_9
+            // 
+            ACPropertyBox_9.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ACPropertyBox_9.Location = new Point(260, 300);
+            ACPropertyBox_9.Name = "ACPropertyBox_9";
+            ACPropertyBox_9.Size = new Size(65, 27);
+            ACPropertyBox_9.TabIndex = 10;
+            // 
+            // ACPropertyBox_8
+            // 
+            ACPropertyBox_8.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ACPropertyBox_8.Location = new Point(260, 267);
+            ACPropertyBox_8.Name = "ACPropertyBox_8";
+            ACPropertyBox_8.Size = new Size(65, 27);
+            ACPropertyBox_8.TabIndex = 9;
+            // 
+            // ACPropertyBox_7
+            // 
+            ACPropertyBox_7.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ACPropertyBox_7.Location = new Point(260, 234);
+            ACPropertyBox_7.Name = "ACPropertyBox_7";
+            ACPropertyBox_7.Size = new Size(65, 27);
+            ACPropertyBox_7.TabIndex = 8;
+            // 
+            // ACPropertyBox_6
+            // 
+            ACPropertyBox_6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ACPropertyBox_6.Location = new Point(260, 201);
+            ACPropertyBox_6.Name = "ACPropertyBox_6";
+            ACPropertyBox_6.Size = new Size(65, 27);
+            ACPropertyBox_6.TabIndex = 7;
+            // 
+            // ACPropertyBox_5
+            // 
+            ACPropertyBox_5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ACPropertyBox_5.Location = new Point(260, 168);
+            ACPropertyBox_5.Name = "ACPropertyBox_5";
+            ACPropertyBox_5.Size = new Size(65, 27);
+            ACPropertyBox_5.TabIndex = 6;
+            // 
+            // ACPropertyBox_4
+            // 
+            ACPropertyBox_4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ACPropertyBox_4.Location = new Point(260, 135);
+            ACPropertyBox_4.Name = "ACPropertyBox_4";
+            ACPropertyBox_4.Size = new Size(65, 27);
+            ACPropertyBox_4.TabIndex = 5;
+            // 
+            // ACPropertyBox_3
+            // 
+            ACPropertyBox_3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ACPropertyBox_3.Location = new Point(260, 102);
+            ACPropertyBox_3.Name = "ACPropertyBox_3";
+            ACPropertyBox_3.Size = new Size(65, 27);
+            ACPropertyBox_3.TabIndex = 4;
+            // 
+            // ACPropertyBox_2
+            // 
+            ACPropertyBox_2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ACPropertyBox_2.Location = new Point(260, 69);
+            ACPropertyBox_2.Name = "ACPropertyBox_2";
+            ACPropertyBox_2.Size = new Size(65, 27);
+            ACPropertyBox_2.TabIndex = 3;
+            // 
+            // ACPropertyBox_1
+            // 
+            ACPropertyBox_1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ACPropertyBox_1.Location = new Point(260, 36);
+            ACPropertyBox_1.Name = "ACPropertyBox_1";
+            ACPropertyBox_1.Size = new Size(65, 27);
+            ACPropertyBox_1.TabIndex = 2;
+            // 
+            // ACPropertyBox_0
+            // 
+            ACPropertyBox_0.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ACPropertyBox_0.Location = new Point(260, 3);
+            ACPropertyBox_0.Name = "ACPropertyBox_0";
+            ACPropertyBox_0.Size = new Size(65, 27);
+            ACPropertyBox_0.TabIndex = 1;
+            // 
+            // eggsPicturePNG
+            // 
+            eggsPicturePNG.Location = new Point(0, 0);
+            eggsPicturePNG.Name = "eggsPicturePNG";
+            eggsPicturePNG.Size = new Size(56, 55);
+            eggsPicturePNG.TabIndex = 0;
+            eggsPicturePNG.TabStop = false;
             // 
             // effectsTabPage3
             // 
@@ -518,7 +690,7 @@
             effectsTabPage3.Location = new Point(4, 29);
             effectsTabPage3.Name = "effectsTabPage3";
             effectsTabPage3.Padding = new Padding(3);
-            effectsTabPage3.Size = new Size(334, 618);
+            effectsTabPage3.Size = new Size(334, 800);
             effectsTabPage3.TabIndex = 3;
             effectsTabPage3.Text = "Tile Effects";
             effectsTabPage3.UseVisualStyleBackColor = true;
@@ -574,14 +746,14 @@
             PanelMonoWindow.Controls.Add(MonoWindow);
             PanelMonoWindow.Location = new Point(3, 3);
             PanelMonoWindow.Name = "PanelMonoWindow";
-            PanelMonoWindow.Size = new Size(1130, 651);
+            PanelMonoWindow.Size = new Size(1130, 833);
             PanelMonoWindow.TabIndex = 5;
             // 
             // statusStrip1
             // 
             statusStrip1.ImageScalingSize = new Size(20, 20);
             statusStrip1.Items.AddRange(new ToolStripItem[] { informationField });
-            statusStrip1.Location = new Point(0, 725);
+            statusStrip1.Location = new Point(0, 907);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(1488, 26);
             statusStrip1.TabIndex = 6;
@@ -606,7 +778,7 @@
             // mainSplitContainer1.Panel2
             // 
             mainSplitContainer1.Panel2.Controls.Add(PanelMonoWindow);
-            mainSplitContainer1.Size = new Size(1488, 657);
+            mainSplitContainer1.Size = new Size(1488, 839);
             mainSplitContainer1.SplitterDistance = 348;
             mainSplitContainer1.TabIndex = 7;
             // 
@@ -615,7 +787,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(1488, 751);
+            ClientSize = new Size(1488, 933);
             Controls.Add(mainSplitContainer1);
             Controls.Add(statusStrip1);
             Controls.Add(toolStrip1);
@@ -650,8 +822,11 @@
             ((System.ComponentModel.ISupportInitialize)objectsPictureBox).EndInit();
             eggsTabPage3.ResumeLayout(false);
             splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel2.ResumeLayout(false);
+            splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)eggsPicturePNG).EndInit();
             effectsTabPage3.ResumeLayout(false);
             effectsTabPage3.PerformLayout();
             PanelMonoWindow.ResumeLayout(false);
@@ -668,10 +843,8 @@
         #endregion
         private Controls.MGGraphicalOutput MonoWindow;
         private ToolStrip toolStrip1;
-        private ToolStripButton toolStripButton1;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
-        private ToolStripLabel toolStripLabel1;
         private TabControl mainTollbar;
         private TabPage texturesTabPage1;
         private TabPage objectsTabPage2;
@@ -688,9 +861,6 @@
         private PictureBox texturesBox1;
         private ToolStripMenuItem settingsToolStripMenuItem;
         private ToolStripMenuItem gameFolderToolStripMenuItem;
-        private ToolStripButton toolStripButton2;
-        private ToolStripButton toolStripButton3;
-        private ToolStripButton toolStripButton4;
         private TabPage effectsTabPage3;
         private CheckBox checkBoxIndoors;
         private CheckBox checkBoxWater;
@@ -702,17 +872,35 @@
         private TreeView ObjectsTreeView;
         private ListBox objectsBox;
         private PictureBox objectsPictureBox;
-        private ToolStripButton DelObjectBut;
-        private ToolStripButton CopyObjButton;
-        private ToolStripButton FixObjectButton;
         private ToolStripButton StepObjectButton;
         private ToolStripButton TESTBUTTON;
         private ToolStripMenuItem saveWorldImageToolStripMenuItem;
         private ToolStripMenuItem saveMetaObjectsImageToolStripMenuItem;
-        private ToolStripButton AddNewObjectButton;
         private ToolStripMenuItem helpToolStripMenuItem;
         private ToolStripButton SearchObjectButton;
         private SplitContainer splitContainer1;
         private ListBox EggsListBox;
+        private PictureBox eggsPicturePNG;
+        private TextBox ACPropertyBox_5;
+        private TextBox ACPropertyBox_4;
+        private TextBox ACPropertyBox_3;
+        private TextBox ACPropertyBox_2;
+        private TextBox ACPropertyBox_1;
+        private TextBox ACPropertyBox_0;
+        private TextBox ACPropertyBox_9;
+        private TextBox ACPropertyBox_8;
+        private TextBox ACPropertyBox_7;
+        private TextBox ACPropertyBox_6;
+        private Label label10;
+        private Label label9;
+        private Label label8;
+        private Label label7;
+        private Label label6;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private Label label2;
+        private Label label1;
+        private Button button1;
     }
 }

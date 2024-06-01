@@ -1,4 +1,6 @@
+W, A, S, D - move around the map
 object mode:
+	double click on the list - add object
 	del - delete object
 	ctrl + c - copy object
 Eggs mode:
