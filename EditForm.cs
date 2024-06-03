@@ -14,6 +14,8 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Timer = System.Windows.Forms.Timer;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Net.WebRequestMethods;
+using System.IO.Compression;
+using System.Security.AccessControl;
 //using Color = Microsoft.Xna.Framework.Color;
 
 namespace Editor
@@ -44,7 +46,6 @@ namespace Editor
             timer.Start();
             eggsPicturePNG.Dock = DockStyle.Fill;
         }
-
         //------------------------------------------------------------------------------------------------------------------------
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -92,7 +93,14 @@ namespace Editor
         {
             if (msg.HWnd == EggsListBox.Handle || msg.HWnd == objectsBox.Handle)
             {
-                return true;
+                if (keyData == Keys.Up || keyData == Keys.Down)
+                {
+                    return base.ProcessCmdKey(ref msg, keyData);
+                }
+                else
+                {
+                    return true;
+                }
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
@@ -581,7 +589,207 @@ namespace Editor
 
         private void TESTBUTTON_Click(object sender, EventArgs e) // ===============================================
         {
+            ////ObjPos
+            //List<ObjPos> O = new List<ObjPos>();
+            //for (int i = 0; i < GameData.objects.Count; i++) 
+            //{
+            //    bool overlap = false;
+            //    foreach (ObjPos o in O)
+            //    {
+            //        if (GameData.objects[i].SpriteID == o.ID)
+            //        {
+            //            overlap = true;
+            //            o.position.Add(GameData.objects[i].PixelPositionInTile);
+            //        }
+            //    }
+            //    if (!overlap && GameData.objects[i].SpriteID != 65535)
+            //    {
+            //        O.Add(new ObjPos());
+            //        O[^1].ID = GameData.objects[i].SpriteID;
+            //        O[^1].position.Add(GameData.objects[i].PixelPositionInTile);
+            //    }
+            //}
+            //foreach (ObjPos o in O)
+            //{
+            //    bool search = true;
+            //    int a = 0;
+            //    while (search) 
+            //    {
+            //        search = false;
+            //        Point p = o.position[a++];
+            //        int count = 0;
+            //        for ( int i = a + 1; i < o.position.Count; i++)
+            //        {
+            //            if (o.position[i] == p)
+            //            {
+            //                count++;
+            //                o.position.RemoveAt(i);
+            //                i--;
+            //                search = true;
+            //            }
+            //        }
+            //        if (search) o.result += p + ": " + count + " ";
+            //    }
+            //}
+            //for (int i = 0; i < O.Count; i++)
+            //{
+            //    if (O[i].result.Length > 0)
+            //    {
+            //        System.IO.File.AppendAllText("date.txt", O[i].ID.ToString().PadLeft(0, ' ') + " " + O[i].result + Environment.NewLine);
+            //    }
+            //}
 
+            //objectsShow.Sort((x, y) => x.drawDepth.CompareTo(y.drawDepth));
+
+
+
+
+
+            //string[] lines = System.IO.File.ReadLines("date.txt").ToArray();
+            //string[] words;
+            //string[,] L = new string[lines.Length,2];
+            //int a = 0;
+            //for (int i = 0; i < lines.Length; i++)
+            //{
+            //    words = lines[i].Split(new char[] { ' ' });
+            //    for (int b = 1; b < words.Length; b++)
+            //    {
+            //        L[a, 0] += words[b] + " ";
+            //    }
+            //    //L[a,0] = lines[i];
+            //    L[a,1] = words[0];
+            //    //WriteLine(L[a, 1]);
+            //    a++;
+            //}
+            //bool sort = true;
+            //while (sort)
+            //{
+            //    sort = false;
+            //    string buf;
+            //    for (int i = 0; i < L.Length/2 - 1; i++) 
+            //    {
+            //        //WriteLine(L[i, 1]);
+            //        if (Convert.ToInt32(L[i, 1]) > Convert.ToInt32(Int32.Parse(L[i + 1, 1]))) // (Int32.Parse(L[i,1]) > Int32.Parse(L[i+1,1]))
+            //        {
+            //            buf = L[i, 1];
+            //            L[i, 1] = L[i + 1, 1];
+            //            L[i + 1, 1] = buf;
+
+            //            buf = L[i, 0];
+            //            L[i, 0] = L[i + 1, 0];
+            //            L[i + 1, 0] = buf;
+
+            //            sort = true;
+            //        }
+            //    }
+            //}
+
+            //for (int i = 0; i < L.Length/2; i++)
+            //{
+            //    System.IO.File.AppendAllText("date1.txt", L[i, 1].PadRight(4, ' ') + " " + L[i,0] + Environment.NewLine);
+            //}
+
+            //for (int i = 0; i < L.Length / 2 - 1; i++)
+            //{
+            //    for (int j = i + 1; j < L.Length / 2 - 1; j++)
+            //    {
+            //        if (L[i, 1] == L[j, 1] && L[j, 1] != "")
+            //        {
+            //            L[i, 0] += L[j, 0];
+            //            L[j, 1] = "";
+            //            L[j, 0] = "";
+            //        }
+            //    }
+            //}
+
+            //for (int i = 0; i < L.Length / 2; i++)
+            //{
+            //    if (L[i, 1] != "")
+            //    {
+            //        System.IO.File.AppendAllText("date2.txt", L[i, 1] + " " + L[i, 0] + Environment.NewLine);
+            //    }
+            //}
+
+
+            string[] lines = System.IO.File.ReadLines("date3.txt").ToArray();
+            string[] words;
+            string[] words2;
+            List<ObjPos> list = new List<ObjPos>();
+            int a = 0;
+            for (int i = 0; i < lines.Length; i++)
+            {
+                words = lines[i].Split(new char[] { ' ' });
+                list.Add(new ObjPos());
+                list[^1].ID = Convert.ToInt32(words[0]);
+                for (int b = 1; b < words.Length; b++)
+                {
+                    //WriteLine(words[b]);
+                    words2 = words[b].Split(new char[] { ':' });
+                    if (words2.Length == 3)
+                    {
+                        //WriteLine(words2[0] + " " + words2[1] + " " + words2[2]);
+                        Point p = new Point(Convert.ToInt32(words2[0]), Convert.ToInt32(words2[1]));
+                        int v = Convert.ToInt32(words2[2]);
+                        int c = 0;
+                        bool t = false;
+                        foreach (Point po in list[^1].position)
+                        {
+                            if (po == p)
+                            {
+                                list[^1].ves[c] += v;
+                                t = true;
+
+                            }
+                            c++;
+                        }
+                        if (!t)
+                        {
+                            list[^1].position.Add(p);
+                            list[^1].ves[list[^1].position.Count - 1] = v;
+                        }
+                    }
+                }
+                a++;
+            }
+
+
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                int m = 0;
+                for (int j = 0; j < list[i].position.Count; j++)
+                {
+                    if (m < list[i].ves[j])
+                    {
+                        m = list[i].ves[j];
+                    }
+                }
+                list[i].maxves = m;
+            }
+
+            list.Sort((x, y) => y.maxves.CompareTo(x.maxves));
+
+            for (int i = 0; i < 30; i++)
+            {
+                System.Diagnostics.Debug.Write(list[i].ID.ToString() + " (" + list[i].position.Count + ") " + list[i].maxves + " ");
+                for (int j = 0; j < list[i].position.Count; j++)
+                {
+                    System.Diagnostics.Debug.Write(list[i].position[j].ToString() + list[i].ves[j].ToString() + " ");
+                }
+                WriteLine(" ");
+            }
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                System.IO.File.AppendAllText("date4.txt", list[i].ID.ToString().PadRight(6, ' '));
+                for (int j = 0; j < list[i].position.Count; j++)
+                {
+                    System.IO.File.AppendAllText("date4.txt", (list[i].position[j] + ":" + list[i].ves[j]).PadRight(16, ' '));
+                }
+                System.IO.File.AppendAllText("date4.txt", Environment.NewLine);
+            }
+
+            WriteLine("OK");
         }
 
         private void texturesTreeView_KeyDown(object sender, KeyEventArgs e)
@@ -734,7 +942,8 @@ namespace Editor
                     int biasY = GameData.objectDesc[GameData.MObjects[objectSelect].objects[0].Id].TouchPoint.Y - GameData.MObjects[objectSelect].objects[i].posY - GameData.objectDesc[GameData.MObjects[objectSelect].objects[i].Id].TouchPoint.Y;
                     int sort = (Ycor + GameData.objectDesc[Id].TouchPoint.Y) * Vars.maxHorizontalTails * Vars.tileSize + Xcor;
                     int worldID = Objects.getObjectsCount();
-                    MGGraphicalOutput.newObject.Add(new int[8] { worldID, Id, 1, Xcor, Ycor, sort, biasX, biasY });
+                    Point offsetOnTile = GameData.MObjects[objectSelect].offsetOnTile;
+                    MGGraphicalOutput.newObject.Add(new int[10] { worldID, Id, 1, Xcor, Ycor, sort, biasX, biasY, offsetOnTile.X, offsetOnTile.Y });
                     Objects objNew = new(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, new Point(Xcor, Ycor), heigth, Id)
                     {
                         Height = heigth
@@ -921,5 +1130,14 @@ namespace Editor
         }
 
 
+    }
+
+    public class ObjPos
+    {
+        public int ID;
+        public List<Point> position = new List<Point>();
+        public int[] ves = new int[500];
+        public String result = "";
+        public int maxves;
     }
 }

@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Forms.NET.Controls;
 using MonoGame.Forms.NET.Services;
+using SharpDX.Direct3D11;
 using SharpDX.Direct3D9;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -19,6 +20,7 @@ using Color = Microsoft.Xna.Framework.Color;
 using Mouse = Microsoft.Xna.Framework.Input.Mouse;
 using Point = Microsoft.Xna.Framework.Point;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
+using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 
 namespace Editor.Controls
 {
@@ -46,10 +48,12 @@ namespace Editor.Controls
         static bool hScrollChange;
         static bool mouseClickHandler = false;
         public static int selectedObjID = -1;
-        public static List<int[]> newObject = new();    // 0 - мировой номер, 1 - SpriteID, 2 - поведение, 3 - координата Х, 4 - координата Y, 5 - сортировка, 6 - смещение по Х, 7 - смещение по Y
+        public static List<int[]> newObject = new();    // 0 - мировой номер, 1 - SpriteID, 2 - поведение, 3 - координата Х, 4 - координата Y, 5 - сортировка, 6 - смещение по Х, 7 - смещение по Y, 8 - общее смещение по Х, 9 - общее смещение по Y
         public static bool procMovingObject = false;
         public static bool procMovingNewObject = false;
         public static bool procMovingNewEgg = false;
+        public static bool procMovingCopyObject = false;
+        public static bool procMovingCopyEgg = false;
         int procMovObjCursOffsetX = 0;
         int procMovObjCursOffsetY = 0;
         int procMovObjCorInTileX;
@@ -190,7 +194,7 @@ namespace Editor.Controls
                     currentMouseState.Y < WindowHeight &&
                     Stopwatch.GetTimestamp() - timer > 200000)
                     {
-                        if (Keyboard.IsKeyDown(System.Windows.Forms.Keys.Shift))
+                        if (shift)
                         {
                             if (mouseLBState)
                             {
@@ -248,6 +252,8 @@ namespace Editor.Controls
                     if (mouseLBState &&
                         mouseLBOldState &&
                         !procMovingObject &&
+                        !procMovingCopyObject &&
+                        !procMovingNewObject &&
                         !mouseRBState &&
                         !mouseClickHandler &&
                         Stopwatch.GetTimestamp() - timer > 2000000)
@@ -258,45 +264,94 @@ namespace Editor.Controls
                             {
                                 if (selectedObjID == objectsShow[i].ID)
                                 {
-                                    if (objectsShow[i].eggs)
+                                    if (shift) // Копируем объект или болванчик
                                     {
-                                        procMovObjCursOffsetX = currentMouseState.X - objectsShow[i].pos.X + tileBiasX * Vars.tileSize;
-                                        procMovObjCursOffsetY = currentMouseState.Y - objectsShow[i].pos.Y + tileBiasY * Vars.tileSize;
-                                        procMovObjCorInTileX = GameData.objects[objectsShow[i].ID].AbsolutePixelPosition.X % 64;
-                                        procMovObjCorInTileY = GameData.objects[objectsShow[i].ID].AbsolutePixelPosition.Y % 64;
-                                        procMovingObject = true;
-                                        ObjectBuffer.type = "egg";
-                                        ObjectBuffer.ID = objectsShow[i].ID;
-                                        ObjectBuffer.SpriteID = objectsShow[i].SpriteID;
-                                        ObjectBuffer.State = 3;
-                                        ObjectBuffer.Xpos = currentMouseState.X - procMovObjCursOffsetX;
-                                        ObjectBuffer.Ypos = currentMouseState.Y - procMovObjCursOffsetY;
-                                        ObjectBuffer.drawDepth = (ulong)ObjectBuffer.Ypos * Vars.maxHorizontalTails * Vars.tileSize + (ulong)ObjectBuffer.Xpos;
-                                        break;
+                                        if (objectsShow[i].eggs)
+                                        {
+
+                                        }
+                                        else
+                                        {
+                                            Objects objNew = new(GameData.objects[selectedObjID].Var_0,
+                                                GameData.objects[selectedObjID].Var_1,
+                                                GameData.objects[selectedObjID].Var_2,
+                                                GameData.objects[selectedObjID].Var_3,
+                                                GameData.objects[selectedObjID].Var_4,
+                                                GameData.objects[selectedObjID].Var_5,
+                                                GameData.objects[selectedObjID].Var_6,
+                                                GameData.objects[selectedObjID].Var_7,
+                                                GameData.objects[selectedObjID].Var_8,
+                                                GameData.objects[selectedObjID].Var_9,
+                                                new System.Drawing.Point(0, 0),
+                                                GameData.objects[selectedObjID].Var_10,
+                                                GameData.objects[selectedObjID].SpriteID)
+                                            {
+                                                Height = GameData.objects[selectedObjID].Height
+                                            };
+                                            GameData.objects.Add(objNew);
+                                            procMovObjCursOffsetX = currentMouseState.X - objectsShow[i].pos.X;
+                                            procMovObjCursOffsetY = currentMouseState.Y - objectsShow[i].pos.Y;
+                                            procMovObjCorInTileX = GameData.objects[objectsShow[i].ID].AbsolutePixelPosition.X % 64;
+                                            procMovObjCorInTileY = GameData.objects[objectsShow[i].ID].AbsolutePixelPosition.Y % 64;
+                                            ObjectBuffer.type = "object";
+                                            ObjectBuffer.ID = GameData.objects.Count - 1;
+                                            ObjectBuffer.SpriteID = GameData.objects[ObjectBuffer.ID].SpriteID;
+                                            ObjectBuffer.State = 3;
+                                            ObjectBuffer.Xpos = currentMouseState.X - procMovObjCursOffsetX;
+                                            ObjectBuffer.Ypos = currentMouseState.Y - procMovObjCursOffsetY;
+                                            //ObjectBuffer.drawDepth = DrawDepth(ObjectBuffer.Ypos, ObjectBuffer.Xpos, ObjectBuffer.ID);
+                                            procMovingCopyObject = true;
+                                            selectedObjID = -1;
+                                            Cursor.Hide();
+                                            break;
+                                        }
                                     }
                                     else
                                     {
-                                        procMovObjCursOffsetX = currentMouseState.X - objectsShow[i].pos.X;
-                                        procMovObjCursOffsetY = currentMouseState.Y - objectsShow[i].pos.Y;
-                                        procMovObjCorInTileX = GameData.objects[objectsShow[i].ID].AbsolutePixelPosition.X % 64;
-                                        procMovObjCorInTileY = GameData.objects[objectsShow[i].ID].AbsolutePixelPosition.Y % 64;
-                                        procMovingObject = true;
-                                        ObjectBuffer.type = "object";
-                                        ObjectBuffer.ID = objectsShow[i].ID;
-                                        ObjectBuffer.SpriteID = GameData.objects[ObjectBuffer.ID].SpriteID;
-                                        ObjectBuffer.State = 3;
-                                        ObjectBuffer.Xpos = currentMouseState.X - procMovObjCursOffsetX;
-                                        ObjectBuffer.Ypos = currentMouseState.Y - procMovObjCursOffsetY;
-                                        ObjectBuffer.drawDepth = DrawDepth(ObjectBuffer.Ypos, ObjectBuffer.Xpos, ObjectBuffer.ID);
-                                        ObjectBuffer.ParentTileObjPosX = GameData.objects[objectsShow[i].ID].TilePosition.X;
-                                        ObjectBuffer.ParentTileObjPosY = GameData.objects[objectsShow[i].ID].TilePosition.Y;
-                                        break;
+                                        if (objectsShow[i].eggs)
+                                        {
+                                            procMovObjCursOffsetX = currentMouseState.X - objectsShow[i].pos.X + tileBiasX * Vars.tileSize;
+                                            procMovObjCursOffsetY = currentMouseState.Y - objectsShow[i].pos.Y + tileBiasY * Vars.tileSize;
+                                            procMovObjCorInTileX = GameData.objects[objectsShow[i].ID].AbsolutePixelPosition.X % 64;
+                                            procMovObjCorInTileY = GameData.objects[objectsShow[i].ID].AbsolutePixelPosition.Y % 64;
+                                            procMovingObject = true;
+                                            ObjectBuffer.type = "egg";
+                                            ObjectBuffer.ID = objectsShow[i].ID;
+                                            ObjectBuffer.SpriteID = objectsShow[i].SpriteID;
+                                            ObjectBuffer.State = 3;
+                                            ObjectBuffer.Xpos = currentMouseState.X - procMovObjCursOffsetX;
+                                            ObjectBuffer.Ypos = currentMouseState.Y - procMovObjCursOffsetY;
+                                            //ObjectBuffer.drawDepth = (ulong)ObjectBuffer.Ypos * Vars.maxHorizontalTails * Vars.tileSize + (ulong)ObjectBuffer.Xpos;
+                                            Cursor.Hide();
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            procMovObjCursOffsetX = currentMouseState.X - objectsShow[i].pos.X;
+                                            procMovObjCursOffsetY = currentMouseState.Y - objectsShow[i].pos.Y;
+                                            procMovObjCorInTileX = GameData.objects[objectsShow[i].ID].AbsolutePixelPosition.X % 64;
+                                            procMovObjCorInTileY = GameData.objects[objectsShow[i].ID].AbsolutePixelPosition.Y % 64;
+                                            procMovingObject = true;
+                                            ObjectBuffer.type = "object";
+                                            ObjectBuffer.ID = objectsShow[i].ID;
+                                            ObjectBuffer.SpriteID = GameData.objects[ObjectBuffer.ID].SpriteID;
+                                            ObjectBuffer.State = 3;
+                                            ObjectBuffer.Xpos = currentMouseState.X - procMovObjCursOffsetX;
+                                            ObjectBuffer.Ypos = currentMouseState.Y - procMovObjCursOffsetY;
+                                            //ObjectBuffer.drawDepth = DrawDepth(ObjectBuffer.Ypos, ObjectBuffer.Xpos, ObjectBuffer.ID);
+                                            ObjectBuffer.ParentTileObjPosX = GameData.objects[objectsShow[i].ID].TilePosition.X;
+                                            ObjectBuffer.ParentTileObjPosY = GameData.objects[objectsShow[i].ID].TilePosition.Y;
+                                            Cursor.Hide();
+                                            break;
+                                        }
+                                        
                                     }
                                 }
                             }
                             else
                             {
                                 procMovingObject = false;
+                                procMovingCopyObject = false;
                             }
                         }
                         mouseClickHandler = true;
@@ -305,14 +360,14 @@ namespace Editor.Controls
                     // Перемещение объекта
                     if (mouseLBState &&
                         mouseLBOldState &&
-                        procMovingObject &&
-                        !mouseRBState &&
+                        (procMovingObject ||
+                        procMovingCopyObject) &&
                         !mouseClickHandler &&
                         Stopwatch.GetTimestamp() - timer > 20000)
                     {
                         if (ObjectBuffer.type == "object")
                         {
-                            if (EditForm.objectStepOneCell)
+                            if (mouseRBState)
                             {
                                 ObjectBuffer.Xpos = (currentMouseState.X - procMovObjCursOffsetX) / 64 * 64 + procMovObjCorInTileX;
                                 ObjectBuffer.Ypos = (currentMouseState.Y - procMovObjCursOffsetY) / 64 * 64 + procMovObjCorInTileY;
@@ -326,7 +381,8 @@ namespace Editor.Controls
                                 if (ObjectBuffer.Xpos + tileBiasX * Vars.tileSize < 0) ObjectBuffer.Xpos = -tileBiasX * Vars.tileSize;
                                 if (ObjectBuffer.Ypos + tileBiasY * Vars.tileSize < 0) ObjectBuffer.Ypos = -tileBiasY * Vars.tileSize;
                             }
-                            ObjectBuffer.drawDepth = DrawDepth(ObjectBuffer.Ypos, ObjectBuffer.Xpos, ObjectBuffer.ID);
+                            //ObjectBuffer.drawDepth = DrawDepth(ObjectBuffer.Ypos, ObjectBuffer.Xpos, ObjectBuffer.ID);
+                            //WriteLine(ObjectBuffer.drawDepth.ToString());
                         }
                         if (ObjectBuffer.type == "egg")
                         {
@@ -334,44 +390,73 @@ namespace Editor.Controls
                             ObjectBuffer.Ypos = currentMouseState.Y - procMovObjCursOffsetY + tileBiasY * Vars.tileSize;
                             if (ObjectBuffer.Xpos + tileBiasX * Vars.tileSize < 0) ObjectBuffer.Xpos = -tileBiasX * Vars.tileSize;
                             if (ObjectBuffer.Ypos + tileBiasY * Vars.tileSize < 0) ObjectBuffer.Ypos = -tileBiasY * Vars.tileSize;
-                            ObjectBuffer.drawDepth = (ulong)ObjectBuffer.Ypos * Vars.maxHorizontalTails * Vars.tileSize + (ulong)ObjectBuffer.Xpos;
+                            //ObjectBuffer.drawDepth = (ulong)ObjectBuffer.Ypos * Vars.maxHorizontalTails * Vars.tileSize + (ulong)ObjectBuffer.Xpos;
+                            //WriteLine(ObjectBuffer.drawDepth.ToString());
                         }
                         timer = Stopwatch.GetTimestamp();
                     }
                     // Вставка объекта после перемещения
                     if (!mouseLBState &&
                         mouseLBOldState &&
-                        procMovingObject &&
-                        !mouseRBState &&
+                        (procMovingObject ||
+                        procMovingCopyObject) &&
                         !mouseClickHandler)
                     {
-                        if (ObjectBuffer.type == "object")
+                        if (procMovingCopyObject)
                         {
-                            int X = ObjectBuffer.ParentTileObjPosX;
-                            int Y = ObjectBuffer.ParentTileObjPosY;
-                            GameData.metaTileArray[Y, X].DelObject(ObjectBuffer.ID);
-                            int AbsolutePixelPositionX = ObjectBuffer.Xpos + tileBiasX * Vars.tileSize;
-                            int AbsolutePixelPositionY = ObjectBuffer.Ypos + tileBiasY * Vars.tileSize;
-                            int tileX = AbsolutePixelPositionX / Vars.tileSize;
-                            int tileY = AbsolutePixelPositionY / Vars.tileSize;
-                            if (tileX >= Vars.maxHorizontalTails) tileX = Vars.maxHorizontalTails - 1;
-                            if (tileY >= Vars.maxVerticalTails) tileY = Vars.maxVerticalTails - 1;
-                            if (GameData.metaTileArray[tileY, tileX].GetObjectsCount() < Vars.maxObjectsCount)
+                            if (ObjectBuffer.type == "object")
                             {
-                                GameData.metaTileArray[tileY, tileX].AddObject(ObjectBuffer.ID);
+                                int AbsolutePixelPositionX = ObjectBuffer.Xpos + tileBiasX * Vars.tileSize;
+                                int AbsolutePixelPositionY = ObjectBuffer.Ypos + tileBiasY * Vars.tileSize;
+                                int tileX = AbsolutePixelPositionX / Vars.tileSize;
+                                int tileY = AbsolutePixelPositionY / Vars.tileSize;
+                                if (tileX >= Vars.maxHorizontalTails) tileX = Vars.maxHorizontalTails - 1;
+                                if (tileY >= Vars.maxVerticalTails) tileY = Vars.maxVerticalTails - 1;
+                                if (GameData.metaTileArray[tileY, tileX].GetObjectsCount() < Vars.maxObjectsCount)
+                                {
+                                    GameData.metaTileArray[tileY, tileX].AddObject(ObjectBuffer.ID);
+                                }
+                                GameData.objects[ObjectBuffer.ID].AbsolutePixelPosition = new System.Drawing.Point(AbsolutePixelPositionX, AbsolutePixelPositionY);
+                                GameData.objects[ObjectBuffer.ID].TilePosition = new System.Drawing.Point(tileX, tileY);
                             }
-                            GameData.objects[ObjectBuffer.ID].AbsolutePixelPosition = new System.Drawing.Point(AbsolutePixelPositionX, AbsolutePixelPositionY);
-                            GameData.objects[ObjectBuffer.ID].TilePosition = new System.Drawing.Point(tileX, tileY);
+                            if (ObjectBuffer.type == "egg")
+                            {
+                                GameData.Eggs[ObjectBuffer.ID].pos.X = ObjectBuffer.Xpos;
+                                GameData.Eggs[ObjectBuffer.ID].pos.Y = ObjectBuffer.Ypos;
+                            }
                         }
-                        if (ObjectBuffer.type == "egg")
+                        else
                         {
-                            GameData.Eggs[ObjectBuffer.ID].pos.X = ObjectBuffer.Xpos;
-                            GameData.Eggs[ObjectBuffer.ID].pos.Y = ObjectBuffer.Ypos;
+                            if (ObjectBuffer.type == "object")
+                            {
+                                int X = ObjectBuffer.ParentTileObjPosX;
+                                int Y = ObjectBuffer.ParentTileObjPosY;
+                                GameData.metaTileArray[Y, X].DelObject(ObjectBuffer.ID);
+                                int AbsolutePixelPositionX = ObjectBuffer.Xpos + tileBiasX * Vars.tileSize;
+                                int AbsolutePixelPositionY = ObjectBuffer.Ypos + tileBiasY * Vars.tileSize;
+                                int tileX = AbsolutePixelPositionX / Vars.tileSize;
+                                int tileY = AbsolutePixelPositionY / Vars.tileSize;
+                                if (tileX >= Vars.maxHorizontalTails) tileX = Vars.maxHorizontalTails - 1;
+                                if (tileY >= Vars.maxVerticalTails) tileY = Vars.maxVerticalTails - 1;
+                                if (GameData.metaTileArray[tileY, tileX].GetObjectsCount() < Vars.maxObjectsCount)
+                                {
+                                    GameData.metaTileArray[tileY, tileX].AddObject(ObjectBuffer.ID);
+                                }
+                                GameData.objects[ObjectBuffer.ID].AbsolutePixelPosition = new System.Drawing.Point(AbsolutePixelPositionX, AbsolutePixelPositionY);
+                                GameData.objects[ObjectBuffer.ID].TilePosition = new System.Drawing.Point(tileX, tileY);
+                            }
+                            if (ObjectBuffer.type == "egg")
+                            {
+                                GameData.Eggs[ObjectBuffer.ID].pos.X = ObjectBuffer.Xpos;
+                                GameData.Eggs[ObjectBuffer.ID].pos.Y = ObjectBuffer.Ypos;
+                            }
                         }
+                        Cursor.Show();
                         ObjectBuffer.Clear();
                         selectedObjID = -1;
                         UpdateShowObjects();
                         procMovingObject = false;
+                        procMovingCopyObject = false;
                     }
                     // Перемещение нового болванчика
                     if (procMovingNewEgg &&
@@ -400,9 +485,18 @@ namespace Editor.Controls
                     {
                         for(int i = 0; i < newObject.Count; i++) 
                         {
-                            newObject[i][3] = currentMouseState.X + newObject[i][6];
-                            newObject[i][4] = currentMouseState.Y + newObject[i][7];
-                            newObject[i][5] = (int)DrawDepth(newObject[i][4], newObject[i][3], newObject[i][0]);
+                            if (mouseRBState)
+                            {
+                                newObject[i][3] = currentMouseState.X / Vars.tileSize * Vars.tileSize + newObject[i][6] + newObject[i][8];
+                                newObject[i][4] = currentMouseState.Y / Vars.tileSize * Vars.tileSize + newObject[i][7] + newObject[i][9];
+                                newObject[i][5] = (int)DrawDepth(newObject[i][4], newObject[i][3], newObject[i][0]);
+                            }
+                            else
+                            {
+                                newObject[i][3] = currentMouseState.X + newObject[i][6] + newObject[i][8];
+                                newObject[i][4] = currentMouseState.Y + newObject[i][7] + newObject[i][9];
+                                newObject[i][5] = (int)DrawDepth(newObject[i][4], newObject[i][3], newObject[i][0]);
+                            }
                         }
                         timer = Stopwatch.GetTimestamp();
                     }
@@ -453,7 +547,6 @@ namespace Editor.Controls
                                 }
                             }
                         }
-                        
                     }
                     // Обработка клавиши Ctrl + C
                     if (Keyboard.IsKeyDown(System.Windows.Forms.Keys.Control) && 
@@ -462,27 +555,7 @@ namespace Editor.Controls
                         !procMovingNewObject &&
                         Stopwatch.GetTimestamp() - timer > 2000000) 
                     {
-                        newObject.Add(new int[8] { Objects.getObjectsCount(), GameData.objects[selectedObjID].SpriteID, 1, 0, 0, 0, 0, 0 });
-                        Objects objNew = new(GameData.objects[selectedObjID].Var_0,
-                            GameData.objects[selectedObjID].Var_1,
-                            GameData.objects[selectedObjID].Var_2,
-                            GameData.objects[selectedObjID].Var_3,
-                            GameData.objects[selectedObjID].Var_4,
-                            GameData.objects[selectedObjID].Var_5,
-                            GameData.objects[selectedObjID].Var_6,
-                            GameData.objects[selectedObjID].Var_7,
-                            GameData.objects[selectedObjID].Var_8,
-                            GameData.objects[selectedObjID].Var_9,
-                            new System.Drawing.Point(0, 0),
-                            GameData.objects[selectedObjID].Var_10,
-                            GameData.objects[selectedObjID].SpriteID)
-                        {
-                            Height = GameData.objects[selectedObjID].Height
-                        };
-                        GameData.objects.Add(objNew);
-                        procMovingNewObject = true;
-                        selectedObjID = -1;
-                        Cursor.Hide();
+                        
                         timer = Stopwatch.GetTimestamp();
                     }
                     // Обработка клавиши Space
@@ -491,50 +564,14 @@ namespace Editor.Controls
                         !procMovingNewObject &&
                         Stopwatch.GetTimestamp() - timer > 2000000) 
                     {
-                        ObjectProperties ObjPropForm = new ObjectProperties(new int[] { GameData.objects[selectedObjID].Var_0, 
-                            GameData.objects[selectedObjID].Var_1, 
-                            GameData.objects[selectedObjID].Var_2, 
-                            GameData.objects[selectedObjID].Var_3, 
-                            GameData.objects[selectedObjID].Var_4, 
-                            GameData.objects[selectedObjID].Var_5, 
-                            GameData.objects[selectedObjID].Var_6, 
-                            GameData.objects[selectedObjID].Var_7, 
-                            GameData.objects[selectedObjID].Var_8, 
-                            GameData.objects[selectedObjID].Var_9, 
-                            GameData.objects[selectedObjID].Var_10}, selectedObjID);
-                        ObjPropForm.Show();
-                        timer = Stopwatch.GetTimestamp();
+                        
                     }
                 }
                 if (EditForm.selectTollBarPage == 2 && cursorInWindow) // Обработка мыши для вкладки болванчиков
                 {
-                    // Выбор болванчика
-                    //if (mouseLBState &&
-                    //    !procMovingObject &&
-                    //    !mouseLBOldState &&
-                    //    !mouseRBState &&
-                    //    !mouseClickHandler &&
-                    //    Stopwatch.GetTimestamp() - timer > 500000)
-                    //{
-                    //    for (int i = objectsShow.Count - 1; i >= 0; i--)
-                    //    {
-                    //        if (CheckCursorInSprite(objectsShow[i], tileBiasX, tileBiasY, currentMouseState.X, currentMouseState.Y))
-                    //        {
-                    //            selectedObjID = objectsShow[i].ID;
-                    //            break;
-                    //        }
-                    //        else
-                    //        {
-                    //            selectedObjID = -1;
-                    //        }
-                    //    }
-                    //    procMovingObject = false;
-                    //    mouseClickHandler = true;
-                    //    timer = Stopwatch.GetTimestamp();
-                    //}
 
                 }
-                if (EditForm.selectTollBarPage == 3) // Обработка мыши для вкладки эффектов
+                if (EditForm.selectTollBarPage == 3 && cursorInWindow) // Обработка мыши для вкладки эффектов
                 {
                     // Наложение эффектов
                     if (mouseLBState &&
@@ -731,6 +768,7 @@ namespace Editor.Controls
                                 if (objectsShow[i].ID == selectedObjID)
                                 { // Если объект выделен
                                     Editor.spriteBatch.Draw(objectTextures[objectsShow[i].SpriteID], objPosition, Color.Yellow);
+                                    Editor.spriteBatch.DrawString(Editor.Font, GameData.objects[objectsShow[i].ID].PixelPositionInTile.X + " " + GameData.objects[objectsShow[i].ID].PixelPositionInTile.Y, new Vector2(50,50), Color.White);
                                 }
                                 else
                                 {
@@ -860,13 +898,12 @@ namespace Editor.Controls
                     }
                 }
             }
-            if (procMovingObject && ObjectBuffer.ID != -1 && ObjectBuffer.type == "object")
+            if ((procMovingObject || procMovingCopyObject) && ObjectBuffer.ID != -1 && ObjectBuffer.type == "object")
             {
-                objectsShow.Add(new ObjectsShow(ObjectBuffer.ID, ObjectBuffer.State, new Point(ObjectBuffer.Xpos, ObjectBuffer.Ypos)));
+                objectsShow.Add(new ObjectsShow(ObjectBuffer.ID, ObjectBuffer.State, new Point(ObjectBuffer.Xpos, ObjectBuffer.Ypos), DrawDepth(ObjectBuffer.Ypos, ObjectBuffer.Xpos, ObjectBuffer.ID)));
             }
             if (procMovingObject && ObjectBuffer.ID != -1 && ObjectBuffer.type == "egg")
             {
-                //WriteLine(ObjectBuffer.ID.ToString());
                 objectsShow.Add(new ObjectsShow(ObjectBuffer.ID, ObjectBuffer.State, new Point(ObjectBuffer.Xpos, ObjectBuffer.Ypos), true));
             }
             objectsShow.Sort((x, y) => x.drawDepth.CompareTo(y.drawDepth));
@@ -1059,6 +1096,15 @@ namespace Editor.Controls
                 (ulong)GameData.objectDesc[GameData.objects[worldID].SpriteID].TouchPoint.Y) * Vars.maxHorizontalTails * Vars.tileSize +
                 (ulong)GameData.objects[worldID].AbsolutePixelPosition.X +
                 (ulong)GameData.objectDesc[GameData.objects[worldID].SpriteID].TouchPoint.X;
+            this.state = state;
+            this.pos = position;
+            this.eggs = false;
+        }
+        public ObjectsShow(int worldID, int state, Point position, ulong drawDepth)
+        {
+            this.ID = worldID;
+            this.SpriteID = GameData.objects[worldID].SpriteID;
+            this.drawDepth = drawDepth;
             this.state = state;
             this.pos = position;
             this.eggs = false;

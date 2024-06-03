@@ -372,6 +372,11 @@ namespace DivEditor.Controls
                 }
                 if (words[0] == "group") MO[^1].group = words[1];
                 if (words[0] == "location") MO[^1].location = words[1];
+                if (words[0] == "offset")
+                {
+                    MO[^1].offsetOnTile.X = int.Parse(words[1]);
+                    MO[^1].offsetOnTile.Y = int.Parse(words[2]);
+                }
                 if (words[0] == "walltype")
                 {
                     if (words.Count() > 2)

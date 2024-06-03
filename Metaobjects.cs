@@ -28,6 +28,7 @@ namespace DivEditor
         public String location = "";
         public String[] walltype = new String[2] { "", "" };
         public List<Object> objects = new();
+        public Point offsetOnTile = new Point(0,0);
 
         public void AddMetaGroup(int num, String grp)
         {

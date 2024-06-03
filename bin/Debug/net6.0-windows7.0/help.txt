@@ -2,7 +2,11 @@ W, A, S, D - move around the map
 object mode:
 	double click on the list - add object
 	del - delete object
-	ctrl + c - copy object
+	shift + left mouse button - copy object
+	moving mouse + right mouse button - fixed shift
 Eggs mode:
 	double click on the list - add egg
 	del - delete egg
+Tile effects mode:
+	left mouse button - add effects
+	right mouse button - del effects

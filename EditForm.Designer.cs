@@ -382,7 +382,7 @@
             // 
             ObjectsTreeView.Location = new Point(0, 0);
             ObjectsTreeView.Name = "ObjectsTreeView";
-            ObjectsTreeView.Size = new Size(171, 426);
+            ObjectsTreeView.Size = new Size(171, 549);
             ObjectsTreeView.TabIndex = 0;
             ObjectsTreeView.AfterSelect += ObjectsTreeView_AfterSelect;
             ObjectsTreeView.KeyDown += ObjectsTreeView_KeyDown;
